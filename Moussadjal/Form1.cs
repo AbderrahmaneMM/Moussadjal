@@ -19,7 +19,7 @@ namespace Moussadjal
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //abdou //sami // fetch
+            // abdou //sami
         }
     }
 }
