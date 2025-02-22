@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moussadjal", "Moussadjal\Moussadjal.csproj", "{CD31F1CE-B207-4C39-BDD4-B505C2D08769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moussadjal desktop", "Moussadjal\Moussadjal desktop.csproj", "{CD31F1CE-B207-4C39-BDD4-B505C2D08769}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moussadjal mobile", "..\..\Msdjl3\Msdjl3\Moussadjal mobile.csproj", "{40F00489-E9D8-4899-A0C5-F94811981CB3}"
 EndProject
