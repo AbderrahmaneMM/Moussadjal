@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using ZXing.Net.Maui.Controls;
-using ZXing.Net.Maui;
 
-namespace Moussadjal_mobile_app
+namespace MoussadjalMobile
 {
     public static class MauiProgram
     {
@@ -11,7 +9,6 @@ namespace Moussadjal_mobile_app
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

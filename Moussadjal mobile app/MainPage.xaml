@@ -5,12 +5,10 @@
              x:Class="Moussadjal_mobile_app.MainPage">
     
     <ScrollView>
-        
+
         <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
-            <Entry x:Name="DivisionEntry" Placeholder="Division" />
             <Entry x:Name="SequentialEntry" Placeholder="Sequential Number" />
             <Entry x:Name="InventoryEntry" Placeholder="Inventory Number" />
-            <Entry x:Name="YearEntry" Placeholder="Year of Entry" />
             <Entry x:Name="PlaceEntry" Placeholder="Place of Use" />
             <Button x:Name="GenerateButton" 
                       Text="add product"

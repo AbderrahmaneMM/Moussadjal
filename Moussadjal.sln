@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moussadjal desktop", "Moussadjal\Moussadjal desktop.csproj", "{CD31F1CE-B207-4C39-BDD4-B505C2D08769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moussadjal mobile app", "Moussadjal mobile app\Moussadjal mobile app.csproj", "{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moussadjal mobile app", "Moussadjal mobile app\Moussadjal mobile app.csproj", "{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
