@@ -11,13 +11,13 @@ namespace Moussadjal
 {
     public class Database
     {
-        public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=abdomm_Moussadjal;Password=9876543210");
+        public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjalsql;User ID=abdomm_Moussadjalsql;Password=9876543210987");
         public SqlCommand scd = new SqlCommand();
         public SqlDataAdapter sda= new SqlDataAdapter();
         public void Fillscd(string q)
-        {
+        {   scn.Open();
              scd = new SqlCommand(q, scn);
-            scn.Open();
+
            scd.CommandType = CommandType.Text;
           scd.Connection = scn;
         }

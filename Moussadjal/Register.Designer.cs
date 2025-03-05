@@ -66,6 +66,7 @@
             // 
             // guna2CirclePictureBox1
             // 
+            this.guna2CirclePictureBox1.Image = global::Moussadjal.Properties.Resources.moussadjal;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(135, 4);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
@@ -106,11 +107,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(64, 97);
+            this.label1.Location = new System.Drawing.Point(113, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 28);
+            this.label1.Size = new System.Drawing.Size(117, 28);
             this.label1.TabIndex = 23;
-            this.label1.Text = " Bienvenue à nouveau ";
+            this.label1.Text = " Bienvenue";
             // 
             // mailtextbox
             // 
@@ -127,12 +128,11 @@
             this.mailtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.mailtextbox.Location = new System.Drawing.Point(71, 253);
             this.mailtextbox.Name = "mailtextbox";
-            this.mailtextbox.PasswordChar = '●';
+            this.mailtextbox.PasswordChar = '\0';
             this.mailtextbox.PlaceholderText = "";
             this.mailtextbox.SelectedText = "";
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
             this.mailtextbox.TabIndex = 22;
-            this.mailtextbox.UseSystemPasswordChar = true;
             // 
             // usernametextbox
             // 
@@ -231,11 +231,12 @@
             this.passwordtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.passwordtextbox.Location = new System.Drawing.Point(71, 327);
             this.passwordtextbox.Name = "passwordtextbox";
-            this.passwordtextbox.PasswordChar = '\0';
+            this.passwordtextbox.PasswordChar = '●';
             this.passwordtextbox.PlaceholderText = "";
             this.passwordtextbox.SelectedText = "";
             this.passwordtextbox.Size = new System.Drawing.Size(220, 36);
             this.passwordtextbox.TabIndex = 30;
+            this.passwordtextbox.UseSystemPasswordChar = true;
             // 
             // label7
             // 

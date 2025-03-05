@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using ZXing.Net.Maui.Controls;
+using ZXing.Net;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Moussadjal_mobile_app
@@ -26,8 +26,7 @@ namespace Moussadjal_mobile_app
             cmd.Parameters.AddWithValue("@datamatrix_code", bgv.Value);
             cmd.ExecuteNonQuery();
             connection.Close();
-            DisplayAlert("add secsses", SequentialEntry.Text, "ok");
-
+            DisplayAlert("add secsses", InventoryEntry.Text + SequentialEntry.Text, "ok");
             bgv.Value = $"Numero sequential: {SequentialEntry.Text}\nNumero d'inventaire: {InventoryEntry.Text}\nLieu: {PlaceEntry.Text}";
             BarcodeImage.Source = bgv.Value;
         }

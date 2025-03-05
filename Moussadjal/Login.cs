@@ -65,9 +65,9 @@ namespace Moussadjal
            dashboard da = new dashboard();
             try
             { 
-                 d.Fillscd("SELECT COUNT(*) FROM users WHERE name = @name AND motdepass = @motdepass");
-                 d.scd.Parameters.AddWithValue("@name", mailtextbox.Text);
-                 d.scd.Parameters.AddWithValue("@motdepass", int.Parse(passwordtextbox.Text));
+                 d.Fillscd("SELECT COUNT(*) FROM utilisateur WHERE mail = @mail AND motdepass = @motdepass");
+                 d.scd.Parameters.AddWithValue("@mail", mailtextbox.Text);
+                 d.scd.Parameters.AddWithValue("@motdepass", passwordtextbox.Text);
                  int result = (int)d.scd.ExecuteScalar();
                  if (result > 0)
                  {
@@ -75,7 +75,7 @@ namespace Moussadjal
                      da.Show();
                  }
                  else
-                     MessageBox.Show("Invalid username or password");
+                     MessageBox.Show("Nom d'utilisateur ou mot de passe invalide");
              }
              catch (Exception ex)
              {
