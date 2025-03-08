@@ -110,7 +110,7 @@
             this.passwordtextbox.Location = new System.Drawing.Point(72, 242);
             this.passwordtextbox.Name = "passwordtextbox";
             this.passwordtextbox.PasswordChar = '●';
-            this.passwordtextbox.PlaceholderText = "";
+            this.passwordtextbox.PlaceholderText = "Entrer votre mot de passe";
             this.passwordtextbox.SelectedText = "";
             this.passwordtextbox.Size = new System.Drawing.Size(220, 36);
             this.passwordtextbox.TabIndex = 11;
@@ -133,7 +133,7 @@
             this.mailtextbox.Location = new System.Drawing.Point(72, 169);
             this.mailtextbox.Name = "mailtextbox";
             this.mailtextbox.PasswordChar = '\0';
-            this.mailtextbox.PlaceholderText = "";
+            this.mailtextbox.PlaceholderText = "Example@gmail.com";
             this.mailtextbox.SelectedText = "";
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
             this.mailtextbox.TabIndex = 10;

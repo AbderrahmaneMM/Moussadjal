@@ -129,7 +129,7 @@
             this.mailtextbox.Location = new System.Drawing.Point(71, 253);
             this.mailtextbox.Name = "mailtextbox";
             this.mailtextbox.PasswordChar = '\0';
-            this.mailtextbox.PlaceholderText = "";
+            this.mailtextbox.PlaceholderText = "Exampel.@gmail.com";
             this.mailtextbox.SelectedText = "";
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
             this.mailtextbox.TabIndex = 22;
@@ -150,7 +150,7 @@
             this.usernametextbox.Location = new System.Drawing.Point(71, 180);
             this.usernametextbox.Name = "usernametextbox";
             this.usernametextbox.PasswordChar = '\0';
-            this.usernametextbox.PlaceholderText = "";
+            this.usernametextbox.PlaceholderText = "Ex : abdou";
             this.usernametextbox.SelectedText = "";
             this.usernametextbox.Size = new System.Drawing.Size(220, 36);
             this.usernametextbox.TabIndex = 21;
@@ -206,11 +206,12 @@
             this.confirmtextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmtextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmtextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.confirmtextbox.ForeColor = System.Drawing.Color.Yellow;
             this.confirmtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmtextbox.Location = new System.Drawing.Point(69, 407);
             this.confirmtextbox.Name = "confirmtextbox";
             this.confirmtextbox.PasswordChar = '●';
-            this.confirmtextbox.PlaceholderText = "";
+            this.confirmtextbox.PlaceholderText = "Confirmer votre mot de passe ici";
             this.confirmtextbox.SelectedText = "";
             this.confirmtextbox.Size = new System.Drawing.Size(220, 36);
             this.confirmtextbox.TabIndex = 31;
@@ -232,11 +233,12 @@
             this.passwordtextbox.Location = new System.Drawing.Point(71, 327);
             this.passwordtextbox.Name = "passwordtextbox";
             this.passwordtextbox.PasswordChar = '●';
-            this.passwordtextbox.PlaceholderText = "";
+            this.passwordtextbox.PlaceholderText = "Entrer votre mot de passe ici";
             this.passwordtextbox.SelectedText = "";
             this.passwordtextbox.Size = new System.Drawing.Size(220, 36);
             this.passwordtextbox.TabIndex = 30;
             this.passwordtextbox.UseSystemPasswordChar = true;
+            this.passwordtextbox.TextChanged += new System.EventHandler(this.passwordtextbox_TextChanged);
             // 
             // label7
             // 

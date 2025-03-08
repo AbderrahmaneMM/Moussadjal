@@ -64,5 +64,10 @@ namespace Moussadjal
               }
           
         }
+
+        private void passwordtextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
