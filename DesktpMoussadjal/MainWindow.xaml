@@ -4,14 +4,190 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktpMoussadjal"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-         Title="Dashboard" Height="600" Width="800"
- Background="#FFFFFFFF">
+        Title="Login" Height="616" Width="395"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F4F4" ResizeMode="NoResize">
 
+    <Window.Resources>
+        <!-- Define Colors -->
+        <Color x:Key="PrimaryColor">#FF6C5CE7</Color>
+        <Color x:Key="SecondaryColor">#00B4D8</Color>
+        <Color x:Key="AccentColor">#FFD859FF</Color>
 
+        <!-- Define Brushes -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+        <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+
+        <!-- Define Gradient Brush -->
+        <LinearGradientBrush x:Key="MainGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{StaticResource PrimaryColor}" Offset="0"/>
+            <GradientStop Color="{StaticResource SecondaryColor}" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Define Blur Effect -->
+        <BlurEffect x:Key="BlurEffect" Radius="10"/>
+
+        <!-- Define Modern TextBox Style -->
+        <Style TargetType="TextBox" x:Key="ModernTextBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Define Modern Button Style -->
+        <Style TargetType="Button" x:Key="ModernButton">
+            <Setter Property="Background" Value="{StaticResource MainGradient}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                CornerRadius="8" 
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" 
+                                                         Storyboard.TargetName="border" 
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                         To="1.05"/>
+                                        <DoubleAnimation Duration="0:0:0.2" 
+                                                         Storyboard.TargetName="border" 
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                         To="1.05"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" 
+                                                         Storyboard.TargetName="border" 
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                         To="1"/>
+                                        <DoubleAnimation Duration="0:0:0.2" 
+                                                         Storyboard.TargetName="border" 
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                         To="1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="border">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid>
-    </Grid>
+        <!-- Background with blur effect -->
+        <Border Background="{StaticResource MainGradient}" Effect="{StaticResource BlurEffect}"/>
 
+        <!-- Login Container -->
+        <Border Background="#F5F5F5" 
+                CornerRadius="20"
+                RenderTransformOrigin="0.492,0.515" Margin="10,27,10,29">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="{StaticResource PrimaryColor}" Opacity="0.3"/>
+            </Border.Effect>
+
+            <StackPanel VerticalAlignment="Center" Margin="40,0,40,0" Height="438">
+                <!-- Header -->
+                <TextBlock Text="Welcome Back" 
+                           FontSize="32" 
+                           FontWeight="Bold" 
+                           Margin="0,0,0,30">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="{StaticResource PrimaryColor}" Offset="0"/>
+                            <GradientStop Color="{StaticResource AccentColor}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <!-- Username Input -->
+                <Border CornerRadius="8" Background="#EEE" Margin="0,0,0,20">
+                    <Grid>
+                        <TextBox x:Name="UsernameBox"
+                                 Style="{StaticResource ModernTextBox}"
+                                 TextChanged="UsernameBox_TextChanged"/>
+                        <TextBlock Text="Username" 
+                                   Foreground="#666" 
+                                   Margin="15,12" 
+                                   IsHitTestVisible="False"
+                                   x:Name="UsernameLabel"/>
+                    </Grid>
+                </Border>
+
+                <!-- Password Input -->
+                <Border CornerRadius="8" Background="#EEE" Margin="0,0,0,30">
+                    <Grid>
+                        <PasswordBox x:Name="PasswordBox" 
+                                     BorderThickness="0" 
+                                     Background="Transparent"
+                                     Padding="15,12"
+                                     FontSize="16"
+                                     PasswordChanged="PasswordBox_PasswordChanged"/>
+                        <TextBlock Text="Password" 
+                                   Foreground="#666" 
+                                   Margin="15,12" 
+                                   IsHitTestVisible="False"
+                                   x:Name="PasswordLabel"/>
+                        <Button Content="👁" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center"
+                                Margin="10" 
+                                Padding="8"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Click="Button_Click_1"/>
+                    </Grid>
+                </Border>
+
+                <!-- Login Button -->
+                <Button Content="Sign In" 
+                    Style="{StaticResource ModernButton}"
+                        Click="Button_Click_2"
+             />
+
+                <!-- Footer Links -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Text="Forgot Password?" 
+                               Cursor="Hand"
+                               FontWeight="SemiBold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextDecorations" Value="None"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="TextDecorations" Value="Underline"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>
-    

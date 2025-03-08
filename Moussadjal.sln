@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moussadjal desktop", "Mouss
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moussadjal mobile app", "Moussadjal mobile app\Moussadjal mobile app.csproj", "{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktpMoussadjal", "DesktpMoussadjal\DesktpMoussadjal.csproj", "{847752FB-2152-4B75-989E-C3A28C33F4FA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,10 +23,6 @@ Global
 		{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37A366F6-A46D-4DF5-AAE5-F0AD5AC9CEDC}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{847752FB-2152-4B75-989E-C3A28C33F4FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{847752FB-2152-4B75-989E-C3A28C33F4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{847752FB-2152-4B75-989E-C3A28C33F4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{847752FB-2152-4B75-989E-C3A28C33F4FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

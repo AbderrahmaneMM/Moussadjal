@@ -25,4 +25,39 @@ public partial class MainWindow : Window
     {
 
     }
+
+    private void GoToScann_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void GenerateButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void GoToScann_Click_1(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void UsernameBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_Click_1(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_Click_2(object sender, RoutedEventArgs e)
+    {
+
+    }
 }

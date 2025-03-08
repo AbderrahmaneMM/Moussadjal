@@ -57,7 +57,7 @@
             // 
             this.guna2VSeparator1.Location = new System.Drawing.Point(9, 30);
             this.guna2VSeparator1.Name = "guna2VSeparator1";
-            this.guna2VSeparator1.Size = new System.Drawing.Size(29, 355);
+            this.guna2VSeparator1.Size = new System.Drawing.Size(29, 382);
             this.guna2VSeparator1.TabIndex = 15;
             this.guna2VSeparator1.Click += new System.EventHandler(this.guna2VSeparator1_Click);
             // 
@@ -162,7 +162,7 @@
             // 
             this.guna2VSeparator2.Location = new System.Drawing.Point(325, 30);
             this.guna2VSeparator2.Name = "guna2VSeparator2";
-            this.guna2VSeparator2.Size = new System.Drawing.Size(29, 355);
+            this.guna2VSeparator2.Size = new System.Drawing.Size(29, 382);
             this.guna2VSeparator2.TabIndex = 17;
             // 
             // label4
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 397);
+            this.ClientSize = new System.Drawing.Size(364, 424);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2VSeparator2);
             this.Controls.Add(this.guna2CirclePictureBox1);
