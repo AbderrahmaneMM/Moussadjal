@@ -277,7 +277,7 @@
             this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(12, 12);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(152, 766);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(152, 834);
             this.guna2CustomGradientPanel1.TabIndex = 8;
             // 
             // guna2CustomGradientPanel3
@@ -336,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 781);
+            this.ClientSize = new System.Drawing.Size(848, 869);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnmin);
             this.Controls.Add(this.btnmax);
