@@ -186,7 +186,7 @@
             this.btnexit.BorderThickness = 1;
             this.btnexit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnexit.CustomClick = true;
-            this.btnexit.FillColor = System.Drawing.Color.White;
+            this.btnexit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.btnexit.Location = new System.Drawing.Point(317, 9);
             this.btnexit.Name = "btnexit";

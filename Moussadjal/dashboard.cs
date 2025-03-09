@@ -3,11 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
+using ZXing.Common;
+using ZXing.Rendering;
 
 namespace Moussadjal
 {
@@ -17,6 +22,7 @@ namespace Moussadjal
         {
             InitializeComponent();
         }
+     
         private void move(Guna2Button btn) 
         {
             btn.Checked =true;
@@ -80,6 +86,47 @@ namespace Moussadjal
         private void gererlesbien1_Load(object sender, EventArgs e)
         {
 
+        }
+           //save barcode as image
+           byte[] convertImageToByte(Image img)
+           {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+
+           }
+        private void Ajtbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //generation datamatrix barcode
+                var barcodeWriter = new BarcodeWriter
+                {
+                    Format = BarcodeFormat.DATA_MATRIX,
+                    Options = new EncodingOptions
+                    {
+                        Height = 300,
+                        Width = 300,
+                        Margin = 10
+                    },
+                    Renderer = new BitmapRenderer()
+                };
+                Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NStextbox.Text}/{Ltextbox.Text}");
+                BarcodPicture.Image = barcodeBitmap;
+            
+                byte[] img = convertImageToByte(BarcodPicture.Image);
+
+                //insert 'bien' to db
+                Database db = new Database();
+                db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+ int.Parse(NStextbox.Text) +"', '"+Ltextbox.Text+"', '"+img+"')");
+                MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK , MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

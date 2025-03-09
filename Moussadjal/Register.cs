@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.IO;
 namespace Moussadjal
 {
     public partial class Register : Form1
@@ -35,20 +36,13 @@ namespace Moussadjal
             Form1     f = new Form1();
             Database  d = new Database();
             dashboard da = new dashboard();
-
+            MailAddress addr = new MailAddress(mailtextbox.Text);
               try
               {
-                MailAddress addr = new MailAddress(mailtextbox.Text);
-            
                 if (passwordtextbox.Text == confirmtextbox.Text &&  addr.Address == mailtextbox.Text)
                 {
               
-                    d.Fillscd("INSERT INTO utilisateur (mail ,motdepass, username) VALUES(@mail, @motdepass, @username)");
-                    d.scd.Parameters.AddWithValue("@mail", mailtextbox.Text);
-                    d.scd.Parameters.AddWithValue("@motdepass", passwordtextbox.Text);
-                    d.scd.Parameters.AddWithValue("@username", usernametextbox.Text);
-                    d.scd.ExecuteNonQuery();
-                    d.scn.Close();
+                    d.FillscdToInsert("INSERT INTO utilisateur (mail ,motdepass, username) VALUES('"+mailtextbox.Text+"', '"+passwordtextbox.Text+"', '"+usernametextbox.Text+"')");
                     MessageBox.Show("Utilisateur ajouté avec succès");
                     this.Hide();
                     da.Show();
@@ -64,10 +58,10 @@ namespace Moussadjal
               }
           
         }
-
+      
         private void passwordtextbox_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnexit_Click(object sender, EventArgs e)

@@ -207,7 +207,6 @@
             this.confirmtextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmtextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmtextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.confirmtextbox.ForeColor = System.Drawing.Color.Yellow;
             this.confirmtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmtextbox.Location = new System.Drawing.Point(69, 407);
             this.confirmtextbox.Name = "confirmtextbox";
@@ -257,11 +256,11 @@
             // btnexit
             // 
             this.btnexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnexit.BackColor = System.Drawing.Color.White;
+            this.btnexit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.btnexit.BorderThickness = 1;
             this.btnexit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnexit.CustomClick = true;
-            this.btnexit.FillColor = System.Drawing.Color.White;
+            this.btnexit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.btnexit.Location = new System.Drawing.Point(317, 12);
             this.btnexit.Name = "btnexit";

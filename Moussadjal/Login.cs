@@ -60,28 +60,24 @@ namespace Moussadjal
 
         }
         private void guna2Button1_Click(object sender, EventArgs e)
-        {
+        {        
            Database d = new Database();
            dashboard da = new dashboard();
             try
             { 
-                 d.Fillscd("SELECT COUNT(*) FROM utilisateur WHERE mail = @mail AND motdepass = @motdepass");
-                 d.scd.Parameters.AddWithValue("@mail", mailtextbox.Text);
-                 d.scd.Parameters.AddWithValue("@motdepass", passwordtextbox.Text);
-                 int result = (int)d.scd.ExecuteScalar();
-                 if (result > 0)
+                 if (d.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE mail = '" + mailtextbox.Text + "' AND motdepass = '" + passwordtextbox.Text + "'") > 0)
                  {
                      this.Hide();
                      da.Show();
                  }
                  else
                      MessageBox.Show("Nom d'utilisateur ou mot de passe invalide");
-             }
+            }
              catch (Exception ex)
              {
                  MessageBox.Show(ex.Message);
              }
-             d.scn.Close();
+           
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
