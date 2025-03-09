@@ -94,5 +94,10 @@ namespace Moussadjal
             Register r = new Register();
             r.Show();
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

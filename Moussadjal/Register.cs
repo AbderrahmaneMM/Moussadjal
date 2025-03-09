@@ -69,5 +69,10 @@ namespace Moussadjal
         {
 
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

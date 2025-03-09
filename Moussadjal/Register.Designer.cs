@@ -43,6 +43,7 @@
             this.confirmtextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.passwordtextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +60,9 @@
             // 
             // guna2VSeparator2
             // 
-            this.guna2VSeparator2.Location = new System.Drawing.Point(324, 22);
+            this.guna2VSeparator2.Location = new System.Drawing.Point(324, 53);
             this.guna2VSeparator2.Name = "guna2VSeparator2";
-            this.guna2VSeparator2.Size = new System.Drawing.Size(29, 538);
+            this.guna2VSeparator2.Size = new System.Drawing.Size(28, 507);
             this.guna2VSeparator2.TabIndex = 28;
             // 
             // guna2CirclePictureBox1
@@ -253,11 +254,27 @@
             this.label7.Text = "Se connecter";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // btnexit
+            // 
+            this.btnexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnexit.BackColor = System.Drawing.Color.White;
+            this.btnexit.BorderThickness = 1;
+            this.btnexit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnexit.CustomClick = true;
+            this.btnexit.FillColor = System.Drawing.Color.White;
+            this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.btnexit.Location = new System.Drawing.Point(317, 12);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(35, 25);
+            this.btnexit.TabIndex = 35;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 572);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -299,5 +316,6 @@
         private Guna.UI2.WinForms.Guna2TextBox confirmtextbox;
         private Guna.UI2.WinForms.Guna2TextBox passwordtextbox;
         private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2ControlBox btnexit;
     }
 }

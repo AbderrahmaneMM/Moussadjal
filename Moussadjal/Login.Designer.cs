@@ -38,6 +38,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,9 +161,9 @@
             // 
             // guna2VSeparator2
             // 
-            this.guna2VSeparator2.Location = new System.Drawing.Point(325, 30);
+            this.guna2VSeparator2.Location = new System.Drawing.Point(325, 44);
             this.guna2VSeparator2.Name = "guna2VSeparator2";
-            this.guna2VSeparator2.Size = new System.Drawing.Size(29, 382);
+            this.guna2VSeparator2.Size = new System.Drawing.Size(27, 368);
             this.guna2VSeparator2.TabIndex = 17;
             // 
             // label4
@@ -178,11 +179,27 @@
             this.label4.Text = "Créer un nouveau compte";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // btnexit
+            // 
+            this.btnexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnexit.BackColor = System.Drawing.Color.White;
+            this.btnexit.BorderThickness = 1;
+            this.btnexit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnexit.CustomClick = true;
+            this.btnexit.FillColor = System.Drawing.Color.White;
+            this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.btnexit.Location = new System.Drawing.Point(317, 9);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(35, 29);
+            this.btnexit.TabIndex = 20;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 424);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2VSeparator2);
             this.Controls.Add(this.guna2CirclePictureBox1);
@@ -214,5 +231,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2ControlBox btnexit;
     }
 }
