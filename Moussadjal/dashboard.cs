@@ -108,7 +108,10 @@ namespace Moussadjal
         {
             
             try
-              {
+            {
+
+                if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_dinventaire = '" + int.Parse(NItextbox.Text) +"'") < 1)
+                {
                  //generation datamatrix barcode
                  var barcodeWriter = new BarcodeWriter
                  {
@@ -128,7 +131,10 @@ namespace Moussadjal
                    //insert 'bien' to db
                    db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+ Convert.ToInt32(NsComboBox.SelectedValue) + "', '"+LieuComboBox.SelectedValue+"', '"+img+"')");
                    MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK , MessageBoxIcon.Information);
-              }
+                }
+                else
+                    MessageBox.Show("Le Bien est existe déjat");
+            }
               catch (Exception ex)
               {
                   MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

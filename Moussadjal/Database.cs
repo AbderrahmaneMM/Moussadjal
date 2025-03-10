@@ -41,6 +41,7 @@ namespace Moussadjal
         // méthode de remplisage coombobox
         public void remlirCombo(string table,  Guna2ComboBox comb, string dm , string vm)
         {
+            scn.Open();
             scd.Connection = scn;
             scd.CommandText = $"select DISTINCT {vm}, {dm} from {table}" ;
             sda.SelectCommand = scd;
@@ -49,6 +50,7 @@ namespace Moussadjal
             comb.DisplayMember = dm;
             comb.ValueMember = vm;
             dt = ds.Tables[table];
+            scn.Close();
         }
     }
 }
