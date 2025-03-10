@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,11 @@ namespace Moussadjal
         {
             InitializeComponent();
         }
-     
+
+        Database db = new Database();
+        DataTable Description_de_biendt;
+        DataTable Lieudt;
+
         private void move(Guna2Button btn) 
         {
             btn.Checked =true;
@@ -31,6 +36,11 @@ namespace Moussadjal
         }
         private void dashboard_Load(object sender, EventArgs e)
         {
+            db.remlirCombo("Description_de_bien", NsComboBox);
+            Description_de_biendt = db.ds.Tables["Description_de_bien"];
+            db.remlirCombo2("Lieu", LieuComboBox);
+            Lieudt = db.ds.Tables["Lieu"];
+            
 
         }
         private void btnexit_Click(object sender, EventArgs e)
@@ -113,14 +123,14 @@ namespace Moussadjal
                     },
                     Renderer = new BitmapRenderer()
                 };
-                Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NStextbox.Text}/{Ltextbox.Text}");
+                Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NsComboBox.Text}/{LieuComboBox.Text}");
                 BarcodPicture.Image = barcodeBitmap;
             
                 byte[] img = convertImageToByte(BarcodPicture.Image);
 
                 //insert 'bien' to db
-                Database db = new Database();
-                db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+ int.Parse(NStextbox.Text) +"', '"+Ltextbox.Text+"', '"+img+"')");
+               
+                db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+int.Parse(NsComboBox.Text) +"', '"+LieuComboBox.Text+"', '"+img+"')");
                 MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK , MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -128,5 +138,16 @@ namespace Moussadjal
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void NsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             
+           
+        }
+
+        /* private void Ltextbox_TextChanged(object sender, EventArgs e)
+         {
+
+         }*/
     }
 }

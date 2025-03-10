@@ -44,12 +44,12 @@
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NItextbox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.NStextbox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Ltextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Ajtbtn = new Guna.UI2.WinForms.Guna2Button();
             this.BarcodPicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.label2 = new System.Windows.Forms.Label();
+            this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.NsComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
@@ -362,52 +362,6 @@
             this.NItextbox.Size = new System.Drawing.Size(220, 36);
             this.NItextbox.TabIndex = 11;
             // 
-            // NStextbox
-            // 
-            this.NStextbox.AutoRoundedCorners = true;
-            this.NStextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.NStextbox.BorderRadius = 17;
-            this.NStextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.NStextbox.DefaultText = "";
-            this.NStextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.NStextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.NStextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.NStextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.NStextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NStextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.NStextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.NStextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NStextbox.Location = new System.Drawing.Point(245, 225);
-            this.NStextbox.Name = "NStextbox";
-            this.NStextbox.PasswordChar = '\0';
-            this.NStextbox.PlaceholderText = "Numero séquenciel";
-            this.NStextbox.SelectedText = "";
-            this.NStextbox.Size = new System.Drawing.Size(220, 36);
-            this.NStextbox.TabIndex = 12;
-            // 
-            // Ltextbox
-            // 
-            this.Ltextbox.AutoRoundedCorners = true;
-            this.Ltextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.Ltextbox.BorderRadius = 17;
-            this.Ltextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Ltextbox.DefaultText = "";
-            this.Ltextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Ltextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Ltextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Ltextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Ltextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Ltextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Ltextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.Ltextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Ltextbox.Location = new System.Drawing.Point(245, 294);
-            this.Ltextbox.Name = "Ltextbox";
-            this.Ltextbox.PasswordChar = '\0';
-            this.Ltextbox.PlaceholderText = "Lieeu";
-            this.Ltextbox.SelectedText = "";
-            this.Ltextbox.Size = new System.Drawing.Size(220, 36);
-            this.Ltextbox.TabIndex = 14;
-            // 
             // Ajtbtn
             // 
             this.Ajtbtn.BackColor = System.Drawing.Color.Transparent;
@@ -457,18 +411,55 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Ajouter neuvau bien";
             // 
+            // LieuComboBox
+            // 
+            this.LieuComboBox.AutoRoundedCorners = true;
+            this.LieuComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.LieuComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.LieuComboBox.BorderRadius = 17;
+            this.LieuComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.LieuComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LieuComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LieuComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.LieuComboBox.ItemHeight = 30;
+            this.LieuComboBox.Location = new System.Drawing.Point(245, 298);
+            this.LieuComboBox.Name = "LieuComboBox";
+            this.LieuComboBox.Size = new System.Drawing.Size(220, 36);
+            this.LieuComboBox.TabIndex = 20;
+            // 
+            // NsComboBox
+            // 
+            this.NsComboBox.AutoRoundedCorners = true;
+            this.NsComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.NsComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.NsComboBox.BorderRadius = 17;
+            this.NsComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.NsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NsComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.NsComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.NsComboBox.ItemHeight = 30;
+            this.NsComboBox.Location = new System.Drawing.Point(245, 234);
+            this.NsComboBox.Name = "NsComboBox";
+            this.NsComboBox.Size = new System.Drawing.Size(220, 36);
+            this.NsComboBox.TabIndex = 21;
+            this.NsComboBox.SelectedIndexChanged += new System.EventHandler(this.NsComboBox_SelectedIndexChanged);
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 869);
+            this.ClientSize = new System.Drawing.Size(848, 788);
+            this.Controls.Add(this.NsComboBox);
+            this.Controls.Add(this.LieuComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2VSeparator2);
             this.Controls.Add(this.BarcodPicture);
             this.Controls.Add(this.Ajtbtn);
-            this.Controls.Add(this.Ltextbox);
-            this.Controls.Add(this.NStextbox);
             this.Controls.Add(this.NItextbox);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnmin);
@@ -505,11 +496,11 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox NItextbox;
-        private Guna.UI2.WinForms.Guna2TextBox NStextbox;
-        private Guna.UI2.WinForms.Guna2TextBox Ltextbox;
         private Guna.UI2.WinForms.Guna2Button Ajtbtn;
         private Guna.UI2.WinForms.Guna2PictureBox BarcodPicture;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ComboBox LieuComboBox;
+        private Guna.UI2.WinForms.Guna2ComboBox NsComboBox;
     }
 }
