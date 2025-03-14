@@ -43,11 +43,17 @@
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Cpanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.NItextbox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Ajtbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.BarcodPicture = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.NsComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BarcodPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Button7
@@ -69,7 +75,6 @@
             this.guna2Button7.Size = new System.Drawing.Size(145, 56);
             this.guna2Button7.TabIndex = 12;
             this.guna2Button7.Text = "guna2Button7";
-            this.guna2Button7.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button7.UseTransparentBackground = true;
             this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
             // 
@@ -92,7 +97,6 @@
             this.guna2Button5.Size = new System.Drawing.Size(145, 56);
             this.guna2Button5.TabIndex = 10;
             this.guna2Button5.Text = "guna2Button5";
-            this.guna2Button5.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button5.UseTransparentBackground = true;
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
@@ -115,7 +119,6 @@
             this.guna2Button6.Size = new System.Drawing.Size(145, 56);
             this.guna2Button6.TabIndex = 11;
             this.guna2Button6.Text = "guna2Button6";
-            this.guna2Button6.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button6.UseTransparentBackground = true;
             this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
@@ -138,7 +141,6 @@
             this.guna2Button4.Size = new System.Drawing.Size(145, 56);
             this.guna2Button4.TabIndex = 9;
             this.guna2Button4.Text = "guna2Button4";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button4.UseTransparentBackground = true;
             this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
@@ -161,7 +163,6 @@
             this.guna2Button3.Size = new System.Drawing.Size(145, 56);
             this.guna2Button3.TabIndex = 8;
             this.guna2Button3.Text = "guna2Button3";
-            this.guna2Button3.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button3.UseTransparentBackground = true;
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
@@ -183,8 +184,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(145, 56);
             this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Voire la feuille de répertoire";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(-10, 0);
+            this.guna2Button2.Text = "guna2Button2";
             this.guna2Button2.UseTransparentBackground = true;
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
             // 
@@ -208,7 +208,6 @@
             this.guna2Button1.Size = new System.Drawing.Size(145, 56);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "Gérer les bien";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -221,7 +220,7 @@
             this.btnmax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmax.FillColor = System.Drawing.Color.White;
             this.btnmax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmax.Location = new System.Drawing.Point(881, 12);
+            this.btnmax.Location = new System.Drawing.Point(759, 12);
             this.btnmax.Name = "btnmax";
             this.btnmax.Size = new System.Drawing.Size(35, 29);
             this.btnmax.TabIndex = 1;
@@ -235,7 +234,7 @@
             this.btnmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmin.FillColor = System.Drawing.Color.White;
             this.btnmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmin.Location = new System.Drawing.Point(840, 12);
+            this.btnmin.Location = new System.Drawing.Point(718, 12);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
@@ -249,7 +248,7 @@
             this.btnexit.CustomClick = true;
             this.btnexit.FillColor = System.Drawing.Color.White;
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnexit.Location = new System.Drawing.Point(922, 12);
+            this.btnexit.Location = new System.Drawing.Point(800, 12);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(35, 29);
             this.btnexit.TabIndex = 2;
@@ -340,31 +339,128 @@
             this.label1.TabIndex = 0;
             this.label1.Text = " User Name";
             // 
-            // CenterPanel
+            // NItextbox
             // 
-            this.CenterPanel.AutoSize = true;
-            this.CenterPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CenterPanel.Location = new System.Drawing.Point(171, 57);
-            this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(0, 0);
-            this.CenterPanel.TabIndex = 9;
+            this.NItextbox.AutoRoundedCorners = true;
+            this.NItextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.NItextbox.BorderRadius = 17;
+            this.NItextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NItextbox.DefaultText = "";
+            this.NItextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.NItextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.NItextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NItextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NItextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NItextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NItextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.NItextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NItextbox.Location = new System.Drawing.Point(245, 163);
+            this.NItextbox.Name = "NItextbox";
+            this.NItextbox.PasswordChar = '\0';
+            this.NItextbox.PlaceholderText = "Numero dinventaire";
+            this.NItextbox.SelectedText = "";
+            this.NItextbox.Size = new System.Drawing.Size(220, 36);
+            this.NItextbox.TabIndex = 11;
             // 
-            // Cpanel
+            // Ajtbtn
             // 
-            this.Cpanel.AutoSize = true;
-            this.Cpanel.Location = new System.Drawing.Point(174, 47);
-            this.Cpanel.Name = "Cpanel";
-            this.Cpanel.Size = new System.Drawing.Size(784, 729);
-            this.Cpanel.TabIndex = 10;
+            this.Ajtbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Ajtbtn.BorderRadius = 22;
+            this.Ajtbtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.Ajtbtn.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.Ajtbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Ajtbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Ajtbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Ajtbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Ajtbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.Ajtbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Ajtbtn.ForeColor = System.Drawing.Color.White;
+            this.Ajtbtn.Location = new System.Drawing.Point(245, 379);
+            this.Ajtbtn.Name = "Ajtbtn";
+            this.Ajtbtn.Size = new System.Drawing.Size(220, 46);
+            this.Ajtbtn.TabIndex = 15;
+            this.Ajtbtn.Text = "Ajouter ";
+            this.Ajtbtn.UseTransparentBackground = true;
+            this.Ajtbtn.Click += new System.EventHandler(this.Ajtbtn_Click);
+            // 
+            // BarcodPicture
+            // 
+            this.BarcodPicture.BackColor = System.Drawing.Color.White;
+            this.BarcodPicture.ImageRotate = 0F;
+            this.BarcodPicture.Location = new System.Drawing.Point(510, 163);
+            this.BarcodPicture.Name = "BarcodPicture";
+            this.BarcodPicture.Size = new System.Drawing.Size(300, 262);
+            this.BarcodPicture.TabIndex = 16;
+            this.BarcodPicture.TabStop = false;
+            // 
+            // guna2VSeparator2
+            // 
+            this.guna2VSeparator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2VSeparator2.Location = new System.Drawing.Point(477, 142);
+            this.guna2VSeparator2.Name = "guna2VSeparator2";
+            this.guna2VSeparator2.Size = new System.Drawing.Size(27, 298);
+            this.guna2VSeparator2.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(379, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 28);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Ajouter neuvau bien";
+            // 
+            // LieuComboBox
+            // 
+            this.LieuComboBox.AutoRoundedCorners = true;
+            this.LieuComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.LieuComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.LieuComboBox.BorderRadius = 17;
+            this.LieuComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.LieuComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LieuComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LieuComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.LieuComboBox.ItemHeight = 30;
+            this.LieuComboBox.Location = new System.Drawing.Point(245, 298);
+            this.LieuComboBox.Name = "LieuComboBox";
+            this.LieuComboBox.Size = new System.Drawing.Size(220, 36);
+            this.LieuComboBox.TabIndex = 20;
+            // 
+            // NsComboBox
+            // 
+            this.NsComboBox.AutoRoundedCorners = true;
+            this.NsComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.NsComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.NsComboBox.BorderRadius = 17;
+            this.NsComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.NsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NsComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.NsComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.NsComboBox.ItemHeight = 30;
+            this.NsComboBox.Location = new System.Drawing.Point(245, 234);
+            this.NsComboBox.Name = "NsComboBox";
+            this.NsComboBox.Size = new System.Drawing.Size(220, 36);
+            this.NsComboBox.TabIndex = 21;
+            this.NsComboBox.SelectedIndexChanged += new System.EventHandler(this.NsComboBox_SelectedIndexChanged);
             // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(970, 788);
-            this.Controls.Add(this.Cpanel);
-            this.Controls.Add(this.CenterPanel);
+            this.ClientSize = new System.Drawing.Size(848, 788);
+            this.Controls.Add(this.NsComboBox);
+            this.Controls.Add(this.LieuComboBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.guna2VSeparator2);
+            this.Controls.Add(this.BarcodPicture);
+            this.Controls.Add(this.Ajtbtn);
+            this.Controls.Add(this.NItextbox);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnmin);
             this.Controls.Add(this.btnmax);
@@ -377,6 +473,7 @@
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BarcodPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +495,12 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Panel CenterPanel;
-        private Guna.UI2.WinForms.Guna2Panel Cpanel;
+        private Guna.UI2.WinForms.Guna2TextBox NItextbox;
+        private Guna.UI2.WinForms.Guna2Button Ajtbtn;
+        private Guna.UI2.WinForms.Guna2PictureBox BarcodPicture;
+        private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ComboBox LieuComboBox;
+        private Guna.UI2.WinForms.Guna2ComboBox NsComboBox;
     }
 }

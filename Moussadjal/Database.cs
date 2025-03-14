@@ -8,7 +8,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data;
 using ZXing;
 using Guna.UI2.WinForms;
-using System.Windows.Forms;
 
 namespace Moussadjal
 {
@@ -52,15 +51,6 @@ namespace Moussadjal
             comb.ValueMember = vm;
             dt = ds.Tables[table];
             scn.Close();
-        }
-        //methode de remplissage datagridview 
-        public void remplirgridview(string query ,string tab, DataGridView dg)
-        {
-            scd.Connection = scn;
-            scd.CommandText = query;
-            sda.SelectCommand = scd;
-            sda.Fill(ds, "dt" + tab);
-            dg.DataSource = ds.Tables["dt" + tab];
         }
     }
 }

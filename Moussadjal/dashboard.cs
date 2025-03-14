@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using ZXing;
 using ZXing.Common;
 using ZXing.Rendering;
-using Moussadjal.UserControler;
 
 namespace Moussadjal
 {
@@ -25,14 +24,14 @@ namespace Moussadjal
             InitializeComponent();
         }
 
-        AjtBien ab = new AjtBien();
-        Division dv = new Division();
+        Database db = new Database();
+    
 
+       
         private void dashboard_Load(object sender, EventArgs e)
         {
-           Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;
+            db.remlirCombo("Description_de_bien", NsComboBox, "designation", "numero_sequentiel"); 
+            db.remlirCombo("Lieu", LieuComboBox, "designation", "Id_lieu");
 
         }
          private void move(Guna2Button btn) 
@@ -59,17 +58,11 @@ namespace Moussadjal
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             move(guna2Button1);
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;
         }
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
             move(guna2Button2);
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(dv);
-            dv.Dock = DockStyle.Fill;
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -101,40 +94,57 @@ namespace Moussadjal
         {
 
         }
-           
-        //private void Ajtbtn_Click(object sender, EventArgs e)
-        //{
-        //}
+           //save barcode as image
+           byte[] convertImageToByte(Image img)
+           {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+
+           }
+        private void Ajtbtn_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+
+                if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_dinventaire = '" + int.Parse(NItextbox.Text) +"'") < 1)
+                {
+                 //generation datamatrix barcode
+                 var barcodeWriter = new BarcodeWriter
+                 {
+                    Format = BarcodeFormat.DATA_MATRIX,
+                    Options = new EncodingOptions
+                    {
+                        Height = 300,
+                        Width = 300,
+                        Margin = 10
+                    },
+                    Renderer = new BitmapRenderer()
+                 };
+                   Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NsComboBox.Text}/{LieuComboBox.Text}");
+                   BarcodPicture.Image = barcodeBitmap;
+                   //convert image barcode to byte array
+                   byte[] img = convertImageToByte(BarcodPicture.Image);
+                   //insert 'bien' to db
+                   db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+ Convert.ToInt32(NsComboBox.SelectedValue) + "', '"+LieuComboBox.SelectedValue+"', '"+img+"')");
+                   MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK , MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Le Bien est existe déjat");
+            }
+              catch (Exception ex)
+              {
+                  MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              }
+        }
 
         private void NsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
              
            
-        }
-
-        private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2VSeparator2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BarcodPicture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NItextbox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         /* private void Ltextbox_TextChanged(object sender, EventArgs e)

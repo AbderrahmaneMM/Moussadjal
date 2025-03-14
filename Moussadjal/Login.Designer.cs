@@ -114,10 +114,9 @@
             this.passwordtextbox.PlaceholderText = "Entrer votre mot de passe";
             this.passwordtextbox.SelectedText = "";
             this.passwordtextbox.Size = new System.Drawing.Size(220, 36);
-            this.passwordtextbox.TabIndex = 1;
+            this.passwordtextbox.TabIndex = 11;
             this.passwordtextbox.UseSystemPasswordChar = true;
             this.passwordtextbox.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
-            this.passwordtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordtxtboxkeydown);
             // 
             // mailtextbox
             // 
@@ -138,9 +137,8 @@
             this.mailtextbox.PlaceholderText = "Example@gmail.com";
             this.mailtextbox.SelectedText = "";
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
-            this.mailtextbox.TabIndex = 0;
+            this.mailtextbox.TabIndex = 10;
             this.mailtextbox.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
-            this.mailtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emailtxtboxkeydown);
             // 
             // guna2Button1
             // 
@@ -157,7 +155,7 @@
             this.guna2Button1.Location = new System.Drawing.Point(74, 309);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(220, 45);
-            this.guna2Button1.TabIndex = 2;
+            this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "Se connecter";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
