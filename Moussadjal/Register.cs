@@ -47,7 +47,8 @@ namespace Moussadjal
                     this.Hide();
                     da.Show();
                 }
-                   else {
+                   else 
+                   {
                      f.Errorprovider(confirmtextbox, "Le mot de passe ne correspond pas");
                      f.Errorprovider(mailtextbox,   "Le format d'email n'est pas correct");
                    }
