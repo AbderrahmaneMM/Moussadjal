@@ -57,7 +57,6 @@ namespace Moussadjal
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
         private void guna2Button1_Click(object sender, EventArgs e)
         {        
@@ -94,6 +93,24 @@ namespace Moussadjal
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void emailtxtboxkeydown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                passwordtextbox.Focus(); 
+            }
+        }
+
+        private void passwordtxtboxkeydown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                guna2Button1.PerformClick(); 
+            }
         }
     }
 }

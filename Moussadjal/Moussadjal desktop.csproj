@@ -102,11 +102,17 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControler\Gererlesbien.cs">
+    <Compile Include="UserControler\AjtBien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControler\Gererlesbien.Designer.cs">
-      <DependentUpon>Gererlesbien.cs</DependentUpon>
+    <Compile Include="UserControler\AjtBien.Designer.cs">
+      <DependentUpon>AjtBien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControler\Division.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\Division.Designer.cs">
+      <DependentUpon>Division.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -130,8 +136,11 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControler\Gererlesbien.resx">
-      <DependentUpon>Gererlesbien.cs</DependentUpon>
+    <EmbeddedResource Include="UserControler\AjtBien.resx">
+      <DependentUpon>AjtBien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\Division.resx">
+      <DependentUpon>Division.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
