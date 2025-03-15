@@ -69,5 +69,41 @@ namespace Moussadjal
         {
             Application.Exit();
         }
+
+        private void usernamekey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+               mailtextbox.Focus();
+            }
+        }
+
+        private void mailkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                passwordtextbox.Focus();
+            }
+        }
+
+        private void passwkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                confirmtextbox.Focus();
+            }
+        }
+
+        private void confirmkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+               guna2Button1.PerformClick();
+            }
+        }
     }
 }

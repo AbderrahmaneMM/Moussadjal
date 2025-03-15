@@ -134,6 +134,7 @@
             this.mailtextbox.SelectedText = "";
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
             this.mailtextbox.TabIndex = 22;
+            this.mailtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mailkey);
             // 
             // usernametextbox
             // 
@@ -155,6 +156,7 @@
             this.usernametextbox.SelectedText = "";
             this.usernametextbox.Size = new System.Drawing.Size(220, 36);
             this.usernametextbox.TabIndex = 21;
+            this.usernametextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernamekey);
             // 
             // guna2Button1
             // 
@@ -216,6 +218,7 @@
             this.confirmtextbox.Size = new System.Drawing.Size(220, 36);
             this.confirmtextbox.TabIndex = 31;
             this.confirmtextbox.UseSystemPasswordChar = true;
+            this.confirmtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.confirmkey);
             // 
             // passwordtextbox
             // 
@@ -239,6 +242,7 @@
             this.passwordtextbox.TabIndex = 30;
             this.passwordtextbox.UseSystemPasswordChar = true;
             this.passwordtextbox.TextChanged += new System.EventHandler(this.passwordtextbox_TextChanged);
+            this.passwordtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwkey);
             // 
             // label7
             // 

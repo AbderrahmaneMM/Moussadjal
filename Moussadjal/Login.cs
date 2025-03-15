@@ -95,5 +95,23 @@ namespace Moussadjal
         {
             Application.Exit();
         }
+
+        private void mailtxtboxkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                passwordtextbox.Focus();
+            }
+        }
+
+        private void motdepasskey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                guna2Button1.PerformClick();
+            }
+        }
     }
 }

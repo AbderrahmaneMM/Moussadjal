@@ -117,6 +117,7 @@
             this.passwordtextbox.TabIndex = 11;
             this.passwordtextbox.UseSystemPasswordChar = true;
             this.passwordtextbox.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
+            this.passwordtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.motdepasskey);
             // 
             // mailtextbox
             // 
@@ -139,6 +140,7 @@
             this.mailtextbox.Size = new System.Drawing.Size(220, 36);
             this.mailtextbox.TabIndex = 10;
             this.mailtextbox.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.mailtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mailtxtboxkey);
             // 
             // guna2Button1
             // 

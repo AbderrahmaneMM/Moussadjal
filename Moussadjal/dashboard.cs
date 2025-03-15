@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Moussadjal.UserControler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,17 +25,18 @@ namespace Moussadjal
             InitializeComponent();
         }
 
-        Database db = new Database();
-    
+        AJTbien ab = new AJTbien();
+        Division dv = new Division();
 
-       
+
         private void dashboard_Load(object sender, EventArgs e)
         {
-            db.remlirCombo("Description_de_bien", NsComboBox, "designation", "numero_sequentiel"); 
-            db.remlirCombo("Lieu", LieuComboBox, "designation", "Id_lieu");
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(ab);
+            ab.Dock = DockStyle.Fill;
 
         }
-         private void move(Guna2Button btn) 
+        private void move(Guna2Button btn) 
          {
             btn.Checked =true;
             guna2PictureBox1.Location = new Point(btn.Location.X +116 , btn.Location.Y-23);
@@ -57,11 +59,17 @@ namespace Moussadjal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(ab);
+            ab.Dock = DockStyle.Fill;
             move(guna2Button1);
         }
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(dv);
+            dv.Dock = DockStyle.Fill;
             move(guna2Button2);
         }
 
@@ -94,52 +102,11 @@ namespace Moussadjal
         {
 
         }
-           //save barcode as image
-           byte[] convertImageToByte(Image img)
-           {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                return ms.ToArray();
-            }
-
-           }
-        private void Ajtbtn_Click(object sender, EventArgs e)
+           
+      /*  private void Ajtbtn_Click(object sender, EventArgs e)
         {
-            
-            try
-            {
-
-                if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_dinventaire = '" + int.Parse(NItextbox.Text) +"'") < 1)
-                {
-                 //generation datamatrix barcode
-                 var barcodeWriter = new BarcodeWriter
-                 {
-                    Format = BarcodeFormat.DATA_MATRIX,
-                    Options = new EncodingOptions
-                    {
-                        Height = 300,
-                        Width = 300,
-                        Margin = 10
-                    },
-                    Renderer = new BitmapRenderer()
-                 };
-                   Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NsComboBox.Text}/{LieuComboBox.Text}");
-                   BarcodPicture.Image = barcodeBitmap;
-                   //convert image barcode to byte array
-                   byte[] img = convertImageToByte(BarcodPicture.Image);
-                   //insert 'bien' to db
-                   db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text)+ "', '"+ Convert.ToInt32(NsComboBox.SelectedValue) + "', '"+LieuComboBox.SelectedValue+"', '"+img+"')");
-                   MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK , MessageBoxIcon.Information);
-                }
-                else
-                    MessageBox.Show("Le Bien est existe déjat");
-            }
-              catch (Exception ex)
-              {
-                  MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              }
-        }
+           
+        }*/
 
         private void NsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
