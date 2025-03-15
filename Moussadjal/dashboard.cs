@@ -114,6 +114,11 @@ namespace Moussadjal
            
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /* private void Ltextbox_TextChanged(object sender, EventArgs e)
          {
 

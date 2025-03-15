@@ -17,7 +17,8 @@ namespace Moussadjal.UserControler
             InitializeComponent();
         }
 
-        Database db = new Database();   
+        Database db = new Database(); 
+        Form1 f = new Form1();
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -27,13 +28,14 @@ namespace Moussadjal.UserControler
         {
             db.remplirgridview("SELECT numero_sequentiel, division, designation, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
             dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
-            dtgdve.Columns["numero_sequentiel"].Width = 15;
             dtgdve.Columns["division"].HeaderText = "DIV";
-            dtgdve.Columns["division"].Width = 15;
             dtgdve.Columns["designation"].HeaderText = "DESIGNATION";
-            dtgdve.Columns["designation"].Width = 40;
             dtgdve.Columns["observation"].HeaderText = "OBSERVATION";
-            dtgdve.Columns["observation"].Width = 40;
+            dtgdve.Columns["numero_sequentiel"].MinimumWidth =40;
+            dtgdve.Columns["numero_sequentiel"].Width = 40;
+            dtgdve.Columns["division"].MinimumWidth = 40;
+            dtgdve.Columns["division"].Width = 40;
+            f.datagridviewStyle(dtgdve);
         }
     }
 }

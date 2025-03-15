@@ -213,7 +213,7 @@
             this.btnmax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmax.FillColor = System.Drawing.Color.White;
             this.btnmax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmax.Location = new System.Drawing.Point(759, 12);
+            this.btnmax.Location = new System.Drawing.Point(1041, 12);
             this.btnmax.Name = "btnmax";
             this.btnmax.Size = new System.Drawing.Size(35, 29);
             this.btnmax.TabIndex = 1;
@@ -227,7 +227,7 @@
             this.btnmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmin.FillColor = System.Drawing.Color.White;
             this.btnmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmin.Location = new System.Drawing.Point(718, 12);
+            this.btnmin.Location = new System.Drawing.Point(1000, 12);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
@@ -241,7 +241,7 @@
             this.btnexit.CustomClick = true;
             this.btnexit.FillColor = System.Drawing.Color.White;
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnexit.Location = new System.Drawing.Point(800, 12);
+            this.btnexit.Location = new System.Drawing.Point(1082, 12);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(35, 29);
             this.btnexit.TabIndex = 2;
@@ -334,24 +334,26 @@
             // 
             // Cpanel
             // 
-            this.Cpanel.Location = new System.Drawing.Point(171, 57);
+            this.Cpanel.Location = new System.Drawing.Point(171, 47);
             this.Cpanel.Name = "Cpanel";
-            this.Cpanel.Size = new System.Drawing.Size(664, 719);
+            this.Cpanel.Padding = new System.Windows.Forms.Padding(1);
+            this.Cpanel.Size = new System.Drawing.Size(959, 741);
             this.Cpanel.TabIndex = 9;
             // 
             // dashboard
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 788);
+            this.ClientSize = new System.Drawing.Size(1130, 788);
             this.Controls.Add(this.Cpanel);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.btnmin);
             this.Controls.Add(this.btnmax);
             this.Controls.Add(this.btnexit);
             this.Name = "dashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

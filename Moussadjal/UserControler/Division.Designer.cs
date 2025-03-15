@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgdve = new Guna.UI2.WinForms.Guna2DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).BeginInit();
+            this.descriptiondebienBindingSource = new System.Windows.Forms.BindingSource(this.components); ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptiondebienBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgdve
             // 
+            this.dtgdve.AllowUserToAddRows = false;
+            this.dtgdve.AllowUserToDeleteRows = false;
+            this.dtgdve.AllowUserToOrderColumns = true;
+            this.dtgdve.AllowUserToResizeColumns = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgdve.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -47,44 +53,47 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgdve.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgdve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgdve.ColumnHeadersHeight = 20;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgdve.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgdve.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgdve.Location = new System.Drawing.Point(3, 3);
+            this.dtgdve.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgdve.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dtgdve.GridColor = System.Drawing.Color.White;
+            this.dtgdve.Location = new System.Drawing.Point(0, 0);
             this.dtgdve.Name = "dtgdve";
+            this.dtgdve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtgdve.RowHeadersVisible = false;
-            this.dtgdve.Size = new System.Drawing.Size(797, 565);
+            this.dtgdve.Size = new System.Drawing.Size(803, 571);
             this.dtgdve.TabIndex = 0;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgdve.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgdve.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgdve.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(184)))), ((int)(((byte)(40)))));
+            this.dtgdve.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtgdve.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dtgdve.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgdve.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgdve.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.dtgdve.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(184)))), ((int)(((byte)(40)))));
             this.dtgdve.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtgdve.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgdve.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgdve.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgdve.ThemeStyle.HeaderStyle.Height = 4;
+            this.dtgdve.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtgdve.ThemeStyle.HeaderStyle.Height = 20;
             this.dtgdve.ThemeStyle.ReadOnly = false;
             this.dtgdve.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgdve.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgdve.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgdve.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgdve.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dtgdve.ThemeStyle.RowsStyle.Height = 22;
             this.dtgdve.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgdve.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgdve.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dtgdve.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            // 
+           // 
             // Division
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +104,7 @@
             this.Size = new System.Drawing.Size(803, 571);
             this.Load += new System.EventHandler(this.Division_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.descriptiondebienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -102,5 +112,5 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dtgdve;
-    }
+        private System.Windows.Forms.BindingSource descriptiondebienBindingSource; }
 }
