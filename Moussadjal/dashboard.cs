@@ -31,97 +31,84 @@ namespace Moussadjal
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;
 
         }
         private void move(Guna2Button btn) 
-         {
+        {
             btn.Checked =true;
             guna2PictureBox1.Location = new Point(btn.Location.X +116 , btn.Location.Y-23);
             guna2PictureBox1.SendToBack();
-         }
+        }
+        private void ExpandPanel(Guna2Button btn , FlowLayoutPanel pnl) 
+        {
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Guna2Button b && b != btn && b.Checked)
+                    b.Checked = false;
+                else if (control is FlowLayoutPanel fpl && fpl != pnl)
+                    fpl.Height = 0;
+            }
+            if (btn.Checked)pnl.Height = 183;
+        }
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        /*private void Homebutton_Click(object sender, EventArgs e)
+        private void guna2Button10_Click(object sender, EventArgs e)
         {
-
+            ExpandPanel(guna2Button10, BienPanel);
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void guna2Button11_Click(object sender, EventArgs e)
         {
+            ExpandPanel(guna2Button11, LieuPanel);
+        }
 
-        }*/
+        private void guna2Button12_Click(object sender, EventArgs e)
+        {
+            ExpandPanel(guna2Button12, RespoPanel);
+        }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Cpanel.Controls.Clear();
             Cpanel.Controls.Add(ab);
             ab.Dock = DockStyle.Fill;
-            move(guna2Button1);
         }
 
-        private void guna2Button2_Click_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+            Application.Exit();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
         {
             Cpanel.Controls.Clear();
             Cpanel.Controls.Add(dv);
             dv.Dock = DockStyle.Fill;
-            move(guna2Button2);
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void Printbutton_Click(object sender, EventArgs e)
         {
-            move(guna2Button3);
+            ExpandPanel(Printbutton, PrintPanel);
         }
 
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            move(guna2Button4);
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-            move(guna2Button5);
-        }
-
-        private void guna2Button6_Click(object sender, EventArgs e)
-        {
-            move(guna2Button6);
-        }
-
-        private void guna2Button7_Click(object sender, EventArgs e)
-        {
-            move(guna2Button7);
-        }
-
-        private void gererlesbien1_Load(object sender, EventArgs e)
+        private void PrintPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
-           
-      /*  private void Ajtbtn_Click(object sender, EventArgs e)
-        {
-           
-        }*/
-
-        private void NsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-             
-           
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /* private void Ltextbox_TextChanged(object sender, EventArgs e)
-         {
-
-         }*/
     }
 }
