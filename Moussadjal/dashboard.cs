@@ -26,7 +26,7 @@ namespace Moussadjal
         }
 
         AJTbien ab = new AJTbien();
-        Division dv = new Division();
+        DGVdescription dgv = new DGVdescription();
 
 
         private void dashboard_Load(object sender, EventArgs e)
@@ -112,8 +112,9 @@ namespace Moussadjal
         private void button5_Click(object sender, EventArgs e)
         {
             Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(dv);
-            dv.Dock = DockStyle.Fill;
+            Cpanel.Controls.Add(dgv);
+            dgv.Dock = DockStyle.Fill;
+     
         }
     }
 }

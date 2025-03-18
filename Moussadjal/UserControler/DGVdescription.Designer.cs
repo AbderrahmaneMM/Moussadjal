@@ -1,6 +1,6 @@
 ﻿namespace Moussadjal.UserControler
 {
-    partial class Division
+    partial class DGVdescription
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgdve = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.descriptiondebienBindingSource = new System.Windows.Forms.BindingSource(this.components); ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptiondebienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgdve
@@ -69,8 +67,8 @@
             this.dtgdve.Name = "dtgdve";
             this.dtgdve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtgdve.RowHeadersVisible = false;
-            this.dtgdve.Size = new System.Drawing.Size(803, 571);
-            this.dtgdve.TabIndex = 0;
+            this.dtgdve.Size = new System.Drawing.Size(962, 561);
+            this.dtgdve.TabIndex = 2;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -92,19 +90,16 @@
             this.dtgdve.ThemeStyle.RowsStyle.Height = 22;
             this.dtgdve.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgdve.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dtgdve.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-           // 
-            // Division
+            // 
+            // DGVdescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dtgdve);
-            this.Name = "Division";
-            this.Size = new System.Drawing.Size(803, 571);
-            this.Load += new System.EventHandler(this.Division_Load);
+            this.Name = "DGVdescription";
+            this.Size = new System.Drawing.Size(962, 561);
+            this.Load += new System.EventHandler(this.DGVdescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptiondebienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -112,5 +107,5 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dtgdve;
-        private System.Windows.Forms.BindingSource descriptiondebienBindingSource; }
+    }
 }

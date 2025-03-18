@@ -108,11 +108,11 @@
     <Compile Include="UserControler\AJTbien.Designer.cs">
       <DependentUpon>AJTbien.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControler\Division.cs">
+    <Compile Include="UserControler\DGVdescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControler\Division.Designer.cs">
-      <DependentUpon>Division.cs</DependentUpon>
+    <Compile Include="UserControler\DGVdescription.Designer.cs">
+      <DependentUpon>DGVdescription.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="UserControler\AJTbien.resx">
       <DependentUpon>AJTbien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControler\Division.resx">
-      <DependentUpon>Division.cs</DependentUpon>
+    <EmbeddedResource Include="UserControler\DGVdescription.resx">
+      <DependentUpon>DGVdescription.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
