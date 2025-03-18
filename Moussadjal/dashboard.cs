@@ -96,9 +96,7 @@ namespace Moussadjal
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(dv);
-            dv.Dock = DockStyle.Fill;
+            
         }
 
         private void Printbutton_Click(object sender, EventArgs e)
@@ -109,6 +107,13 @@ namespace Moussadjal
         private void PrintPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(dv);
+            dv.Dock = DockStyle.Fill;
         }
     }
 }

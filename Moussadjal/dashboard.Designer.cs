@@ -81,7 +81,6 @@
             this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmin = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.Cpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.BienPanel.SuspendLayout();
@@ -110,7 +109,6 @@
             // 
             // Cpanel
             // 
-            this.Cpanel.Controls.Add(this.guna2PictureBox1);
             this.Cpanel.Location = new System.Drawing.Point(171, 49);
             this.Cpanel.Name = "Cpanel";
             this.Cpanel.Padding = new System.Windows.Forms.Padding(1);
@@ -122,7 +120,7 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.guna2PictureBox1.Image = global::Moussadjal.Properties.Resources.Screenshot_2025_03_05_112536;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 350);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(29, 105);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +187,7 @@
             this.BienPanel.Location = new System.Drawing.Point(0, 179);
             this.BienPanel.Margin = new System.Windows.Forms.Padding(0);
             this.BienPanel.Name = "BienPanel";
-            this.BienPanel.Size = new System.Drawing.Size(163, 0);
+            this.BienPanel.Size = new System.Drawing.Size(165, 0);
             this.BienPanel.TabIndex = 19;
             // 
             // panel2
@@ -296,6 +294,7 @@
             this.button5.Text = "     Afficher un Bien";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -309,7 +308,9 @@
             this.flowLayoutPanel1.Controls.Add(this.RespoPanel);
             this.flowLayoutPanel1.Controls.Add(this.Printbutton);
             this.flowLayoutPanel1.Controls.Add(this.PrintPanel);
+            this.flowLayoutPanel1.Controls.Add(this.guna2PictureBox1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 49);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(165, 727);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -317,7 +318,6 @@
             // guna2Button10
             // 
             this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.BorderRadius = 22;
             this.guna2Button10.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button10.Checked = true;
             this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.White;
@@ -332,7 +332,7 @@
             this.guna2Button10.Location = new System.Drawing.Point(0, 123);
             this.guna2Button10.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(164, 56);
+            this.guna2Button10.Size = new System.Drawing.Size(165, 56);
             this.guna2Button10.TabIndex = 15;
             this.guna2Button10.Text = "Gérer les bien";
             this.guna2Button10.UseTransparentBackground = true;
@@ -341,7 +341,6 @@
             // guna2Button11
             // 
             this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button11.BorderRadius = 22;
             this.guna2Button11.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button11.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button11.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -355,7 +354,7 @@
             this.guna2Button11.Location = new System.Drawing.Point(0, 179);
             this.guna2Button11.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(161, 56);
+            this.guna2Button11.Size = new System.Drawing.Size(165, 56);
             this.guna2Button11.TabIndex = 23;
             this.guna2Button11.Text = "Gerer les lieux des biens";
             this.guna2Button11.UseTransparentBackground = true;
@@ -371,7 +370,7 @@
             this.LieuPanel.Location = new System.Drawing.Point(0, 235);
             this.LieuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.LieuPanel.Name = "LieuPanel";
-            this.LieuPanel.Size = new System.Drawing.Size(162, 0);
+            this.LieuPanel.Size = new System.Drawing.Size(165, 0);
             this.LieuPanel.TabIndex = 24;
             // 
             // panel7
@@ -480,7 +479,6 @@
             // guna2Button12
             // 
             this.guna2Button12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button12.BorderRadius = 22;
             this.guna2Button12.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button12.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button12.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -494,7 +492,7 @@
             this.guna2Button12.Location = new System.Drawing.Point(0, 235);
             this.guna2Button12.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button12.Name = "guna2Button12";
-            this.guna2Button12.Size = new System.Drawing.Size(162, 56);
+            this.guna2Button12.Size = new System.Drawing.Size(165, 56);
             this.guna2Button12.TabIndex = 24;
             this.guna2Button12.Text = "Gerer les responsables des lieux";
             this.guna2Button12.UseTransparentBackground = true;
@@ -510,7 +508,7 @@
             this.RespoPanel.Location = new System.Drawing.Point(0, 291);
             this.RespoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RespoPanel.Name = "RespoPanel";
-            this.RespoPanel.Size = new System.Drawing.Size(161, 0);
+            this.RespoPanel.Size = new System.Drawing.Size(165, 0);
             this.RespoPanel.TabIndex = 25;
             // 
             // panel1
@@ -617,7 +615,6 @@
             // Printbutton
             // 
             this.Printbutton.BackColor = System.Drawing.Color.Transparent;
-            this.Printbutton.BorderRadius = 22;
             this.Printbutton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Printbutton.CheckedState.FillColor = System.Drawing.Color.White;
             this.Printbutton.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -631,7 +628,7 @@
             this.Printbutton.Location = new System.Drawing.Point(0, 291);
             this.Printbutton.Margin = new System.Windows.Forms.Padding(0);
             this.Printbutton.Name = "Printbutton";
-            this.Printbutton.Size = new System.Drawing.Size(162, 56);
+            this.Printbutton.Size = new System.Drawing.Size(165, 56);
             this.Printbutton.TabIndex = 26;
             this.Printbutton.Text = "Imprimer";
             this.Printbutton.UseTransparentBackground = true;
@@ -647,7 +644,7 @@
             this.PrintPanel.Location = new System.Drawing.Point(0, 347);
             this.PrintPanel.Margin = new System.Windows.Forms.Padding(0);
             this.PrintPanel.Name = "PrintPanel";
-            this.PrintPanel.Size = new System.Drawing.Size(161, 0);
+            this.PrintPanel.Size = new System.Drawing.Size(165, 0);
             this.PrintPanel.TabIndex = 27;
             this.PrintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PrintPanel_Paint);
             // 
@@ -866,7 +863,6 @@
             this.Name = "dashboard";
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
-            this.Cpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
