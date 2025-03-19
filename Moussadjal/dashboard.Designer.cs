@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Cpanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.dgvPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
@@ -81,6 +82,7 @@
             this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmin = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Cpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.BienPanel.SuspendLayout();
@@ -109,11 +111,20 @@
             // 
             // Cpanel
             // 
-            this.Cpanel.Location = new System.Drawing.Point(171, 49);
+            this.Cpanel.Controls.Add(this.dgvPanel);
+            this.Cpanel.Location = new System.Drawing.Point(168, 47);
             this.Cpanel.Name = "Cpanel";
             this.Cpanel.Padding = new System.Windows.Forms.Padding(1);
-            this.Cpanel.Size = new System.Drawing.Size(957, 545);
+            this.Cpanel.Size = new System.Drawing.Size(960, 546);
             this.Cpanel.TabIndex = 9;
+            // 
+            // dgvPanel
+            // 
+            this.dgvPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvPanel.Location = new System.Drawing.Point(1, 93);
+            this.dgvPanel.Name = "dgvPanel";
+            this.dgvPanel.Size = new System.Drawing.Size(958, 452);
+            this.dgvPanel.TabIndex = 0;
             // 
             // guna2PictureBox1
             // 
@@ -122,7 +133,7 @@
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(3, 350);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(29, 105);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(29, 113);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -199,7 +210,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(161, 43);
+            this.panel2.Size = new System.Drawing.Size(165, 43);
             this.panel2.TabIndex = 16;
             // 
             // button2
@@ -226,7 +237,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(161, 43);
+            this.panel3.Size = new System.Drawing.Size(165, 43);
             this.panel3.TabIndex = 17;
             // 
             // button3
@@ -252,7 +263,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(161, 43);
+            this.panel4.Size = new System.Drawing.Size(165, 43);
             this.panel4.TabIndex = 17;
             // 
             // button4
@@ -278,7 +289,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(161, 43);
+            this.panel5.Size = new System.Drawing.Size(165, 43);
             this.panel5.TabIndex = 17;
             // 
             // button5
@@ -309,17 +320,17 @@
             this.flowLayoutPanel1.Controls.Add(this.Printbutton);
             this.flowLayoutPanel1.Controls.Add(this.PrintPanel);
             this.flowLayoutPanel1.Controls.Add(this.guna2PictureBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 49);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(165, 727);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(165, 605);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // guna2Button10
             // 
             this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button10.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button10.Checked = true;
             this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button10.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -520,7 +531,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(161, 43);
+            this.panel1.Size = new System.Drawing.Size(165, 43);
             this.panel1.TabIndex = 16;
             // 
             // button1
@@ -545,7 +556,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(161, 43);
+            this.panel6.Size = new System.Drawing.Size(165, 43);
             this.panel6.TabIndex = 17;
             // 
             // button10
@@ -570,7 +581,7 @@
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel11.Size = new System.Drawing.Size(161, 43);
+            this.panel11.Size = new System.Drawing.Size(165, 43);
             this.panel11.TabIndex = 17;
             // 
             // button11
@@ -595,7 +606,7 @@
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(161, 43);
+            this.panel12.Size = new System.Drawing.Size(165, 43);
             this.panel12.TabIndex = 17;
             // 
             // button12
@@ -657,7 +668,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel13.Size = new System.Drawing.Size(161, 43);
+            this.panel13.Size = new System.Drawing.Size(165, 43);
             this.panel13.TabIndex = 16;
             // 
             // button13
@@ -682,7 +693,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel14.Size = new System.Drawing.Size(161, 43);
+            this.panel14.Size = new System.Drawing.Size(165, 43);
             this.panel14.TabIndex = 17;
             // 
             // button14
@@ -707,7 +718,7 @@
             this.panel15.Margin = new System.Windows.Forms.Padding(0);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel15.Size = new System.Drawing.Size(161, 43);
+            this.panel15.Size = new System.Drawing.Size(165, 43);
             this.panel15.TabIndex = 17;
             // 
             // button15
@@ -732,7 +743,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(0);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel16.Size = new System.Drawing.Size(161, 43);
+            this.panel16.Size = new System.Drawing.Size(165, 43);
             this.panel16.TabIndex = 17;
             // 
             // button16
@@ -758,9 +769,9 @@
             this.guna2Panel1.Controls.Add(this.btnmax);
             this.guna2Panel1.Controls.Add(this.btnmin);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(165, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1135, 43);
+            this.guna2Panel1.Size = new System.Drawing.Size(970, 43);
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -773,7 +784,7 @@
             this.guna2ControlBox1.CustomClick = true;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1093, 3);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(928, 3);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox1.TabIndex = 5;
@@ -788,10 +799,11 @@
             this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1052, 3);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(887, 3);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox2.TabIndex = 4;
+            this.guna2ControlBox2.Click += new System.EventHandler(this.guna2ControlBox2_Click);
             // 
             // guna2ControlBox3
             // 
@@ -802,7 +814,7 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1011, 3);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(846, 3);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox3.TabIndex = 3;
@@ -816,7 +828,7 @@
             this.btnexit.CustomClick = true;
             this.btnexit.FillColor = System.Drawing.Color.White;
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnexit.Location = new System.Drawing.Point(2046, 4);
+            this.btnexit.Location = new System.Drawing.Point(1881, 4);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(35, 29);
             this.btnexit.TabIndex = 2;
@@ -830,7 +842,7 @@
             this.btnmax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmax.FillColor = System.Drawing.Color.White;
             this.btnmax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmax.Location = new System.Drawing.Point(2005, 4);
+            this.btnmax.Location = new System.Drawing.Point(1840, 4);
             this.btnmax.Name = "btnmax";
             this.btnmax.Size = new System.Drawing.Size(35, 29);
             this.btnmax.TabIndex = 1;
@@ -844,7 +856,7 @@
             this.btnmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmin.FillColor = System.Drawing.Color.White;
             this.btnmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmin.Location = new System.Drawing.Point(1964, 4);
+            this.btnmin.Location = new System.Drawing.Point(1799, 4);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
@@ -857,12 +869,13 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1135, 605);
+            this.Controls.Add(this.Cpanel);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.Cpanel);
             this.Name = "dashboard";
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
+            this.Cpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
@@ -946,5 +959,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button16;
+        private Guna.UI2.WinForms.Guna2Panel dgvPanel;
     }
 }

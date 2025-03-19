@@ -20,7 +20,8 @@ namespace Moussadjal
         public SqlDataAdapter sda= new SqlDataAdapter();
         public DataSet ds = new DataSet();
         DataTable dt;
-        public void FillscdToInsert(string query)
+        //insert
+        public void Ajouter(string query)
         {   scn.Open();
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
@@ -28,6 +29,12 @@ namespace Moussadjal
             scd.ExecuteNonQuery();
             scn.Close();
         }
+        //read/select
+
+        //update
+
+        //delete
+
         // Select counte 
         public int FillscdToSelectCount(string query) 
         {

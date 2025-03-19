@@ -34,7 +34,7 @@ namespace Moussadjal.UserControler
         private void AJTbien_Load(object sender, EventArgs e)
         {
             db.remlirCombo("Description_de_bien", NsComboBox, "designation", "numero_sequentiel");
-            db.remlirCombo("Lieu", LieuComboBox, "designation", "Id_lieu");
+            db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
         }
 
         private void Ajtbtn_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace Moussadjal.UserControler
                     //convert image barcode to byte array
                     byte[] img = convertImageToByte(BarcodPicture.Image);
                     //insert 'bien' to db
-                    db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text) + "', '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
+                    db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text) + "', '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
                     MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

@@ -27,7 +27,7 @@ namespace Moussadjal
 
         AJTbien ab = new AJTbien();
         DGVdescription dgv = new DGVdescription();
-
+        Crud cr = new Crud();
 
         private void dashboard_Load(object sender, EventArgs e)
         {
@@ -111,10 +111,25 @@ namespace Moussadjal
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(dgv);
-            dgv.Dock = DockStyle.Fill;
-     
+             Cpanel.Controls.Clear();
+
+             Cpanel.Controls.Add(dgvPanel);
+             dgvPanel.Dock = DockStyle.Fill;
+
+            
+             Cpanel.Controls.Add(cr);
+             cr.Dock = DockStyle.Top;
+
+             dgvPanel.Controls.Clear();
+
+             dgvPanel.Controls.Add(dgv);
+             dgv.Dock = DockStyle.Fill;
+             dgv.Padding = new Padding(3,5,5,5);
+        }
+
+        private void guna2ControlBox2_Click(object sender, EventArgs e)
+        {
+          Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
         }
     }
 }

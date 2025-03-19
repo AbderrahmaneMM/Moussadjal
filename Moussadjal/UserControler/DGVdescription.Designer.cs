@@ -67,7 +67,7 @@
             this.dtgdve.Name = "dtgdve";
             this.dtgdve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtgdve.RowHeadersVisible = false;
-            this.dtgdve.Size = new System.Drawing.Size(962, 561);
+            this.dtgdve.Size = new System.Drawing.Size(960, 490);
             this.dtgdve.TabIndex = 2;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgdve.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -97,7 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dtgdve);
             this.Name = "DGVdescription";
-            this.Size = new System.Drawing.Size(962, 561);
+            this.Size = new System.Drawing.Size(960, 490);
             this.Load += new System.EventHandler(this.DGVdescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgdve)).EndInit();
             this.ResumeLayout(false);
