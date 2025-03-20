@@ -160,10 +160,10 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button Ajt;
         private Guna.UI2.WinForms.Guna2Button Suprimer;
         private Guna.UI2.WinForms.Guna2Button modifier;
         private Guna.UI2.WinForms.Guna2TextBox Searchbox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        public Guna.UI2.WinForms.Guna2Button Ajt;
     }
 }

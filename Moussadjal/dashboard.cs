@@ -23,6 +23,7 @@ namespace Moussadjal
         public dashboard()
         {
             InitializeComponent();
+            cr.Ajt.Click += button2_Click;
         }
 
         AJTbien ab = new AJTbien();
@@ -31,14 +32,9 @@ namespace Moussadjal
 
         private void dashboard_Load(object sender, EventArgs e)
         {
+            
+        }
 
-        }
-        private void move(Guna2Button btn) 
-        {
-            btn.Checked =true;
-            guna2PictureBox1.Location = new Point(btn.Location.X +116 , btn.Location.Y-23);
-            guna2PictureBox1.SendToBack();
-        }
         private void ExpandPanel(Guna2Button btn , FlowLayoutPanel pnl) 
         {
             foreach (Control control in flowLayoutPanel1.Controls)
@@ -75,6 +71,7 @@ namespace Moussadjal
             Cpanel.Controls.Clear();
             Cpanel.Controls.Add(ab);
             ab.Dock = DockStyle.Fill;
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -131,5 +128,7 @@ namespace Moussadjal
         {
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
         }
+
+        
     }
 }

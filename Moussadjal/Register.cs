@@ -42,7 +42,7 @@ namespace Moussadjal
                 if (passwordtextbox.Text == confirmtextbox.Text &&  addr.Address == mailtextbox.Text)
                 {
               
-                    d.FillscdToInsert("INSERT INTO utilisateur (mail ,motdepass, username) VALUES('"+mailtextbox.Text+"', '"+passwordtextbox.Text+"', '"+usernametextbox.Text+"')");
+                    d.Ajouter("INSERT INTO utilisateur (mail ,motdepass, username) VALUES('"+mailtextbox.Text+"', '"+passwordtextbox.Text+"', '"+usernametextbox.Text+"')");
                     MessageBox.Show("Utilisateur ajouté avec succès");
                     this.Hide();
                     da.Show();

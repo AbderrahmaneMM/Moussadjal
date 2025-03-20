@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Moussadjal.UserControler
 {
-    public partial class Crud: UserControl
+    public partial class UCAD: UserControl
     {
-
-        public Crud()
+        public UCAD()
         {
             InitializeComponent();
-
-        }
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void Ajt_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

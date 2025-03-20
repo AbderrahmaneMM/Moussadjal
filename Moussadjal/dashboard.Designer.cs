@@ -906,10 +906,8 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel Cpanel;
         private System.Windows.Forms.FlowLayoutPanel BienPanel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel4;
@@ -960,5 +958,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button16;
         private Guna.UI2.WinForms.Guna2Panel dgvPanel;
+        private Guna.UI2.WinForms.Guna2Panel Cpanel;
+        public System.Windows.Forms.Button button2;
     }
 }
