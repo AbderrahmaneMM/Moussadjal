@@ -90,6 +90,7 @@
             this.dtgdve.ThemeStyle.RowsStyle.Height = 22;
             this.dtgdve.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgdve.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgdve.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgdve_CellContentClick);
             // 
             // DGVdescription
             // 
@@ -106,6 +107,6 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2DataGridView dtgdve;
+        public Guna.UI2.WinForms.Guna2DataGridView dtgdve;
     }
 }

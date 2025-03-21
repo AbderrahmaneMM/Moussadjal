@@ -21,16 +21,24 @@ namespace Moussadjal.UserControler
         Form1 f = new Form1();
         private void DGVdescription_Load(object sender, EventArgs e)
         {
-            db.remplirgridview("SELECT numero_sequentiel, division, designation, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
+            db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, photo, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
             dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
-            dtgdve.Columns["division"].HeaderText = "DIV";
             dtgdve.Columns["designation"].HeaderText = "DESIGNATION";
+            dtgdve.Columns["division"].HeaderText = "DIV";
+            dtgdve.Columns["annee"].HeaderText = "ANNé D'ENTRER";
+            dtgdve.Columns["quantite"].HeaderText = "QUANTIITé";
+            dtgdve.Columns["photo"].HeaderText = "PHOTO";
             dtgdve.Columns["observation"].HeaderText = "OBSERVATION";
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
             dtgdve.Columns["numero_sequentiel"].Width = 40;
             dtgdve.Columns["division"].MinimumWidth = 40;
             dtgdve.Columns["division"].Width = 40;
             f.datagridviewStyle(dtgdve);
+        }
+
+        private void dtgdve_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

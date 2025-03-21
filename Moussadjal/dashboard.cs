@@ -20,16 +20,77 @@ namespace Moussadjal
 {
     public partial class dashboard : Form1
     {
-        public dashboard()
-        {
-            InitializeComponent();
-            cr.Ajt.Click += button2_Click;
-        }
-
         AJTbien ab = new AJTbien();
         DGVdescription dgv = new DGVdescription();
         Crud cr = new Crud();
+        Database db = new Database();
+        public dashboard()
+        {
+            InitializeComponent();
+            cr.Ajt.Click      += Ajouter; 
+            cr.modifier.Click += Modifier;
+            cr.Suprimer.Click += button6_Click;
+        }
 
+        public void Ajouter(object sender, EventArgs e)
+        {
+
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(ab);
+            ab.Dock = DockStyle.Fill;
+
+        }
+        public void Modifier(object sender, EventArgs e)
+        {
+            dgv.dtgdve.SelectedRows[0].Cells["ID"].Value.ToString();
+            
+            
+            
+            
+            
+
+
+
+
+            try
+            {
+                // Validate input
+                if (string.IsNullOrWhiteSpace(txtDesignation.Text))
+                {
+                    MessageBox.Show("La désignation ne peut pas être vide.", "Validation Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Update database
+
+                {//numero_sequentiel, designation, division, annee, quantite, photo, observation
+                  db.Modifier("UPDATE Description_de_bien  SET numero_sequentiel = '"+dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();+"', designation = '"+dgv.dtgdve.SelectedRows[0].Cells["DESIGNATION"].Value.ToString();+"', division = '"+dgv.dtgdve.SelectedRows[0].Cells["DIV"].Value.ToString();+"', annee = '"+dgv.dtgdve.SelectedRows[0].Cells["ANNEE"].Value.ToString();+"', quantite = '"+dgv.dtgdve.SelectedRows[0].Cells["QUANTITE"].Value.ToString();+"', photo = '"+dgv.dtgdve.SelectedRows[0].Cells["PHOTO"].Value.ToString();+"',  observation = '"+dgv.dtgdve.SelectedRows[0].Cells["OBSERVATION"].Value.ToString();+"' WHERE numero_sequentiel = '"+dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();+"'");
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Modification effectuée avec succès.", "Succès",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Notify parent form to refresh data
+                        OnDataUpdated(EventArgs.Empty);
+
+                        // Return to main view (clear panel)
+                        Parent.Controls.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucune modification n'a été effectuée.", "Information",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la modification: " + ex.Message, "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void dashboard_Load(object sender, EventArgs e)
         {
             
@@ -68,12 +129,11 @@ namespace Moussadjal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cpanel.Controls.Clear();
+           /* Cpanel.Controls.Clear();
             Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;
+            ab.Dock = DockStyle.Fill;*/
 
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
 

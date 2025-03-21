@@ -32,7 +32,15 @@ namespace Moussadjal
         //read/select
 
         //update
-
+        public void Modifier(string query)
+        {
+            scn.Open();
+            scd = new SqlCommand(query, scn);
+            scd.CommandType = CommandType.Text;
+            scd.Connection = scn;
+            scd.ExecuteNonQuery();
+            scn.Close();
+        }
         //delete
 
         // Select counte 

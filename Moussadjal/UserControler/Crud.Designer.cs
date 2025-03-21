@@ -124,6 +124,7 @@
             this.modifier.TabIndex = 29;
             this.modifier.Text = "Modifier";
             this.modifier.UseTransparentBackground = true;
+            this.modifier.Click += new System.EventHandler(this.modifier_Click);
             // 
             // Suprimer
             // 
@@ -160,10 +161,10 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button Suprimer;
-        private Guna.UI2.WinForms.Guna2Button modifier;
-        private Guna.UI2.WinForms.Guna2TextBox Searchbox;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Button Ajt;
+        public Guna.UI2.WinForms.Guna2Button Suprimer;
+        public Guna.UI2.WinForms.Guna2Button modifier;
+        public Guna.UI2.WinForms.Guna2TextBox Searchbox;
     }
 }
