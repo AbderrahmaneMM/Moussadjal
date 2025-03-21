@@ -18,7 +18,8 @@ namespace Moussadjal.UserControler
             InitializeComponent();
         }
         Database db = new Database();
-        Form1 f = new Form1();
+         Form1 f = new Form1();
+        public event EventHandler DataUpdated;
         private void DGVdescription_Load(object sender, EventArgs e)
         {
             db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, photo, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
@@ -33,12 +34,18 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["numero_sequentiel"].Width = 40;
             dtgdve.Columns["division"].MinimumWidth = 40;
             dtgdve.Columns["division"].Width = 40;
+
+           
             f.datagridviewStyle(dtgdve);
         }
-
+        //update / refrech datagridview
+        public void OnDataUpdated(EventArgs e)
+        {
+            DataUpdated.Invoke(this, e);
+        }
         private void dtgdve_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            OnDataUpdated(EventArgs.Empty);
         }
     }
 }

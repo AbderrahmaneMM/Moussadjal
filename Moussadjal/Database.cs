@@ -17,7 +17,7 @@ namespace Moussadjal
         public Guna2ComboBox comb2 = null;
         public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030");
         public SqlCommand scd = new SqlCommand();
-        public SqlDataAdapter sda= new SqlDataAdapter();
+        public SqlDataAdapter sda = new SqlDataAdapter();
         public DataSet ds = new DataSet();
         DataTable dt;
         //insert
@@ -32,7 +32,7 @@ namespace Moussadjal
         //read/select
 
         //update
-        public void Modifier(string query)
+        public int Modifier(string query)
         {
             scn.Open();
             scd = new SqlCommand(query, scn);
@@ -40,6 +40,7 @@ namespace Moussadjal
             scd.Connection = scn;
             scd.ExecuteNonQuery();
             scn.Close();
+            return scd.ExecuteNonQuery();
         }
         //delete
 

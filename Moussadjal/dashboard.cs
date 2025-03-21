@@ -20,10 +20,15 @@ namespace Moussadjal
 {
     public partial class dashboard : Form1
     {
-        AJTbien ab = new AJTbien();
+        AJTbien        ab = new AJTbien();
         DGVdescription dgv = new DGVdescription();
-        Crud cr = new Crud();
-        Database db = new Database();
+        Crud           cr = new Crud();
+        Database       db = new Database();
+
+        UserControl UC;
+        //pour la modification
+        string Mq;
+        string dgvM;
         public dashboard()
         {
             InitializeComponent();
@@ -31,59 +36,43 @@ namespace Moussadjal
             cr.modifier.Click += Modifier;
             cr.Suprimer.Click += button6_Click;
         }
-
-        public void Ajouter(object sender, EventArgs e)
+        public void UCAjouter(UserControl uc)
         {
+            if (uc == null) return;
 
             Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;
-
+            Cpanel.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+        public void Ajouter(object sender, EventArgs e)
+        {
+            UCAjouter(UC);
         }
         public void Modifier(object sender, EventArgs e)
         {
-            dgv.dtgdve.SelectedRows[0].Cells["ID"].Value.ToString();
-            
-            
-            
-            
-            
-
-
-
-
             try
             {
-                // Validate input
-                if (string.IsNullOrWhiteSpace(txtDesignation.Text))
+                if (string.IsNullOrWhiteSpace(dgvM))
                 {
-                    MessageBox.Show("La désignation ne peut pas être vide.", "Validation Error",
+                    MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                if (db.Modifier(Mq) > 0)
+                {
+                    MessageBox.Show("Modification effectuée avec succès.", "Succès",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Update database
 
-                {//numero_sequentiel, designation, division, annee, quantite, photo, observation
-                  db.Modifier("UPDATE Description_de_bien  SET numero_sequentiel = '"+dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();+"', designation = '"+dgv.dtgdve.SelectedRows[0].Cells["DESIGNATION"].Value.ToString();+"', division = '"+dgv.dtgdve.SelectedRows[0].Cells["DIV"].Value.ToString();+"', annee = '"+dgv.dtgdve.SelectedRows[0].Cells["ANNEE"].Value.ToString();+"', quantite = '"+dgv.dtgdve.SelectedRows[0].Cells["QUANTITE"].Value.ToString();+"', photo = '"+dgv.dtgdve.SelectedRows[0].Cells["PHOTO"].Value.ToString();+"',  observation = '"+dgv.dtgdve.SelectedRows[0].Cells["OBSERVATION"].Value.ToString();+"' WHERE numero_sequentiel = '"+dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();+"'");
+                    dgv.OnDataUpdated(EventArgs.Empty);
 
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Modification effectuée avec succès.", "Succès",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Notify parent form to refresh data
-                        OnDataUpdated(EventArgs.Empty);
-
-                        // Return to main view (clear panel)
-                        Parent.Controls.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Aucune modification n'a été effectuée.", "Information",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                 }
+                else
+                {
+                    MessageBox.Show("Aucune modification n'a été effectuée.", "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             catch (Exception ex)
             {
@@ -91,23 +80,18 @@ namespace Moussadjal
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // dfd
         private void dashboard_Load(object sender, EventArgs e)
         {
-            
+         
+
+            AJTbien ab = new AJTbien();
+            DGVdescription dgv = new DGVdescription();
+            Crud cr = new Crud();  
+
+            UCAjouter(ab);
         }
 
-        private void ExpandPanel(Guna2Button btn , FlowLayoutPanel pnl) 
-        {
-            foreach (Control control in flowLayoutPanel1.Controls)
-            {
-                if (control is Guna2Button b && b != btn && b.Checked)
-                    b.Checked = false;
-                else if (control is FlowLayoutPanel fpl && fpl != pnl)
-                    fpl.Height = 0;
-            }
-            if (btn.Checked)pnl.Height = 183;
-        }
+       
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -115,7 +99,41 @@ namespace Moussadjal
 
         private void guna2Button10_Click(object sender, EventArgs e)
         {
+
             ExpandPanel(guna2Button10, BienPanel);
+            UC = ab;
+            dgvM = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString(); ;
+            // Check if there are any selected rows before trying to access them
+            if (dgv.dtgdve.SelectedRows.Count > 0)
+            {
+
+                string ns = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();
+                string dsg = dgv.dtgdve.SelectedRows[0].Cells["DESIGNATION"].Value.ToString();
+                string div = dgv.dtgdve.SelectedRows[0].Cells["DIV"].Value.ToString();
+                string an = dgv.dtgdve.SelectedRows[0].Cells["ANNEE"].Value.ToString();
+                string qt = dgv.dtgdve.SelectedRows[0].Cells["QUANTITE"].Value.ToString();
+                string ph = dgv.dtgdve.SelectedRows[0].Cells["PHOTO"].Value.ToString();
+                string obs = dgv.dtgdve.SelectedRows[0].Cells["OBSERVATION"].Value.ToString();
+
+                Mq = "UPDATE Description_de_bien SET numero_sequentiel = '" + ns +
+                     "', designation = '" + dsg +
+                     "', division = '" + div +
+                     "', annee = '" + an +
+                     "', quantite = '" + qt +
+                     "', photo = '" + ph +
+                     "', observation = '" + obs +
+                     "' WHERE numero_sequentiel = '" + ns + "'";
+            }
+            else
+            {
+                // Show a message to the user indicating they need to select a row
+                MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear Mq and dgvM since there's no selection
+                Mq = string.Empty;
+                dgvM = string.Empty;
+            }
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
@@ -190,6 +208,9 @@ namespace Moussadjal
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
         }
 
-        
+        private void Cpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

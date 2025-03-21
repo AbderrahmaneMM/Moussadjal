@@ -117,6 +117,7 @@
             this.Cpanel.Padding = new System.Windows.Forms.Padding(1);
             this.Cpanel.Size = new System.Drawing.Size(960, 546);
             this.Cpanel.TabIndex = 9;
+            this.Cpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Cpanel_Paint);
             // 
             // dgvPanel
             // 
@@ -914,7 +915,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button8;
         private System.Windows.Forms.Label label2;
@@ -960,5 +960,6 @@
         private Guna.UI2.WinForms.Guna2Panel dgvPanel;
         private Guna.UI2.WinForms.Guna2Panel Cpanel;
         public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

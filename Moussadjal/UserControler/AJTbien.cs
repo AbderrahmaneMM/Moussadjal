@@ -20,6 +20,7 @@ namespace Moussadjal.UserControler
         {
             InitializeComponent();
         }
+
         Database db = new Database();
         //save barcode as image
         byte[] convertImageToByte(Image img)

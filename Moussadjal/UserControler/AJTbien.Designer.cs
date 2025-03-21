@@ -28,33 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NsComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.Ajtbtn = new Guna.UI2.WinForms.Guna2Button();
             this.NItextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.BarcodPicture = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.NsComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.BarcodPicture)).BeginInit();
             this.SuspendLayout();
-            // 
-            // NsComboBox
-            // 
-            this.NsComboBox.AutoRoundedCorners = true;
-            this.NsComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.NsComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.NsComboBox.BorderRadius = 17;
-            this.NsComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.NsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.NsComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NsComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NsComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.NsComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.NsComboBox.ItemHeight = 30;
-            this.NsComboBox.Location = new System.Drawing.Point(10, 144);
-            this.NsComboBox.Name = "NsComboBox";
-            this.NsComboBox.Size = new System.Drawing.Size(220, 36);
-            this.NsComboBox.TabIndex = 28;
             // 
             // LieuComboBox
             // 
@@ -147,6 +129,24 @@
             this.BarcodPicture.TabIndex = 24;
             this.BarcodPicture.TabStop = false;
             // 
+            // NsComboBox
+            // 
+            this.NsComboBox.AutoRoundedCorners = true;
+            this.NsComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.NsComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.NsComboBox.BorderRadius = 17;
+            this.NsComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.NsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NsComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NsComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.NsComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.NsComboBox.ItemHeight = 30;
+            this.NsComboBox.Location = new System.Drawing.Point(10, 144);
+            this.NsComboBox.Name = "NsComboBox";
+            this.NsComboBox.Size = new System.Drawing.Size(220, 36);
+            this.NsComboBox.TabIndex = 28;
+            // 
             // AJTbien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,13 +169,12 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2ComboBox NsComboBox;
         private Guna.UI2.WinForms.Guna2ComboBox LieuComboBox;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
         private Guna.UI2.WinForms.Guna2PictureBox BarcodPicture;
         private Guna.UI2.WinForms.Guna2Button Ajtbtn;
         private Guna.UI2.WinForms.Guna2TextBox NItextbox;
+        public Guna.UI2.WinForms.Guna2ComboBox NsComboBox;
     }
 }

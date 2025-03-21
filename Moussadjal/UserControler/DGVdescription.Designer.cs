@@ -65,7 +65,7 @@
             this.dtgdve.GridColor = System.Drawing.Color.White;
             this.dtgdve.Location = new System.Drawing.Point(0, 0);
             this.dtgdve.Name = "dtgdve";
-            this.dtgdve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dtgdve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtgdve.RowHeadersVisible = false;
             this.dtgdve.Size = new System.Drawing.Size(960, 490);
             this.dtgdve.TabIndex = 2;

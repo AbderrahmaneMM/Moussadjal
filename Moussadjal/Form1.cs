@@ -16,7 +16,8 @@ namespace Moussadjal
         public Form1()
         {
             InitializeComponent();
-        } 
+        }
+      
         public void Errorprovider(Guna2TextBox x,string m)
         {
            ErrorProvider ep = new ErrorProvider();
@@ -62,6 +63,19 @@ namespace Moussadjal
             dtgdve.ColumnHeadersHeight = 30;
             dtgdve.RowTemplate.Height = 25;
         }
+
+        public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)
+        {  dashboard dbh = new dashboard();
+            foreach (Control control in dbh.flowLayoutPanel1.Controls)
+            {
+                if (control is Guna2Button b && b != btn && b.Checked)
+                    b.Checked = false;
+                else if (control is FlowLayoutPanel fpl && fpl != pnl)
+                    fpl.Height = 0;
+            }
+            if (btn.Checked) pnl.Height = 183;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
