@@ -18,7 +18,7 @@ namespace Moussadjal.UserControler
             InitializeComponent();
         }
         Database db = new Database();
-         Form1 f = new Form1();
+        Form1 f = new Form1();
         public event EventHandler DataUpdated;
         private void DGVdescription_Load(object sender, EventArgs e)
         {
@@ -34,14 +34,18 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["numero_sequentiel"].Width = 40;
             dtgdve.Columns["division"].MinimumWidth = 40;
             dtgdve.Columns["division"].Width = 40;
-
-           
+            dtgdve.Rows[0].Selected = true;
             f.datagridviewStyle(dtgdve);
         }
         //update / refrech datagridview
+        
         public void OnDataUpdated(EventArgs e)
         {
-            DataUpdated.Invoke(this, e);
+            // Check if there are any subscribers before invoking the event
+            if (DataUpdated != null)
+            {
+                DataUpdated.Invoke(this, e);
+            }
         }
         private void dtgdve_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

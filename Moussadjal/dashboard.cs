@@ -83,7 +83,6 @@ namespace Moussadjal
         private void dashboard_Load(object sender, EventArgs e)
         {
          
-
             AJTbien ab = new AJTbien();
             DGVdescription dgv = new DGVdescription();
             Crud cr = new Crud();  
@@ -99,28 +98,41 @@ namespace Moussadjal
 
         private void guna2Button10_Click(object sender, EventArgs e)
         {
-
             ExpandPanel(guna2Button10, BienPanel);
+            Cpanel.Controls.Clear();
+
+            Cpanel.Controls.Add(dgvPanel);
+            dgvPanel.Dock = DockStyle.Fill;
+
+
+            Cpanel.Controls.Add(cr);
+            cr.Dock = DockStyle.Top;
+
+            dgvPanel.Controls.Clear();
+
+            dgvPanel.Controls.Add(dgv);
+            dgv.Dock = DockStyle.Fill;
+            dgv.Padding = new Padding(3, 5, 5, 5);
+            ////
             UC = ab;
-            dgvM = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString(); ;
             // Check if there are any selected rows before trying to access them
+
             if (dgv.dtgdve.SelectedRows.Count > 0)
             {
-
-                string ns = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();
-                string dsg = dgv.dtgdve.SelectedRows[0].Cells["DESIGNATION"].Value.ToString();
-                string div = dgv.dtgdve.SelectedRows[0].Cells["DIV"].Value.ToString();
-                string an = dgv.dtgdve.SelectedRows[0].Cells["ANNEE"].Value.ToString();
-                string qt = dgv.dtgdve.SelectedRows[0].Cells["QUANTITE"].Value.ToString();
-                string ph = dgv.dtgdve.SelectedRows[0].Cells["PHOTO"].Value.ToString();
-                string obs = dgv.dtgdve.SelectedRows[0].Cells["OBSERVATION"].Value.ToString();
+                string ns  = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
+                string dsg = dgv.dtgdve.SelectedRows[0].Cells["designation"].Value.ToString();
+                string div = dgv.dtgdve.SelectedRows[0].Cells["division"].Value.ToString();
+                string an  = dgv.dtgdve.SelectedRows[0].Cells["annee"].Value.ToString();
+                string qt  = dgv.dtgdve.SelectedRows[0].Cells["quantite"].Value.ToString();
+                string ph  = dgv.dtgdve.SelectedRows[0].Cells["photo"].Value.ToString();
+                string obs = dgv.dtgdve.SelectedRows[0].Cells["observation"].Value.ToString();
 
                 Mq = "UPDATE Description_de_bien SET numero_sequentiel = '" + ns +
                      "', designation = '" + dsg +
-                     "', division = '" + div +
-                     "', annee = '" + an +
+                     "', division = '"    + div +
+                     "', annee = '"      + an +
                      "', quantite = '" + qt +
-                     "', photo = '" + ph +
+                     "', photo = '"    + ph +
                      "', observation = '" + obs +
                      "' WHERE numero_sequentiel = '" + ns + "'";
             }
@@ -128,11 +140,12 @@ namespace Moussadjal
             {
                 // Show a message to the user indicating they need to select a row
                 MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Clear Mq and dgvM since there's no selection
                 Mq = string.Empty;
                 dgvM = string.Empty;
+                dgvM = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();
             }
         }
 
@@ -148,10 +161,10 @@ namespace Moussadjal
 
         private void button2_Click(object sender, EventArgs e)
         {
-           /* Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(ab);
-            ab.Dock = DockStyle.Fill;*/
-
+            /* Cpanel.Controls.Clear();
+             Cpanel.Controls.Add(ab);
+             ab.Dock = DockStyle.Fill;*/
+          
         }
         private void button6_Click(object sender, EventArgs e)
         {
@@ -187,20 +200,54 @@ namespace Moussadjal
 
         private void button5_Click(object sender, EventArgs e)
         {
-             Cpanel.Controls.Clear();
+            // Cpanel.Controls.Clear();
 
-             Cpanel.Controls.Add(dgvPanel);
-             dgvPanel.Dock = DockStyle.Fill;
+            // Cpanel.Controls.Add(dgvPanel);
+            // dgvPanel.Dock = DockStyle.Fill;
 
             
-             Cpanel.Controls.Add(cr);
-             cr.Dock = DockStyle.Top;
+            // Cpanel.Controls.Add(cr);
+            // cr.Dock = DockStyle.Top;
 
-             dgvPanel.Controls.Clear();
+            // dgvPanel.Controls.Clear();
 
-             dgvPanel.Controls.Add(dgv);
-             dgv.Dock = DockStyle.Fill;
-             dgv.Padding = new Padding(3,5,5,5);
+            // dgvPanel.Controls.Add(dgv);
+            // dgv.Dock = DockStyle.Fill;
+            // dgv.Padding = new Padding(3,5,5,5);
+            //////
+            //UC = ab;
+            //// Check if there are any selected rows before trying to access them
+
+            //if (dgv.dtgdve.SelectedRows.Count > 0)
+            //{
+            //    string ns  = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
+            //    string dsg = dgv.dtgdve.SelectedRows[0].Cells["designation"].Value.ToString();
+            //    string div = dgv.dtgdve.SelectedRows[0].Cells["division"].Value.ToString();
+            //    string an  = dgv.dtgdve.SelectedRows[0].Cells["annee"].Value.ToString();
+            //    string qt  = dgv.dtgdve.SelectedRows[0].Cells["quantite"].Value.ToString();
+            //    string ph  = dgv.dtgdve.SelectedRows[0].Cells["photo"].Value.ToString();
+            //    string obs = dgv.dtgdve.SelectedRows[0].Cells["observation"].Value.ToString();
+
+            //    Mq = "UPDATE Description_de_bien SET numero_sequentiel = '" + ns +
+            //         "', designation = '" + dsg +
+            //         "', division = '" + div +
+            //         "', annee = '" + an +
+            //         "', quantite = '" + qt +
+            //         "', photo = '" + ph +
+            //         "', observation = '" + obs +
+            //         "' WHERE numero_sequentiel = '" + ns + "'";
+            //}
+            //else
+            //{
+            //    // Show a message to the user indicating they need to select a row
+            //    MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    // Clear Mq and dgvM since there's no selection
+            //    Mq = string.Empty;
+            //    dgvM = string.Empty;
+            //    dgvM = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();
+            //}
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)
