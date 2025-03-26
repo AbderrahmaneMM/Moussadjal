@@ -50,7 +50,8 @@ namespace Moussadjal
         }
         public void Modifier(object sender, EventArgs e)
         {
-            db.Enregistrer("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dgv.dtgdve);
+            db.query = "SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien";
+            db.Enregistrer(dgv.dtgdve);
             //try
             //{
             //    if (string.IsNullOrWhiteSpace(dgvM))
