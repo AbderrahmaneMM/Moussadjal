@@ -13,7 +13,8 @@ using System.Windows.Forms;
 namespace Moussadjal
 {
     public class Database
-    {//Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
+    {
+        //Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
 
         public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030");
 
@@ -21,7 +22,9 @@ namespace Moussadjal
         public SqlDataAdapter sda = new SqlDataAdapter();
         public DataSet ds = new DataSet();
         public SqlCommandBuilder builder;
-        public  DataTable dt;
+        public  DataTable dt =new DataTable();
+
+        public BindingSource bs = new BindingSource();
         //insert
         public void Ajouter(string query)
         {   scn.Open();
@@ -43,34 +46,48 @@ namespace Moussadjal
         }
         public void Enregistrer (string query, string tab, DataGridView dg)
         {
-           try
-           {
-                scn.Open();
-                scd = new SqlCommand(query, scn);
-                scd.CommandType = CommandType.Text;
-                scd.Connection = scn;
-                scd.CommandText = query;
+            try
+            {
+                SqlDataAdapter ssd = new SqlDataAdapter();
+                // Save 
+                sda.Update(dt);
 
-                builder = new SqlCommandBuilder(sda);
+                //  refresh DGridView 
+                dt.Clear();
+                sda.Fill(dt);
 
-                sda.SelectCommand = scd;
-                sda.Update(ds, "dt" + tab);
-
-                ds.Clear();
-                sda.Fill(ds, "dt" + tab);
-                dg.DataSource = ds.Tables[ "dt" + tab];
-                scn.Close();
                 MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            /* try
+             {
+                 scd.Connection = scn;
+                 scd.CommandText = query;
+                 builder = new SqlCommandBuilder(sda);
 
-           }
+                 sda.SelectCommand = scd;
+
+                 scn.Open();
+                 sda.Update(ds, "dt" + tab);
+
+                 ds.Clear();
+                 sda.Fill(ds, "dt" + tab);
+                 dg.DataSource = ds.Tables["dt" + tab];
+
+                 MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+             }
              catch (Exception ex)
              {
-                MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-
+                 MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }*/
         }
+          
         //delete
-
+        
         // Select counte 
         public int FillscdToSelectCount(string query) 
         {
@@ -98,12 +115,19 @@ namespace Moussadjal
         }
         //methode de remplissage datagridview 
         public void remplirgridview(string query, string tab, DataGridView dg)
-        {
-            scd.Connection = scn;
+        {scn.Open();
+            sda = new SqlDataAdapter(query, @"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030");
+
+            builder = new SqlCommandBuilder(sda);
+            sda.Fill(dt);
+            bs.DataSource = dt;
+            dg.DataSource = bs;
+            scn.Close();
+            /*scd.Connection = scn;
             scd.CommandText = query;
             sda.SelectCommand = scd;
             sda.Fill(ds, "dt" + tab);
-            dg.DataSource = ds.Tables["dt" + tab];
+            dg.DataSource = ds.Tables["dt" + tab];*/
         }
     }
 }
