@@ -49,6 +49,7 @@ namespace Moussadjal
         }
         public void Enregistrer ( DataGridView dg)
         {
+
                     sda = new SqlDataAdapter(query, connection);
                     builder = new SqlCommandBuilder(sda);
                     sda.Fill(dt);

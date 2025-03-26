@@ -23,13 +23,13 @@ namespace Moussadjal.UserControler
         private void DGVdescription_Load(object sender, EventArgs e)
         {
             db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
-            dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
-            dtgdve.Columns["designation"].HeaderText = "DESIGNATION";
-            dtgdve.Columns["division"].HeaderText = "DIV";
-            dtgdve.Columns["annee"].HeaderText = "ANNé D'ENTRER";
-            dtgdve.Columns["quantite"].HeaderText = "QUANTIITé";
+            dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
+            dtgdve.Columns["designation"].HeaderText = "Designation";
+            dtgdve.Columns["division"].HeaderText = "Div";
+            dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
+            dtgdve.Columns["quantite"].HeaderText = "Quantité";
            // dtgdve.Columns["photo"].HeaderText = "PHOTO";
-            dtgdve.Columns["observation"].HeaderText = "OBSERVATION";
+            dtgdve.Columns["observation"].HeaderText = "Observation";
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
             dtgdve.Columns["numero_sequentiel"].Width = 40;
             dtgdve.Columns["division"].MinimumWidth = 40;
