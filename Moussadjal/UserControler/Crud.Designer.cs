@@ -122,7 +122,7 @@
             this.modifier.Name = "modifier";
             this.modifier.Size = new System.Drawing.Size(105, 50);
             this.modifier.TabIndex = 29;
-            this.modifier.Text = "Modifier";
+            this.modifier.Text = "Enregistrer les Modification";
             this.modifier.UseTransparentBackground = true;
             this.modifier.Click += new System.EventHandler(this.modifier_Click);
             // 

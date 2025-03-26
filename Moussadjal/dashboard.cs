@@ -50,42 +50,29 @@ namespace Moussadjal
         }
         public void Modifier(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(dgvM))
-                {
-                    MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (db.Modifier(Mq) > 0)
-                {
-                    MessageBox.Show("Modification effectuée avec succès.", "Succès",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                    dgv.OnDataUpdated(EventArgs.Empty);
-
-                }
-                else
-                {
-                    MessageBox.Show("Aucune modification n'a été effectuée.", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la modification: " + ex.Message, "Erreur",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            db.Enregistrer("SELECT numero_sequentiel, designation, division, annee, quantite, photo, observation FROM Description_de_bien", "Description_de_bien", dgv.dtgdve);
+            //try
+            //{
+            //    if (string.IsNullOrWhiteSpace(dgvM))
+            //    {
+            //        MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        return;
+            //    }
+            //    else 
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erreur lors de la modification: " + ex.Message, "Erreur",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         private void dashboard_Load(object sender, EventArgs e)
         {
          
             AJTbien ab = new AJTbien();
             DGVdescription dgv = new DGVdescription();
-            Crud cr = new Crud();  
+            Crud cr = new Crud();
 
             UCAjouter(ab);
         }
@@ -113,39 +100,19 @@ namespace Moussadjal
             dgvPanel.Controls.Add(dgv);
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
-            ////
-            UC = ab;
-            // Check if there are any selected rows before trying to access them
+
+            UC   = ab;
+            dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
+          
 
             if (dgv.dtgdve.SelectedRows.Count > 0)
             {
-                string ns  = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
-                string dsg = dgv.dtgdve.SelectedRows[0].Cells["designation"].Value.ToString();
-                string div = dgv.dtgdve.SelectedRows[0].Cells["division"].Value.ToString();
-                string an  = dgv.dtgdve.SelectedRows[0].Cells["annee"].Value.ToString();
-                string qt  = dgv.dtgdve.SelectedRows[0].Cells["quantite"].Value.ToString();
-                string ph  = dgv.dtgdve.SelectedRows[0].Cells["photo"].Value.ToString();
-                string obs = dgv.dtgdve.SelectedRows[0].Cells["observation"].Value.ToString();
-
-                Mq = "UPDATE Description_de_bien SET numero_sequentiel = '" + ns +
-                     "', designation = '" + dsg +
-                     "', division = '"    + div +
-                     "', annee = '"      + an +
-                     "', quantite = '" + qt +
-                     "', photo = '"    + ph +
-                     "', observation = '" + obs +
-                     "' WHERE numero_sequentiel = '" + ns + "'";
+                Mq = "SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien";
             }
             else
             {
-                // Show a message to the user indicating they need to select a row
                 MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Clear Mq and dgvM since there's no selection
-                Mq = string.Empty;
-                dgvM = string.Empty;
-                dgvM = dgv.dtgdve.SelectedRows[0].Cells["NS"].Value.ToString();
             }
         }
 

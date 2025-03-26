@@ -14,12 +14,14 @@ namespace Moussadjal
 {
     public class Database
     {//Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
-        public Guna2ComboBox comb2 = null;
+
         public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030");
+
         public SqlCommand scd = new SqlCommand();
         public SqlDataAdapter sda = new SqlDataAdapter();
         public DataSet ds = new DataSet();
-        DataTable dt;
+        public SqlCommandBuilder builder;
+        public  DataTable dt;
         //insert
         public void Ajouter(string query)
         {   scn.Open();
@@ -34,13 +36,38 @@ namespace Moussadjal
         //update
         public int Modifier(string query)
         {
-            scn.Open();
-            scd = new SqlCommand(query, scn);
-            scd.CommandType = CommandType.Text;
-            scd.Connection = scn;
+         
             scd.ExecuteNonQuery();
-            scn.Close();
+            //scn.Close();
             return scd.ExecuteNonQuery();
+        }
+        public void Enregistrer (string query, string tab, DataGridView dg)
+        {
+           try
+           {
+                scn.Open();
+                scd = new SqlCommand(query, scn);
+                scd.CommandType = CommandType.Text;
+                scd.Connection = scn;
+                scd.CommandText = query;
+
+                builder = new SqlCommandBuilder(sda);
+
+                sda.SelectCommand = scd;
+                sda.Update(ds, "dt" + tab);
+
+                ds.Clear();
+                sda.Fill(ds, "dt" + tab);
+                dg.DataSource = ds.Tables[ "dt" + tab];
+                scn.Close();
+                MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+           }
+             catch (Exception ex)
+             {
+                MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+
         }
         //delete
 
