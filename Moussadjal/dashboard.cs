@@ -28,13 +28,14 @@ namespace Moussadjal
         UserControl UC;
         //pour la modification
         string Mq;
+        string Sq;
         string dgvM;
         public dashboard()
         {
             InitializeComponent();
             cr.Ajt.Click      += Ajouter; 
             cr.modifier.Click += Modifier;
-            cr.Suprimer.Click += button6_Click;
+            cr.Suprimer.Click += Suprimer;
         }
         public void UCAjouter(UserControl uc)
         {
@@ -50,8 +51,30 @@ namespace Moussadjal
         }
         public void Modifier(object sender, EventArgs e)
         {
-            db.query = "SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien";
-            db.Enregistrer(dgv.dtgdve);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(dgvM))
+                {
+                    MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else db.Enregistrer(Mq, dgv.dtgdve);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la modification: " + ex.Message, "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void Suprimer(object sender, EventArgs e)
+        {
+            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
+            if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement?", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                db.Suprimer("delete from Description_de_bien where numero_sequentiel = " + deleteRow);
+            dgv.dtgdve.Rows.Remove(dgv.dtgdve.CurrentRow);
+
             //try
             //{
             //    if (string.IsNullOrWhiteSpace(dgvM))
@@ -64,7 +87,7 @@ namespace Moussadjal
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show("Erreur lors de la modification: " + ex.Message, "Erreur",
+            //    MessageBox.Show("Erreur lors de la suppression: " + ex.Message, "Erreur",
             //        MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
@@ -102,14 +125,16 @@ namespace Moussadjal
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
 
-            UC   = ab;
+            UC = ab;
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
-          
+            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
 
             if (dgv.dtgdve.SelectedRows.Count > 0)
             {
-                Mq = "SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien";
+                Mq = "select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien";
+                Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
             }
+
             else
             {
                 MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",

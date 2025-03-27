@@ -114,6 +114,12 @@
     <Compile Include="UserControler\Crud.Designer.cs">
       <DependentUpon>Crud.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\Descrip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\Descrip.Designer.cs">
+      <DependentUpon>Descrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControler\DGVdescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\Crud.resx">
       <DependentUpon>Crud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\Descrip.resx">
+      <DependentUpon>Descrip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\DGVdescription.resx">
       <DependentUpon>DGVdescription.cs</DependentUpon>

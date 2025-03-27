@@ -47,59 +47,45 @@ namespace Moussadjal
             //scn.Close();
             return scd.ExecuteNonQuery();
         }
-        public void Enregistrer ( DataGridView dg)
+        public void Enregistrer(string query, DataGridView dg)
         {
-
-                    sda = new SqlDataAdapter(query, connection);
-                    builder = new SqlCommandBuilder(sda);
-                    sda.Fill(dt);
-                  //  sda.Update(dt);
-                    bs.DataSource = dt;
-                    dg.DataSource = bs;
-           
             try
             {
-                    // Save changes from the DataTable back to the database
+                scn.Open();
+                using (sda = new SqlDataAdapter(query, connection))
+                {
+                    builder = new SqlCommandBuilder(sda);
+
                     sda.Update(dt);
 
-                    // Optionally, refresh the DataGridView to reflect any changes
                     dt.Clear();
                     sda.Fill(dt);
-                
-                
 
-                MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bs.DataSource = dt;
+                    dg.DataSource = bs;
+                    MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                scn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            /* try
-             {
-                 scd.Connection = scn;
-                 scd.CommandText = query;
-                 builder = new SqlCommandBuilder(sda);
 
-                 sda.SelectCommand = scd;
-
-                 scn.Open();
-                 sda.Update(ds, "dt" + tab);
-
-                 ds.Clear();
-                 sda.Fill(ds, "dt" + tab);
-                 dg.DataSource = ds.Tables["dt" + tab];
-
-                 MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }*/
         }
-          
+
         //delete
-        
+
+        public void Suprimer(string query)
+        {
+            if (scn.State != ConnectionState.Open)
+                scn.Open();
+            SqlCommand cmd = new SqlCommand(query, scn);
+            cmd.ExecuteNonQuery();
+            scn.Close();
+            MessageBox.Show("Suppression effectuée avec succès", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         // Select counte 
         public int FillscdToSelectCount(string query) 
         {
