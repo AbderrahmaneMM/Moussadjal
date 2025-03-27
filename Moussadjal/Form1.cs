@@ -73,7 +73,7 @@ namespace Moussadjal
                 else if (control is FlowLayoutPanel fpl && fpl != pnl)
                     fpl.Height = 0;
             }
-            if (btn.Checked) pnl.Height = 183;
+            if (btn.Checked) pnl.Height = 86;
         }
 
         private void Form1_Load(object sender, EventArgs e)
