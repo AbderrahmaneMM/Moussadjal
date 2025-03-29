@@ -28,7 +28,7 @@ namespace Moussadjal
 
         UserControl UC;
         //pour la modification et la supresion
-        Guna2DataGridView gdgv = new Guna2DataGridView();
+      //  Guna2DataGridView gdgv = new Guna2DataGridView();
         string Mq;
         string Sq;
         string dgvM;
@@ -61,7 +61,7 @@ namespace Moussadjal
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else db.Enregistrer(Mq, gdgv);
+                else db.Enregistrer(Mq, dgv.dtgdve);
             }
             catch (Exception ex)
             {
@@ -74,7 +74,7 @@ namespace Moussadjal
             if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement?", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 db.Suprimer(Sq);
-                gdgv.Rows.Remove(gdgv.CurrentRow);
+            dgv.dtgdve.Rows.Remove(dgv.dtgdve.CurrentRow);
 
             //try
             //{
@@ -112,7 +112,9 @@ namespace Moussadjal
         private void guna2Button10_Click(object sender, EventArgs e)
         {
             ExpandPanel(guna2Button10, BienPanel);
-            dgv.table = "Bien";
+            dgv.Bien();
+          
+
             Cpanel.Controls.Clear();
 
             Cpanel.Controls.Add(dgvPanel);
@@ -129,10 +131,10 @@ namespace Moussadjal
             dgv.Padding = new Padding(3, 5, 5, 5);
 
             UC = ab;
-            dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
-            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
+            dgvM = dgv.dgvB.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
+            string deleteRow = dgv.dgvB.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
-            if (dgv.dtgdve.SelectedRows.Count > 0)
+            if (dgv.dgvB.SelectedRows.Count > 0)
             {
                 Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
                 Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
@@ -210,8 +212,9 @@ namespace Moussadjal
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             ExpandPanel(guna2Button1,DescriPanel);
-            dgv.table ="Description_de_bien";
+            dgv.Description();
             Cpanel.Controls.Clear();
+
 
             Cpanel.Controls.Add(dgvPanel);
             dgvPanel.Dock = DockStyle.Fill;
@@ -224,7 +227,7 @@ namespace Moussadjal
             dgvPanel.Controls.Add(dgv);
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
-            gdgv = dgv.dtgdve;
+
             UC = dscrip;
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();

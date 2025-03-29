@@ -127,5 +127,11 @@ namespace Moussadjal
             sda.Fill(ds, "dt" + tab);
             dg.DataSource = ds.Tables["dt" + tab];*/
         }
+        public void EmptyDataGridView(DataGridView dg)
+        {
+            dt = new DataTable(); // Replace with fresh empty DataTable
+            bs.DataSource = dt;
+            dg.DataSource = bs;
+        }
     }
 }

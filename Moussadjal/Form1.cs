@@ -26,42 +26,42 @@ namespace Moussadjal
             x.BorderColor = Color.Red;
         }
         
-        public void datagridviewStyle(Guna2DataGridView dtgdve)
+        public void datagridviewStyle(Guna2DataGridView dg)
         {
             Color primaryColor = Color.FromArgb(0, 180, 216);
             Color secondaryColor = Color.FromArgb(112, 128, 144);
             Color accentColor = Color.FromArgb(125, 184, 40);
 
             // Main styling
-            dtgdve.BackgroundColor = Color.White;
-            dtgdve.ThemeStyle.BackColor = Color.White; // Guna-specific
-            dtgdve.GridColor = secondaryColor;
+            dg.BackgroundColor = Color.White;
+            dg.ThemeStyle.BackColor = Color.White; // Guna-specific
+            dg.GridColor = secondaryColor;
 
             // Column headers
-            dtgdve.ColumnHeadersDefaultCellStyle.BackColor = primaryColor;
-            dtgdve.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dtgdve.ThemeStyle.HeaderStyle.BackColor = primaryColor; // Guna-specific
-            dtgdve.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dg.ColumnHeadersDefaultCellStyle.BackColor = primaryColor;
+            dg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dg.ThemeStyle.HeaderStyle.BackColor = primaryColor; // Guna-specific
+            dg.ThemeStyle.HeaderStyle.ForeColor = Color.White;
 
             // Rows
-            dtgdve.DefaultCellStyle.BackColor = Color.White;
-            dtgdve.DefaultCellStyle.ForeColor = Color.Black;
-            dtgdve.AlternatingRowsDefaultCellStyle.BackColor = secondaryColor;
-            dtgdve.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+            dg.DefaultCellStyle.BackColor = Color.White;
+            dg.DefaultCellStyle.ForeColor = Color.Black;
+            dg.AlternatingRowsDefaultCellStyle.BackColor = secondaryColor;
+            dg.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
 
             // Selection styling (critical for Guna2)
-            dtgdve.ThemeStyle.RowsStyle.SelectionBackColor = accentColor; // Guna-specific
-            dtgdve.ThemeStyle.RowsStyle.SelectionForeColor = Color.White;
-            dtgdve.DefaultCellStyle.SelectionBackColor = accentColor; // Fallback
-            dtgdve.DefaultCellStyle.SelectionForeColor = Color.White;
+            dg.ThemeStyle.RowsStyle.SelectionBackColor = accentColor; // Guna-specific
+            dg.ThemeStyle.RowsStyle.SelectionForeColor = Color.White;
+            dg.DefaultCellStyle.SelectionBackColor = accentColor; // Fallback
+            dg.DefaultCellStyle.SelectionForeColor = Color.White;
 
             // Fonts
-            dtgdve.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dtgdve.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dg.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dg.DefaultCellStyle.Font = new Font("Segoe UI", 9);
 
             // Sizing
-            dtgdve.ColumnHeadersHeight = 30;
-            dtgdve.RowTemplate.Height = 25;
+            dg.ColumnHeadersHeight = 30;
+            dg.RowTemplate.Height = 25;
         }
 
         public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)

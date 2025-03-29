@@ -123,7 +123,7 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.guna2PictureBox1.Image = global::Moussadjal.Properties.Resources.Screenshot_2025_03_05_112536;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 578);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 406);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(29, 113);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +188,7 @@
             this.BienPanel.Location = new System.Drawing.Point(0, 179);
             this.BienPanel.Margin = new System.Windows.Forms.Padding(0);
             this.BienPanel.Name = "BienPanel";
-            this.BienPanel.Size = new System.Drawing.Size(165, 91);
+            this.BienPanel.Size = new System.Drawing.Size(165, 0);
             this.BienPanel.TabIndex = 19;
             // 
             // panel2
@@ -302,7 +302,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(0, 270);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 179);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(165, 56);
@@ -316,10 +316,10 @@
             this.DescriPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.DescriPanel.Controls.Add(this.panel3);
             this.DescriPanel.Controls.Add(this.panel4);
-            this.DescriPanel.Location = new System.Drawing.Point(0, 326);
+            this.DescriPanel.Location = new System.Drawing.Point(0, 235);
             this.DescriPanel.Margin = new System.Windows.Forms.Padding(0);
             this.DescriPanel.Name = "DescriPanel";
-            this.DescriPanel.Size = new System.Drawing.Size(165, 81);
+            this.DescriPanel.Size = new System.Drawing.Size(165, 0);
             this.DescriPanel.TabIndex = 20;
             // 
             // panel3
@@ -389,7 +389,7 @@
             this.guna2Button11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Location = new System.Drawing.Point(0, 407);
+            this.guna2Button11.Location = new System.Drawing.Point(0, 235);
             this.guna2Button11.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button11.Name = "guna2Button11";
             this.guna2Button11.Size = new System.Drawing.Size(165, 56);
@@ -403,7 +403,7 @@
             this.RespoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.RespoPanel.Controls.Add(this.panel1);
             this.RespoPanel.Controls.Add(this.panel12);
-            this.RespoPanel.Location = new System.Drawing.Point(0, 463);
+            this.RespoPanel.Location = new System.Drawing.Point(0, 291);
             this.RespoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RespoPanel.Name = "RespoPanel";
             this.RespoPanel.Size = new System.Drawing.Size(165, 0);
@@ -473,7 +473,7 @@
             this.Printbutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.Printbutton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.Printbutton.ForeColor = System.Drawing.Color.White;
-            this.Printbutton.Location = new System.Drawing.Point(0, 463);
+            this.Printbutton.Location = new System.Drawing.Point(0, 291);
             this.Printbutton.Margin = new System.Windows.Forms.Padding(0);
             this.Printbutton.Name = "Printbutton";
             this.Printbutton.Size = new System.Drawing.Size(165, 56);
@@ -495,7 +495,7 @@
             this.guna2Button12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button12.ForeColor = System.Drawing.Color.White;
-            this.guna2Button12.Location = new System.Drawing.Point(0, 519);
+            this.guna2Button12.Location = new System.Drawing.Point(0, 347);
             this.guna2Button12.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button12.Name = "guna2Button12";
             this.guna2Button12.Size = new System.Drawing.Size(165, 56);
@@ -511,7 +511,7 @@
             this.PrintPanel.Controls.Add(this.panel14);
             this.PrintPanel.Controls.Add(this.panel15);
             this.PrintPanel.Controls.Add(this.panel16);
-            this.PrintPanel.Location = new System.Drawing.Point(0, 575);
+            this.PrintPanel.Location = new System.Drawing.Point(0, 403);
             this.PrintPanel.Margin = new System.Windows.Forms.Padding(0);
             this.PrintPanel.Name = "PrintPanel";
             this.PrintPanel.Size = new System.Drawing.Size(165, 0);
@@ -624,7 +624,7 @@
             this.LieuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.LieuPanel.Controls.Add(this.panel7);
             this.LieuPanel.Controls.Add(this.panel10);
-            this.LieuPanel.Location = new System.Drawing.Point(0, 575);
+            this.LieuPanel.Location = new System.Drawing.Point(0, 403);
             this.LieuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.LieuPanel.Name = "LieuPanel";
             this.LieuPanel.Size = new System.Drawing.Size(165, 0);
