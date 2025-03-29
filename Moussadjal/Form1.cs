@@ -65,15 +65,16 @@ namespace Moussadjal
         }
 
         public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)
-        {  dashboard dbh = new dashboard();
-            foreach (Control control in dbh.flowLayoutPanel1.Controls)
+        {
+            var parent = btn.Parent as FlowLayoutPanel;
+            if (parent == null) return;
+
+            foreach (Control control in parent.Controls)
             {
-                if (control is Guna2Button b && b != btn && b.Checked)
-                    b.Checked = false;
-                else if (control is FlowLayoutPanel fpl && fpl != pnl)
-                    fpl.Height = 0;
+                if (control is Guna2Button b) b.Checked = (b == btn);
+                if (control is FlowLayoutPanel fpl) fpl.Height = (fpl == pnl && btn.Checked) ? 86 : 0;
             }
-            if (btn.Checked) pnl.Height = 86;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

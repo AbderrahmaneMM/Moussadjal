@@ -57,7 +57,7 @@ namespace Moussadjal
             {
                 if (string.IsNullOrWhiteSpace(dgvM))
                 {
-                    MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
+                    MessageBox.Show("la 1ere column est vide", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -76,21 +76,6 @@ namespace Moussadjal
                 db.Suprimer(Sq);
             dgv.dtgdve.Rows.Remove(dgv.dtgdve.CurrentRow);
 
-            //try
-            //{
-            //    if (string.IsNullOrWhiteSpace(dgvM))
-            //    {
-            //        MessageBox.Show("Le numero_sequentiel ne peut pas être vide.", "Validation Error",
-            //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //    else 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Erreur lors de la suppression: " + ex.Message, "Erreur",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
         private void dashboard_Load(object sender, EventArgs e)
         {
@@ -113,7 +98,7 @@ namespace Moussadjal
         {
             ExpandPanel(guna2Button10, BienPanel);
             dgv.Bien();
-          
+            UC = ab;
 
             Cpanel.Controls.Clear();
 
@@ -130,21 +115,13 @@ namespace Moussadjal
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
 
-            UC = ab;
-            dgvM = dgv.dgvB.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
-            string deleteRow = dgv.dgvB.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
+          
+            dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
+            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
-            if (dgv.dgvB.SelectedRows.Count > 0)
-            {
                 Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
                 Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
-            }
-
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
@@ -213,6 +190,8 @@ namespace Moussadjal
         {
             ExpandPanel(guna2Button1,DescriPanel);
             dgv.Description();
+            UC = dscrip;
+
             Cpanel.Controls.Clear();
 
 
@@ -228,21 +207,12 @@ namespace Moussadjal
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
 
-            UC = dscrip;
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
 
-            if (dgv.dtgdve.SelectedRows.Count > 0)
-            {
                 Mq = "select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien";
                 Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
-            }
-
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.", "Aucune ligne sélectionnée",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+         
         }
 
         private void button3_Click(object sender, EventArgs e)

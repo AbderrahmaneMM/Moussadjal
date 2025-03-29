@@ -20,64 +20,19 @@ namespace Moussadjal.UserControler
         Database db = new Database();
         Form1 f = new Form1();
         public event EventHandler DataUpdated;
-    
+        
         private void DGVdescription_Load(object sender, EventArgs e)
-        {
-                //case "Lieu":
-                //    {//mzl
-                //        db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
-                //        dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
-                //        dtgdve.Columns["designation"].HeaderText = "Designation";
-                //        dtgdve.Columns["division"].HeaderText = "Div";
-                //        dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
-                //        dtgdve.Columns["quantite"].HeaderText = "Quantité";
-                //        // dtgdve.Columns["photo"].HeaderText = "PHOTO";
-                //        dtgdve.Columns["observation"].HeaderText = "Observation";
-                //        dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
-                //        dtgdve.Columns["numero_sequentiel"].Width = 40;
-                //        dtgdve.Columns["division"].MinimumWidth = 40;
-                //        dtgdve.Columns["division"].Width = 40;
-                //        dtgdve.Rows[0].Selected = true;
-                //        break;
-                //    }
-                //case "Responsable":
-                //    {//mzl
-                //        db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
-                //        dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
-                //        dtgdve.Columns["designation"].HeaderText = "Designation";
-                //        dtgdve.Columns["division"].HeaderText = "Div";
-                //        dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
-                //        dtgdve.Columns["quantite"].HeaderText = "Quantité";
-                //        // dtgdve.Columns["photo"].HeaderText = "PHOTO";
-                //        dtgdve.Columns["observation"].HeaderText = "Observation";
-                //        dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
-                //        dtgdve.Columns["numero_sequentiel"].Width = 40;
-                //        dtgdve.Columns["division"].MinimumWidth = 40;
-                //        dtgdve.Columns["division"].Width = 40;
-                //        dtgdve.Rows[0].Selected = true;
-                //        break;
-                //    }
+        { 
+            dgvB.Visible = false;
         }
         public void Description() 
         {
-
-            dgvB.Visible = false;
-            dgvB.Columns.Clear();
-            db.EmptyDataGridView(dgvB);
-            dgvB.DataSource = null;
-            foreach (DataGridViewColumn column in dgvB.Columns)
-            {
-                dgvB.Columns.Remove(column);
-            }
+            db.EmptyDataGridView(dtgdve);
+         
             f.datagridviewStyle(dtgdve);
 
-
-            this.Controls.Clear();
-            this.Controls.Add(dtgdve);
-
-
             db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
-            dtgdve.Visible = true;
+
             dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
             dtgdve.Columns["designation"].HeaderText = "Designation";
             dtgdve.Columns["division"].HeaderText = "Div";
@@ -94,32 +49,45 @@ namespace Moussadjal.UserControler
        
         public void Bien()
         {
-            
-            dtgdve.Visible = false;
-            dtgdve.Columns.Clear();
             db.EmptyDataGridView(dtgdve);
-            dtgdve.DataSource = null;
-            foreach (DataGridViewColumn column in dtgdve.Columns)
-            {
-                dtgdve.Columns.Remove(column);
-            }
-            f.datagridviewStyle(dgvB);
-           
+       
+            f.datagridviewStyle(dtgdve);
 
-            this.Controls.Clear();
-            this.Controls.Add(dgvB);
+            db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", "Bien", dtgdve);
 
+            dtgdve.Columns["numero_dinventaire"].HeaderText = "NI";
+            dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
+            dtgdve.Columns["Id_lieu"].HeaderText = "Id_lieu";
+            dtgdve.Columns["numero_dinventaire"].MinimumWidth = 40;
+            dtgdve.Columns["numero_dinventaire"].Width = 60;
+            dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
+            dtgdve.Columns["numero_sequentiel"].Width = 60;
+            dtgdve.Rows[0].Selected = true;
+        }
+        public void Responsable()
+        {
+            db.EmptyDataGridView(dtgdve);
 
-            db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", "Bien", dgvB);
-            dgvB.Visible = true;
-            dgvB.Columns["numero_dinventaire"].HeaderText = "NI";
-            dgvB.Columns["numero_sequentiel"].HeaderText = "NS";
-            dgvB.Columns["Id_lieu"].HeaderText = "Id_lieu";
-            dgvB.Columns["numero_dinventaire"].MinimumWidth = 40;
-            dgvB.Columns["numero_dinventaire"].Width = 60;
-            dgvB.Columns["numero_sequentiel"].MinimumWidth = 40;
-            dgvB.Columns["numero_sequentiel"].Width = 60;
-            dgvB.Rows[0].Selected = true;
+            f.datagridviewStyle(dtgdve);
+
+            db.remplirgridview("SELECT Id_Responsable, nometprénom FROM Responsable", "Responsable", dtgdve);
+
+            dtgdve.Columns["nometprénom"].HeaderText = "nom et prénom";
+            dtgdve.Columns[" Id_Responsable"].HeaderText = " Id de Responsable";
+            dtgdve.Rows[0].Selected = true;
+        }
+        public void Lieu()
+        {
+            db.EmptyDataGridView(dtgdve);
+
+            f.datagridviewStyle(dtgdve);
+
+            db.remplirgridview("SELECT Id_lieu, designationLieu FROM Lieu", "Lieu", dtgdve);
+
+            dtgdve.Columns["Id_lieu"].HeaderText = "Id de lieu";
+            dtgdve.Columns["designationLieu"].HeaderText = "designation de Lieu";
+          
+            dtgdve.Rows[0].Selected = true;
         }
         public void OnDataUpdated(EventArgs e)
         {

@@ -30,7 +30,6 @@
         {
             this.Cpanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,7 +76,6 @@
             this.btnmax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmin = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Cpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.BienPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -117,18 +115,6 @@
             this.dgvPanel.Name = "dgvPanel";
             this.dgvPanel.Size = new System.Drawing.Size(958, 452);
             this.dgvPanel.TabIndex = 0;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
-            this.guna2PictureBox1.Image = global::Moussadjal.Properties.Resources.Screenshot_2025_03_05_112536;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 406);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(29, 113);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // guna2CustomGradientPanel2
             // 
@@ -254,12 +240,11 @@
             this.flowLayoutPanel1.Controls.Add(this.guna2Button1);
             this.flowLayoutPanel1.Controls.Add(this.DescriPanel);
             this.flowLayoutPanel1.Controls.Add(this.guna2Button11);
+            this.flowLayoutPanel1.Controls.Add(this.LieuPanel);
+            this.flowLayoutPanel1.Controls.Add(this.guna2Button12);
             this.flowLayoutPanel1.Controls.Add(this.RespoPanel);
             this.flowLayoutPanel1.Controls.Add(this.Printbutton);
-            this.flowLayoutPanel1.Controls.Add(this.guna2Button12);
             this.flowLayoutPanel1.Controls.Add(this.PrintPanel);
-            this.flowLayoutPanel1.Controls.Add(this.LieuPanel);
-            this.flowLayoutPanel1.Controls.Add(this.guna2PictureBox1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -403,7 +388,7 @@
             this.RespoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.RespoPanel.Controls.Add(this.panel1);
             this.RespoPanel.Controls.Add(this.panel12);
-            this.RespoPanel.Location = new System.Drawing.Point(0, 291);
+            this.RespoPanel.Location = new System.Drawing.Point(0, 347);
             this.RespoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RespoPanel.Name = "RespoPanel";
             this.RespoPanel.Size = new System.Drawing.Size(165, 0);
@@ -473,7 +458,7 @@
             this.Printbutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.Printbutton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.Printbutton.ForeColor = System.Drawing.Color.White;
-            this.Printbutton.Location = new System.Drawing.Point(0, 291);
+            this.Printbutton.Location = new System.Drawing.Point(0, 347);
             this.Printbutton.Margin = new System.Windows.Forms.Padding(0);
             this.Printbutton.Name = "Printbutton";
             this.Printbutton.Size = new System.Drawing.Size(165, 56);
@@ -495,7 +480,7 @@
             this.guna2Button12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button12.ForeColor = System.Drawing.Color.White;
-            this.guna2Button12.Location = new System.Drawing.Point(0, 347);
+            this.guna2Button12.Location = new System.Drawing.Point(0, 291);
             this.guna2Button12.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button12.Name = "guna2Button12";
             this.guna2Button12.Size = new System.Drawing.Size(165, 56);
@@ -624,11 +609,12 @@
             this.LieuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.LieuPanel.Controls.Add(this.panel7);
             this.LieuPanel.Controls.Add(this.panel10);
-            this.LieuPanel.Location = new System.Drawing.Point(0, 403);
+            this.LieuPanel.Location = new System.Drawing.Point(0, 291);
             this.LieuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.LieuPanel.Name = "LieuPanel";
             this.LieuPanel.Size = new System.Drawing.Size(165, 0);
             this.LieuPanel.TabIndex = 24;
+            this.LieuPanel.Tag = "";
             // 
             // panel7
             // 
@@ -799,7 +785,6 @@
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.Cpanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
             this.BienPanel.ResumeLayout(false);
@@ -846,7 +831,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button button12;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ControlBox btnexit;
         private Guna.UI2.WinForms.Guna2ControlBox btnmax;
