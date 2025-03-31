@@ -30,11 +30,11 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Ajt = new Guna.UI2.WinForms.Guna2Button();
             this.modifier = new Guna.UI2.WinForms.Guna2Button();
             this.Suprimer = new Guna.UI2.WinForms.Guna2Button();
             this.ParCob = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,34 @@
             this.guna2Button1.Size = new System.Drawing.Size(37, 36);
             this.guna2Button1.TabIndex = 31;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // Searchbox
+            // 
+            this.Searchbox.AutoRoundedCorners = true;
+            this.Searchbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.Searchbox.BorderRadius = 17;
+            this.Searchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Searchbox.DefaultText = "";
+            this.Searchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Searchbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Searchbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Searchbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchbox.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.Searchbox.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.Searchbox.Location = new System.Drawing.Point(538, 9);
+            this.Searchbox.Margin = new System.Windows.Forms.Padding(0);
+            this.Searchbox.Name = "Searchbox";
+            this.Searchbox.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.Searchbox.PasswordChar = '\0';
+            this.Searchbox.PlaceholderText = "Search";
+            this.Searchbox.SelectedText = "";
+            this.Searchbox.Size = new System.Drawing.Size(295, 36);
+            this.Searchbox.TabIndex = 30;
+            this.Searchbox.TextChanged += new System.EventHandler(this.serch);
             // 
             // Ajt
             // 
@@ -167,34 +195,6 @@
             this.ParCob.Size = new System.Drawing.Size(176, 36);
             this.ParCob.TabIndex = 32;
             this.ParCob.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
-            // 
-            // Searchbox
-            // 
-            this.Searchbox.AutoRoundedCorners = true;
-            this.Searchbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.Searchbox.BorderRadius = 17;
-            this.Searchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Searchbox.DefaultText = "";
-            this.Searchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Searchbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Searchbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Searchbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.Searchbox.IconRightOffset = new System.Drawing.Point(5, 0);
-            this.Searchbox.Location = new System.Drawing.Point(538, 9);
-            this.Searchbox.Margin = new System.Windows.Forms.Padding(0);
-            this.Searchbox.Name = "Searchbox";
-            this.Searchbox.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.Searchbox.PasswordChar = '\0';
-            this.Searchbox.PlaceholderText = "Search";
-            this.Searchbox.SelectedText = "";
-            this.Searchbox.Size = new System.Drawing.Size(295, 36);
-            this.Searchbox.TabIndex = 30;
-            this.Searchbox.TextChanged += new System.EventHandler(this.serch);
             // 
             // Crud
             // 

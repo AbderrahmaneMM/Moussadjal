@@ -47,18 +47,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.LieuPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
             this.RespoPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.Printbutton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
             this.PrintPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
@@ -68,6 +63,11 @@
             this.button15 = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button16 = new System.Windows.Forms.Button();
+            this.LieuPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -84,9 +84,6 @@
             this.DescriPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.LieuPanel.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.RespoPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -95,6 +92,9 @@
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.LieuPanel.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,7 +255,6 @@
             // guna2Button10
             // 
             this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.BorderRadius = 16;
             this.guna2Button10.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button10.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -278,7 +277,6 @@
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 16;
             this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -294,7 +292,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(165, 56);
             this.guna2Button1.TabIndex = 21;
-            this.guna2Button1.Text = "Designations des lieux";
+            this.guna2Button1.Text = "Ldescription";
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -366,7 +364,6 @@
             // guna2Button11
             // 
             this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button11.BorderRadius = 16;
             this.guna2Button11.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button11.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button11.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -382,97 +379,9 @@
             this.guna2Button11.Name = "guna2Button11";
             this.guna2Button11.Size = new System.Drawing.Size(165, 56);
             this.guna2Button11.TabIndex = 23;
-            this.guna2Button11.Text = "Gérer les lieux des biens";
+            this.guna2Button11.Text = "Gerer les lieux des biens";
             this.guna2Button11.UseTransparentBackground = true;
             this.guna2Button11.Click += new System.EventHandler(this.guna2Button11_Click);
-            // 
-            // LieuPanel
-            // 
-            this.LieuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.LieuPanel.Controls.Add(this.panel7);
-            this.LieuPanel.Controls.Add(this.panel10);
-            this.LieuPanel.Location = new System.Drawing.Point(0, 291);
-            this.LieuPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.LieuPanel.Name = "LieuPanel";
-            this.LieuPanel.Size = new System.Drawing.Size(165, 0);
-            this.LieuPanel.TabIndex = 24;
-            this.LieuPanel.Tag = "";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
-            this.panel7.Controls.Add(this.button6);
-            this.panel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(165, 43);
-            this.panel7.TabIndex = 16;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Teal;
-            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(-18, -18);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(196, 80);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "     Ajouter un  Lieu";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.button9);
-            this.panel10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel10.Location = new System.Drawing.Point(0, 43);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel10.Size = new System.Drawing.Size(165, 43);
-            this.panel10.TabIndex = 17;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Teal;
-            this.button9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(-18, -18);
-            this.button9.Margin = new System.Windows.Forms.Padding(0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(196, 80);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "       Afficher Lieux";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // guna2Button12
-            // 
-            this.guna2Button12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button12.BorderRadius = 16;
-            this.guna2Button12.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button12.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button12.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2Button12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2Button12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button12.ForeColor = System.Drawing.Color.White;
-            this.guna2Button12.Location = new System.Drawing.Point(0, 291);
-            this.guna2Button12.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2Button12.Name = "guna2Button12";
-            this.guna2Button12.Size = new System.Drawing.Size(165, 56);
-            this.guna2Button12.TabIndex = 24;
-            this.guna2Button12.Text = "Gérer les responsables des lieux";
-            this.guna2Button12.UseTransparentBackground = true;
-            this.guna2Button12.Click += new System.EventHandler(this.guna2Button12_Click);
             // 
             // RespoPanel
             // 
@@ -539,7 +448,6 @@
             // Printbutton
             // 
             this.Printbutton.BackColor = System.Drawing.Color.Transparent;
-            this.Printbutton.BorderRadius = 16;
             this.Printbutton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Printbutton.CheckedState.FillColor = System.Drawing.Color.White;
             this.Printbutton.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -558,6 +466,28 @@
             this.Printbutton.Text = "Imprimer";
             this.Printbutton.UseTransparentBackground = true;
             this.Printbutton.Click += new System.EventHandler(this.Printbutton_Click);
+            // 
+            // guna2Button12
+            // 
+            this.guna2Button12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button12.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button12.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button12.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2Button12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2Button12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button12.ForeColor = System.Drawing.Color.White;
+            this.guna2Button12.Location = new System.Drawing.Point(0, 291);
+            this.guna2Button12.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Button12.Name = "guna2Button12";
+            this.guna2Button12.Size = new System.Drawing.Size(165, 56);
+            this.guna2Button12.TabIndex = 24;
+            this.guna2Button12.Text = "Gerer les responsables des lieux";
+            this.guna2Button12.UseTransparentBackground = true;
+            this.guna2Button12.Click += new System.EventHandler(this.guna2Button12_Click);
             // 
             // PrintPanel
             // 
@@ -673,6 +603,71 @@
             this.button16.Text = "      étiquette de Bien";
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button16.UseVisualStyleBackColor = false;
+            // 
+            // LieuPanel
+            // 
+            this.LieuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.LieuPanel.Controls.Add(this.panel7);
+            this.LieuPanel.Controls.Add(this.panel10);
+            this.LieuPanel.Location = new System.Drawing.Point(0, 291);
+            this.LieuPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.LieuPanel.Name = "LieuPanel";
+            this.LieuPanel.Size = new System.Drawing.Size(165, 0);
+            this.LieuPanel.TabIndex = 24;
+            this.LieuPanel.Tag = "";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
+            this.panel7.Controls.Add(this.button6);
+            this.panel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(165, 43);
+            this.panel7.TabIndex = 16;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Teal;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(-18, -18);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(196, 80);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "     Ajouter un  Lieu";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.button9);
+            this.panel10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel10.Location = new System.Drawing.Point(0, 43);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(165, 43);
+            this.panel10.TabIndex = 17;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Teal;
+            this.button9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(-18, -18);
+            this.button9.Margin = new System.Windows.Forms.Padding(0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(196, 80);
+            this.button9.TabIndex = 14;
+            this.button9.Text = "       Afficher Lieux";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // guna2Panel1
             // 
@@ -799,9 +794,6 @@
             this.DescriPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.LieuPanel.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.RespoPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -810,6 +802,9 @@
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
+            this.LieuPanel.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
