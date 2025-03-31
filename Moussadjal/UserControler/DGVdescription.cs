@@ -23,14 +23,12 @@ namespace Moussadjal.UserControler
         
         private void DGVdescription_Load(object sender, EventArgs e)
         { 
-            dgvB.Visible = false;
+            f.datagridviewStyle(dtgdve);
         }
         public void Description() 
         {
             db.EmptyDataGridView(dtgdve);
          
-            f.datagridviewStyle(dtgdve);
-
             db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
 
             dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
@@ -50,8 +48,6 @@ namespace Moussadjal.UserControler
         public void Bien()
         {
             db.EmptyDataGridView(dtgdve);
-       
-            f.datagridviewStyle(dtgdve);
 
             db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", "Bien", dtgdve);
 
@@ -68,8 +64,6 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
 
-            f.datagridviewStyle(dtgdve);
-
             db.remplirgridview("SELECT Id_Responsable, nometprénom FROM Responsable", "Responsable", dtgdve);
 
             dtgdve.Columns["nometprénom"].HeaderText = "nom et prénom";
@@ -79,8 +73,6 @@ namespace Moussadjal.UserControler
         public void Lieu()
         {
             db.EmptyDataGridView(dtgdve);
-
-            f.datagridviewStyle(dtgdve);
 
             db.remplirgridview("SELECT Id_lieu, designationLieu FROM Lieu", "Lieu", dtgdve);
 

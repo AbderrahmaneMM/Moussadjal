@@ -680,7 +680,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(165, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(970, 43);
+            this.guna2Panel1.Size = new System.Drawing.Size(1085, 43);
             this.guna2Panel1.TabIndex = 1;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -693,7 +693,7 @@
             this.guna2ControlBox1.CustomClick = true;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox1.Location = new System.Drawing.Point(928, 3);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1043, 3);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox1.TabIndex = 5;
@@ -708,7 +708,7 @@
             this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox2.Location = new System.Drawing.Point(887, 3);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1002, 3);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox2.TabIndex = 4;
@@ -723,7 +723,7 @@
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ControlBox3.Location = new System.Drawing.Point(846, 3);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(961, 3);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(35, 28);
             this.guna2ControlBox3.TabIndex = 3;
@@ -737,7 +737,7 @@
             this.btnexit.CustomClick = true;
             this.btnexit.FillColor = System.Drawing.Color.White;
             this.btnexit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnexit.Location = new System.Drawing.Point(1881, 4);
+            this.btnexit.Location = new System.Drawing.Point(1996, 4);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(35, 29);
             this.btnexit.TabIndex = 2;
@@ -751,7 +751,7 @@
             this.btnmax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmax.FillColor = System.Drawing.Color.White;
             this.btnmax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmax.Location = new System.Drawing.Point(1840, 4);
+            this.btnmax.Location = new System.Drawing.Point(1955, 4);
             this.btnmax.Name = "btnmax";
             this.btnmax.Size = new System.Drawing.Size(35, 29);
             this.btnmax.TabIndex = 1;
@@ -765,7 +765,7 @@
             this.btnmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmin.FillColor = System.Drawing.Color.White;
             this.btnmin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.btnmin.Location = new System.Drawing.Point(1799, 4);
+            this.btnmin.Location = new System.Drawing.Point(1914, 4);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
@@ -777,12 +777,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1135, 605);
+            this.ClientSize = new System.Drawing.Size(1250, 605);
             this.Controls.Add(this.Cpanel);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "dashboard";
             this.Text = "dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.Cpanel.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);

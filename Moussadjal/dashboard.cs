@@ -82,7 +82,8 @@ namespace Moussadjal
         }
         private void dashboard_Load(object sender, EventArgs e)
         {
-         
+            Cpanel.Size = new Size(guna2Panel1.Width - 15, flowLayoutPanel1.Height - guna2Panel1.Height);
+
             AJTbien ab = new AJTbien();
             DGVdescription dgv = new DGVdescription();
             Crud cr = new Crud();
@@ -234,6 +235,7 @@ namespace Moussadjal
         private void guna2ControlBox2_Click(object sender, EventArgs e)
         {
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
+            this.Location = new Point(175,100);
         }
 
         private void Cpanel_Paint(object sender, PaintEventArgs e)

@@ -9,6 +9,7 @@ using System.Data;
 using ZXing;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
+using System.Windows.Controls;
 
 namespace Moussadjal
 {
@@ -106,6 +107,14 @@ namespace Moussadjal
             scn.Close();
         }
         //methode de remplissage datagridview 
+        public DataSet search(string query , DataGridView dg)
+        {
+            SqlCommand cmd = new SqlCommand(query, scn);
+            SqlDataAdapter dp = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            dp.Fill(ds);
+            return ds;
+        }
         public void remplirgridview(string query, string tab, DataGridView dg)
         {
 

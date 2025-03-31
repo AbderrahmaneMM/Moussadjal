@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialDesignThemes.Wpf;
+using System.Windows.Shapes;
 
 namespace Moussadjal.UserControler
 {
@@ -16,7 +18,7 @@ namespace Moussadjal.UserControler
         public Crud()
         {
             InitializeComponent();
-
+            Searchbox.TextChanged += serch;
         }
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -30,6 +32,25 @@ namespace Moussadjal.UserControler
         private void modifier_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        Database db = new Database();
+        DGVdescription dgv = new DGVdescription();
+        private void serch(object sender, EventArgs e)
+        {
+            //if (Searchbox.TextLength >=4) 
+             
+
+            
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+          db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien WHERE designation = '"+Searchbox.Text+"'", "Description_de_bien", dgv.dtgdve);
         }
     }
 }

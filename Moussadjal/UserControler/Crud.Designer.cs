@@ -34,6 +34,7 @@
             this.Ajt = new Guna.UI2.WinForms.Guna2Button();
             this.modifier = new Guna.UI2.WinForms.Guna2Button();
             this.Suprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,10 +42,11 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.guna2Button1);
-            this.guna2Panel1.Controls.Add(this.Searchbox);
             this.guna2Panel1.Controls.Add(this.Ajt);
             this.guna2Panel1.Controls.Add(this.modifier);
             this.guna2Panel1.Controls.Add(this.Suprimer);
+            this.guna2Panel1.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel1.Controls.Add(this.Searchbox);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -64,17 +66,17 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.Image = global::Moussadjal.Properties.Resources.icons8_search_50;
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2Button1.Location = new System.Drawing.Point(630, 9);
+            this.guna2Button1.Location = new System.Drawing.Point(848, 9);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(39, 36);
+            this.guna2Button1.Size = new System.Drawing.Size(37, 36);
             this.guna2Button1.TabIndex = 31;
-            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // Searchbox
             // 
@@ -93,15 +95,16 @@
             this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Searchbox.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.Searchbox.IconRightOffset = new System.Drawing.Point(5, 0);
-            this.Searchbox.Location = new System.Drawing.Point(349, 9);
+            this.Searchbox.Location = new System.Drawing.Point(538, 9);
             this.Searchbox.Margin = new System.Windows.Forms.Padding(0);
             this.Searchbox.Name = "Searchbox";
             this.Searchbox.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.Searchbox.PasswordChar = '\0';
             this.Searchbox.PlaceholderText = "Search";
             this.Searchbox.SelectedText = "";
-            this.Searchbox.Size = new System.Drawing.Size(320, 36);
+            this.Searchbox.Size = new System.Drawing.Size(295, 36);
             this.Searchbox.TabIndex = 30;
+            this.Searchbox.TextChanged += new System.EventHandler(this.serch);
             // 
             // Ajt
             // 
@@ -173,6 +176,26 @@
             this.Suprimer.Text = "Suprimer";
             this.Suprimer.UseTransparentBackground = true;
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2ComboBox1.BorderRadius = 17;
+            this.guna2ComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(348, 9);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(176, 36);
+            this.guna2ComboBox1.TabIndex = 32;
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
             // Crud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,5 +215,6 @@
         public Guna.UI2.WinForms.Guna2Button modifier;
         public Guna.UI2.WinForms.Guna2TextBox Searchbox;
         public Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }
