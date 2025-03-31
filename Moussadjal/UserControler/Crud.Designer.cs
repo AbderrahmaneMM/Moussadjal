@@ -166,7 +166,7 @@
             this.Searchbox.Name = "Searchbox";
             this.Searchbox.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.Searchbox.PasswordChar = '\0';
-            this.Searchbox.PlaceholderText = "Search";
+            this.Searchbox.PlaceholderText = "Searche";
             this.Searchbox.SelectedText = "";
             this.Searchbox.Size = new System.Drawing.Size(295, 36);
             this.Searchbox.TabIndex = 30;
