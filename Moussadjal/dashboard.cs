@@ -47,7 +47,7 @@ namespace Moussadjal
         public void search(object sender, EventArgs e)
         {
             db.EmptyDataGridView(dgv.dtgdve);
-            db.remplirgridview($"{srq}{cr.ParCob.Text} like '%{cr.Searchbox.Text}%'", dgv.dtgdve);
+            db.remplirgridview($"{srq}{cr.ParCob.SelectedValue} like '%{cr.Searchbox.Text}%'", dgv.dtgdve);
         }
         public void UCAjouter(UserControl uc)
         {
@@ -132,14 +132,26 @@ namespace Moussadjal
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
-                Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
-                Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
+               Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
+               Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
                srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
                 " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
-               cr.ParCob.Items.Add("d.numero_sequentiel");
-            cr.ParCob.Items.Add("b.Id_lieu");
-            cr.ParCob.Items.Add("d.annee");
+
+                var items = new[]
+               {
+             new { Text = "Par numero_sequentiel", Value = "d.numero_sequentiel" },
+             new { Text = "Par Lieu", Value = "b.Id_lieu" },
+              new { Text = "Par année", Value = "d.annee" }
+             };
+
+            cr.ParCob.DataSource = items;
+            cr.ParCob.DisplayMember = "Text";
+            cr.ParCob.ValueMember = "Value";
+
+            //cr.ParCob.Items.Add("d.numero_sequentiel");
+            //   cr.ParCob.Items.Add("b.Id_lieu");
+            //    cr.ParCob.Items.Add("d.annee");
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
