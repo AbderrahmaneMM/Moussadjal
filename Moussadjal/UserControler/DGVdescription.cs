@@ -49,7 +49,16 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
 
-            db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", dtgdve);
+            db.remplirgridview("SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
+                " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
+                " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel", dtgdve);
+            // SELECT*FROM Bien JOIN Description_de_bien ON Bien.numero_sequentiel = Description_de_bien.numero_sequentiel
+            /*/SELECT
+            b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu,
+           d.designation, d.division, d.annee, d.quantite, d.observation
+         FROM Bien b
+          JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel*/
+
 
             dtgdve.Columns["numero_dinventaire"].HeaderText = "NI";
             dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
@@ -58,6 +67,12 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["numero_dinventaire"].Width = 60;
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
             dtgdve.Columns["numero_sequentiel"].Width = 60;
+
+            dtgdve.Columns["division"].HeaderText = "Div";
+            dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
+            dtgdve.Columns["quantite"].HeaderText = "Quantité";
+            dtgdve.Columns["observation"].HeaderText = "Observation";
+
             dtgdve.Rows[0].Selected = true;
         }
         public void Responsable()

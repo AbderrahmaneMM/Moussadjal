@@ -134,8 +134,12 @@ namespace Moussadjal
 
                 Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
                 Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
-               srq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien where  ";
-               cr.ParCob.Items.Add("numero_sequentiel");
+               srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
+                " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
+                " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
+               cr.ParCob.Items.Add("d.numero_sequentiel");
+            cr.ParCob.Items.Add("b.Id_lieu");
+            cr.ParCob.Items.Add("d.annee");
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
