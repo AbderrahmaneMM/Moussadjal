@@ -34,7 +34,7 @@
             this.Ajt = new Guna.UI2.WinForms.Guna2Button();
             this.modifier = new Guna.UI2.WinForms.Guna2Button();
             this.Suprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.ParCob = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.guna2Panel1.Controls.Add(this.Ajt);
             this.guna2Panel1.Controls.Add(this.modifier);
             this.guna2Panel1.Controls.Add(this.Suprimer);
-            this.guna2Panel1.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel1.Controls.Add(this.ParCob);
             this.guna2Panel1.Controls.Add(this.Searchbox);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
@@ -176,25 +176,25 @@
             this.Suprimer.Text = "Suprimer";
             this.Suprimer.UseTransparentBackground = true;
             // 
-            // guna2ComboBox1
+            // ParCob
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(348, 9);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(176, 36);
-            this.guna2ComboBox1.TabIndex = 32;
-            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            this.ParCob.BackColor = System.Drawing.Color.Transparent;
+            this.ParCob.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.ParCob.BorderRadius = 17;
+            this.ParCob.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ParCob.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ParCob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ParCob.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ParCob.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ParCob.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ParCob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.ParCob.ItemHeight = 30;
+            this.ParCob.Location = new System.Drawing.Point(348, 9);
+            this.ParCob.Name = "ParCob";
+            this.ParCob.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ParCob.Size = new System.Drawing.Size(176, 36);
+            this.ParCob.TabIndex = 32;
+            this.ParCob.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
             // Crud
             // 
@@ -215,6 +215,6 @@
         public Guna.UI2.WinForms.Guna2Button modifier;
         public Guna.UI2.WinForms.Guna2TextBox Searchbox;
         public Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        public Guna.UI2.WinForms.Guna2ComboBox ParCob;
     }
 }

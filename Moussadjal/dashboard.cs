@@ -34,6 +34,7 @@ namespace Moussadjal
 
         string Mq;
         string Sq;
+        string srq;
         string dgvM;
         public dashboard()
         {
@@ -41,12 +42,12 @@ namespace Moussadjal
             cr.Ajt.Click      += Ajouter; 
             cr.modifier.Click += Modifier;
             cr.Suprimer.Click += Suprimer;
-            cr.guna2Button1.Click += search;
+            cr.Searchbox.TextChanged += search;
         }
-        public void search(object sender, EventArgs e) 
+        public void search(object sender, EventArgs e)
         {
-            db.remplirgridview("Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where designation like N'c%'", dgv.dtgdve);
-
+            db.EmptyDataGridView(dgv.dtgdve);
+            db.remplirgridview($"{srq}{cr.ParCob.Text} like '%{cr.Searchbox.Text}%'", dgv.dtgdve);
         }
         public void UCAjouter(UserControl uc)
         {
@@ -133,7 +134,8 @@ namespace Moussadjal
 
                 Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
                 Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
-            
+               srq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien where  ";
+               cr.ParCob.Items.Add("numero_sequentiel");
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
@@ -164,6 +166,9 @@ namespace Moussadjal
 
             Mq = "SELECT Id_lieu, designationLieu FROM Lieu";
             Sq = "delete from Lieu where Id_lieu = " + deleteRow;
+            srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
+
+            cr.ParCob.Items.Add("designationLieu");
         }
 
         private void guna2Button12_Click(object sender, EventArgs e)
@@ -194,6 +199,9 @@ namespace Moussadjal
 
             Mq = "SELECT Id_Responsable, nometprénom FROM Responsable";
             Sq = "delete from Responsable where Id_Responsable = " + deleteRow;
+            srq = "Select Id_Responsable, nometprénom FROM Responsable where ";
+
+            cr.ParCob.Items.Add("nometprénom");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -275,7 +283,9 @@ namespace Moussadjal
 
                 Mq = "select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien";
                 Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
-         
+                srq = "Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where ";
+
+            cr.ParCob.Items.Add("designation");
         }
 
         private void button3_Click(object sender, EventArgs e)

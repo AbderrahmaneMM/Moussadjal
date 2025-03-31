@@ -38,19 +38,13 @@ namespace Moussadjal.UserControler
         {
 
         }
-        Database db = new Database();
-        DGVdescription dgv = new DGVdescription();
-        private void serch(object sender, EventArgs e)
+        public void serch(object sender, EventArgs e)
         {
-            //if (Searchbox.TextLength >=4) 
              
-
-            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-          db.remplirgridview("Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where designation like N'c%'", dgv.dtgdve);
         }
     }
 }
