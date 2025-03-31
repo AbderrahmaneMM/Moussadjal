@@ -29,7 +29,7 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
          
-            db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", "Description_de_bien", dtgdve);
+            db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien", dtgdve);
 
             dtgdve.Columns["numero_sequentiel"].HeaderText = "Ns";
             dtgdve.Columns["designation"].HeaderText = "Designation";
@@ -49,7 +49,7 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
 
-            db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", "Bien", dtgdve);
+            db.remplirgridview("SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien", dtgdve);
 
             dtgdve.Columns["numero_dinventaire"].HeaderText = "NI";
             dtgdve.Columns["numero_sequentiel"].HeaderText = "NS";
@@ -64,7 +64,7 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
 
-            db.remplirgridview("SELECT Id_Responsable, nometprénom FROM Responsable", "Responsable", dtgdve);
+            db.remplirgridview("SELECT Id_Responsable, nometprénom FROM Responsable", dtgdve);
 
             dtgdve.Columns["nometprénom"].HeaderText = "nom et prénom";
             dtgdve.Columns["Id_Responsable"].HeaderText = " Id de Responsable";
@@ -74,7 +74,7 @@ namespace Moussadjal.UserControler
         {
             db.EmptyDataGridView(dtgdve);
 
-            db.remplirgridview("SELECT Id_lieu, designationLieu FROM Lieu", "Lieu", dtgdve);
+            db.remplirgridview("SELECT Id_lieu, designationLieu FROM Lieu", dtgdve);
 
             dtgdve.Columns["Id_lieu"].HeaderText = "Id de lieu";
             dtgdve.Columns["designationLieu"].HeaderText = "designation de Lieu";

@@ -50,7 +50,7 @@ namespace Moussadjal.UserControler
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-          db.remplirgridview("SELECT numero_sequentiel, designation, division, annee, quantite, observation FROM Description_de_bien WHERE designation = '"+Searchbox.Text+"'", "Description_de_bien", dgv.dtgdve);
+          db.remplirgridview("Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where designation like N'c%'", dgv.dtgdve);
         }
     }
 }

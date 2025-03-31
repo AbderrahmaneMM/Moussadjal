@@ -115,7 +115,7 @@ namespace Moussadjal
             dp.Fill(ds);
             return ds;
         }
-        public void remplirgridview(string query, string tab, DataGridView dg)
+        public void remplirgridview(string query, DataGridView dg)
         {
 
             sda = new SqlDataAdapter(query, connection);

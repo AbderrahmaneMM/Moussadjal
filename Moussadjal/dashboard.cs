@@ -41,6 +41,12 @@ namespace Moussadjal
             cr.Ajt.Click      += Ajouter; 
             cr.modifier.Click += Modifier;
             cr.Suprimer.Click += Suprimer;
+            cr.guna2Button1.Click += search;
+        }
+        public void search(object sender, EventArgs e) 
+        {
+            db.remplirgridview("Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where designation like N'c%'", dgv.dtgdve);
+
         }
         public void UCAjouter(UserControl uc)
         {
