@@ -20,15 +20,18 @@ namespace Moussadjal
 {
     public partial class dashboard : Form1
     {
-        AJTbien        ab = new AJTbien();
         DGVdescription dgv = new DGVdescription();
+        Database       db = new Database();
+
+        AJTbien        ab = new AJTbien();
         Crud           cr = new Crud();
         Descrip dscrip = new Descrip();
-        Database       db = new Database();
+        Respo Respo = new Respo();
+        Lieu L = new Lieu();
 
         UserControl UC;
         //pour la modification et la supresion
-      //  Guna2DataGridView gdgv = new Guna2DataGridView();
+
         string Mq;
         string Sq;
         string dgvM;
@@ -84,6 +87,8 @@ namespace Moussadjal
             DGVdescription dgv = new DGVdescription();
             Crud cr = new Crud();
             Descrip dscrip = new Descrip();
+            Respo Respo = new Respo();
+            Lieu L = new Lieu();
 
             UCAjouter(ab);
         }
@@ -127,11 +132,61 @@ namespace Moussadjal
         private void guna2Button11_Click(object sender, EventArgs e)
         {
             ExpandPanel(guna2Button11, LieuPanel);
+
+            dgv.Lieu();
+            UC = L;
+
+            Cpanel.Controls.Clear();
+
+            Cpanel.Controls.Add(dgvPanel);
+            dgvPanel.Dock = DockStyle.Fill;
+
+
+            Cpanel.Controls.Add(cr);
+            cr.Dock = DockStyle.Top;
+
+            dgvPanel.Controls.Clear();
+
+            dgvPanel.Controls.Add(dgv);
+            dgv.Dock = DockStyle.Fill;
+            dgv.Padding = new Padding(3, 5, 5, 5);
+
+
+            dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_lieu"].Value.ToString();
+            string deleteRow = dgv.dtgdve.CurrentRow.Cells["Id_lieu"].Value.ToString();
+
+            Mq = "SELECT Id_lieu, designationLieu FROM Lieu";
+            Sq = "delete from Lieu where Id_lieu = " + deleteRow;
         }
 
         private void guna2Button12_Click(object sender, EventArgs e)
         {
             ExpandPanel(guna2Button12, RespoPanel);
+
+            dgv.Responsable();
+            UC = Respo;
+
+            Cpanel.Controls.Clear();
+
+            Cpanel.Controls.Add(dgvPanel);
+            dgvPanel.Dock = DockStyle.Fill;
+
+
+            Cpanel.Controls.Add(cr);
+            cr.Dock = DockStyle.Top;
+
+            dgvPanel.Controls.Clear();
+
+            dgvPanel.Controls.Add(dgv);
+            dgv.Dock = DockStyle.Fill;
+            dgv.Padding = new Padding(3, 5, 5, 5);
+
+
+            dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_Responsable"].Value.ToString();
+            string deleteRow = dgv.dtgdve.CurrentRow.Cells["Id_Responsable"].Value.ToString();
+
+            Mq = "SELECT Id_Responsable, nometprénom FROM Responsable";
+            Sq = "delete from Responsable where Id_Responsable = " + deleteRow;
         }
 
         private void button2_Click(object sender, EventArgs e)

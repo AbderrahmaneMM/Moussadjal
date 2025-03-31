@@ -40,13 +40,7 @@ namespace Moussadjal
         //read/select
 
         //update
-        public int Modifier(string query)
-        {
-         
-            scd.ExecuteNonQuery();
-            //scn.Close();
-            return scd.ExecuteNonQuery();
-        }
+     
         public void Enregistrer(string query, DataGridView dg)
         {
             try
@@ -63,8 +57,8 @@ namespace Moussadjal
 
                     bs.DataSource = dt;
                     dg.DataSource = bs;
-                    MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                     MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
                 }
                 scn.Close();
             }

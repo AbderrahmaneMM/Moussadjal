@@ -66,15 +66,17 @@ namespace Moussadjal
 
         public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)
         {
-            var parent = btn.Parent as FlowLayoutPanel;
-            if (parent == null) return;
+            FlowLayoutPanel parentPanel = (FlowLayoutPanel)btn.Parent;
 
-            foreach (Control control in parent.Controls)
+            foreach (Control c in parentPanel.Controls)
             {
-                if (control is Guna2Button b) b.Checked = (b == btn);
-                if (control is FlowLayoutPanel fpl) fpl.Height = (fpl == pnl && btn.Checked) ? 86 : 0;
-            }
+                if (c is FlowLayoutPanel panel)
+                {
+                    if (panel == pnl && btn.Checked) panel.Height = 86; 
 
+                    else panel.Height = 0;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

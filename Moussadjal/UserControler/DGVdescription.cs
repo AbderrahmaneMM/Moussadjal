@@ -73,7 +73,7 @@ namespace Moussadjal.UserControler
             db.remplirgridview("SELECT Id_Responsable, nometprénom FROM Responsable", "Responsable", dtgdve);
 
             dtgdve.Columns["nometprénom"].HeaderText = "nom et prénom";
-            dtgdve.Columns[" Id_Responsable"].HeaderText = " Id de Responsable";
+            dtgdve.Columns["Id_Responsable"].HeaderText = " Id de Responsable";
             dtgdve.Rows[0].Selected = true;
         }
         public void Lieu()

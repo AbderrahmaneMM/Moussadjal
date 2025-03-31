@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.Searchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Ajt = new Guna.UI2.WinForms.Guna2Button();
             this.modifier = new Guna.UI2.WinForms.Guna2Button();
@@ -39,6 +40,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.Searchbox);
             this.guna2Panel1.Controls.Add(this.Ajt);
             this.guna2Panel1.Controls.Add(this.modifier);
@@ -49,6 +51,30 @@
             this.guna2Panel1.Size = new System.Drawing.Size(960, 61);
             this.guna2Panel1.TabIndex = 31;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2Button1.BorderRadius = 17;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::Moussadjal.Properties.Resources.icons8_search_50;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button1.Location = new System.Drawing.Point(630, 9);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(39, 36);
+            this.guna2Button1.TabIndex = 31;
+            this.guna2Button1.UseTransparentBackground = true;
             // 
             // Searchbox
             // 
@@ -65,7 +91,6 @@
             this.Searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Searchbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.Searchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchbox.IconRight = global::Moussadjal.Properties.Resources.icons8_search_50;
             this.Searchbox.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.Searchbox.IconRightOffset = new System.Drawing.Point(5, 0);
             this.Searchbox.Location = new System.Drawing.Point(349, 9);
@@ -166,5 +191,6 @@
         public Guna.UI2.WinForms.Guna2Button Suprimer;
         public Guna.UI2.WinForms.Guna2Button modifier;
         public Guna.UI2.WinForms.Guna2TextBox Searchbox;
+        public Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

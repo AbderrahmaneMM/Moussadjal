@@ -66,7 +66,7 @@ namespace Moussadjal.UserControler
                     MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("Le Bien est existe déjat");
+                    MessageBox.Show("Le Bien existe déjat");
             }
             catch (Exception ex)
             {

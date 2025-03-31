@@ -126,6 +126,18 @@
     <Compile Include="UserControler\DGVdescription.Designer.cs">
       <DependentUpon>DGVdescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\Lieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\Lieu.Designer.cs">
+      <DependentUpon>Lieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControler\Respo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\Respo.Designer.cs">
+      <DependentUpon>Respo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\DGVdescription.resx">
       <DependentUpon>DGVdescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\Lieu.resx">
+      <DependentUpon>Lieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\Respo.resx">
+      <DependentUpon>Respo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
