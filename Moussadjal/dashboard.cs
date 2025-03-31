@@ -149,9 +149,6 @@ namespace Moussadjal
             cr.ParCob.DisplayMember = "Text";
             cr.ParCob.ValueMember = "Value";
 
-            //cr.ParCob.Items.Add("d.numero_sequentiel");
-            //   cr.ParCob.Items.Add("b.Id_lieu");
-            //    cr.ParCob.Items.Add("d.annee");
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
