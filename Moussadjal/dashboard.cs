@@ -67,7 +67,7 @@ namespace Moussadjal
             {
                 if (string.IsNullOrWhiteSpace(dgvM))
                 {
-                    MessageBox.Show("la 1ere column est vide", "Validation Error",
+                    MessageBox.Show("la 1 ere column est vide", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -140,9 +140,9 @@ namespace Moussadjal
 
                 var items = new[]
                {
-             new { Text = "Par numero_sequentiel", Value = "d.numero_sequentiel" },
-             new { Text = "Par Lieu", Value = "b.Id_lieu" },
-              new { Text = "Par année", Value = "d.annee" }
+             new { Text = "Recharche par numéro sequentiel", Value = "d.numero_sequentiel" },
+             new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
+              new { Text = "Recharche par année", Value = "d.annee" }
              };
 
             cr.ParCob.DataSource = items;
