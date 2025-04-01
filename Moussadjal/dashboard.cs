@@ -181,7 +181,16 @@ namespace Moussadjal
             Sq = "delete from Lieu where Id_lieu = " + deleteRow;
             srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
 
-            cr.ParCob.Items.Add("designationLieu");
+            ///////////
+            var items = new[]
+           {
+             new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
+              new { Text = "Recharche par résponsble", Value = "Id_Responsable" }
+             };
+
+            cr.ParCob.DataSource = items;
+            cr.ParCob.DisplayMember = "Text";
+            cr.ParCob.ValueMember = "Value";
         }
 
         private void guna2Button12_Click(object sender, EventArgs e)
