@@ -100,8 +100,6 @@ namespace Moussadjal
 
             UCAjouter(ab);
         }
-
-       
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -132,7 +130,9 @@ namespace Moussadjal
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
-               Mq = "select numero_dinventaire, numero_sequentiel, Id_lieu from Bien";
+               Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
+                " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
+                " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel";
                Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
                srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
                 " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
@@ -306,8 +306,15 @@ namespace Moussadjal
                 Mq = "select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien";
                 Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
                 srq = "Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where ";
+            var items = new[]
+            {
+             new { Text = "Recharche par designation", Value = "designation" }
+            };
 
-            cr.ParCob.Items.Add("designation");
+            cr.ParCob.DataSource = items;
+            cr.ParCob.DisplayMember = "Text";
+            cr.ParCob.ValueMember = "Value";
+
         }
 
         private void button3_Click(object sender, EventArgs e)
