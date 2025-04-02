@@ -70,6 +70,41 @@ namespace Moussadjal
 
         }
 
+        public void Enregistrer2T(string qt1 , string qt2 ,string query ,DataGridView dg)
+        {
+            try
+            {
+                   scn.Open();
+                    // تحديث جدول Bien
+                    using (SqlDataAdapter adapterBien = new SqlDataAdapter(qt1, connection))
+                    {
+                        new SqlCommandBuilder(adapterBien);
+                        adapterBien.Update(dt);
+                    }
+
+                    // تحديث جدول Description_de_bien
+                    using (SqlDataAdapter adapterDesc = new SqlDataAdapter(qt2, connection))
+                    {
+                        new SqlCommandBuilder(adapterDesc);
+                        adapterDesc.Update(dt);
+                    }
+               
+                    // إعادة تعبئة البيانات
+                    dt.Clear();
+                    using (sda = new SqlDataAdapter(query, connection))
+                    {
+                        sda.Fill(dt);
+                    }
+
+                    dg.DataSource = dt;
+                    MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    scn.Close();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ في حفظ التغييرات: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         //delete
 
         public void Suprimer(string query)

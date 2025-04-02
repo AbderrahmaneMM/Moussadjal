@@ -31,11 +31,8 @@ namespace Moussadjal
 
         UserControl UC;
         //pour la modification et la supresion
-
-        string Mq;
-        string Sq;
-        string srq;
-        string dgvM;
+        string Mq,qt1, qt2 ,Sq,srq,dgvM;
+      
         public dashboard()
         {
             InitializeComponent();
@@ -70,6 +67,10 @@ namespace Moussadjal
                     MessageBox.Show("la 1 ere column est vide", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
+                }
+                else if (UC is AJTbien ab) 
+                {
+                  db.Enregistrer2T(qt1,qt2,Mq, dgv.dtgdve);
                 }
                 else db.Enregistrer(Mq, dgv.dtgdve);
             }
@@ -130,15 +131,21 @@ namespace Moussadjal
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
-               Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
+            //modifer querys
+            Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
                 " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel";
-               Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
-               srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
+            //suprimer query
+            Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
+            //search query
+            srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
                 " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
+            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
+            qt2 = "SELECT designation, division, annee, quantite, observation FROM Description_de_bien ";
 
-                var items = new[]
+            //filter de recherche
+            var items = new[]
                {
              new { Text = "Recharche par numéro sequentiel", Value = "d.numero_sequentiel" },
              new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
