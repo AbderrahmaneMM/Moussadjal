@@ -68,11 +68,22 @@ namespace Moussadjal
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else if (UC is AJTbien ab) 
+                switch (UC) 
                 {
+                    case AJTbien ab:
                   db.Enregistrer2T(qt1,qt2,Mq, dgv.dtgdve);
+                        break;
+                    case Descrip dscrip:
+                        db.Enregistrer(Mq, dgv.dtgdve);
+                        break;
+                    case Lieu L:
+                        db.Enregistrer(Mq, dgv.dtgdve);
+                        break;
+                    case Respo Respo:
+                        db.Enregistrer(Mq, dgv.dtgdve);
+                        break;
                 }
-                else db.Enregistrer(Mq, dgv.dtgdve);
+            
             }
             catch (Exception ex)
             {
@@ -133,20 +144,20 @@ namespace Moussadjal
 
             //modifer querys
             Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
-                " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
+                " d.designation, d.division, d.annee, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel";
             //suprimer query
             Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
             //search query
-            srq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
-                " d.designation, d.division, d.annee, d.quantite, d.observation FROM Bien b" +
+            srq = "SELECT b.numero_dinventaire, b.numero_sequentiel," +
+                " d.division, d.designation, d.annee, b.Id_lieu, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
             qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
-            qt2 = "SELECT designation, division, annee, quantite, observation FROM Description_de_bien ";
+            qt2 = "SELECT designation, division, annee, observation FROM Description_de_bien ";
 
             //filter de recherche
             var items = new[]
-               {
+            {
              new { Text = "Recharche par numéro sequentiel", Value = "d.numero_sequentiel" },
              new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
               new { Text = "Recharche par année", Value = "d.annee" }
@@ -189,10 +200,10 @@ namespace Moussadjal
             srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
 
             ///////////
-            var items = new[]
-           {
-             new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
-              new { Text = "Recharche par résponsble", Value = "Id_Responsable" }
+             var items = new[]
+             {
+               new { Text = "Recharche par Lieu", Value = "Id_lieu" },
+              // new { Text = "Recharche par résponsble", Value = "Id_Responsable" }
              };
 
             cr.ParCob.DataSource = items;
@@ -230,7 +241,14 @@ namespace Moussadjal
             Sq = "delete from Responsable where Id_Responsable = " + deleteRow;
             srq = "Select Id_Responsable, nometprénom FROM Responsable where ";
 
-            cr.ParCob.Items.Add("nometprénom");
+            var items = new[]
+            {
+             new { Text = "Recharche par Nom", Value = "nometprénom" }
+            };
+
+            cr.ParCob.DataSource = items;
+            cr.ParCob.DisplayMember = "Text";
+            cr.ParCob.ValueMember = "Value";
         }
 
         private void button2_Click(object sender, EventArgs e)
