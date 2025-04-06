@@ -70,40 +70,78 @@ namespace Moussadjal
 
         }
 
-        public void Enregistrer2T(string qt1 , string qt2 ,string query ,DataGridView dg)
+        public void Enregistrer2T(string qt1, string qt2, string query, DataGridView dg)
         {
             try
             {
-                   scn.Open();
-                    // تحديث جدول Bien
-                    using (SqlDataAdapter adapterBien = new SqlDataAdapter(qt1, connection))
-                    {
-                        new SqlCommandBuilder(adapterBien);
-                        adapterBien.Update(dt);
-                    }
+                scn.Open();
+                // تحديث جدول Bien
+                using (SqlDataAdapter adapterBien = new SqlDataAdapter(qt1, connection))
+                {
+                    new SqlCommandBuilder(adapterBien);
+                    adapterBien.Fill(dt);
+                    adapterBien.Update(dt);
+                }
 
-                    // تحديث جدول Description_de_bien
-                    using (SqlDataAdapter adapterDesc = new SqlDataAdapter(qt2, connection))
-                    {
-                        new SqlCommandBuilder(adapterDesc);
-                        adapterDesc.Update(dt);
-                    }
-               
-                    // إعادة تعبئة البيانات
-                    dt.Clear();
-                    using (sda = new SqlDataAdapter(query, connection))
-                    {
-                        sda.Fill(dt);
-                    }
+                // تحديث جدول Description_de_bien
+                using (SqlDataAdapter adapterDesc = new SqlDataAdapter(qt2, connection))
+                {
+                    new SqlCommandBuilder(adapterDesc);
+                    adapterDesc.Update(dt);
+                }
 
-                    dg.DataSource = dt;
-                    MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    scn.Close();
-            } 
+                // إعادة تعبئة البيانات
+                dt.Clear();
+                using (sda = new SqlDataAdapter(query, connection))
+                {
+                    sda.Fill(dt);
+                }
+
+                dg.DataSource = dt;
+                MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                scn.Close();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ في حفظ التغييرات: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            /*var ds = new DataSet();
+            
+            // Fill and update first table
+            using (var adapter1 = new SqlDataAdapter(table1Query, connection))
+            {
+                new SqlCommandBuilder(adapter1);
+                var dt1 = new DataTable();
+                adapter1.Fill(dt1);
+                adapter1.Update(dt1);
+            }
+            
+            // Fill and update second table
+            using (var adapter2 = new SqlDataAdapter(table2Query, connection))
+            {
+                new SqlCommandBuilder(adapter2);
+                var dt2 = new DataTable();
+                adapter2.Fill(dt2);
+                adapter2.Update(dt2);
+            }
+            
+            // Refresh the joined view
+            using (var adapterJoin = new SqlDataAdapter(joinQuery, connection))
+            {
+                var dt = new DataTable();
+                adapterJoin.Fill(dt);
+                dg.DataSource = dt;
+            }
+            
+            MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", 
+                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("خطأ في حفظ التغييرات: " + ex.Message, "خطأ", 
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);*/
         }
         //delete
 

@@ -146,14 +146,14 @@ namespace Moussadjal
             Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
                 " d.designation, d.division, d.annee, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel";
+            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
+            qt2 = "SELECT designation, division, annee, observation FROM Description_de_bien ";
             //suprimer query
             Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
             //search query
             srq = "SELECT b.numero_dinventaire, b.numero_sequentiel," +
                 " d.division, d.designation, d.annee, b.Id_lieu, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
-            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
-            qt2 = "SELECT designation, division, annee, observation FROM Description_de_bien ";
 
             //filter de recherche
             var items = new[]
