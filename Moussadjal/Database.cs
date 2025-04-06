@@ -10,6 +10,7 @@ using ZXing;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
 using System.Windows.Controls;
+using Moussadjal.UserControler;
 
 namespace Moussadjal
 {
@@ -27,8 +28,10 @@ namespace Moussadjal
         public string query;
         string connection = @"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030";
 
-        public DataTable dt = new DataTable();
+        public static  DataTable dt = new DataTable();
         public BindingSource bs = new BindingSource();
+       
+      
         //insert
         public void Ajouter(string query)
         {   scn.Open();
@@ -43,21 +46,17 @@ namespace Moussadjal
         //update
      
         public void Enregistrer(string query, DataGridView dg)
-        {
+        {DGVdescription dgv = new DGVdescription();
             try
             {
                 scn.Open();
-                using (sda = new SqlDataAdapter(query, connection))
-                {
-                    builder = new SqlCommandBuilder(sda);
+                using (sda = new SqlDataAdapter(query, connection)) { 
+                  builder = new SqlCommandBuilder(sda);
 
+                    dgv.dtgdve.DataSource = dt;
+      
                     sda.Update(dt);
 
-                    dt.Clear();
-                    sda.Fill(dt);
-
-                    bs.DataSource = dt;
-                    dg.DataSource = bs;
                      MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                    
                 }
@@ -72,38 +71,38 @@ namespace Moussadjal
 
         public void Enregistrer2T(string qt1, string qt2, string query, DataGridView dg)
         {
+            DGVdescription dgv = new DGVdescription();
             try
             {
                 scn.Open();
-                // تحديث جدول Bien
-                using (SqlDataAdapter adapterBien = new SqlDataAdapter(qt1, connection))
-                {
-                    new SqlCommandBuilder(adapterBien);
-                    adapterBien.Fill(dt);
-                    adapterBien.Update(dt);
-                }
-
-                // تحديث جدول Description_de_bien
-                using (SqlDataAdapter adapterDesc = new SqlDataAdapter(qt2, connection))
-                {
-                    new SqlCommandBuilder(adapterDesc);
-                    adapterDesc.Update(dt);
-                }
-
-                // إعادة تعبئة البيانات
-                dt.Clear();
-                using (sda = new SqlDataAdapter(query, connection))
-                {
-                    sda.Fill(dt);
-                }
-
-                dg.DataSource = dt;
-                MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Update first table
+                    using (var adapter1 = new SqlDataAdapter(qt1, connection))
+                    {
+                        new SqlCommandBuilder(adapter1);
+                        adapter1.Update(dt);
+                    }
+                    // Update second table
+                    using (var adapter2 = new SqlDataAdapter(qt2, connection))
+                    {
+                        new SqlCommandBuilder(adapter2);
+                        adapter2.Update(dt);
+                    }
+                    // Refresh DataGridView
+                    using (var refreshAdapter = new SqlDataAdapter(query, connection))
+                    {
+                        dt.Clear();
+                        refreshAdapter.Fill(dt);
+                        dg.DataSource = dt;
+                    }
                 scn.Close();
+                MessageBox.Show("Tables updated successfully!", "Success",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("خطأ في حفظ التغييرات: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Update error: " + ex.Message, "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             /*var ds = new DataSet();
@@ -194,8 +193,8 @@ namespace Moussadjal
             sda = new SqlDataAdapter(query, connection);
             builder = new SqlCommandBuilder(sda);
             sda.Fill(dt);
-            bs.DataSource = dt;
-            dg.DataSource = bs;
+           // bs.DataSource = dt;
+            dg.DataSource = dt;
 
             /*scd.Connection = scn;
             scd.CommandText = query;

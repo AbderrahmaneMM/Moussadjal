@@ -110,7 +110,7 @@ namespace Moussadjal
             Respo Respo = new Respo();
             Lieu L = new Lieu();
 
-            UCAjouter(ab);
+           // UCAjouter(ab);
         }
         private void btnexit_Click(object sender, EventArgs e)
         {
