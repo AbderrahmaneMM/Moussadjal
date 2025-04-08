@@ -11,6 +11,7 @@ using Guna.UI2.WinForms;
 using System.Windows.Forms;
 using System.Windows.Controls;
 using Moussadjal.UserControler;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Moussadjal
 {
@@ -45,12 +46,13 @@ namespace Moussadjal
 
         //update
      
-        public void Enregistrer(string query, DataGridView dg)
+        public void Enregistrer(string query)
         {DGVdescription dgv = new DGVdescription();
             try
             {
                 scn.Open();
-                using (sda = new SqlDataAdapter(query, connection)) { 
+                using (sda = new SqlDataAdapter(query, connection)) 
+                { 
                   builder = new SqlCommandBuilder(sda);
 
                     dgv.dtgdve.DataSource = dt;
@@ -58,7 +60,6 @@ namespace Moussadjal
                     sda.Update(dt);
 
                      MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
                 }
                 scn.Close();
             }
@@ -69,79 +70,73 @@ namespace Moussadjal
 
         }
 
-        public void Enregistrer2T(string qt1, string qt2, string query, DataGridView dg)
+        public void Enregistrer2T(string qt1, string qt2)
         {
             DGVdescription dgv = new DGVdescription();
+
             try
             {
                 scn.Open();
-                    // Update first table
-                    using (var adapter1 = new SqlDataAdapter(qt1, connection))
+
+                // Filter modified rows for each table
+                DataTable bienChanges = dt.Clone();
+                DataTable descChanges = dt.Clone();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row.RowState == DataRowState.Modified)
                     {
-                        new SqlCommandBuilder(adapter1);
-                        adapter1.Update(dt);
+                        bool bienChanged =
+                            !row["numero_dinventaire", DataRowVersion.Original].Equals(row["numero_dinventaire"]) ||
+                            !row["Id_lieu", DataRowVersion.Original].Equals(row["Id_lieu"]);
+
+                        bool descChanged =
+                            !row["numero_sequentiel", DataRowVersion.Original].Equals(row["numero_sequentiel"]) ||
+                            !row["division", DataRowVersion.Original].Equals(row["division"]) ||
+                            !row["designation", DataRowVersion.Original].Equals(row["designation"]) ||
+                            !row["annee", DataRowVersion.Original].Equals(row["annee"]) ||
+                            !row["observation", DataRowVersion.Original].Equals(row["observation"]);
+
+                        if (bienChanged)
+                            bienChanges.ImportRow(row);
+
+                        if (descChanged)
+                            descChanges.ImportRow(row);
                     }
-                    // Update second table
-                    using (var adapter2 = new SqlDataAdapter(qt2, connection))
+                }
+
+                // Update Bien table
+                if (bienChanges.Rows.Count > 0)
+                {
+                    using (sda = new SqlDataAdapter(qt1, connection))
                     {
-                        new SqlCommandBuilder(adapter2);
-                        adapter2.Update(dt);
+                        builder = new SqlCommandBuilder(sda);
+                        sda.Update(bienChanges);
                     }
-                    // Refresh DataGridView
-                    using (var refreshAdapter = new SqlDataAdapter(query, connection))
+                }
+
+                // Update Description_de_bien table
+                if (descChanges.Rows.Count > 0)
+                {
+                    using (sda = new SqlDataAdapter(qt2, connection))
                     {
-                        dt.Clear();
-                        refreshAdapter.Fill(dt);
-                        dg.DataSource = dt;
+                        builder = new SqlCommandBuilder(sda);
+                        sda.Update(descChanges);
                     }
-                scn.Close();
-                MessageBox.Show("Tables updated successfully!", "Success",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                }
+
+                MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Update error: " + ex.Message, "Error",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error saving changes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                scn.Close();
+            }
+        }
 
-            /*var ds = new DataSet();
-            
-            // Fill and update first table
-            using (var adapter1 = new SqlDataAdapter(table1Query, connection))
-            {
-                new SqlCommandBuilder(adapter1);
-                var dt1 = new DataTable();
-                adapter1.Fill(dt1);
-                adapter1.Update(dt1);
-            }
-            
-            // Fill and update second table
-            using (var adapter2 = new SqlDataAdapter(table2Query, connection))
-            {
-                new SqlCommandBuilder(adapter2);
-                var dt2 = new DataTable();
-                adapter2.Fill(dt2);
-                adapter2.Update(dt2);
-            }
-            
-            // Refresh the joined view
-            using (var adapterJoin = new SqlDataAdapter(joinQuery, connection))
-            {
-                var dt = new DataTable();
-                adapterJoin.Fill(dt);
-                dg.DataSource = dt;
-            }
-            
-            MessageBox.Show("تم حفظ التغييرات بنجاح!", "نجاح", 
-                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("خطأ في حفظ التغييرات: " + ex.Message, "خطأ", 
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);*/
-        }
         //delete
 
         public void Suprimer(string query)

@@ -71,16 +71,17 @@ namespace Moussadjal
                 switch (UC) 
                 {
                     case AJTbien ab:
-                  db.Enregistrer2T(qt1,qt2,Mq, dgv.dtgdve);
+
+                        db.Enregistrer2T(qt1,qt2);
                         break;
                     case Descrip dscrip:
-                        db.Enregistrer(Mq, dgv.dtgdve);
+                        db.Enregistrer(Mq);
                         break;
                     case Lieu L:
-                        db.Enregistrer(Mq, dgv.dtgdve);
+                        db.Enregistrer(Mq);
                         break;
                     case Respo Respo:
-                        db.Enregistrer(Mq, dgv.dtgdve);
+                        db.Enregistrer(Mq);
                         break;
                 }
             
@@ -143,11 +144,9 @@ namespace Moussadjal
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
 
             //modifer querys
-            Mq = "SELECT b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu," +
-                " d.designation, d.division, d.annee, d.observation FROM Bien b" +
-                " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel";
+       
             qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
-            qt2 = "SELECT designation, division, annee, observation FROM Description_de_bien ";
+            qt2 = "select numero_sequentiel, designation, division, annee, observation from Description_de_bien";
             //suprimer query
             Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
             //search query

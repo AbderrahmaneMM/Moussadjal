@@ -71,7 +71,7 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["division"].MinimumWidth = 40;
             dtgdve.Columns["division"].Width = 60;
             dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
-            dtgdve.Columns["observation"].HeaderText = "Observation";
+            dtgdve.Columns["observation"].HeaderText = "Observation de description";
 
             dtgdve.Rows[0].Selected = true;
         }
