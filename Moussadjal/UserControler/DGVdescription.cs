@@ -64,11 +64,11 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["numero_sequentiel"].HeaderText = "N°sequentiel";
             dtgdve.Columns["Id_lieu"].HeaderText = "Id_lieu";
             dtgdve.Columns["numero_dinventaire"].MinimumWidth = 40;
-            dtgdve.Columns["numero_dinventaire"].Width = 60;
+            dtgdve.Columns["numero_dinventaire"].Width = 100;
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
-            dtgdve.Columns["numero_sequentiel"].Width = 60;
+            dtgdve.Columns["numero_sequentiel"].Width = 100;
             dtgdve.Columns["division"].HeaderText = "Div";
-            dtgdve.Columns["division"].MinimumWidth = 40;
+            dtgdve.Columns["division"].MinimumWidth = 10;
             dtgdve.Columns["division"].Width = 60;
             dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
             dtgdve.Columns["observation"].HeaderText = "Observation de description";

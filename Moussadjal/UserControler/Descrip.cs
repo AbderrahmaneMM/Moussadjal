@@ -27,7 +27,7 @@ namespace Moussadjal.UserControler
 
                 if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Description_de_bien WHERE numero_sequentiel = '" + int.Parse(NStextbox.Text) + "'") < 1)
                 {
-                    db.Ajouter("INSERT INTO Description_de_bien (numero_sequentiel, designation, division, annee, quantite, observation) VALUES ('" + int.Parse(NStextbox.Text) + "', '" +guna2TextBox1.Text+ "', '" + DivComboBox.SelectedValue.ToString() + "', '" + guna2DateTimePicker1.Value + "', '" +guna2NumericUpDown1.Value+"', '" +guna2TextBox2.Text+"')");
+                    db.Ajouter("INSERT INTO Description_de_bien (numero_sequentiel, designation, division, annee, quantite, observation) VALUES ('" + int.Parse(NStextbox.Text) + "', '" +guna2TextBox1.Text+ "', '" + DivComboBox.SelectedValue.ToString() + "', '" + guna2DateTimePicker1.Value.Date + "', '" +guna2NumericUpDown1.Value+"', '" +guna2TextBox2.Text+"')");
                     MessageBox.Show("add secsses", NStextbox.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -41,6 +41,7 @@ namespace Moussadjal.UserControler
 
         private void Descrip_Load(object sender, EventArgs e)
         {
+            guna2DateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
             db.remlirCombo("Division", DivComboBox, "designation" ,"division");
         }
     }
