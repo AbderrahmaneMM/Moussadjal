@@ -242,7 +242,8 @@ namespace Moussadjal
 
             var items = new[]
             {
-             new { Text = "Recharche par Nom", Value = "nometprénom" }
+             new { Text = "Recharche par Nom", Value = "nometprénom"},
+             new { Text = "Recharche par ID", Value = "Id_Responsable"}
             };
 
             cr.ParCob.DataSource = items;
