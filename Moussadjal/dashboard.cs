@@ -239,7 +239,7 @@ namespace Moussadjal
             Mq = "SELECT Id_Responsable, nometprénom FROM Responsable";
             Sq = "delete from Responsable where Id_Responsable = " + deleteRow;
             srq = "Select Id_Responsable, nometprénom FROM Responsable where ";
-
+            // recharche responsable
             var items = new[]
             {
              new { Text = "Recharche par Nom", Value = "nometprénom"},
