@@ -36,7 +36,6 @@ namespace Moussadjal.UserControler
             dtgdve.Columns["division"].HeaderText = "Div";
             dtgdve.Columns["annee"].HeaderText = "Anné d'entrer";
             dtgdve.Columns["quantite"].HeaderText = "Quantité";
-            // dtgdve.Columns["photo"].HeaderText = "PHOTO";
             dtgdve.Columns["observation"].HeaderText = "Observation";
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;
             dtgdve.Columns["numero_sequentiel"].Width = 40;
@@ -52,17 +51,10 @@ namespace Moussadjal.UserControler
             db.remplirgridview("SELECT b.numero_dinventaire, b.numero_sequentiel," +
                 " d.division, d.designation, d.annee, b.Id_lieu, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel", dtgdve);
-            // SELECT*FROM Bien JOIN Description_de_bien ON Bien.numero_sequentiel = Description_de_bien.numero_sequentiel
-            /*/SELECT
-            b.numero_dinventaire, b.numero_sequentiel, b.Id_lieu,
-           d.designation, d.division, d.annee, d.quantite, d.observation
-         FROM Bien b
-          JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel*/
-
-
+        
             dtgdve.Columns["numero_dinventaire"].HeaderText = "N°inventaire";
             dtgdve.Columns["numero_sequentiel"].HeaderText = "N°sequentiel";
-            dtgdve.Columns["Id_lieu"].HeaderText = "Id_lieu";
+            dtgdve.Columns["Id_lieu"].HeaderText = "lieu";
             dtgdve.Columns["numero_dinventaire"].MinimumWidth = 40;
             dtgdve.Columns["numero_dinventaire"].Width = 100;
             dtgdve.Columns["numero_sequentiel"].MinimumWidth = 40;

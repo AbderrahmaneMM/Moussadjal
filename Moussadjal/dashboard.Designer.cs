@@ -853,8 +853,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button16;
-        private Guna.UI2.WinForms.Guna2Panel dgvPanel;
-        private Guna.UI2.WinForms.Guna2Panel Cpanel;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
@@ -863,5 +861,7 @@
         public System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button4;
+        public Guna.UI2.WinForms.Guna2Panel dgvPanel;
+        public Guna.UI2.WinForms.Guna2Panel Cpanel;
     }
 }

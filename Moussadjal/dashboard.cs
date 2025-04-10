@@ -110,23 +110,17 @@ namespace Moussadjal
             Descrip dscrip = new Descrip();
             Respo Respo = new Respo();
             Lieu L = new Lieu();
-
-           // UCAjouter(ab);
         }
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void guna2Button10_Click(object sender, EventArgs e)
+        private void DesplaydgvControl()
         {
-            ExpandPanel(guna2Button10, BienPanel);
-            dgv.Bien();
-            UC = ab;
-
             Cpanel.Controls.Clear();
 
-            Cpanel.Controls.Add(dgvPanel);
+           Cpanel.Controls.Add(dgvPanel);
             dgvPanel.Dock = DockStyle.Fill;
 
 
@@ -138,6 +132,14 @@ namespace Moussadjal
             dgvPanel.Controls.Add(dgv);
             dgv.Dock = DockStyle.Fill;
             dgv.Padding = new Padding(3, 5, 5, 5);
+        }
+
+        private void guna2Button10_Click(object sender, EventArgs e)
+        {
+            ExpandPanel(guna2Button10, BienPanel);
+            dgv.Bien();
+            UC = ab;
+            DesplaydgvControl();
 
           
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
@@ -174,21 +176,7 @@ namespace Moussadjal
 
             dgv.Lieu();
             UC = L;
-
-            Cpanel.Controls.Clear();
-
-            Cpanel.Controls.Add(dgvPanel);
-            dgvPanel.Dock = DockStyle.Fill;
-
-
-            Cpanel.Controls.Add(cr);
-            cr.Dock = DockStyle.Top;
-
-            dgvPanel.Controls.Clear();
-
-            dgvPanel.Controls.Add(dgv);
-            dgv.Dock = DockStyle.Fill;
-            dgv.Padding = new Padding(3, 5, 5, 5);
+            DesplaydgvControl();
 
 
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_lieu"].Value.ToString();
@@ -216,21 +204,7 @@ namespace Moussadjal
 
             dgv.Responsable();
             UC = Respo;
-
-            Cpanel.Controls.Clear();
-
-            Cpanel.Controls.Add(dgvPanel);
-            dgvPanel.Dock = DockStyle.Fill;
-
-
-            Cpanel.Controls.Add(cr);
-            cr.Dock = DockStyle.Top;
-
-            dgvPanel.Controls.Clear();
-
-            dgvPanel.Controls.Add(dgv);
-            dgv.Dock = DockStyle.Fill;
-            dgv.Padding = new Padding(3, 5, 5, 5);
+            DesplaydgvControl();
 
 
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_Responsable"].Value.ToString();
@@ -310,20 +284,7 @@ namespace Moussadjal
             dgv.Description();
             UC = dscrip;
 
-            Cpanel.Controls.Clear();
-
-
-            Cpanel.Controls.Add(dgvPanel);
-            dgvPanel.Dock = DockStyle.Fill;
-
-            Cpanel.Controls.Add(cr);
-            cr.Dock = DockStyle.Top;
-
-            dgvPanel.Controls.Clear();
-
-            dgvPanel.Controls.Add(dgv);
-            dgv.Dock = DockStyle.Fill;
-            dgv.Padding = new Padding(3, 5, 5, 5);
+            DesplaydgvControl();
 
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
