@@ -569,7 +569,7 @@
             this.PrintPanel.Location = new System.Drawing.Point(0, 403);
             this.PrintPanel.Margin = new System.Windows.Forms.Padding(0);
             this.PrintPanel.Name = "PrintPanel";
-            this.PrintPanel.Size = new System.Drawing.Size(165, 0);
+            this.PrintPanel.Size = new System.Drawing.Size(165, 169);
             this.PrintPanel.TabIndex = 27;
             this.PrintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PrintPanel_Paint);
             // 
@@ -623,6 +623,7 @@
             this.button14.Text = "     Feuille de repertoire";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
             // panel15
             // 

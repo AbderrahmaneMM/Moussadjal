@@ -32,25 +32,52 @@ namespace Moussadjal
         public static  DataTable dt = new DataTable();
         public BindingSource bs = new BindingSource();
        
-      
+      //Open&Close connection
+        public void Open() 
+        {
+            if (scn.State == ConnectionState.Closed)
+            { 
+              scn.Open();
+            }
+        }
+        public void Close()
+        {
+            if (scn.State == ConnectionState.Open)
+            {
+                scn.Close();
+            }
+        }
         //insert
         public void Ajouter(string query)
-        {   scn.Open();
+        {   Open();
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
             scd.ExecuteNonQuery();
-            scn.Close();
+            Close();
         }
         //read/select
 
+        /*  public int selectmax() 
+          {
+            string qu= "SELECT MAX(numero_sequentiel) FROM Description_de_bien";
+
+            Open();
+            scd = new SqlCommand(qu, scn);
+            scd.CommandType = CommandType.Text;
+            scd.Connection = scn;
+            int result = (int)scd.ExecuteNonQuery();
+           Close();
+            return result;
+          }*/
+
         //update
-     
+
         public void Enregistrer(string query)
         {DGVdescription dgv = new DGVdescription();
             try
             {
-                scn.Open();
+                Open();
                 using (sda = new SqlDataAdapter(query, connection)) 
                 { 
                   builder = new SqlCommandBuilder(sda);
@@ -61,7 +88,7 @@ namespace Moussadjal
 
                      MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                scn.Close();
+               Close();
             }
             catch (Exception ex)
             {
@@ -76,7 +103,7 @@ namespace Moussadjal
 
             try
             {
-                scn.Open();
+                Open();
 
                 // Filter modified rows for each table
                 DataTable bienChanges = dt.Clone();
@@ -133,7 +160,7 @@ namespace Moussadjal
             }
             finally
             {
-                scn.Close();
+                Close();
             }
         }
 
@@ -142,27 +169,27 @@ namespace Moussadjal
         public void Suprimer(string query)
         {
             if (scn.State != ConnectionState.Open)
-                scn.Open();
+                Open();
             SqlCommand cmd = new SqlCommand(query, scn);
             cmd.ExecuteNonQuery();
-            scn.Close();
+            Close();
             MessageBox.Show("Suppression effectuée avec succès", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         // Select counte 
         public int FillscdToSelectCount(string query) 
         {
-            scn.Open();
+            Open();
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
             int result = (int)scd.ExecuteScalar();
-            scn.Close();
+            Close();
             return result;
         }
         // méthode de remplisage coombobox
         public void remlirCombo(string table,  Guna2ComboBox comb, string dm , string vm)
         {
-            scn.Open();
+            Open();
             scd.Connection = scn;
             scd.CommandText = $"select DISTINCT {vm}, {dm} from {table}" ;
             sda.SelectCommand = scd;
@@ -171,7 +198,7 @@ namespace Moussadjal
             comb.DisplayMember = dm;
             comb.ValueMember = vm;
             dt = ds.Tables[table];
-            scn.Close();
+            Close();
         }
         //methode de remplissage datagridview 
         public DataSet search(string query , DataGridView dg)

@@ -20,7 +20,7 @@ namespace Moussadjal
 {
     public partial class dashboard : Form1
     {
-        DGVdescription dgv = new DGVdescription();
+        DGVdescription dgv = new DGVdescription();//DGV
         Database       db = new Database();
 
         AJTbien        ab = new AJTbien();
@@ -28,6 +28,7 @@ namespace Moussadjal
         Descrip dscrip = new Descrip();
         Respo Respo = new Respo();
         Lieu L = new Lieu();
+        PrintC p = new PrintC();
 
         UserControl UC;
         //pour la modification et la supresion
@@ -110,6 +111,7 @@ namespace Moussadjal
             Descrip dscrip = new Descrip();
             Respo Respo = new Respo();
             Lieu L = new Lieu();
+            PrintC p = new PrintC();
         }
         private void btnexit_Click(object sender, EventArgs e)
         {
@@ -265,6 +267,19 @@ namespace Moussadjal
         private void button5_Click(object sender, EventArgs e)
         {
             guna2Button10_Click( sender,  e);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+             UC = p;
+            Cpanel.Controls.Clear();
+            Cpanel.Controls.Add(p);
+            p.Dock = DockStyle.Fill;
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)
