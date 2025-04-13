@@ -42,9 +42,6 @@ namespace Moussadjal.UserControler
         {
             try
             {
-
-                if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_dinventaire = '" + int.Parse(NItextbox.Text) + "'") < 1)
-                {
                     //generation datamatrix barcode
                     var barcodeWriter = new BarcodeWriter
                     {
@@ -57,16 +54,16 @@ namespace Moussadjal.UserControler
                         },
                         Renderer = new BitmapRenderer()
                     };
-                    Bitmap barcodeBitmap = barcodeWriter.Write($"{NItextbox.Text}/{NsComboBox.Text}/{LieuComboBox.Text}");
+                    string NumIn = (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien")+1).ToString();
+                    Bitmap barcodeBitmap = barcodeWriter.Write($"{NumIn}/{NsComboBox.Text}/{LieuComboBox.Text}");
                     BarcodPicture.Image = barcodeBitmap;
                     //convert image barcode to byte array
                     byte[] img = convertImageToByte(BarcodPicture.Image);
                     //insert 'bien' to db
                     db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
-                    MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    MessageBox.Show("Le Bien existe déjat");
+                     db.Ajouter("UPDATE Description_de_bien SET quantite = quantite + 1 WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "' ");
+                    MessageBox.Show("add secsses", NumIn, MessageBoxButtons.OK, MessageBoxIcon.Information);
+              
             }
             catch (Exception ex)
             {
