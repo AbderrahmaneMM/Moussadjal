@@ -255,7 +255,6 @@
             // guna2Button10
             // 
             this.guna2Button10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.BorderRadius = 16;
             this.guna2Button10.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button10.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button10.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -278,7 +277,6 @@
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 16;
             this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -366,7 +364,6 @@
             // guna2Button11
             // 
             this.guna2Button11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button11.BorderRadius = 16;
             this.guna2Button11.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button11.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button11.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -454,7 +451,6 @@
             // guna2Button12
             // 
             this.guna2Button12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button12.BorderRadius = 16;
             this.guna2Button12.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button12.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button12.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -539,7 +535,6 @@
             // Printbutton
             // 
             this.Printbutton.BackColor = System.Drawing.Color.Transparent;
-            this.Printbutton.BorderRadius = 16;
             this.Printbutton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Printbutton.CheckedState.FillColor = System.Drawing.Color.White;
             this.Printbutton.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
@@ -569,7 +564,7 @@
             this.PrintPanel.Location = new System.Drawing.Point(0, 403);
             this.PrintPanel.Margin = new System.Windows.Forms.Padding(0);
             this.PrintPanel.Name = "PrintPanel";
-            this.PrintPanel.Size = new System.Drawing.Size(165, 169);
+            this.PrintPanel.Size = new System.Drawing.Size(165, 172);
             this.PrintPanel.TabIndex = 27;
             this.PrintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PrintPanel_Paint);
             // 
