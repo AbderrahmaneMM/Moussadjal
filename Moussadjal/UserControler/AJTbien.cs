@@ -62,7 +62,7 @@ namespace Moussadjal.UserControler
                     //convert image barcode to byte array
                     byte[] img = convertImageToByte(BarcodPicture.Image);
                     //insert 'bien' to db
-                    db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(NItextbox.Text) + "', '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
+                    db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
                     MessageBox.Show("add secsses", NItextbox.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

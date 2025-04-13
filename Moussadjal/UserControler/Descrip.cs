@@ -22,17 +22,22 @@ namespace Moussadjal.UserControler
         Database db = new Database();
         private void Ajtbtn_Click(object sender, EventArgs e)
         { 
-           
             try
             {
 
                 if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Description_de_bien WHERE designation = '" + guna2TextBox1.Text + "'") < 1)
                 {
-                    db.Ajouter("INSERT INTO Description_de_bien (numero_sequentiel, designation, division, annee, quantite, observation) VALUES ((SELECT ISNULL(MAX(numero_sequentiel), 0) + 1 FROM Description_de_bien), '" +guna2TextBox1.Text+ "', '" + DivComboBox.SelectedValue.ToString() + "', '" + guna2DateTimePicker1.Text + "', '" +guna2NumericUpDown1.Value+"', '" +guna2TextBox2.Text+"')");
+                    db.Ajouter("INSERT INTO Description_de_bien (numero_sequentiel, designation, division, annee, quantite, observation) VALUES ((SELECT ISNULL(MAX(numero_sequentiel), 0) + 1 FROM Description_de_bien), '" + guna2TextBox1.Text + "', '" + DivComboBox.SelectedValue.ToString() + "', '" + guna2DateTimePicker1.Text + "', '" + guna2NumericUpDown1.Value + "', '" + guna2TextBox2.Text + "')");
+                    int newNumeroSequentiel = db.FillscdToSelectCount("SELECT COUNT(*) FROM Description_de_bien");
+
+                    for (int i = 1 ; i <= guna2NumericUpDown1.Value; i++) 
+                    { 
+                       db.Ajouter($"INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '{newNumeroSequentiel}', 'Mgn')");
+                    }
                     MessageBox.Show("add secsses", "kjio", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("La Description de bien existe déjat");
+                    MessageBox.Show("Error: " ,"La Description de bien existe déjat", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
