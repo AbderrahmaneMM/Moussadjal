@@ -9,6 +9,14 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <!-- Application-wide colors -->
+            <Color x:Key="PrimaryColor">#00B4D8</Color>
+            <Color x:Key="SecondaryColor">#708090</Color>
+            <Color x:Key="AccentColor">#7DB828</Color>
+            <Color x:Key="BackgroundColor">#FFFFFF</Color>
+            <Color x:Key="TextPrimaryColor">#212121</Color>
+            <Color x:Key="TextSecondaryColor">#757575</Color>
+            <Color x:Key="BorderColor">#BDBDBD</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
