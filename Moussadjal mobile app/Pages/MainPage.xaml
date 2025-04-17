@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="Moussadjal_mobile_app.MainPage" 
+             Title="Accueil">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="20">
+
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="10"
+                             Margin="0,20,0,20">
+            <Label Text="Bienvenue"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"/>
+
+            <Label x:Name="UserNameLabel"
+                   Text="Utilisateur"
+                   FontSize="18"
+                   TextColor="#708090"
+                   HorizontalOptions="Start"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,*"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <!-- Scanner DataMatrix -->
+                <Frame Grid.Row="0"
+                       Grid.Column="0"
+                       BorderColor="LightGray"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Scann_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowDefinitions="*,Auto"
+                          Padding="15">
+                        <Image Source="scanner_icon.png"
+                               HeightRequest="80"
+                               WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Row="1"
+                               Text="Scanner DataMatrix"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Ajouter un bien -->
+                <Frame Grid.Row="0"
+                       Grid.Column="1"
+                       BorderColor="LightGray"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Ajouter_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowDefinitions="*,Auto"
+                          Padding="15">
+                        <Image Source="add_item_icon.png"
+                               HeightRequest="80"
+                               WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Row="1"
+                               Text="Ajouter un bien"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Consulter les locaux -->
+                <Frame Grid.Row="1"
+                       Grid.Column="0"
+                       BorderColor="LightGray"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Local_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowDefinitions="*,Auto"
+                          Padding="15">
+                        <Image Source="locations_icon.png"
+                               HeightRequest="80"
+                               WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Row="1"
+                               Text="Consulter les locaux"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Settings -->
+                <Frame Grid.Row="1"
+                       Grid.Column="1"
+                       BorderColor="LightGray"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SettingTapped"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowDefinitions="*,Auto"
+                          Padding="15">
+                        <Image Source="settings_icon.png"
+                               HeightRequest="80"
+                               WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Row="1"
+                               Text="Paramètres"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               HorizontalOptions="Center"
+                               Margin="0,20,0,10">
+            <Button Text="Déconnexion"
+                    Clicked="Logout_Clicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#00B4D8"
+                    BorderColor="#00B4D8"
+                    BorderWidth="1"
+                    CornerRadius="8"
+                    Padding="15,10"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

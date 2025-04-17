@@ -1,3 +1,4 @@
+using Moussadjal_mobile_app.Pages;
 using ZXing.Net.Maui;
 namespace Moussadjal_mobile_app;
 
@@ -22,5 +23,19 @@ public partial class ScannPage : ContentPage
         {
             await DisplayAlert("Barcode Detected", first.Value, "OK");
         });
+    }
+    private void ConfirmScanClicked(object sender, EventArgs e)
+       {
+    }
+    private void CancelScanClicked(object sender, EventArgs e)
+    {
+    }
+    private void TorchClicked(object sender, EventArgs e)
+    {
+       // BcReader.IsTorchOn = !BcReader.IsTorchOn;
+       this.Navigation.PushAsync(new ComfirmScann());
+    }
+    private void BackClicked(object sender, EventArgs e)
+    {
     }
 }

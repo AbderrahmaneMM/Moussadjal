@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="Moussadjal_mobile_app.Pages.AjouterBien"
+                     Title="Ajouter un bien">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="20">
+
+        <Label Grid.Row="0"
+               Text="Ajouter un nouveau bien"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,20,0,20"/>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20">
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                       Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Informations générales"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Nom du bien *"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="NameEntry"
+                                   Placeholder="Entrez le nom du bien"
+                                   ClearButtonVisibility="WhileEditing"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Description"
+                                   FontAttributes="Bold"/>
+                            <Editor x:Name="DescriptionEditor"
+                                    Placeholder="Entrez une description"
+                                    HeightRequest="100"
+                                    AutoSize="TextChanges"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Division *"
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="DivPicker"
+                                    Title="Sélectionner une catégorie"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Local *"
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="LocationPicker"
+                                    Title="Sélectionner un local"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                       Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Détails supplémentaires"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Numéro de série"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="SerialNumberEntry"
+                                   Placeholder="Entrez le numéro de série"
+                                   ClearButtonVisibility="WhileEditing"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Date d'acquisition"
+                                   FontAttributes="Bold"/>
+                            <DatePicker x:Name="AcquisitionDatePicker"
+                                        Format="dd/MM/yyyy"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Valeur (€)"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="ValueEntry"
+                                   Placeholder="Entrez la valeur"
+                                   Keyboard="Numeric"
+                                   ClearButtonVisibility="WhileEditing"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                       Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Photo"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <Button Text="Prendre une photo"
+                                x:Name="PhotoButton"
+                                Clicked="PhotoButton_Clicked"
+                                BackgroundColor="#00B4D8"
+                                TextColor="White"
+                                CornerRadius="8"/>
+
+                        <Image x:Name="ItemImage"
+                               IsVisible="false"
+                               HeightRequest="200"
+                               Aspect="AspectFill"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                        Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Code DataMatrix"
+                               FontSize="18"
+                                FontAttributes="Bold"/>
+
+                        <zxing:BarcodeGeneratorView x:Name="bgv"
+                                  Format="DataMatrix"
+                                  WidthRequest="200"
+                                  HeightRequest="200" 
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="Center" />
+
+                        <Image x:Name="BarcodeImage"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               IsVisible="false"/>
+
+                        <Label  x:Name="ResultLabel"
+                                HorizontalOptions="Center"
+                                TextColor="#00B4D8"
+                                FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               HorizontalOptions="Center"
+                               Spacing="15"
+                               Margin="0,20,0,0">
+            <Button Text="Enregistrer"
+                    Clicked="SaveClicked"
+                    BackgroundColor="#7DB828"
+                    TextColor="White"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+
+            <Button Text="Annuler"
+                    Clicked="CancelClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#708090"
+                    BorderColor="#708090"
+                    BorderWidth="1"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
             <!-- Application-wide colors -->
             <Color x:Key="PrimaryColor">#00B4D8</Color>
             <Color x:Key="SecondaryColor">#708090</Color>

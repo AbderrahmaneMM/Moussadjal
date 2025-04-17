@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Moussadjal_mobile_app.Pages.Detaildelieu"
+              Title="Détails du local">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="20">
+
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="5"
+                             Margin="0,20,0,20">
+            <Label x:Name="LocationNameLabel"
+                   Text="[Nom du local]"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label x:Name="LocationDescriptionLabel"
+                   Text="[Description du local]"
+                   TextColor="#708090"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1"
+              RowDefinitions="Auto,*">
+
+            <Frame Grid.Row="0"
+                   BorderColor="LightGray"
+                   CornerRadius="8"
+                   Padding="15"
+                   HasShadow="True"
+                   Margin="0,0,0,20">
+                <Grid ColumnDefinitions="*,*,*"
+                      RowDefinitions="Auto,Auto">
+
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="0"
+                                         HorizontalOptions="Center">
+                        <Label x:Name="TotalItemsLabel"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Total biens"
+                               FontSize="14"
+                               TextColor="#708090"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="1"
+                                         HorizontalOptions="Center">
+                        <Label x:Name="AvailableItemsLabel"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Disponibles"
+                               FontSize="14"
+                               TextColor="#708090"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="2"
+                                         HorizontalOptions="Center">
+                        <Label x:Name="CheckedOutItemsLabel"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="En utilisation"
+                               FontSize="14"
+                               TextColor="#708090"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <VerticalStackLayout Grid.Row="1"
+                                 Spacing="10">
+                <Label Text="Biens dans ce local"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                <CollectionView x:Name="ItemsCollection"
+                                SelectionMode="Single"
+                                SelectionChanged="ItemSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="0,5,0,5"
+                                   Padding="15"
+                                   BorderColor="LightGray"
+                                   CornerRadius="8"
+                                   HasShadow="True">
+                                <Grid ColumnDefinitions="Auto,*,Auto"
+                                      RowDefinitions="Auto,Auto">
+
+                                    <Image Grid.Row="0"
+                                           Grid.RowSpan="2"
+                                           Grid.Column="0"
+                                           Source="{Binding ImageUrl}"
+                                           WidthRequest="50"
+                                           HeightRequest="50"
+                                           Aspect="AspectFill"
+                                           Margin="0,0,10,0"/>
+
+                                    <Label Grid.Row="0"
+                                           Grid.Column="1"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="1"
+                                           Text="{Binding Category}"
+                                           TextColor="#708090"
+                                           FontSize="14"/>
+
+                                    <Label Grid.Row="0"
+                                           Grid.RowSpan="2"
+                                           Grid.Column="2"
+                                           Text="{Binding Status}"
+                                           VerticalOptions="Center"
+                                           TextColor="{Binding StatusColor}"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout VerticalOptions="Center"
+                                             HorizontalOptions="Center"
+                                             Spacing="20">
+                            <Image Source="empty_items.png"
+                                   HeightRequest="100"
+                                   WidthRequest="100"
+                                   Opacity="0.5"/>
+                            <Label Text="Aucun bien dans ce local"
+                                   FontSize="18"
+                                   TextColor="#708090"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Grid>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               HorizontalOptions="Center"
+                               Spacing="15"
+                               Margin="0,20,0,0">
+            <Button Text="Modifier"
+                    Clicked="EditLocationClicked"
+                    BackgroundColor="#00B4D8"
+                    TextColor="White"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+
+            <Button Text="Retour"
+                    Clicked="BackClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#708090"
+                    BorderColor="#708090"
+                    BorderWidth="1"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

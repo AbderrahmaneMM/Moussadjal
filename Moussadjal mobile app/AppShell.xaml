@@ -8,8 +8,8 @@
     Title="Moussadjal_mobile_app">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        Title="MoussadjalMobile"
+        ContentTemplate="{DataTemplate local:Pages.Login}"
         Route="MainPage" />
 
 </Shell>
