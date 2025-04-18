@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>مسجل</ApplicationTitle>
+		<ApplicationTitle>مُسجَّل</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.moussadjalmobileapp</ApplicationId>
