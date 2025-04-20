@@ -60,7 +60,7 @@ namespace Moussadjal.UserControler
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
-   
+
             e.Graphics.DrawImage(bmp, destRect);
             e.HasMorePages = false;
         }
@@ -71,8 +71,7 @@ namespace Moussadjal.UserControler
             printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
             printDocument1.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
             printDocument1.DefaultPageSettings.Landscape = false;
-
-        
+             
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }

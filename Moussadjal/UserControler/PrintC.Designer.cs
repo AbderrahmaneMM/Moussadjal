@@ -62,7 +62,7 @@
             // 
             this.guna2Panel1.Location = new System.Drawing.Point(9, 102);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(828, 784);
+            this.guna2Panel1.Size = new System.Drawing.Size(827, 1169);
             this.guna2Panel1.TabIndex = 23;
             // 
             // printDocument1
@@ -83,11 +83,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Button1);
             this.Name = "PrintC";
-            this.Size = new System.Drawing.Size(846, 784);
+            this.Size = new System.Drawing.Size(890, 1169);
             this.Load += new System.EventHandler(this.PrintC_Load);
             this.ResumeLayout(false);
 

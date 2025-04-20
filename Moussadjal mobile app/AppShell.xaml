@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="MoussadjalMobile"
-        ContentTemplate="{DataTemplate local:Pages.Login}"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
 </Shell>

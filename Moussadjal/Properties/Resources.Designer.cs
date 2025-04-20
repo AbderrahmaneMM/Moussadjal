@@ -183,6 +183,26 @@ namespace Moussadjal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2025_04_19_231338 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2025-04-19 231338", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2025_04_20_221946 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2025-04-20 221946", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap withborder {
             get {
                 object obj = ResourceManager.GetObject("withborder", resourceCulture);
