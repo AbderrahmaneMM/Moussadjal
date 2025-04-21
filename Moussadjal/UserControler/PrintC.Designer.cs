@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintC));
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.DocPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
@@ -58,12 +58,12 @@
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2Panel1
+            // DocPanel
             // 
-            this.guna2Panel1.Location = new System.Drawing.Point(9, 102);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(827, 1169);
-            this.guna2Panel1.TabIndex = 23;
+            this.DocPanel.Location = new System.Drawing.Point(9, 102);
+            this.DocPanel.Name = "DocPanel";
+            this.DocPanel.Size = new System.Drawing.Size(827, 1169);
+            this.DocPanel.TabIndex = 23;
             // 
             // printDocument1
             // 
@@ -78,6 +78,7 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
             // PrintC
             // 
@@ -85,10 +86,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.DocPanel);
             this.Controls.Add(this.guna2Button1);
             this.Name = "PrintC";
-            this.Size = new System.Drawing.Size(890, 1169);
+            this.Size = new System.Drawing.Size(856, 1169);
             this.Load += new System.EventHandler(this.PrintC_Load);
             this.ResumeLayout(false);
 
@@ -97,8 +98,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        public Guna.UI2.WinForms.Guna2Panel DocPanel;
     }
 }

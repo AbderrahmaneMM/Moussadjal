@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using ZXing;
 using ZXing.Common;
@@ -30,7 +31,7 @@ namespace Moussadjal
         Lieu L = new Lieu();
         PrintC p = new PrintC();
 
-        UserControl UC;
+        System.Windows.Forms.UserControl UC;
         //pour la modification et la supresion
         string Mq,qt1, qt2 ,Sq,srq,dgvM;
       
@@ -47,7 +48,7 @@ namespace Moussadjal
             db.EmptyDataGridView(dgv.dtgdve);
             db.remplirgridview($"{srq}{cr.ParCob.SelectedValue} like '%{cr.Searchbox.Text}%'", dgv.dtgdve);
         }
-        public void UCAjouter(UserControl uc)
+        public void UCAjouter(System.Windows.Forms.UserControl uc)
         {
             if (uc == null) return;
 
@@ -275,11 +276,30 @@ namespace Moussadjal
         }
 
         private void button14_Click_1(object sender, EventArgs e)
-        {
-             UC = p;
+        {    //repertoire
+            //p.DocPanel.Controls.Clear();
+            //p.r = new FRepertoire();
+            //p.r.Size = new Size(900, 1123); //  Vertical 
+            //p.DocPanel.Size = new Size(900, 1123); //  Vertical 
+            //p.DocPanel.Controls.Add(p.r);
+            UC = p;
             Cpanel.Controls.Clear();
             Cpanel.Controls.Add(p);
             p.Dock = DockStyle.Fill;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            // FUILLE  D'INVENTAIRE
+            //p.DocPanel.Controls.Clear();
+            //p.i = new FInventaire();
+            // p.i.Size =  new Size(1123, 794); // A4 Horizontal
+            //p.DocPanel.Size = new Size(1123, 794); // A4 Horizontal
+            //p.DocPanel.Controls.Add(p.i);
+            //UC = p;
+            //Cpanel.Controls.Clear();
+            //Cpanel.Controls.Add(p);
+            //p.Dock = DockStyle.Fill;
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)

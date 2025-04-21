@@ -17,12 +17,13 @@ namespace Moussadjal.UserControler
         {
             InitializeComponent();
         }
-
+        FRepertoire r;
+        FInventaire i;
         private void PrintC_Load(object sender, EventArgs e)
         {
-            FRepertoire r = new FRepertoire();
+            r= new FRepertoire();
             r.Size = new Size(794, 1123); // A4 
-            guna2Panel1.Controls.Add(r);
+            DocPanel.Controls.Add(r);
         }
         private Bitmap GetControlImage(UserControl control)
         {
@@ -33,13 +34,11 @@ namespace Moussadjal.UserControler
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-        
-            FRepertoire r = new FRepertoire();
-            r.Size = new Size(794, 1123);
+           // r.Size = new Size(794, 1123);
 
 
             Bitmap bmp = GetControlImage(r);
-            bmp.SetResolution(300, 300); 
+            bmp.SetResolution(300, 300);
 
             float scale = Math.Min(
                 e.MarginBounds.Width / (float)bmp.Width,
@@ -54,7 +53,7 @@ namespace Moussadjal.UserControler
                 bmp.Height * scale
             );
 
-        
+
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
@@ -74,6 +73,11 @@ namespace Moussadjal.UserControler
              
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
