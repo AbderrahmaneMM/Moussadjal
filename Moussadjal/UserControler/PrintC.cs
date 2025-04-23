@@ -40,20 +40,18 @@ namespace Moussadjal.UserControler
         private void LoadDocument()
         {
             DocPanel.Controls.Clear();
-            if (d == 1)
-            {
-                
+            switch (d)
+            { 
+                case 1:
                 r.Size = new Size(794, 1123); // A4 
                 DocPanel.Controls.Add(r);
+                 break;
+                case 2:
+                i.Size = new Size(1123, 794); // A4  horisontl
+                DocPanel.Size = new Size(1123, 794);
+                    DocPanel.Controls.Add(i);
+                 break;
             }
-            else if (d == 2)
-            {
-                
-                i.Size = new Size(1123, 794); // A4 
-                DocPanel.Controls.Add(i);
-            }
-
- 
         }
         private Bitmap GetControlImage(UserControl control)
         {
@@ -63,10 +61,7 @@ namespace Moussadjal.UserControler
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-           // r.Size = new Size(794, 1123);
-
-
+        { 
             Bitmap bmp = GetControlImage(r);
             bmp.SetResolution(300, 300);
 

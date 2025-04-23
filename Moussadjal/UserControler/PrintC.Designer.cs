@@ -39,7 +39,6 @@
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderRadius = 16;
-            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
             this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -60,9 +59,10 @@
             // 
             // DocPanel
             // 
-            this.DocPanel.Location = new System.Drawing.Point(9, 102);
+            this.DocPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DocPanel.Location = new System.Drawing.Point(0, 115);
             this.DocPanel.Name = "DocPanel";
-            this.DocPanel.Size = new System.Drawing.Size(827, 1169);
+            this.DocPanel.Size = new System.Drawing.Size(856, 1054);
             this.DocPanel.TabIndex = 23;
             // 
             // printDocument1
