@@ -277,29 +277,16 @@ namespace Moussadjal
 
         private void button14_Click_1(object sender, EventArgs e)
         {    //repertoire
-            //p.DocPanel.Controls.Clear();
-            //p.r = new FRepertoire();
-            //p.r.Size = new Size(900, 1123); //  Vertical 
-            //p.DocPanel.Size = new Size(900, 1123); //  Vertical 
-            //p.DocPanel.Controls.Add(p.r);
-            UC = p;
-            Cpanel.Controls.Clear();
-            Cpanel.Controls.Add(p);
-            p.Dock = DockStyle.Fill;
+            UCAjouter(p);
+            
+            p.DocumentType=1 ;
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             // FUILLE  D'INVENTAIRE
-            //p.DocPanel.Controls.Clear();
-            //p.i = new FInventaire();
-            // p.i.Size =  new Size(1123, 794); // A4 Horizontal
-            //p.DocPanel.Size = new Size(1123, 794); // A4 Horizontal
-            //p.DocPanel.Controls.Add(p.i);
-            //UC = p;
-            //Cpanel.Controls.Clear();
-            //Cpanel.Controls.Add(p);
-            //p.Dock = DockStyle.Fill;
+            UCAjouter(p);
+            p.DocumentType = 2;
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)

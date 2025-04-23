@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Moussadjal.UserControler
 {
@@ -16,14 +17,43 @@ namespace Moussadjal.UserControler
         public PrintC()
         {
             InitializeComponent();
+            LoadDocument();
         }
-        FRepertoire r;
-        FInventaire i;
+        private int d = 1; 
+
+        public int DocumentType
+        {
+            get => d;
+            set
+            {
+                d = value;
+                LoadDocument(); 
+            }
+        }
+  
+        FRepertoire r = new FRepertoire();
+        FInventaire i = new FInventaire();
         private void PrintC_Load(object sender, EventArgs e)
         {
-            r= new FRepertoire();
-            r.Size = new Size(794, 1123); // A4 
-            DocPanel.Controls.Add(r);
+           
+        }
+        private void LoadDocument()
+        {
+            DocPanel.Controls.Clear();
+            if (d == 1)
+            {
+                
+                r.Size = new Size(794, 1123); // A4 
+                DocPanel.Controls.Add(r);
+            }
+            else if (d == 2)
+            {
+                
+                i.Size = new Size(1123, 794); // A4 
+                DocPanel.Controls.Add(i);
+            }
+
+ 
         }
         private Bitmap GetControlImage(UserControl control)
         {
