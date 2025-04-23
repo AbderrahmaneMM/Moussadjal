@@ -17,28 +17,28 @@ namespace Moussadjal.UserControler
         {
             InitializeComponent();
         }
-       Database db = new Database();
+        Database db = new Database();
         private void FRepertoire_Load(object sender, EventArgs e)
         {
+            db.EmptyDataGridView(DGVR);
             db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation, observation  from Description_de_bien", DGVR);
 
             DGVR.RightToLeft = RightToLeft.Yes;
 
-            DGVR.Columns["numero_sequentiel"].HeaderText = "N°";
+            //N°1
             DGVR.Columns["numero_sequentiel"].MinimumWidth = 35;
             DGVR.Columns["numero_sequentiel"].Width = 38;
-            DGVR.Columns["division"].HeaderText = "DIV";
+            //DIV 
             DGVR.Columns["division"].MinimumWidth = 20;
             DGVR.Columns["division"].Width = 29;
-            DGVR.Columns["numero_sequentiel1"].HeaderText = "N°";
+            //N2 
             DGVR.Columns["numero_sequentiel1"].MinimumWidth = 40;
             DGVR.Columns["numero_sequentiel1"].Width = 52;
-            DGVR.Columns["designation"].HeaderText = "المواد";
+            //المواد
             DGVR.Columns["designation"].MinimumWidth = 40;
             DGVR.Columns["designation"].Width = 548;
-            DGVR.Columns["observation"].HeaderText = "الملاحظات";
-            DGVR.Columns["observation"].MinimumWidth = 40;
-            //DGVR.Columns["observation"].Width = 245;
+            //الملاحظات
+            DGVR.Columns["observation"].MinimumWidth = 40; 
   
         }
 

@@ -19,7 +19,10 @@ namespace Moussadjal.UserControler
             InitializeComponent();
             LoadDocument();
         }
-        private int d = 1; 
+        private int d ; 
+        FRepertoire r = new FRepertoire();
+        FInventaire i = new FInventaire();
+        Bitmap bmprint;
 
         public int DocumentType
         {
@@ -31,11 +34,8 @@ namespace Moussadjal.UserControler
             }
         }
   
-        FRepertoire r = new FRepertoire();
-        FInventaire i = new FInventaire();
         private void PrintC_Load(object sender, EventArgs e)
-        {
-           
+        { 
         }
         private void LoadDocument()
         {
@@ -59,23 +59,32 @@ namespace Moussadjal.UserControler
             control.DrawToBitmap(bmp, new Rectangle(0, 0, control.Width, control.Height));
             return bmp;
         }
-
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        { 
-            Bitmap bmp = GetControlImage(r);
-            bmp.SetResolution(300, 300);
+        {
+            
+            switch (d)
+            {
+                case 1:
+                    
+                    bmprint = GetControlImage(r);
+                    break;
+                case 2:
+                    bmprint = GetControlImage(i);
+                    break;
+            }
+                    bmprint.SetResolution(300, 300);
 
             float scale = Math.Min(
-                e.MarginBounds.Width / (float)bmp.Width,
-                e.MarginBounds.Height / (float)bmp.Height
+                e.MarginBounds.Width / (float)bmprint.Width,
+                e.MarginBounds.Height / (float)bmprint.Height
             );
 
 
             RectangleF destRect = new RectangleF(
-                e.MarginBounds.Left + (e.MarginBounds.Width - bmp.Width * scale) / 2,
-                e.MarginBounds.Top + (e.MarginBounds.Height - bmp.Height * scale) / 2,
-                bmp.Width * scale,
-                bmp.Height * scale
+                e.MarginBounds.Left + (e.MarginBounds.Width - bmprint.Width * scale) / 2,
+                e.MarginBounds.Top + (e.MarginBounds.Height - bmprint.Height * scale) / 2,
+                bmprint.Width * scale,
+                bmprint.Height * scale
             );
 
 
@@ -85,14 +94,23 @@ namespace Moussadjal.UserControler
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
 
-            e.Graphics.DrawImage(bmp, destRect);
+            e.Graphics.DrawImage(bmprint, destRect);
             e.HasMorePages = false;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            
-            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+            switch (d)
+            {
+                case 1:
+
+                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+                    break;
+                case 2:
+                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 1169, 827);
+                    break;
+            }
+          
             printDocument1.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
             printDocument1.DefaultPageSettings.Landscape = false;
              
