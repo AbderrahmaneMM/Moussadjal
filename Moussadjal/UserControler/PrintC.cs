@@ -105,14 +105,15 @@ namespace Moussadjal.UserControler
                 case 1:
 
                     printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+                    printDocument1.DefaultPageSettings.Landscape = false;
                     break;
                 case 2:
-                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 1169, 827);
+                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169); // A4 size
+                    printDocument1.DefaultPageSettings.Landscape = true;
                     break;
             }
           
             printDocument1.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
-            printDocument1.DefaultPageSettings.Landscape = false;
              
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
