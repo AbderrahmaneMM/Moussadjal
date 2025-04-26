@@ -106,7 +106,7 @@ namespace Moussadjal.UserControler
 
                     printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
                     printDocument1.DefaultPageSettings.Landscape = false;
-                    break;
+                    break;  
                 case 2:
                     printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169); // A4 size
                     printDocument1.DefaultPageSettings.Landscape = true;

@@ -2,7 +2,16 @@ namespace Moussadjal_mobile_app.Pages;
 
 public partial class Detaildelieu : ContentPage
 {
-	public Detaildelieu()
+    public class ItemModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public string Status { get; set; }
+        public string StatusColor { get; set; }
+        public string ImageUrl { get; set; }
+    }
+    public Detaildelieu()
 	{
 		InitializeComponent();
 	}

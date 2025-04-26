@@ -73,14 +73,5 @@
                 </VerticalStackLayout>
             </CollectionView.EmptyView>
         </CollectionView>
-
-        <Button Grid.Row="3"
-                Text="Ajouter un local"
-                Clicked="AddLocationClicked"
-                BackgroundColor="#7DB828"
-                TextColor="White"
-                CornerRadius="8"
-                HorizontalOptions="Center"
-                Margin="0,20,0,0"/>
     </Grid>
 </ContentPage>
