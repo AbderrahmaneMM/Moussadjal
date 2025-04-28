@@ -72,10 +72,10 @@ public partial class Locaux : ContentPage
         }
     }
     private async void LocationSelected(object sender, SelectionChangedEventArgs e)
-    {// Check if anything was selected
+    {
+        // Check if anything was selected
         if (e.CurrentSelection == null || e.CurrentSelection.Count == 0)
-            return;
-
+            return; 
         // Get the selected location
         var selectedLocation = e.CurrentSelection[0] as LocationModel;
         if (selectedLocation == null)
@@ -85,7 +85,7 @@ public partial class Locaux : ContentPage
         ((CollectionView)sender).SelectedItem = null;
 
         // Navigate to the detail page and pass the location ID
-       // await Navigation.PushAsync(new Detaildelieu(selectedLocation.Id, selectedLocation.Name));
+        await Navigation.PushAsync(new Detaildelieu(selectedLocation.Id, selectedLocation.Name));
     }
     private void SearchTextChanged( object sender, TextChangedEventArgs e)
     {

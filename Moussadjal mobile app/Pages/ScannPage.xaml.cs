@@ -35,7 +35,8 @@ public partial class ScannPage : ContentPage
        // BcReader.IsTorchOn = !BcReader.IsTorchOn;
        this.Navigation.PushAsync(new ComfirmScann());
     }
-    private void BackClicked(object sender, EventArgs e)
+    private async void BackClicked(object sender, EventArgs e)
     {
+        await Navigation.PopAsync();
     }
 }
