@@ -35,5 +35,15 @@ namespace Moussadjal_mobile_app
             scn.Close();
             return result;
         }
+        public DataTable DtOfSelect(string query)
+        {
+            scn.Open();
+            scd = new SqlCommand(query, scn);
+            sda = new SqlDataAdapter(scd);
+            DataTable dataTable = new DataTable();
+            sda.Fill(dataTable);
+            scn.Close();
+            return dataTable;
+        }
     }
 }

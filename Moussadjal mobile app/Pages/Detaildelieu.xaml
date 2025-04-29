@@ -3,31 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Moussadjal_mobile_app.Pages.Detaildelieu"
               Title="Détails du local">
-    <!-- Wrap the entire content in a ScrollView for overall page scrolling -->
-    <ScrollView VerticalScrollBarVisibility="Default">
-        <Grid RowDefinitions="Auto,*,Auto"
+
+    <Grid RowDefinitions="Auto,*,Auto"
               Padding="20">
 
-            <VerticalStackLayout Grid.Row="0"
+        <VerticalStackLayout Grid.Row="0"
                                  Spacing="5"
                                  Margin="0,20,0,20">
-                <Label x:Name="LocationNameLabel"
+            <Label x:Name="LocationNameLabel"
                        Text="[Nom du local]"
                        FontSize="24"
                        FontAttributes="Bold"
                        TextColor="White"
                        HorizontalOptions="Center"/>
 
-                <Label x:Name="LocationDescriptionLabel"
+            <Label x:Name="LocationDescriptionLabel"
                        Text="[Description du local]"
                        TextColor="#708090"
                        HorizontalOptions="Center"/>
-            </VerticalStackLayout>
+        </VerticalStackLayout>
 
-            <Grid Grid.Row="1"
+        <Grid Grid.Row="1"
                   RowDefinitions="Auto,*">
 
-                <Frame Grid.Row="0"
+            <Frame Grid.Row="0"
                        BorderColor="#333333"
                        BackgroundColor="#1E1E1E"
                        CornerRadius="8"
@@ -35,100 +34,130 @@
                        HasShadow="True"
                        Margin="0,0,0,20">
 
-                    <VerticalStackLayout Grid.Row="0"
+                <VerticalStackLayout Grid.Row="0"
                                          Grid.Column="0"
                                          HorizontalOptions="Center">
-                        <Label x:Name="TotalItemsLabel"
+                    <Label x:Name="TotalItemsLabel"
                                Text="0"
                                FontSize="24"
                                FontAttributes="Bold"
                                TextColor="White"
                                HorizontalOptions="Center"/>
-                        <Label Text="Total biens"
+                    <Label Text="Total biens"
                                FontSize="14"
                                TextColor="#708090"
                                HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
-                </Frame>
+                </VerticalStackLayout>
+            </Frame>
 
-                <VerticalStackLayout Grid.Row="1"
+            <VerticalStackLayout Grid.Row="1"
                                      Spacing="10">
-                    <Label Text="Biens dans ce local"
+                <Label Text="Biens dans ce local"
                            FontSize="18"
                            FontAttributes="Bold"
                            TextColor="White"/>
 
-                    <!-- Set a fixed height for the CollectionView container to ensure scrolling works properly -->
-                    <ScrollView VerticalScrollBarVisibility="Always"
+                <ScrollView VerticalScrollBarVisibility="Always"
                                HorizontalScrollBarVisibility="Never"
                                HeightRequest="400">
-                        <CollectionView x:Name="ItemsCollection"
+                    <CollectionView x:Name="ItemsCollection"
                                         SelectionMode="Single"
                                         SelectionChanged="ItemSelected"
                                         ItemsUpdatingScrollMode="KeepLastItemInView"
                                         ItemsLayout="VerticalList">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Frame Margin="0,5,0,5"
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="0,5,0,5"
                                            Padding="15"
-                                           BorderColor="#333333"
+                                           BorderColor="White"
                                            BackgroundColor="#1E1E1E"
                                            CornerRadius="8"
                                            HasShadow="True">
-                                        <Grid ColumnDefinitions="Auto,*,Auto"
-                                              RowDefinitions="Auto,Auto">
+                                    <Grid RowDefinitions="Auto,Auto"
+                                              ColumnDefinitions="Auto,*,Auto">
 
-                                            <Image Grid.Row="0"
+                                        <!-- Item Image -->
+                                        <Image Grid.Row="0"
                                                    Grid.RowSpan="2"
                                                    Grid.Column="0"
-                                                   Source="{Binding ImageUrl}"
+                                                   Source="{Binding Image}"
                                                    WidthRequest="50"
                                                    HeightRequest="50"
                                                    Aspect="AspectFill"
                                                    Margin="0,0,10,0"/>
 
-                                            <Label Grid.Row="0"
-                                                   Grid.Column="1"
-                                                   Text="{Binding Name}"
-                                                   FontAttributes="Bold"
-                                                   TextColor="White"/>
+                                        <!-- Top Row: Designation and Quantity -->
+                                        <StackLayout Grid.Row="0"
+                                                         Grid.Column="1"
+                                                         Orientation="Horizontal"
+                                                         Spacing="5">
+                                            <Label Text="{Binding designation}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="White"/>
+                                        </StackLayout>
 
-                                            <Label Grid.Row="1"
-                                                   Grid.Column="1"
-                                                   Text="{Binding Category}"
-                                                   TextColor="#708090"
-                                                   FontSize="14"/>
+                                        <!-- Bottom Row: Inventory and Sequence Numbers -->
+                                        <StackLayout Grid.Row="1"
+                                                         Grid.Column="1"
+                                                         Orientation="Horizontal"
+                                                         Spacing="5">
+                                            <Label Text="{Binding div}"
+                                                       FontSize="14"
+                                                       TextColor="White"
+                                                       Margin="0,0,10,0"/>
 
-                                            <Label Grid.Row="0"
-                                                   Grid.RowSpan="2"
+                                            <Label Text="/"
+                                                       FontSize="14"
+                                                       TextColor="White"/>
+                                            <Label Text="{Binding Ns}"
+                                                       FontSize="14"
+                                                       TextColor="White"/>
+                                        </StackLayout>
+
+                                        <!-- Quantity Badge -->
+                                        <Frame Grid.Row="0"
                                                    Grid.Column="2"
-                                                   Text="{Binding Status}"
-                                                   VerticalOptions="Center"
-                                                   TextColor="{Binding StatusColor}"/>
-                                        </Grid>
-                                    </Frame>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                            <CollectionView.EmptyView>
-                                <VerticalStackLayout VerticalOptions="Center"
+                                                   BackgroundColor="#00B4D8"
+                                                   CornerRadius="8"
+                                                   Padding="10,5"
+                                                   VerticalOptions="Start"
+                                                   HorizontalOptions="End">
+                                            <StackLayout Orientation="Horizontal"
+                                                             Spacing="3">
+                                                <Label Text="Qté:"
+                                                           FontSize="12"
+                                                           TextColor="White"
+                                                           FontAttributes="Bold"/>
+                                                <Label Text="{Binding quantite}"
+                                                           FontSize="12"
+                                                           TextColor="White"
+                                                           FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout VerticalOptions="Center"
                                                      HorizontalOptions="Center"
                                                      Spacing="20">
-                                    <Image Source="empty_items.png"
+                                <Image Source="empty_items.png"
                                            HeightRequest="100"
                                            WidthRequest="100"
                                            Opacity="0.5"/>
-                                    <Label Text="Aucun bien dans ce local"
+                                <Label Text="Aucun bien dans ce local"
                                            FontSize="18"
                                            TextColor="#708090"
                                            HorizontalOptions="Center"/>
-                                </VerticalStackLayout>
-                            </CollectionView.EmptyView>
-                        </CollectionView>
-                    </ScrollView>
-                </VerticalStackLayout>
-            </Grid>
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </ScrollView>
+            </VerticalStackLayout>
+        </Grid>
 
-            <HorizontalStackLayout Grid.Row="2"
+        <HorizontalStackLayout Grid.Row="2"
                                    HorizontalOptions="Center"
                                    Spacing="15"
                                    Margin="0,20,0,0">
@@ -149,5 +178,5 @@
                     WidthRequest="120"/>
             </HorizontalStackLayout>
         </Grid>
-    </ScrollView>
+    
 </ContentPage>
