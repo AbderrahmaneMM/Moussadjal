@@ -24,20 +24,20 @@ namespace Moussadjal_mobile_app
         {
         
         }
-        private void Scann_Tapped(object sender, TappedEventArgs e)
+        private  void Scann_Tapped(object sender, TappedEventArgs e)
         {
             this.Navigation.PushAsync(new ScannPage());
         }
     
-        private void Ajouter_Tapped(object sender, TappedEventArgs e)
+        private  void Ajouter_Tapped(object sender, TappedEventArgs e)
         {
             this.Navigation.PushAsync(new AjouterBien());
         }
-        private void Local_Tapped(object sender, TappedEventArgs e)
+        private  void Local_Tapped(object sender, TappedEventArgs e)
         {
             this.Navigation.PushAsync(new Locaux());
         }
-        private void SettingTapped(object sender, TappedEventArgs e)
+        private  void SettingTapped(object sender, TappedEventArgs e)
         {
             this.Navigation.PushAsync(new Setting());
         }

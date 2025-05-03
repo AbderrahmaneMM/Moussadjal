@@ -30,13 +30,13 @@ namespace Moussadjal
         public void datagridviewStyle(Guna2DataGridView dg)
         {
             Color primaryColor = Color.FromArgb(0, 180, 216);
-            Color secondaryColor = Color.FromArgb(112, 128, 144);
+           // Color secondaryColor = Color.FromArgb(112, 128, 144);
             Color accentColor = Color.FromArgb(125, 184, 40);
 
             // Main styling
             dg.BackgroundColor = Color.White;
             dg.ThemeStyle.BackColor = Color.White; // Guna-specific
-            dg.GridColor = secondaryColor;
+            dg.GridColor = Color.Black;
 
             // Column headers
             dg.ColumnHeadersDefaultCellStyle.BackColor = primaryColor;
@@ -47,8 +47,8 @@ namespace Moussadjal
             // Rows
             dg.DefaultCellStyle.BackColor = Color.White;
             dg.DefaultCellStyle.ForeColor = Color.Black;
-            dg.AlternatingRowsDefaultCellStyle.BackColor = secondaryColor;
-            dg.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
+            dg.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dg.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             // Selection styling (critical for Guna2)
             dg.ThemeStyle.RowsStyle.SelectionBackColor = accentColor; // Guna-specific
@@ -61,8 +61,8 @@ namespace Moussadjal
             dg.DefaultCellStyle.Font = new Font("Segoe UI", 9);
 
             // Sizing
-            dg.ColumnHeadersHeight = 30;
-            dg.RowTemplate.Height = 25;
+            dg.ColumnHeadersHeight = 35;
+            dg.RowTemplate.Height = 30;
         }
 
         public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)

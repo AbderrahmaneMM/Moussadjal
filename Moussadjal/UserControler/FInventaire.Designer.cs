@@ -1,6 +1,6 @@
 ﻿namespace Moussadjal.UserControler
 {
-    partial class FInventaire
+    partial class DGVL
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,12 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DGVD = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DGVA = new Guna.UI2.WinForms.Guna2DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DGVD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVA)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -156,21 +162,99 @@
             this.DGVD.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.DGVD.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // FInventaire
+            // DGVA
+            // 
+            this.DGVA.AllowUserToAddRows = false;
+            this.DGVA.AllowUserToDeleteRows = false;
+            this.DGVA.AllowUserToOrderColumns = true;
+            this.DGVA.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVA.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGVA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DGVA.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
+            this.DGVA.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DGVA.ColumnHeadersHeight = 100;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVA.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DGVA.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.DGVA.GridColor = System.Drawing.Color.Black;
+            this.DGVA.Location = new System.Drawing.Point(277, 119);
+            this.DGVA.MultiSelect = false;
+            this.DGVA.Name = "DGVA";
+            this.DGVA.ReadOnly = true;
+            this.DGVA.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DGVA.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DGVA.RowHeadersVisible = false;
+            this.DGVA.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVA.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.DGVA.RowTemplate.Height = 30;
+            this.DGVA.RowTemplate.ReadOnly = true;
+            this.DGVA.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DGVA.Size = new System.Drawing.Size(843, 672);
+            this.DGVA.TabIndex = 27;
+            this.DGVA.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DGVA.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVA.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(184)))), ((int)(((byte)(40)))));
+            this.DGVA.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.GridColor = System.Drawing.Color.Black;
+            this.DGVA.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(184)))), ((int)(((byte)(40)))));
+            this.DGVA.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
+            this.DGVA.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGVA.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVA.ThemeStyle.HeaderStyle.Height = 100;
+            this.DGVA.ThemeStyle.ReadOnly = true;
+            this.DGVA.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
+            this.DGVA.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGVA.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVA.ThemeStyle.RowsStyle.Height = 30;
+            this.DGVA.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.DGVA.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVA.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVA_ViewCellFormatting);
+            // 
+            // DGVL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.DGVA);
             this.Controls.Add(this.DGVD);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Name = "FInventaire";
+            this.Name = "DGVL";
             this.Size = new System.Drawing.Size(1123, 794);
             this.Load += new System.EventHandler(this.FInventaire_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.DGVD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +267,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2DataGridView DGVD;
+        public Guna.UI2.WinForms.Guna2DataGridView DGVA;
     }
 }

@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace Moussadjal.UserControler
 {
-    public partial class FInventaire : UserControl
+    public partial class DGVL : UserControl
     {
-        public FInventaire()
+        public DGVL()
         {
             InitializeComponent();
+            this.DGVA.CellFormatting += DGVA_ViewCellFormatting;
         }
         Database db = new Database();
         private void FInventaire_Load(object sender, EventArgs e)
         {
             db.EmptyDataGridView(DGVD);
             db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation  from Description_de_bien", DGVD);
-
-            //N°1
+           //N°1
             DGVD.Columns["numero_sequentiel"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel"].Width = 18;
             //DIV
@@ -33,7 +34,21 @@ namespace Moussadjal.UserControler
             DGVD.Columns["numero_sequentiel1"].Width = 20;
             //العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
-           // DGVD.Columns["designation"].Width = 250;
+           //Affectation
+           DataTable dt = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
+         
+            for (int i =0; i < dt.Rows.Count; i++)
+            { 
+                  
+                DGVA.Columns.Add(dt.Rows[i]["designationLieu"].ToString(), dt.Rows[i]["designationLieu"].ToString());
+            }
+            foreach (DataGridViewColumn c in DGVA.Columns)
+            {
+               c.MinimumWidth = 10;
+               c.Width = 20;
+            }
+            //Stocks
+
 
         }
 
@@ -93,6 +108,29 @@ namespace Moussadjal.UserControler
             g.FillRectangle(Brushes.LightGray, materialRect);
             g.DrawRectangle(Pens.Black, materialRect);
             g.DrawString("العتاد", DivFont, Brushes.Black, materialRect, centerFormat);
+
+            //Affectation
+            int AffectWidth = DGVA.Width;
+            Rectangle AffectRect = new Rectangle(startX + nw + fWidth + designWidth, y, AffectWidth, headerHeight);
+            g.FillRectangle(Brushes.White, AffectRect);
+            g.DrawRectangle(Pens.Black, AffectRect);
+            g.DrawString("AFFECTION (sections ou services)", FFont, Brushes.Black, AffectRect, centerFormat);
+
+            //Stocks
+            Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth, y, AffectWidth, headerHeight);
+            g.FillRectangle(Brushes.White, Stocksr);
+            g.DrawRectangle(Pens.Black, Stocksr);
+            g.DrawString("Stocks", FFont, Brushes.Black, AffectRect, centerFormat);
+        }
+
+        private void DGVA_ViewCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            GridHeaderCellElement element = sender as GridHeaderCellElement;
+            if (element != null)
+            {
+                element.TextOrientation = Orientation.Vertical;
+                element.FlipText = true;
+            }
         }
     }
 }

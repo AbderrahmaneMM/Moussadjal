@@ -21,7 +21,7 @@ namespace Moussadjal.UserControler
         }
         private int d ; 
         FRepertoire r = new FRepertoire();
-        FInventaire i = new FInventaire();
+        DGVL i = new DGVL();
         Bitmap bmprint;
 
         public int DocumentType

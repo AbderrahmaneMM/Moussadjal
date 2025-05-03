@@ -186,6 +186,16 @@ namespace Moussadjal
             Close();
             return result;
         }
+        public DataTable DtOfSelect(string query)
+        {
+            scn.Open();
+            scd = new SqlCommand(query, scn);
+            sda = new SqlDataAdapter(scd);
+            DataTable dataTable = new DataTable();
+            sda.Fill(dataTable);
+            scn.Close();
+            return dataTable;
+        }
         // méthode de remplisage coombobox
         public void remlirCombo(string table,  Guna2ComboBox comb, string dm , string vm)
         {
