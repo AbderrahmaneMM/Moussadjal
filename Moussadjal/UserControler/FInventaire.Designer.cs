@@ -178,10 +178,10 @@
             this.DGVA.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             this.DGVA.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
@@ -236,7 +236,9 @@
             this.DGVA.ThemeStyle.RowsStyle.Height = 30;
             this.DGVA.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.DGVA.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVA.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVA_CellContentClick);
             this.DGVA.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVA_ViewCellFormatting);
+            this.DGVA.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DGVA_CellPating);
             // 
             // DGVL
             // 

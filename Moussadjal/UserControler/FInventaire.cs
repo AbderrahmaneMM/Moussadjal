@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Moussadjal.UserControler
         public DGVL()
         {
             InitializeComponent();
-            this.DGVA.CellFormatting += DGVA_ViewCellFormatting;
+            this.DGVA.CellPainting += DGVA_CellPating;
         }
         Database db = new Database();
         private void FInventaire_Load(object sender, EventArgs e)
@@ -35,18 +36,26 @@ namespace Moussadjal.UserControler
             //العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
            //Affectation
-           DataTable dt = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
-         
-            for (int i =0; i < dt.Rows.Count; i++)
-            { 
+             DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
+             DataTable dtD = db.DtOfSelect("SELECT DISTINCT numero_sequentiel FROM Description_de_bien ");
+            for (int l =0; l < dtL.Rows.Count; l++)
+             {     
+                DGVA.Columns.Add(dtL.Rows[l]["designationLieu"].ToString(), dtL.Rows[l]["designationLieu"].ToString());
                   
-                DGVA.Columns.Add(dt.Rows[i]["designationLieu"].ToString(), dt.Rows[i]["designationLieu"].ToString());
-            }
-            foreach (DataGridViewColumn c in DGVA.Columns)
-            {
-               c.MinimumWidth = 10;
-               c.Width = 20;
-            }
+                for(int j = 0; j < l; j++)
+                {
+                    DGVA.Columns[dtL .Rows[j]["designationLieu"].ToString()].Width = 25;
+                }
+              for(int b = 0; b < dtD.Rows.Count; b++)
+              {
+                DataTable dtB = db.DtOfSelect("SELECT numero_sequentiel FROM  Bien  Where  numero_sequentiel = '" + 
+                        dtD.Rows[b]["numero_sequentiel"].ToString()+"' AND Id_lieu = '"+
+                        dtL.Rows[l]["designationLieu"].ToString() + "'");
+                db.remplirgridview("SELECT DISTINCT quantite FROM Description_de_bien Where  numero_sequentiel = '" +
+                        dtB.Rows[b]["numero_sequentiel"].ToString() + "'", DGVA);
+              }
+             }
+            DGVA.Width = 20 * dtL.Rows.Count;
             //Stocks
 
 
@@ -125,11 +134,49 @@ namespace Moussadjal.UserControler
 
         private void DGVA_ViewCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            GridHeaderCellElement element = sender as GridHeaderCellElement;
-            if (element != null)
+        }
+
+        private void DGVA_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void DGVA_CellPating(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex >= 0)
             {
-                element.TextOrientation = Orientation.Vertical;
-                element.FlipText = true;
+                // Paint everything except text
+                e.Paint(e.ClipBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+
+                // Get header text and styling
+                string headerText = DGVA.Columns[e.ColumnIndex].HeaderText;
+                Font headerFont = DGVA.ColumnHeadersDefaultCellStyle.Font;
+                Brush headerBrush = new SolidBrush(DGVA.ColumnHeadersDefaultCellStyle.ForeColor);
+
+                // Save graphics state
+                GraphicsState state = e.Graphics.Save();
+
+                // Calculate the center of the cell for rotation
+                float centerX = e.CellBounds.Left + (e.CellBounds.Width / 2);
+                float centerY = e.CellBounds.Top + (e.CellBounds.Height / 2);
+
+                // Set up transformation for vertical text
+                e.Graphics.TranslateTransform(centerX, centerY);
+                e.Graphics.RotateTransform(90); // Rotate 90 degrees clockwise
+
+                // Measure the text and calculate position
+                SizeF textSize = e.Graphics.MeasureString(headerText, headerFont);
+                float textX = -textSize.Width / 2;
+                float textY = -textSize.Height / 2;
+
+                // Draw the text
+                e.Graphics.DrawString(headerText, headerFont, headerBrush, textX, textY);
+
+                // Restore graphics state
+                e.Graphics.Restore(state);
+
+                // Mark as handled so the default painting doesn't occur
+                e.Handled = true;
             }
         }
     }
