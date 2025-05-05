@@ -18,13 +18,19 @@ namespace Moussadjal.UserControler
         {
             InitializeComponent();
             this.DGVA.CellPainting += DGVA_CellPating;
+     
         }
         Database db = new Database();
         private void FInventaire_Load(object sender, EventArgs e)
         {
+            RemplirGrids();
+
+        }
+        private async void RemplirGrids() 
+        {
             db.EmptyDataGridView(DGVD);
             db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation  from Description_de_bien", DGVD);
-           //N°1
+            //N°1
             DGVD.Columns["numero_sequentiel"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel"].Width = 18;
             //DIV
@@ -35,32 +41,40 @@ namespace Moussadjal.UserControler
             DGVD.Columns["numero_sequentiel1"].Width = 20;
             //العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
-           //Affectation
-             DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
-             DataTable dtD = db.DtOfSelect("SELECT DISTINCT numero_sequentiel FROM Description_de_bien ");
-            for (int l =0; l < dtL.Rows.Count; l++)
-             {     
-                DGVA.Columns.Add(dtL.Rows[l]["designationLieu"].ToString(), dtL.Rows[l]["designationLieu"].ToString());
-                  
-                for(int j = 0; j < l; j++)
+            //Affectation
+            DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
+            DataTable dtD = db.DtOfSelect("SELECT  numero_sequentiel FROM Description_de_bien ");
+   
+           
+            for (int l = 0; l < dtL.Rows.Count; l++) //les columns
+            {
+                string locationName = dtL.Rows[l]["designationLieu"].ToString();
+                DGVA.Columns.Add(locationName, locationName);
+
+                DGVA.Width = 25 * dtL.Rows.Count;
+
+
+            }
+            DGVA.Rows.Clear(); 
+            for (int r = 0; r < dtD.Rows.Count; r++) //les lignes
+            {
+                string seqNum = dtD.Rows[r]["numero_sequentiel"].ToString();
+                DGVA.Rows.Add(seqNum);
+
+                for (int colIndex = 0; colIndex < dtL.Rows.Count; colIndex++)
                 {
-                    DGVA.Columns[dtL .Rows[j]["designationLieu"].ToString()].Width = 25;
+                    string locationId = dtL.Rows[colIndex]["Id_lieu"].ToString();
+                    string locationName = dtL.Rows[colIndex]["designationLieu"].ToString();
+
+                            //la quantity
+                            DGVA.Rows[r].Cells[locationName].Value = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='" + seqNum + "' AND Id_lieu = '" + locationId + "'");
+                  
                 }
-              for(int b = 0; b < dtD.Rows.Count; b++)
-              {
-                DataTable dtB = db.DtOfSelect("SELECT numero_sequentiel FROM  Bien  Where  numero_sequentiel = '" + 
-                        dtD.Rows[b]["numero_sequentiel"].ToString()+"' AND Id_lieu = '"+
-                        dtL.Rows[l]["designationLieu"].ToString() + "'");
-                db.remplirgridview("SELECT DISTINCT quantite FROM Description_de_bien Where  numero_sequentiel = '" +
-                        dtB.Rows[b]["numero_sequentiel"].ToString() + "'", DGVA);
-              }
-             }
-            DGVA.Width = 20 * dtL.Rows.Count;
+            }
+          
             //Stocks
 
-
         }
-
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -124,12 +138,13 @@ namespace Moussadjal.UserControler
             g.FillRectangle(Brushes.White, AffectRect);
             g.DrawRectangle(Pens.Black, AffectRect);
             g.DrawString("AFFECTION (sections ou services)", FFont, Brushes.Black, AffectRect, centerFormat);
-
+            DGVA.ColumnHeadersHeight = materialRect.Height;
+            DGVA.ColumnHeadersDefaultCellStyle.Font = FFont;
             //Stocks
             Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth, y, AffectWidth, headerHeight);
             g.FillRectangle(Brushes.White, Stocksr);
             g.DrawRectangle(Pens.Black, Stocksr);
-            g.DrawString("Stocks", FFont, Brushes.Black, AffectRect, centerFormat);
+            g.DrawString("Stocks", FFont, Brushes.Black, Stocksr, centerFormat);
         }
 
         private void DGVA_ViewCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -145,6 +160,7 @@ namespace Moussadjal.UserControler
         {
             if (e.RowIndex == -1 && e.ColumnIndex >= 0)
             {
+                
                 // Paint everything except text
                 e.Paint(e.ClipBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
 
