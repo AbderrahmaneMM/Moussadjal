@@ -163,6 +163,12 @@
     <Compile Include="UserControler\FInventaire.Designer.cs">
       <DependentUpon>FInventaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\FRecollement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\FRecollement.Designer.cs">
+      <DependentUpon>FRecollement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControler\FRepertoire.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\FInventaire.resx">
       <DependentUpon>FInventaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\FRecollement.resx">
+      <DependentUpon>FRecollement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\FRepertoire.resx">
       <DependentUpon>FRepertoire.cs</DependentUpon>

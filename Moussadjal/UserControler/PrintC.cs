@@ -21,7 +21,8 @@ namespace Moussadjal.UserControler
         }
         private int d ; 
         FRepertoire r = new FRepertoire();
-        DGVL i = new DGVL();
+        FInventaire i = new FInventaire();
+        FRecollement fr = new FRecollement();
         Bitmap bmprint;
 
         public int DocumentType
@@ -51,6 +52,11 @@ namespace Moussadjal.UserControler
                 DocPanel.Size = new Size(1123, 794);
                     DocPanel.Controls.Add(i);
                  break;
+                case 3:
+                    i.Size = new Size(1123, 794); // A4  horisontl
+                    DocPanel.Size = new Size(1123, 794);
+                    DocPanel.Controls.Add(fr);
+                    break;
             }
         }
         private Bitmap GetControlImage(UserControl control)
@@ -70,6 +76,9 @@ namespace Moussadjal.UserControler
                     break;
                 case 2:
                     bmprint = GetControlImage(i);
+                    break;
+                case 3:
+                    bmprint = GetControlImage(fr);
                     break;
             }
                     bmprint.SetResolution(300, 300);
@@ -107,7 +116,7 @@ namespace Moussadjal.UserControler
                     printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
                     printDocument1.DefaultPageSettings.Landscape = false;
                     break;  
-                case 2:
+                case 2 | 3:
                     printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169); // A4 size
                     printDocument1.DefaultPageSettings.Landscape = true;
                     break;

@@ -12,9 +12,9 @@ using Telerik.WinControls.UI;
 
 namespace Moussadjal.UserControler
 {
-    public partial class DGVL : UserControl
+    public partial class FInventaire : UserControl
     {
-        public DGVL()
+        public FInventaire()
         {
             InitializeComponent();
             this.DGVA.CellPainting += DGVA_CellPating;

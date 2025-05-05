@@ -1,6 +1,6 @@
 ﻿namespace Moussadjal.UserControler
 {
-    partial class DGVL
+    partial class FInventaire
     {
         /// <summary> 
         /// Required designer variable.
@@ -240,7 +240,7 @@
             this.DGVA.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVA_ViewCellFormatting);
             this.DGVA.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DGVA_CellPating);
             // 
-            // DGVL
+            // FInventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,7 +251,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Name = "DGVL";
+            this.Name = "FInventaire";
             this.Size = new System.Drawing.Size(1123, 794);
             this.Load += new System.EventHandler(this.FInventaire_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);

@@ -289,6 +289,13 @@ namespace Moussadjal
             p.DocumentType = 2;
         }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            // FUILLE  de recollement
+            UCAjouter(p);
+            p.DocumentType = 3;
+        }
+
         private void guna2ControlBox2_Click(object sender, EventArgs e)
         {
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
