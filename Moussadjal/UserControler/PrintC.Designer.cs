@@ -59,6 +59,7 @@
             // 
             // DocPanel
             // 
+            this.DocPanel.AutoScroll = true;
             this.DocPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DocPanel.Location = new System.Drawing.Point(0, 115);
             this.DocPanel.Name = "DocPanel";
