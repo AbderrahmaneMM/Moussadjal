@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Telerik.WinControls.UI;
+//using Telerik.WinControls.UI;
 
 namespace Moussadjal.UserControler
 {
@@ -26,37 +26,45 @@ namespace Moussadjal.UserControler
             RemplirGrids();
 
         }
-        private async void RemplirGrids() 
+        private async void RemplirGrids()
         {
             db.EmptyDataGridView(DGVD);
-            db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation  from Description_de_bien", DGVD);
-            //N°1
+
+            // Use Task.Run to offload the database operations to a background thread
+            await Task.Run(() =>
+            {
+                db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation  from Description_de_bien", DGVD);
+            });
+
+            // N°1
             DGVD.Columns["numero_sequentiel"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel"].Width = 18;
-            //DIV
+
+            // DIV
             DGVD.Columns["division"].MinimumWidth = 10;
             DGVD.Columns["division"].Width = 18;
-            //N2
+
+            // N2
             DGVD.Columns["numero_sequentiel1"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel1"].Width = 20;
-            //العتاد
+
+            // العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
-            //Affectation
-            DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
-            DataTable dtD = db.DtOfSelect("SELECT  numero_sequentiel FROM Description_de_bien ");
-   
-           
-            for (int l = 0; l < dtL.Rows.Count; l++) //les columns
+
+            // Fetch data for Affectation asynchronously
+            DataTable dtL = await Task.Run(() => db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu"));
+            DataTable dtD = await Task.Run(() => db.DtOfSelect("SELECT numero_sequentiel FROM Description_de_bien"));
+
+            for (int l = 0; l < dtL.Rows.Count; l++) // les columns
             {
                 string locationName = dtL.Rows[l]["designationLieu"].ToString();
                 DGVA.Columns.Add(locationName, locationName);
 
                 DGVA.Width = 25 * dtL.Rows.Count;
-
-
             }
-            DGVA.Rows.Clear(); 
-            for (int r = 0; r < dtD.Rows.Count; r++) //les lignes
+
+            DGVA.Rows.Clear();
+            for (int r = 0; r < dtD.Rows.Count; r++) // les lignes
             {
                 string seqNum = dtD.Rows[r]["numero_sequentiel"].ToString();
                 DGVA.Rows.Add(seqNum);
@@ -66,14 +74,11 @@ namespace Moussadjal.UserControler
                     string locationId = dtL.Rows[colIndex]["Id_lieu"].ToString();
                     string locationName = dtL.Rows[colIndex]["designationLieu"].ToString();
 
-                            //la quantity
-                            DGVA.Rows[r].Cells[locationName].Value = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='" + seqNum + "' AND Id_lieu = '" + locationId + "'");
-                  
+                    // Fetch the quantity asynchronously
+                    DGVA.Rows[r].Cells[locationName].Value = await Task.Run(() =>
+                        db.FillscdToSelectCount($"SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='{seqNum}' AND Id_lieu = '{locationId}'"));
                 }
             }
-          
-            //Stocks
-
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
