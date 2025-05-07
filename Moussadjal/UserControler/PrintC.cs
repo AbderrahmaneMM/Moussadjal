@@ -109,21 +109,25 @@ namespace Moussadjal.UserControler
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+
             switch (d)
             {
                 case 1:
-
-                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+                    printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
                     printDocument1.DefaultPageSettings.Landscape = false;
-                    break;  
-                case 2 | 3:
-                    printDocument1.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169); // A4 size
-                    printDocument1.DefaultPageSettings.Landscape = true;
+                    printDocument1.DefaultPageSettings.Margins = new Margins(17, 0, 17, 0);
                     break;
+                case 2:
+                case 3:
+                    printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
+
+                    printDocument1.DefaultPageSettings.Landscape = true;
+                    printDocument1.DefaultPageSettings.Margins = new Margins(0, 40, 10, 0);
+                    break;
+              
             }
-          
-            printDocument1.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
-             
+
+
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
