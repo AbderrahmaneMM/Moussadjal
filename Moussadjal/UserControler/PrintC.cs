@@ -48,12 +48,12 @@ namespace Moussadjal.UserControler
                 DocPanel.Controls.Add(r);
                  break;
                 case 2:
-                i.Size = new Size(1123, 794); // A4  horisontl
+                i.Size = new Size(1123, 794); // a3  horisontl
                 DocPanel.Size = new Size(1123, 794);
                     DocPanel.Controls.Add(i);
                  break;
                 case 3:
-                    i.Size = new Size(1123, 794); // A4  horisontl
+                    fr.Size = new Size(2324, 1654); // A4  horisontl
                     DocPanel.Size = new Size(1123, 794);
                     DocPanel.Controls.Add(fr);
                     break;
