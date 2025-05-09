@@ -59,7 +59,7 @@ namespace Moussadjal.UserControler
                 string locationName = dtL.Rows[l]["designationLieu"].ToString();
                 DGVA.Columns.Add(locationName, locationName);
 
-                DGVA.Width = 25 * dtL.Rows.Count;
+                DGVA.Width = 30 * dtL.Rows.Count;
             }
 
             DGVA.Rows.Clear();
@@ -80,10 +80,18 @@ namespace Moussadjal.UserControler
             }
             DGVA.Columns.Add("Generaux", "Generaux");
             DGVA.Columns.Add("Sur Fiche", "Sur Fiche");
-            DGVA.Columns["Instance Reforme"].DisplayIndex = DGVA.Columns.Count - 3;
-            DGVA.Columns["Instance Reforme"].DisplayIndex = DGVA.Columns.Count - 2;
-            DGVA.Columns["Generaux"].DisplayIndex = DGVA.Columns.Count - 1;
-            DGVA.Columns["Magasin General"].DisplayIndex = DGVA.Columns.Count - 1;
+ 
+            DGVA.Columns.Add("+", "+");
+            DGVA.Columns.Add("-", "-");
+            DGVA.Columns.Add("Observation", "Observation");
+            DGVA.Columns["Magasin General"].DisplayIndex = DGVA.Columns.Count - 6;
+            DGVA.Columns["Instance Reforme"].DisplayIndex = DGVA.Columns.Count - 5;
+            DGVA.Columns["Generaux"].DisplayIndex = DGVA.Columns.Count - 4;
+            DGVA.Columns["Sur Fiche"].DisplayIndex = DGVA.Columns.Count - 3;
+            DGVA.Columns["+"].DisplayIndex = DGVA.Columns.Count - 2;
+            DGVA.Columns["-"].DisplayIndex = DGVA.Columns.Count - 1;
+            DGVA.Columns["Observation"].DisplayIndex = DGVA.Columns.Count - 1;
+            DGVA.Width = DGVA.Columns.Count * 30;
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -100,8 +108,8 @@ namespace Moussadjal.UserControler
 
 
             int startX = DGVD.Location.X;
-            int y = DGVD.Location.Y - 100;
-            int rowHeight = 100;
+            int y = DGVD.Location.Y - 128;
+            int rowHeight = 128;
             int headerHeight = 18;
             //N°1
             int nw = DGVD.Columns["numero_sequentiel"].Width+2;
@@ -143,7 +151,7 @@ namespace Moussadjal.UserControler
             g.DrawString("العتاد", DivFont, Brushes.Black, materialRect, centerFormat);
 
             //Affectation
-            int AffectWidth = DGVA.Width;
+            int AffectWidth = DGVA.Width - 208;
             Rectangle AffectRect = new Rectangle(startX + nw + fWidth + designWidth, y, AffectWidth, headerHeight);
             g.FillRectangle(Brushes.White, AffectRect);
             g.DrawRectangle(Pens.Black, AffectRect);
@@ -151,10 +159,22 @@ namespace Moussadjal.UserControler
             DGVA.ColumnHeadersHeight = materialRect.Height;
             DGVA.ColumnHeadersDefaultCellStyle.Font = FFont;
             //Stocks
-            Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth, y, AffectWidth, headerHeight);
+            int Stockw = 119;
+            Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth, y, Stockw, headerHeight);
             g.FillRectangle(Brushes.White, Stocksr);
             g.DrawRectangle(Pens.Black, Stocksr);
             g.DrawString("Stocks", FFont, Brushes.Black, Stocksr, centerFormat);
+            //Ecrats
+            int ecraw = 59; 
+            Rectangle Ecrats = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth+ Stockw, y, 59, headerHeight);
+            g.FillRectangle(Brushes.White, Ecrats);
+            g.DrawRectangle(Pens.Black, Ecrats);
+            g.DrawString("Ecrats", FFont, Brushes.Black, Ecrats, centerFormat);
+            //observ
+            Rectangle observ = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth+Stockw+  ecraw, y, 30, headerHeight);
+            g.FillRectangle(Brushes.White, observ);
+            g.DrawRectangle(Pens.Black, observ);
+            g.DrawString(" ", FFont, Brushes.Black, Stocksr, centerFormat);
         }
 
         private void DGVA_ViewCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -188,7 +208,7 @@ namespace Moussadjal.UserControler
 
                 // Set up transformation for vertical text
                 e.Graphics.TranslateTransform(centerX, centerY);
-                e.Graphics.RotateTransform(90); // Rotate 90 degrees clockwise
+                e.Graphics.RotateTransform(270); // Rotate 90 degrees clockwise
 
                 // Measure the text and calculate position
                 SizeF textSize = e.Graphics.MeasureString(headerText, headerFont);

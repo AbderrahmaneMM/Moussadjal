@@ -48,12 +48,12 @@ namespace Moussadjal.UserControler
                 DocPanel.Controls.Add(r);
                  break;
                 case 2:
-                i.Size = new Size(1123, 794); // a3  horisontl
+                i.Size = new Size(2324, 1654); // a3  horisontl
                 DocPanel.Size = new Size(1123, 794);
                     DocPanel.Controls.Add(i);
-                 break;
+                    break;
                 case 3:
-                    fr.Size = new Size(2324, 1654); // A4  horisontl
+                    fr.Size = new Size(1123, 794); // A4  horisontl
                     DocPanel.Size = new Size(1123, 794);
                     DocPanel.Controls.Add(fr);
                     break;
@@ -118,6 +118,11 @@ namespace Moussadjal.UserControler
                     printDocument1.DefaultPageSettings.Margins = new Margins(17, 0, 17, 0);
                     break;
                 case 2:
+                    printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A3;
+
+                    printDocument1.DefaultPageSettings.Landscape = true;
+                    printDocument1.DefaultPageSettings.Margins = new Margins(0, 40, 10, 0);
+                    break;
                 case 3:
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
 
