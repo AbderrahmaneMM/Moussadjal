@@ -46,36 +46,124 @@ namespace Moussadjal.UserControler
 
             // العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
-
-            // Fetch data for Affectation asynchronously
+            //  Affectation 
             DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
-            DataTable dtD =  db.DtOfSelect("SELECT numero_sequentiel FROM Description_de_bien");
+            DataTable dtD = db.DtOfSelect("SELECT numero_sequentiel FROM Description_de_bien");
 
-            for (int l = 0; l < dtL.Rows.Count; l++) // les columns
+            // Suspend layout to improve performance while adding columns
+            DGVA.SuspendLayout();
+
+            //  columns first
+            foreach (DataRow locRow in dtL.Rows)
             {
-                string locationName = dtL.Rows[l]["designationLieu"].ToString();
+                string locationName = locRow["designationLieu"].ToString();
                 DGVA.Columns.Add(locationName, locationName);
-
-                DGVA.Width = 30 * dtL.Rows.Count;
             }
 
-            DGVA.Rows.Clear();
-            for (int r = 0; r < dtD.Rows.Count; r++) // les lignes
+ 
+            Dictionary<string, string> locationIdToName = new Dictionary<string, string>();
+            foreach (DataRow row in dtL.Rows)
             {
-                string seqNum = dtD.Rows[r]["numero_sequentiel"].ToString();
-                DGVA.Rows.Add(seqNum);
+                locationIdToName[row["Id_lieu"].ToString()] = row["designationLieu"].ToString();
+            }
 
-                for (int colIndex = 0; colIndex < dtL.Rows.Count; colIndex++)
+            // Get a list of all sequence numbers for our query
+            List<string> seqNums = new List<string>();
+            foreach (DataRow row in dtD.Rows)
+            {
+                // Make sure each value is properly quoted
+                seqNums.Add("'" + row["numero_sequentiel"].ToString().Replace("'", "''") + "'");
+            }
+
+            // Declare the variable outside the if/else blocks to ensure proper scope
+            DataTable countResults;
+
+            // Check if we have any sequence numbers to avoid empty IN clause
+            if (seqNums.Count == 0)
+            {
+                // Handle the case when there are no sequence numbers
+                DataTable emptyTable = new DataTable();
+                emptyTable.Columns.Add("numero_sequentiel");
+                emptyTable.Columns.Add("Id_lieu");
+                emptyTable.Columns.Add("ItemCount", typeof(int));
+                countResults = emptyTable;
+            }
+            else
+            {
+                // Join the sequence numbers with commas
+                string allSeqNumsStr = string.Join(",", seqNums);
+
+                // Create the SQL query
+                string countQuery = $@"
+        SELECT numero_sequentiel, Id_lieu, COUNT(*) as ItemCount 
+        FROM Bien 
+        WHERE numero_sequentiel IN ({allSeqNumsStr})
+        GROUP BY numero_sequentiel, Id_lieu";
+
+                // Execute the query
+                countResults = db.DtOfSelect(countQuery);
+            }
+
+            // Now countResults is in scope for the rest of your code
+            // Continue with the dictionary creation and grid population
+            Dictionary<string, Dictionary<string, int>> countsBySeqAndLoc = new Dictionary<string, Dictionary<string, int>>();
+            foreach (DataRow row in countResults.Rows)
+            {
+                string seqNum = row["numero_sequentiel"].ToString();
+                string locId = row["Id_lieu"].ToString();
+                int count = Convert.ToInt32(row["ItemCount"]);
+
+                if (!countsBySeqAndLoc.ContainsKey(seqNum))
                 {
-                    string locationId = dtL.Rows[colIndex]["Id_lieu"].ToString();
-                    string locationName = dtL.Rows[colIndex]["designationLieu"].ToString();
-                    int q = db.FillscdToSelectCount($"SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='{seqNum}' AND Id_lieu = '{locationId}'");
-                    if (q == 0) DGVA.Rows[r].Cells[locationName].Value = "";
-                    
-                    else   DGVA.Rows[r].Cells[locationName].Value = q; 
+                    countsBySeqAndLoc[seqNum] = new Dictionary<string, int>();
+                }
+
+                countsBySeqAndLoc[seqNum][locId] = count;
+            }
+            // Create dictionary to store counts for fast lookup
+           foreach (DataRow row in countResults.Rows)
+            {
+                string seqNum = row["numero_sequentiel"].ToString();
+                string locId = row["Id_lieu"].ToString();
+                int count = Convert.ToInt32(row["ItemCount"]);
+
+                if (!countsBySeqAndLoc.ContainsKey(seqNum))
+                {
+                    countsBySeqAndLoc[seqNum] = new Dictionary<string, int>();
+                }
+
+                countsBySeqAndLoc[seqNum][locId] = count;
+            }
+
+            // Clear rows and populate grid
+            DGVA.Rows.Clear();
+
+            // Add rows and populate cells
+            foreach (DataRow seqRow in dtD.Rows)
+            {
+                string seqNum = seqRow["numero_sequentiel"].ToString();
+                int rowIndex = DGVA.Rows.Add(seqNum);
+
+                foreach (DataRow locRow in dtL.Rows)
+                {
+                    string locId = locRow["Id_lieu"].ToString();
+                    string locName = locRow["designationLieu"].ToString();
+
+                    // Get count from our dictionary instead of querying the database
+                    int count = 0;
+                    if (countsBySeqAndLoc.ContainsKey(seqNum) && countsBySeqAndLoc[seqNum].ContainsKey(locId))
+                    {
+                        count = countsBySeqAndLoc[seqNum][locId];
+                    }
+
+                    DGVA.Rows[rowIndex].Cells[locName].Value = count > 0 ? count.ToString() : "";
+                   
                 }
             }
-            
+
+            // Resume layout to update the display
+            DGVA.ResumeLayout();
+
             DGVA.Columns.Add("Generaux", "Generaux");
             DGVA.Columns.Add("Sur Fiche", "Sur Fiche");
             DGVA.Columns.Add("+", "+");
@@ -89,7 +177,16 @@ namespace Moussadjal.UserControler
             DGVA.Columns["+"].DisplayIndex = DGVA.Columns.Count - 2;
             DGVA.Columns["-"].DisplayIndex = DGVA.Columns.Count - 1;
             DGVA.Columns["Observation"].DisplayIndex = DGVA.Columns.Count - 1;
-            DGVA.Width = DGVA.Columns.Count * 30;
+
+            DGVD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            DGVA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            for (int i = 0; i < Math.Min(DGVA.Rows.Count, DGVD.Rows.Count); i++)
+            {
+                int height = DGVD.Rows[i].Height;
+                DGVA.Rows[i].Height = height;
+            }
+           
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {

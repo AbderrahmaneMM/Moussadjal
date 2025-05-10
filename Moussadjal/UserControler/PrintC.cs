@@ -122,7 +122,7 @@ namespace Moussadjal.UserControler
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A3;
 
                     printDocument1.DefaultPageSettings.Landscape = true;
-                    printDocument1.DefaultPageSettings.Margins = new Margins(0, 40, 10, 0);
+                    printDocument1.DefaultPageSettings.Margins = new Margins(0, 10, 10, 0);
                     break;
                 case 3:
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
