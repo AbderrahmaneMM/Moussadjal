@@ -46,6 +46,7 @@ namespace Moussadjal.UserControler
                 case 1:
                 r.Size = new Size(794, 1123); // A4 
                 DocPanel.Controls.Add(r);
+
                  break;
                 case 2:
                 i.Size = new Size(2324, 1654); // a3  horisontl

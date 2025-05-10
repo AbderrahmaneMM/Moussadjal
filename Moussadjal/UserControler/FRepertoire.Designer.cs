@@ -103,6 +103,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.DGVR.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DGVR.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             this.DGVR.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
@@ -167,6 +168,7 @@
             this.DGVR.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.DGVR.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DGVR.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVR_CellContentClick);
+            this.DGVR.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGVR_DataBindingComplete);
             // 
             // FRepertoire
             // 

@@ -109,5 +109,20 @@ namespace Moussadjal.UserControler
         {
 
         }
+
+        private void DGVR_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {/*
+            foreach (DataGridViewRow row in DGVR.Rows)
+            {
+                // Assuming the designation column is at index 0
+                string designation = row.Cells[0].Value?.ToString() ?? string.Empty;
+
+                // Measure the text size
+                Size textSize = TextRenderer.MeasureText(designation, DGVR.Font, new Size(DGVR.Columns[0].Width, int.MaxValue), TextFormatFlags.WordBreak);
+
+                // Set the row height based on the text size
+                row.Height = Math.Max(textSize.Height + 4, DGVR.RowTemplate.Height);
+            }*/
+        }
     }
 }

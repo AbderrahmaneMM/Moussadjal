@@ -26,15 +26,12 @@ namespace Moussadjal.UserControler
             RemplirGrids();
 
         }
-        private  void RemplirGrids()
+    
+        private  void  RemplirGrids()
         {
-            db.EmptyDataGridView(DGVD);
+           db.EmptyDataGridView(DGVD);
+           db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation from Description_de_bien", DGVD);
 
-            // Use Task.Run to offload the database operations to a background thread
-          
-                db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation  from Description_de_bien", DGVD);
-         
-            
             // N°1
             DGVD.Columns["numero_sequentiel"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel"].Width = 18;
@@ -70,20 +67,21 @@ namespace Moussadjal.UserControler
 
                 for (int colIndex = 0; colIndex < dtL.Rows.Count; colIndex++)
                 {
-                    string locationId   = dtL.Rows[colIndex]["Id_lieu"].ToString();
+                    string locationId = dtL.Rows[colIndex]["Id_lieu"].ToString();
                     string locationName = dtL.Rows[colIndex]["designationLieu"].ToString();
-
-                    // Fetch the quantity asynchronously
-                    DGVA.Rows[r].Cells[locationName].Value = 
-                        db.FillscdToSelectCount($"SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='{seqNum}' AND Id_lieu = '{locationId}'");
+                    int q = db.FillscdToSelectCount($"SELECT COUNT(*) FROM Bien WHERE numero_sequentiel='{seqNum}' AND Id_lieu = '{locationId}'");
+                    if (q == 0) DGVA.Rows[r].Cells[locationName].Value = "";
+                    
+                    else   DGVA.Rows[r].Cells[locationName].Value = q; 
                 }
             }
+            
             DGVA.Columns.Add("Generaux", "Generaux");
             DGVA.Columns.Add("Sur Fiche", "Sur Fiche");
- 
             DGVA.Columns.Add("+", "+");
             DGVA.Columns.Add("-", "-");
             DGVA.Columns.Add("Observation", "Observation");
+
             DGVA.Columns["Magasin General"].DisplayIndex = DGVA.Columns.Count - 6;
             DGVA.Columns["Instance Reforme"].DisplayIndex = DGVA.Columns.Count - 5;
             DGVA.Columns["Generaux"].DisplayIndex = DGVA.Columns.Count - 4;
@@ -112,8 +110,8 @@ namespace Moussadjal.UserControler
             int rowHeight = 128;
             int headerHeight = 18;
             //N°1
-            int nw = DGVD.Columns["numero_sequentiel"].Width+2;
-            Rectangle n = new Rectangle(startX , y, nw, rowHeight);
+            int nw = DGVD.Columns["numero_sequentiel"].Width + 2;
+            Rectangle n = new Rectangle(startX, y, nw, rowHeight);
             g.FillRectangle(Brushes.White, n);
             g.DrawRectangle(Pens.Black, n);
             g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
@@ -122,13 +120,13 @@ namespace Moussadjal.UserControler
             int nsWidth = DGVD.Columns["numero_sequentiel1"].Width;
             int divWidth = DGVD.Columns["division"].Width;
             int fWidth = nsWidth + divWidth;
-            Rectangle fRect = new Rectangle(startX + nw , y, fWidth, headerHeight);
+            Rectangle fRect = new Rectangle(startX + nw, y, fWidth, headerHeight);
             g.FillRectangle(Brushes.White, fRect);
             g.DrawRectangle(Pens.Black, fRect);
             g.DrawString("FICHES", FFont, Brushes.Black, fRect, centerFormat);
 
             //  N°2 / DIV  
-            Rectangle divRect = new Rectangle(startX + nw , y + headerHeight, divWidth, rowHeight - headerHeight);
+            Rectangle divRect = new Rectangle(startX + nw, y + headerHeight, divWidth, rowHeight - headerHeight);
             Rectangle numRect = new Rectangle(startX + nw + divWidth, y + headerHeight, nsWidth, rowHeight - headerHeight);
             g.FillRectangle(Brushes.LightGray, divRect);
             g.DrawRectangle(Pens.Black, divRect);
@@ -139,13 +137,13 @@ namespace Moussadjal.UserControler
 
             //  DESIGNATION
             int designWidth = DGVD.Columns["designation"].Width;
-            Rectangle designationRect = new Rectangle(startX + nw + fWidth , y, designWidth, headerHeight);
+            Rectangle designationRect = new Rectangle(startX + nw + fWidth, y, designWidth, headerHeight);
             g.FillRectangle(Brushes.White, designationRect);
             g.DrawRectangle(Pens.Black, designationRect);
             g.DrawString("DESIGNATION", FFont, Brushes.Black, designationRect, centerFormat);
 
             // العتاد
-            Rectangle materialRect = new Rectangle(startX + nw + fWidth , y + headerHeight, designWidth, rowHeight - headerHeight);
+            Rectangle materialRect = new Rectangle(startX + nw + fWidth, y + headerHeight, designWidth, rowHeight - headerHeight);
             g.FillRectangle(Brushes.LightGray, materialRect);
             g.DrawRectangle(Pens.Black, materialRect);
             g.DrawString("العتاد", DivFont, Brushes.Black, materialRect, centerFormat);
@@ -165,13 +163,13 @@ namespace Moussadjal.UserControler
             g.DrawRectangle(Pens.Black, Stocksr);
             g.DrawString("Stocks", FFont, Brushes.Black, Stocksr, centerFormat);
             //Ecrats
-            int ecraw = 59; 
-            Rectangle Ecrats = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth+ Stockw, y, 59, headerHeight);
+            int ecraw = 59;
+            Rectangle Ecrats = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw, y, 59, headerHeight);
             g.FillRectangle(Brushes.White, Ecrats);
             g.DrawRectangle(Pens.Black, Ecrats);
             g.DrawString("Ecrats", FFont, Brushes.Black, Ecrats, centerFormat);
             //observ
-            Rectangle observ = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth+Stockw+  ecraw, y, 30, headerHeight);
+            Rectangle observ = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw + ecraw, y, 30, headerHeight);
             g.FillRectangle(Brushes.White, observ);
             g.DrawRectangle(Pens.Black, observ);
             g.DrawString(" ", FFont, Brushes.Black, Stocksr, centerFormat);
@@ -188,7 +186,7 @@ namespace Moussadjal.UserControler
 
         private void DGVA_CellPating(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex == -1 && e.ColumnIndex >= 0)
+           if (e.RowIndex == -1 && e.ColumnIndex >= 0)
             {
                 
                 // Paint everything except text
@@ -223,6 +221,21 @@ namespace Moussadjal.UserControler
 
                 // Mark as handled so the default painting doesn't occur
                 e.Handled = true;
+            }
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGVA.Rows)
+            {
+                // Assuming the designation column is at index 0
+                string designation = row.Cells[0].Value?.ToString() ?? string.Empty;
+
+                // Measure the text size
+                Size textSize = TextRenderer.MeasureText(designation, DGVA.Font, new Size(DGVA.Columns[0].Width, int.MaxValue), TextFormatFlags.WordBreak);
+
+                // Set the row height based on the text size
+                row.Height = Math.Max(textSize.Height + 4, DGVA.RowTemplate.Height);
             }
         }
     }

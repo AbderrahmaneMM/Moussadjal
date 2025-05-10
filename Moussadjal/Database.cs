@@ -182,7 +182,7 @@ namespace Moussadjal
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
-            int result = (int)scd.ExecuteScalar();
+            int  result = (int)scd.ExecuteScalar();
             Close();
             return result;
         }
@@ -190,11 +190,11 @@ namespace Moussadjal
         {
             scn.Open();
             scd = new SqlCommand(query, scn);
-            sda = new SqlDataAdapter(scd);
+          sda = new SqlDataAdapter(scd);
             DataTable dataTable = new DataTable();
             sda.Fill(dataTable);
             scn.Close();
-            return dataTable;
+            return  dataTable;
         }
         // méthode de remplisage coombobox
         public void remlirCombo(string table,  Guna2ComboBox comb, string dm , string vm)
@@ -219,24 +219,15 @@ namespace Moussadjal
             dp.Fill(ds);
             return ds;
         }
-        public void remplirgridview(string query, DataGridView dg)
-        {
-
-            sda = new SqlDataAdapter(query, connection);
+        public  void  remplirgridview(string query, DataGridView dg)
+        { sda = new SqlDataAdapter(query, connection);
             builder = new SqlCommandBuilder(sda);
             sda.Fill(dt);
-           // bs.DataSource = dt;
             dg.DataSource = dt;
-
-            /*scd.Connection = scn;
-            scd.CommandText = query;
-            sda.SelectCommand = scd;
-            sda.Fill(ds, "dt" + tab);
-            dg.DataSource = ds.Tables["dt" + tab];*/
         }
-        public void EmptyDataGridView(DataGridView dg)
+        public void  EmptyDataGridView(DataGridView dg)
         {
-            dt = new DataTable(); // Replace with fresh empty DataTable
+           dt = new DataTable(); 
             bs.DataSource = dt;
             dg.DataSource = bs;
         }
