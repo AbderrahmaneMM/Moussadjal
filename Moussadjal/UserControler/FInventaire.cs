@@ -30,7 +30,7 @@ namespace Moussadjal.UserControler
         private  void  RemplirGrids()
         {
            db.EmptyDataGridView(DGVD);
-           db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation from Description_de_bien", DGVD);
+           db.remplirgridview("Select TOP 30 numero_sequentiel, division, numero_sequentiel, designation from Description_de_bien", DGVD);
 
             // N°1
             DGVD.Columns["numero_sequentiel"].MinimumWidth = 10;
@@ -44,44 +44,31 @@ namespace Moussadjal.UserControler
             DGVD.Columns["numero_sequentiel1"].MinimumWidth = 10;
             DGVD.Columns["numero_sequentiel1"].Width = 20;
 
-            // العتاد
+        // العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
             //  Affectation 
+            DataTable dtD = db.DtOfSelect("SELECT TOP 30 numero_sequentiel FROM Description_de_bien");
+
             DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
-            DataTable dtD = db.DtOfSelect("SELECT numero_sequentiel FROM Description_de_bien");
 
-            // Suspend layout to improve performance while adding columns
-            DGVA.SuspendLayout();
-
+            //DGVA
             //  columns first
+            DGVA.SuspendLayout();
+            Dictionary<string, string> locationIdToName = new Dictionary<string, string>();
             foreach (DataRow locRow in dtL.Rows)
             {
                 string locationName = locRow["designationLieu"].ToString();
                 DGVA.Columns.Add(locationName, locationName);
+                locationIdToName[locRow["Id_lieu"].ToString()] = locRow["designationLieu"].ToString();
             }
-
- 
-            Dictionary<string, string> locationIdToName = new Dictionary<string, string>();
-            foreach (DataRow row in dtL.Rows)
-            {
-                locationIdToName[row["Id_lieu"].ToString()] = row["designationLieu"].ToString();
-            }
-
-            // Get a list of all sequence numbers for our query
+            /***/
             List<string> seqNums = new List<string>();
-            foreach (DataRow row in dtD.Rows)
-            {
-                // Make sure each value is properly quoted
-                seqNums.Add("'" + row["numero_sequentiel"].ToString().Replace("'", "''") + "'");
-            }
 
-            // Declare the variable outside the if/else blocks to ensure proper scope
             DataTable countResults;
 
-            // Check if we have any sequence numbers to avoid empty IN clause
             if (seqNums.Count == 0)
             {
-                // Handle the case when there are no sequence numbers
+
                 DataTable emptyTable = new DataTable();
                 emptyTable.Columns.Add("numero_sequentiel");
                 emptyTable.Columns.Add("Id_lieu");
@@ -90,17 +77,11 @@ namespace Moussadjal.UserControler
             }
             else
             {
-                // Join the sequence numbers with commas
                 string allSeqNumsStr = string.Join(",", seqNums);
 
-                // Create the SQL query
-                string countQuery = $@"
-        SELECT numero_sequentiel, Id_lieu, COUNT(*) as ItemCount 
-        FROM Bien 
-        WHERE numero_sequentiel IN ({allSeqNumsStr})
-        GROUP BY numero_sequentiel, Id_lieu";
+                string countQuery = $@" SELECT numero_sequentiel, Id_lieu, COUNT(*) as ItemCount   FROM Bien 
+                   WHERE numero_sequentiel IN ({allSeqNumsStr})  GROUP BY numero_sequentiel, Id_lieu";
 
-                // Execute the query
                 countResults = db.DtOfSelect(countQuery);
             }
 
@@ -120,8 +101,9 @@ namespace Moussadjal.UserControler
 
                 countsBySeqAndLoc[seqNum][locId] = count;
             }
+
             // Create dictionary to store counts for fast lookup
-           foreach (DataRow row in countResults.Rows)
+            foreach (DataRow row in countResults.Rows)
             {
                 string seqNum = row["numero_sequentiel"].ToString();
                 string locId = row["Id_lieu"].ToString();
@@ -134,11 +116,10 @@ namespace Moussadjal.UserControler
 
                 countsBySeqAndLoc[seqNum][locId] = count;
             }
-
-            // Clear rows and populate grid
+            /**/
+            // Add rows 
             DGVA.Rows.Clear();
 
-            // Add rows and populate cells
             foreach (DataRow seqRow in dtD.Rows)
             {
                 string seqNum = seqRow["numero_sequentiel"].ToString();
@@ -149,7 +130,7 @@ namespace Moussadjal.UserControler
                     string locId = locRow["Id_lieu"].ToString();
                     string locName = locRow["designationLieu"].ToString();
 
-                    // Get count from our dictionary instead of querying the database
+
                     int count = 0;
                     if (countsBySeqAndLoc.ContainsKey(seqNum) && countsBySeqAndLoc[seqNum].ContainsKey(locId))
                     {
@@ -157,36 +138,37 @@ namespace Moussadjal.UserControler
                     }
 
                     DGVA.Rows[rowIndex].Cells[locName].Value = count > 0 ? count.ToString() : "";
-                   
+
                 }
             }
 
-            // Resume layout to update the display
-            DGVA.ResumeLayout();
-
+            // Add  last columns  //Stocks   //Ecrats //observ
             DGVA.Columns.Add("Generaux", "Generaux");
             DGVA.Columns.Add("Sur Fiche", "Sur Fiche");
             DGVA.Columns.Add("+", "+");
-            DGVA.Columns.Add("-", "-");
+            DGVA.Columns.Add("|", "|");
             DGVA.Columns.Add("Observation", "Observation");
-
             DGVA.Columns["Magasin General"].DisplayIndex = DGVA.Columns.Count - 6;
             DGVA.Columns["Instance Reforme"].DisplayIndex = DGVA.Columns.Count - 5;
             DGVA.Columns["Generaux"].DisplayIndex = DGVA.Columns.Count - 4;
             DGVA.Columns["Sur Fiche"].DisplayIndex = DGVA.Columns.Count - 3;
             DGVA.Columns["+"].DisplayIndex = DGVA.Columns.Count - 2;
-            DGVA.Columns["-"].DisplayIndex = DGVA.Columns.Count - 1;
+            DGVA.Columns["|"].DisplayIndex = DGVA.Columns.Count - 1;
             DGVA.Columns["Observation"].DisplayIndex = DGVA.Columns.Count - 1;
 
+         
+        
+            //make the same row height in the bouth dgv
             DGVD.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             DGVA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            int rowCount = Math.Min(30, Math.Min(DGVD.Rows.Count, DGVA.Rows.Count));
 
-            for (int i = 0; i < Math.Min(DGVA.Rows.Count, DGVD.Rows.Count); i++)
+            for (int i = 0; i < rowCount; i++)
             {
-                int height = DGVD.Rows[i].Height;
+                 int  height = DGVD.Rows[i].Height;
                 DGVA.Rows[i].Height = height;
             }
-           
+
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -245,8 +227,12 @@ namespace Moussadjal.UserControler
             g.DrawRectangle(Pens.Black, materialRect);
             g.DrawString("العتاد", DivFont, Brushes.Black, materialRect, centerFormat);
 
+            int obsw = DGVA.Columns["Observation"].Width;
+            int ecraw = DGVA.Columns["+"].Width + DGVA.Columns["|"].Width;
+            int Stockw = DGVA.Columns["Sur Fiche"].Width+ DGVA.Columns["Generaux"].Width + DGVA.Columns["Instance Reforme"].Width + DGVA.Columns["Magasin General"].Width ;
+           
             //Affectation
-            int AffectWidth = DGVA.Width - 208;
+            int AffectWidth = DGVA.Width - (obsw+ecraw+Stockw);
             Rectangle AffectRect = new Rectangle(startX + nw + fWidth + designWidth, y, AffectWidth, headerHeight);
             g.FillRectangle(Brushes.White, AffectRect);
             g.DrawRectangle(Pens.Black, AffectRect);
@@ -254,19 +240,18 @@ namespace Moussadjal.UserControler
             DGVA.ColumnHeadersHeight = materialRect.Height;
             DGVA.ColumnHeadersDefaultCellStyle.Font = FFont;
             //Stocks
-            int Stockw = 119;
-            Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth, y, Stockw, headerHeight);
+           
+           Rectangle Stocksr = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth -2, y, Stockw, headerHeight);
             g.FillRectangle(Brushes.White, Stocksr);
             g.DrawRectangle(Pens.Black, Stocksr);
             g.DrawString("Stocks", FFont, Brushes.Black, Stocksr, centerFormat);
             //Ecrats
-            int ecraw = 59;
-            Rectangle Ecrats = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw, y, 59, headerHeight);
+            Rectangle Ecrats = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw-2, y, ecraw, headerHeight);
             g.FillRectangle(Brushes.White, Ecrats);
             g.DrawRectangle(Pens.Black, Ecrats);
             g.DrawString("Ecrats", FFont, Brushes.Black, Ecrats, centerFormat);
             //observ
-            Rectangle observ = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw + ecraw, y, 30, headerHeight);
+            Rectangle observ = new Rectangle(startX + nw + fWidth + designWidth + AffectWidth + Stockw + ecraw-2, y, obsw, headerHeight);
             g.FillRectangle(Brushes.White, observ);
             g.DrawRectangle(Pens.Black, observ);
             g.DrawString(" ", FFont, Brushes.Black, Stocksr, centerFormat);
