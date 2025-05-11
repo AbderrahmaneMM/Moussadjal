@@ -46,8 +46,8 @@ namespace Moussadjal.UserControler
 
         // العتاد
             DGVD.Columns["designation"].MinimumWidth = 40;
-            //  Affectation 
-            DataTable dtD = db.DtOfSelect("SELECT TOP 30 numero_sequentiel FROM Description_de_bien");
+        //  Affectation  
+            DataTable dtD = db.DtOfSelect("SELECT  numero_sequentiel FROM Description_de_bien WHERE numero_sequentiel BETWEEN 1 AND 30");
 
             DataTable dtL = db.DtOfSelect("SELECT Id_lieu, designationLieu FROM Lieu");
 

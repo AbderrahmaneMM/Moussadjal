@@ -114,17 +114,20 @@ namespace Moussadjal.UserControler
             switch (d)
             {
                 case 1:
+                    LieuComboBox.Visible = false;
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
                     printDocument1.DefaultPageSettings.Landscape = false;
                     printDocument1.DefaultPageSettings.Margins = new Margins(17, 0, 17, 0);
                     break;
                 case 2:
+                    LieuComboBox.Visible = false;
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A3;
 
                     printDocument1.DefaultPageSettings.Landscape = true;
                     printDocument1.DefaultPageSettings.Margins = new Margins(0, 10, 10, 0);
                     break;
                 case 3:
+                    LieuComboBox.Visible = true;
                     printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
 
                     printDocument1.DefaultPageSettings.Landscape = true;

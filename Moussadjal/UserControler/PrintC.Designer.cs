@@ -33,6 +33,7 @@
             this.DocPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // guna2Button1
@@ -82,12 +83,32 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
+            // LieuComboBox
+            // 
+            this.LieuComboBox.AutoRoundedCorners = true;
+            this.LieuComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.LieuComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.LieuComboBox.BorderRadius = 17;
+            this.LieuComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.LieuComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LieuComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LieuComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LieuComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.LieuComboBox.ItemHeight = 30;
+            this.LieuComboBox.Location = new System.Drawing.Point(132, 29);
+            this.LieuComboBox.Name = "LieuComboBox";
+            this.LieuComboBox.Size = new System.Drawing.Size(220, 36);
+            this.LieuComboBox.TabIndex = 28;
+            this.LieuComboBox.Visible = false;
+            // 
             // PrintC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.LieuComboBox);
             this.Controls.Add(this.DocPanel);
             this.Controls.Add(this.guna2Button1);
             this.Name = "PrintC";
@@ -103,5 +124,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         public Guna.UI2.WinForms.Guna2Panel DocPanel;
+        private Guna.UI2.WinForms.Guna2ComboBox LieuComboBox;
     }
 }
