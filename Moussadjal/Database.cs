@@ -58,18 +58,16 @@ namespace Moussadjal
         }
         //read/select
 
-        /*  public int selectmax() 
-          {
-            string qu= "SELECT MAX(numero_sequentiel) FROM Description_de_bien";
-
+        public string SELECT(string qu)
+        {
             Open();
             scd = new SqlCommand(qu, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
-            int result = (int)scd.ExecuteNonQuery();
-           Close();
+            string result = scd.ExecuteScalar().ToString();
+            Close();
             return result;
-          }*/
+        }
 
         //update
 

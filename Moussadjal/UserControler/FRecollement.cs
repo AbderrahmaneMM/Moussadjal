@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.Styles;
+using Telerik.WinControls.Themes.ControlDefault;
 using Telerik.WinControls.UI;
 using Telerik.WinControls.UI.RadColorPicker;
 
@@ -39,14 +40,14 @@ namespace Moussadjal.UserControler
 
         private void FRecollement_Load(object sender, EventArgs e)
         {
+           
             db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
 
 
             if (LieuComboBox.SelectedItem != null)
             {
-                label8.Text = LieuComboBox.Text;
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
-
+                Updatelabels(selectedIdLieu);
                 FillDGV(selectedIdLieu);
             }
         }
@@ -56,7 +57,7 @@ namespace Moussadjal.UserControler
         {
             //DIV
             DGV.Columns["n"].Width = 25;
-           DGV.Columns["division"].Width = DGV.Columns["n"].Width  ;
+           DGV.Columns["division"].Width = DGV.Columns["n"].Width;
             //N2
             DGV.Columns["numero_sequentiel"].Width = DGV.Columns["n"].Width;
             //DESIGNATION
@@ -79,6 +80,13 @@ namespace Moussadjal.UserControler
             DGVDesigne();
 
 
+        }
+        private void Updatelabels(string id_lieu) 
+        {
+            label6.Text = "Localisation :    "+LieuComboBox.Text;
+            label5.Text = "Affectataire: Nom et Prénom:   " + db.SELECT("SELECT r.nometprénom FROM Responsable r JOIN Affectation a ON r.Id_Responsable = a.Id_Responsable WHERE a.Id_lieu = '" + id_lieu + "'");
+        
+            label4.Text = " FICHE  DE  RECOLLEMENT  D'INVENTAIRE    AU "+guna2DateTimePicker1.Value.ToString("dd-MM-yyyy");
         }
         int nw, Affw, designWidth , noteWidth;
         private void tableLayoutPanel1_Paint2(object sender, PaintEventArgs e)
@@ -187,6 +195,22 @@ namespace Moussadjal.UserControler
             printPreviewDialog1.ShowDialog();
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DocPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            label4.Text = " FICHE  DE  RECOLLEMENT  D'INVENTAIRE    AU " + guna2DateTimePicker1.Value.ToString("dd-MM-yyyy");
+
+        }
+
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Bitmap bmprint = new Bitmap(DocPanel.Width, DocPanel.Height);
@@ -222,11 +246,9 @@ namespace Moussadjal.UserControler
         { 
             if (LieuComboBox.SelectedItem != null && DGV.DataSource != null)
             {
-                label8.Text = LieuComboBox.Text;
+               
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
-       
-                // label9.Text = LieuComboBox.SelectedValue.ToString();
-
+              Updatelabels(selectedIdLieu);
                 FillDGV(selectedIdLieu);
                 DGV.Columns["n"].Width = nw-1;
                 DGV.Columns["numero_sequentiel"].Width = nw;
