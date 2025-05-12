@@ -30,6 +30,9 @@ namespace Moussadjal
         Respo Respo = new Respo();
         Lieu L = new Lieu();
         PrintC p = new PrintC();
+        FRecollement fr = new FRecollement();
+        FRepertoire r = new FRepertoire();
+        FInventaire i = new FInventaire();
 
         System.Windows.Forms.UserControl UC;
         //pour la modification et la supresion
@@ -113,6 +116,9 @@ namespace Moussadjal
             Respo Respo = new Respo();
             Lieu L = new Lieu();
             PrintC p = new PrintC();
+            FRecollement fr = new FRecollement();
+            FRepertoire r = new FRepertoire();
+            FInventaire i = new FInventaire();
         }
         private void btnexit_Click(object sender, EventArgs e)
         {
@@ -277,22 +283,22 @@ namespace Moussadjal
 
         private void button14_Click_1(object sender, EventArgs e)
         {    //repertoire
-            UCAjouter(p);
-            p.DocumentType=1 ;
+            UCAjouter(r);
+          //  p.DocumentType=1 ;
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             // FUILLE  D'INVENTAIRE
-            UCAjouter(p);
-            p.DocumentType = 2;
+            UCAjouter(i);
+           // p.DocumentType = 2;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             // FUILLE  de recollement
-            UCAjouter(p);
-            p.DocumentType = 3;
+            UCAjouter(fr);
+            //p.DocumentType = 3;
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)

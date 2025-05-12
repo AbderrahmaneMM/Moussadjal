@@ -188,12 +188,12 @@ namespace Moussadjal
         }
         public DataTable DtOfSelect(string query)
         {
-            scn.Open();
+            Open();
             scd = new SqlCommand(query, scn);
           sda = new SqlDataAdapter(scd);
             DataTable dataTable = new DataTable();
             sda.Fill(dataTable);
-            scn.Close();
+            Close();
             return  dataTable;
         }
         // méthode de remplisage coombobox
@@ -220,10 +220,12 @@ namespace Moussadjal
             return ds;
         }
         public  void  remplirgridview(string query, DataGridView dg)
-        { sda = new SqlDataAdapter(query, connection);
+        { Open();
+            sda = new SqlDataAdapter(query, connection);
             builder = new SqlCommandBuilder(sda);
             sda.Fill(dt);
             dg.DataSource = dt;
+            Close();
         }
         public void  EmptyDataGridView(DataGridView dg)
         {

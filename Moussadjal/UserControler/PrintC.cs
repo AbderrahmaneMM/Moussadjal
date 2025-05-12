@@ -68,21 +68,24 @@ namespace Moussadjal.UserControler
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            
-            switch (d)
-            {
-                case 1:
-                    
-                    bmprint = GetControlImage(r);
-                    break;
-                case 2:
-                    bmprint = GetControlImage(i);
-                    break;
-                case 3:
-                    bmprint = GetControlImage(fr);
-                    break;
-            }
-                    bmprint.SetResolution(300, 300);
+
+            //switch (d)
+            //{
+            //    case 1:
+
+            //        bmprint = GetControlImage(r);
+            //        break;
+            //    case 2:
+            //        bmprint = GetControlImage(i);
+            //        break;
+            //    case 3:
+            //        bmprint = GetControlImage(fr);
+            //        break;
+            //}
+            Bitmap bmprint = new Bitmap(DocPanel.Width, DocPanel.Height);
+            DocPanel.DrawToBitmap(bmprint, new Rectangle(0, 0, DocPanel.Width, DocPanel.Height));
+
+            bmprint.SetResolution(300, 300);
 
             float scale = Math.Min(
                 e.MarginBounds.Width / (float)bmprint.Width,
