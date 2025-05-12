@@ -25,20 +25,35 @@ namespace Moussadjal.UserControler
         {
             db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
 
-            DocPanel.SendToBack();
-            //N°1
-            DGV.Columns.Add("n","n");
-      
 
-            if (LieuComboBox.SelectedValue != null)
+            if (LieuComboBox.SelectedItem != null)
             {
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
-                label8.Text = LieuComboBox.Text;
-               // label9.Text = LieuComboBox.SelectedValue.ToString();
+
                 FillDGV(selectedIdLieu);
-            } 
-       
-            
+            }
+
+
+        }
+          private void FillDGV(string id_lieu)
+          {
+            string query = @" SELECT db.division, b.numero_sequentiel,   db.designation,
+              COUNT(b.numero_sequentiel) AS Aff,
+               (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy, "
+            + "STUFF((SELECT '/' + CAST(b2.numero_dinventaire AS VARCHAR(10))"
+            + " FROM Bien b2"
+            + "   WHERE b2.Id_lieu = '"+id_lieu+"' AND b2.numero_sequentiel = b.numero_sequentiel"
+            + " FOR XML PATH('')), 1, 1, '') AS Ni ,     db.observation FROM  Bien b"
+            + "    JOIN    Description_de_bien db ON b.numero_sequentiel = db.numero_sequentiel"
+            + " WHERE    b.Id_lieu = '" + id_lieu+"' GROUP BY"
+            + " b.numero_sequentiel, db.designation, db.division, db.observation";
+             db.EmptyDataGridView(DGV);
+
+            //N°1
+            DGV.Columns.Add("n", "n");
+
+            DGV.Columns["n"].Width = 10;
+             db.remplirgridview(query, DGV);
             //DIV
             DGV.Columns["division"].MinimumWidth = 10;
             DGV.Columns["division"].Width = 25;
@@ -50,40 +65,22 @@ namespace Moussadjal.UserControler
             //DESIGNATION
             DGV.Columns["designation"].MinimumWidth = 40;
             DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
-    
-
-              //Quantite
+            //Quantite
             DGV.Columns.Add("Ec", "Ec");
             DGV.Columns["Aff"].MinimumWidth = 10;
             DGV.Columns["Aff"].Width = 25;
             DGV.Columns["Phy"].MinimumWidth = 10;
             DGV.Columns["Phy"].Width = 25;
-       
-            DGV.Columns["Ec"].DisplayIndex = DGV.Columns["Phy"].DisplayIndex+1;
+
+            DGV.Columns["Ec"].DisplayIndex = DGV.Columns["Phy"].DisplayIndex + 1;
             DGV.Columns["Ec"].Width = DGV.Columns["Aff"].Width;
             //N°inventaire
-          
+
             DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
             //Observation
-           
+
             DGV.Columns["observation"].MinimumWidth = 10;
             DGV.Columns["observation"].Width = 40;
-
-        }
-          private void FillDGV(string id_lieu)
-          {
-            string query = @" SELECT db.division, b.numero_sequentiel,   db.designation,
-              COUNT(b.numero_sequentiel) AS Aff,
-               (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy,"
-            + "STUFF((SELECT '/' + CAST(b2.numero_dinventaire AS VARCHAR(10))"
-            + " FROM Bien b2"
-            + "   WHERE b2.Id_lieu = '"+id_lieu+"' AND b2.numero_sequentiel = b.numero_sequentiel"
-            + " FOR XML PATH('')), 1, 1, '') AS Ni ,     db.observation FROM  Bien b"
-            + "    JOIN    Description_de_bien db ON b.numero_sequentiel = db.numero_sequentiel"
-            + " WHERE    b.Id_lieu = '" + id_lieu+"' GROUP BY"
-            + " b.numero_sequentiel, db.designation, db.division, db.observation";
-             db.EmptyDataGridView(DGV);
-             db.remplirgridview(query, DGV);
           }
 
         private void tableLayoutPanel1_Paint2(object sender, PaintEventArgs e)
@@ -224,7 +221,61 @@ namespace Moussadjal.UserControler
 
         private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+
+            if (LieuComboBox.SelectedItem != null && DGV.DataSource != null)
+            {
+                label8.Text = LieuComboBox.Text;
+                string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
+
+                // label9.Text = LieuComboBox.SelectedValue.ToString();
+                string query = @" SELECT db.division, b.numero_sequentiel,   db.designation,
+              COUNT(b.numero_sequentiel) AS Aff,
+               (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + selectedIdLieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy, "
+             + "STUFF((SELECT '/' + CAST(b2.numero_dinventaire AS VARCHAR(10))"
+             + " FROM Bien b2"
+             + "   WHERE b2.Id_lieu = '" + selectedIdLieu + "' AND b2.numero_sequentiel = b.numero_sequentiel"
+             + " FOR XML PATH('')), 1, 1, '') AS Ni ,     db.observation FROM  Bien b"
+             + "    JOIN    Description_de_bien db ON b.numero_sequentiel = db.numero_sequentiel"
+             + " WHERE    b.Id_lieu = '" + selectedIdLieu + "' GROUP BY"
+             + " b.numero_sequentiel, db.designation, db.division, db.observation";
+
+                db.EmptyDataGridView(DGV);
+                DGV.Columns["n"].Width = 10;
+                db.remplirgridview(query, DGV);
+                //DIV
+                DGV.Columns["division"].MinimumWidth = 10;
+                DGV.Columns["division"].Width = 25;
+                //N2
+                DGV.Columns["numero_sequentiel"].MinimumWidth = 10;
+                DGV.Columns["numero_sequentiel"].Width = 25;
+
+                DGV.Columns["n"].Width = DGV.Columns["numero_sequentiel"].Width;
+                //DESIGNATION
+                DGV.Columns["designation"].MinimumWidth = 40;
+                DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
+                //Quantite
+                DGV.Columns["Aff"].MinimumWidth = 10;
+                DGV.Columns["Aff"].Width = 25;
+                DGV.Columns["Phy"].MinimumWidth = 10;
+                DGV.Columns["Phy"].Width = 25;
+
+                DGV.Columns["Ec"].DisplayIndex = DGV.Columns["Phy"].DisplayIndex + 1;
+                DGV.Columns["Ec"].Width = DGV.Columns["Aff"].Width;
+                //N°inventaire
+
+                DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
+                //Observation
+
+                DGV.Columns["observation"].MinimumWidth = 10;
+                DGV.Columns["observation"].Width = 40;
+            }
+        }
+
+        private void LieuComboBox_Click(object sender, EventArgs e)
+        {
+     
+             
+            
         }
     }
 }
