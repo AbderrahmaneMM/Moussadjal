@@ -53,21 +53,15 @@ namespace Moussadjal.UserControler
         private void DGVDesigne()
         {
             //DIV
-            DGV.Columns["division"].MinimumWidth = 10;
-            DGV.Columns["division"].Width = 25;
+            DGV.Columns["n"].Width = 25;
+           DGV.Columns["division"].Width = DGV.Columns["n"].Width  ;
             //N2
-            DGV.Columns["numero_sequentiel"].MinimumWidth = 10;
-            DGV.Columns["numero_sequentiel"].Width = 25;
-
-            DGV.Columns["n"].Width = DGV.Columns["numero_sequentiel"].Width;
+            DGV.Columns["numero_sequentiel"].Width = DGV.Columns["n"].Width;
             //DESIGNATION
-            DGV.Columns["designation"].MinimumWidth = 40;
-            DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
+            DGV.Columns["designation"].Width = 200;
             //Quantite
-            DGV.Columns["Aff"].MinimumWidth = 10;
             DGV.Columns["Aff"].Width = 25;
-            DGV.Columns["Phy"].MinimumWidth = 10;
-            DGV.Columns["Phy"].Width = 25;
+            DGV.Columns["Phy"].Width = DGV.Columns["Aff"].Width;
 
             DGV.Columns["Ec"].DisplayIndex = DGV.Columns["Phy"].DisplayIndex + 1;
             DGV.Columns["Ec"].Width = DGV.Columns["Aff"].Width;
@@ -76,7 +70,6 @@ namespace Moussadjal.UserControler
             DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
             //Observation
 
-            DGV.Columns["observation"].MinimumWidth = 10;
             DGV.Columns["observation"].Width = 40;
         }
 
@@ -87,13 +80,12 @@ namespace Moussadjal.UserControler
             //N°1
             DGV.Columns.Add("n", "n");
 
-            DGV.Columns["n"].Width = 10;
             db.remplirgridview(Query(id_lieu), DGV);
             DGV.Columns.Add("Ec", "Ec");
             DGVDesigne();
 
           }
-      
+        int nw, Affw, designWidth , noteWidth;
         private void tableLayoutPanel1_Paint2(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -115,16 +107,16 @@ namespace Moussadjal.UserControler
             //N°1
             if (DGV.Columns.Contains("n"))
             {
-                int nw = DGV.Columns["n"].Width  ;
+             nw = DGV.Columns["n"].Width;
             Rectangle n = new Rectangle(startX, y, nw, rowHeight);
             g.FillRectangle(Brushes.LightGray, n);
             g.DrawRectangle(Pens.Black, n);
             g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
 
             //  lafiche
-            int divw = DGV.Columns["division"].Width;
-                int numw = DGV.Columns["numero_sequentiel"].Width;
-                int fWidth = divw+numw;
+             int   divw=nw;
+                int numw = nw;
+                int fWidth = nw*2;
             Rectangle fRect = new Rectangle(startX + nw, y, fWidth, headerHeight);
             g.FillRectangle(Brushes.LightGray, fRect);
             g.DrawRectangle(Pens.Black, fRect);
@@ -141,17 +133,17 @@ namespace Moussadjal.UserControler
             g.DrawString("N°", FFont, Brushes.Black, numRect, centerFormat);
 
             //  DESIGNATION
-            int designWidth = DGV.Columns["designation"].Width + 2;
+             designWidth = DGV.Columns["designation"].Width ;
             Rectangle designationRect = new Rectangle(startX + nw + fWidth, y, designWidth, rowHeight);
             g.FillRectangle(Brushes.LightGray, designationRect);
             g.DrawRectangle(Pens.Black, designationRect);
             g.DrawString("DESIGNATION DES ARTICLES", FFont, Brushes.Black, designationRect, centerFormat);
 
             //Quantite 
-            int Affw = DGV.Columns["Aff"].Width;
-            int phw = DGV.Columns["Phy"].Width;
-            int ecw = DGV.Columns["Ec"].Width;
-            int qw = Affw + phw + ecw;
+             Affw = DGV.Columns["Aff"].Width;
+            int phw = Affw;
+            int ecw = Affw;
+            int qw = Affw*3;
             Rectangle qr = new Rectangle(startX + nw + fWidth + designWidth, y, qw, headerHeight);
             g.FillRectangle(Brushes.LightGray, qr);
             g.DrawRectangle(Pens.Black, qr);
@@ -174,13 +166,13 @@ namespace Moussadjal.UserControler
 
 
             //N°inventaire
-            int niWidth = DGV.Columns["Ni"].Width;
+            int niWidth = designWidth;
             Rectangle niRect = new Rectangle(startX + nw + fWidth + designWidth + qw, y, niWidth, rowHeight);
             g.FillRectangle(Brushes.LightGray, niRect);
             g.DrawRectangle(Pens.Black, niRect);
             g.DrawString("N° D'INVENTAIRE", FFont, Brushes.Black, niRect, centerFormat);
             //Observation
-            int noteWidth = DGV.Columns["observation"].Width;
+             noteWidth = DGV.Columns["observation"].Width;
             Rectangle noteRect = new Rectangle(startX + nw + fWidth + designWidth + qw + niWidth, y, noteWidth, rowHeight);
             g.FillRectangle(Brushes.LightGray, noteRect);
             g.DrawRectangle(Pens.Black, noteRect);
@@ -231,18 +223,29 @@ namespace Moussadjal.UserControler
         }
 
         private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+        { 
             if (LieuComboBox.SelectedItem != null && DGV.DataSource != null)
             {
                 label8.Text = LieuComboBox.Text;
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
-
+       
                 // label9.Text = LieuComboBox.SelectedValue.ToString();
                 db.EmptyDataGridView(DGV);
-                DGV.Columns["n"].Width = 10;
                 db.remplirgridview(Query(selectedIdLieu), DGV);
                 DGVDesigne();
+                DGV.Columns["n"].Width = nw-1;
+                DGV.Columns["numero_sequentiel"].Width = nw;
+                DGV.Columns["division"].Width = nw;
+                //DESIGNATION
+                DGV.Columns["designation"].Width = designWidth-2;
+                //Quantite
+                DGV.Columns["Aff"].Width = Affw;
+                DGV.Columns["Phy"].Width = Affw;
+                DGV.Columns["Ec"].Width = Affw+5;
+                //N°inventaire
+                DGV.Columns["Ni"].Width = designWidth;
+                //Observation
+                DGV.Columns["observation"].Width = noteWidth;
                 DGV.Columns["Ec"].DisplayIndex = DGV.ColumnCount - 3;
             }
         }
