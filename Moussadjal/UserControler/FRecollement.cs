@@ -22,7 +22,7 @@ namespace Moussadjal.UserControler
         }
         Database db = new Database();
         private string Query(string id_lieu)
-        {    string query = @" SELECT db.division, b.numero_sequentiel,   db.designation,
+        {    string query = @" SELECT ROW_NUMBER() OVER (ORDER BY b.numero_sequentiel) AS n, db.division, b.numero_sequentiel,   db.designation,
               COUNT(b.numero_sequentiel) AS Aff,
                (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy, "
              + "STUFF((SELECT '/' + CAST(b2.numero_dinventaire AS VARCHAR(10))"
@@ -46,10 +46,19 @@ namespace Moussadjal.UserControler
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
 
                 FillDGV(selectedIdLieu);
+
+                //DataTable dt = (DataTable)DGV.DataSource;
+                //foreach (DataRow r in dt.Rows)
+                //{
+                //    r[0] = 2;
+                //}
+                 
+           //     MessageBox.Show(DGV.Rows[0].Cells["n"].Value.ToString());
+            
             }
+        }
+      
 
-
-        } 
         private void DGVDesigne()
         {
             //DIV
@@ -73,18 +82,19 @@ namespace Moussadjal.UserControler
             DGV.Columns["observation"].Width = 40;
         }
 
-          private void FillDGV(string id_lieu)
-          {
-             db.EmptyDataGridView(DGV);
+        private void FillDGV(string id_lieu)
+        {
+            db.EmptyDataGridView(DGV);
 
             //N°1
-            DGV.Columns.Add("n", "n");
+           // DGV.Columns.Add("n", "n");
 
             db.remplirgridview(Query(id_lieu), DGV);
             DGV.Columns.Add("Ec", "Ec");
             DGVDesigne();
 
-          }
+
+        }
         int nw, Affw, designWidth , noteWidth;
         private void tableLayoutPanel1_Paint2(object sender, PaintEventArgs e)
         {
@@ -247,6 +257,7 @@ namespace Moussadjal.UserControler
                 //Observation
                 DGV.Columns["observation"].Width = noteWidth;
                 DGV.Columns["Ec"].DisplayIndex = DGV.ColumnCount - 3;
+         
             }
         }
 
