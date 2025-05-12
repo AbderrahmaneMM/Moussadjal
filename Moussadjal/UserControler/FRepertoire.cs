@@ -56,16 +56,16 @@ namespace Moussadjal.UserControler
 
 
             int startX = DGVR.Width;
-            int y = DGVR.Location.Y-100;
+            int y = guna2Button1.Location.Y;
             int rowHeight = 100;
             int headerHeight = 30;
-            //N°1
+          //N°1
             int nw = DGVR.Columns["numero_sequentiel"].Width+2;
             Rectangle n = new Rectangle(startX - nw, y, nw, rowHeight );
             g.FillRectangle(Brushes.LightGray, n);
             g.DrawRectangle(Pens.Black, n);
             g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
-
+           /*
             //  lafiche  
             int nsWidth = DGVR.Columns["numero_sequentiel1"].Width;
             int divWidth = DGVR.Columns["division"].Width;
@@ -103,7 +103,7 @@ namespace Moussadjal.UserControler
             Rectangle noteRect = new Rectangle(startX - nw - fWidth - designWidth - noteWidth, y, noteWidth, rowHeight );
             g.FillRectangle(Brushes.LightGray, noteRect);
             g.DrawRectangle(Pens.Black, noteRect);
-            g.DrawString("ملاحظات", FFont, Brushes.Black, noteRect, centerFormat);
+            g.DrawString("ملاحظات", FFont, Brushes.Black, noteRect, centerFormat);*/
         }
 
         private void DGVR_CellContentClick(object sender, DataGridViewCellEventArgs e)

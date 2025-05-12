@@ -84,7 +84,7 @@ namespace Moussadjal.UserControler
         private void Updatelabels(string id_lieu) 
         {
             label6.Text = "Localisation :    "+LieuComboBox.Text;
-            label5.Text = "Affectataire: Nom et Prénom:   " + db.SELECT("SELECT r.nometprénom FROM Responsable r JOIN Affectation a ON r.Id_Responsable = a.Id_Responsable WHERE a.Id_lieu = '" + id_lieu + "'");
+             label5.Text = "Affectataire: Nom et Prénom:   " + db.SELECT("SELECT r.nometprénom FROM Responsable r JOIN Affectation a ON r.Id_Responsable = a.Id_Responsable WHERE a.Id_lieu = '" + id_lieu + "'");
         
             label4.Text = " FICHE  DE  RECOLLEMENT  D'INVENTAIRE    AU "+guna2DateTimePicker1.Value.ToString("dd-MM-yyyy");
         }

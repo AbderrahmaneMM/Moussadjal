@@ -64,9 +64,12 @@ namespace Moussadjal
             scd = new SqlCommand(qu, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
-            string result = scd.ExecuteScalar().ToString();
-            Close();
-            return result;
+           
+            if (scd.ExecuteScalar() != null) 
+            {
+                return scd.ExecuteScalar().ToString();
+            }
+            else   Close(); return "";
         }
 
         //update
