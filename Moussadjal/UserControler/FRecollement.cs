@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.Styles;
 using Telerik.WinControls.UI;
+using Telerik.WinControls.UI.RadColorPicker;
 
 namespace Moussadjal.UserControler
 {
@@ -22,9 +23,10 @@ namespace Moussadjal.UserControler
         }
         Database db = new Database();
         private string Query(string id_lieu)
-        {    string query = @" SELECT ROW_NUMBER() OVER (ORDER BY b.numero_sequentiel) AS n, db.division, b.numero_sequentiel,   db.designation,
-              COUNT(b.numero_sequentiel) AS Aff,
-               (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy, "
+        {    string query = @" SELECT ROW_NUMBER() OVER (ORDER BY b.numero_sequentiel) AS n, db.division, b.numero_sequentiel,   db.designation
+             , COUNT(b.numero_sequentiel) AS Aff,"//quantite affectée
+             +  "(SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel) AS Phy, " //quantite physique
+               + "(COUNT(b.numero_sequentiel) - (SELECT COUNT(*) FROM Bien WHERE Id_lieu = '" + id_lieu + "' AND numero_sequentiel = b.numero_sequentiel)) AS Ec," // ecart
              + "STUFF((SELECT '/' + CAST(b2.numero_dinventaire AS VARCHAR(10))"
              + " FROM Bien b2"
              + "   WHERE b2.Id_lieu = '" + id_lieu + "' AND b2.numero_sequentiel = b.numero_sequentiel"
@@ -46,15 +48,6 @@ namespace Moussadjal.UserControler
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
 
                 FillDGV(selectedIdLieu);
-
-                //DataTable dt = (DataTable)DGV.DataSource;
-                //foreach (DataRow r in dt.Rows)
-                //{
-                //    r[0] = 2;
-                //}
-                 
-           //     MessageBox.Show(DGV.Rows[0].Cells["n"].Value.ToString());
-            
             }
         }
       
@@ -71,26 +64,18 @@ namespace Moussadjal.UserControler
             //Quantite
             DGV.Columns["Aff"].Width = 25;
             DGV.Columns["Phy"].Width = DGV.Columns["Aff"].Width;
-
-            DGV.Columns["Ec"].DisplayIndex = DGV.Columns["Phy"].DisplayIndex + 1;
             DGV.Columns["Ec"].Width = DGV.Columns["Aff"].Width;
             //N°inventaire
 
             DGV.Columns["Ni"].Width = DGV.Columns["designation"].Width;
             //Observation
-
             DGV.Columns["observation"].Width = 40;
         }
 
         private void FillDGV(string id_lieu)
         {
             db.EmptyDataGridView(DGV);
-
-            //N°1
-           // DGV.Columns.Add("n", "n");
-
             db.remplirgridview(Query(id_lieu), DGV);
-            DGV.Columns.Add("Ec", "Ec");
             DGVDesigne();
 
 
@@ -102,6 +87,7 @@ namespace Moussadjal.UserControler
            
             Font FFont = new Font("Arabic Transparent", 10, FontStyle.Bold);
             Font sf = new Font("Arabic Transparent", 7, FontStyle.Bold);
+            SolidBrush khdar = new SolidBrush(Color.FromArgb(146, 208, 80));
 
             StringFormat centerFormat = new StringFormat
             {
@@ -117,9 +103,9 @@ namespace Moussadjal.UserControler
             //N°1
             if (DGV.Columns.Contains("n"))
             {
-             nw = DGV.Columns["n"].Width;
+             nw = DGV.Columns["n"].Width+1;
             Rectangle n = new Rectangle(startX, y, nw, rowHeight);
-            g.FillRectangle(Brushes.LightGray, n);
+            g.FillRectangle(khdar, n);
             g.DrawRectangle(Pens.Black, n);
             g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
 
@@ -128,16 +114,16 @@ namespace Moussadjal.UserControler
                 int numw = nw;
                 int fWidth = nw*2;
             Rectangle fRect = new Rectangle(startX + nw, y, fWidth, headerHeight);
-            g.FillRectangle(Brushes.LightGray, fRect);
+            g.FillRectangle(khdar, fRect);
             g.DrawRectangle(Pens.Black, fRect);
             g.DrawString("FICHES", FFont, Brushes.Black, fRect, centerFormat);
 
             //  N°2 / DIV  
             Rectangle divRect = new Rectangle(startX + nw, y + headerHeight, divw, rowHeight - headerHeight);
             Rectangle numRect = new Rectangle(startX + nw + divw, y + headerHeight, numw, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, divRect);
+            g.FillRectangle(khdar, divRect);
             g.DrawRectangle(Pens.Black, divRect);
-            g.FillRectangle(Brushes.LightGray, numRect);
+            g.FillRectangle(khdar, numRect);
             g.DrawRectangle(Pens.Black, numRect);
             g.DrawString("DIV", FFont, Brushes.Black, divRect, centerFormat);
             g.DrawString("N°", FFont, Brushes.Black, numRect, centerFormat);
@@ -145,7 +131,7 @@ namespace Moussadjal.UserControler
             //  DESIGNATION
              designWidth = DGV.Columns["designation"].Width ;
             Rectangle designationRect = new Rectangle(startX + nw + fWidth, y, designWidth, rowHeight);
-            g.FillRectangle(Brushes.LightGray, designationRect);
+            g.FillRectangle(khdar, designationRect);
             g.DrawRectangle(Pens.Black, designationRect);
             g.DrawString("DESIGNATION DES ARTICLES", FFont, Brushes.Black, designationRect, centerFormat);
 
@@ -155,22 +141,22 @@ namespace Moussadjal.UserControler
             int ecw = Affw;
             int qw = Affw*3;
             Rectangle qr = new Rectangle(startX + nw + fWidth + designWidth, y, qw, headerHeight);
-            g.FillRectangle(Brushes.LightGray, qr);
+            g.FillRectangle(khdar, qr);
             g.DrawRectangle(Pens.Black, qr);
             g.DrawString("QUANTITE", FFont, Brushes.Black, qr, centerFormat);
             //Aff
             Rectangle affRect = new Rectangle(startX + nw + fWidth + designWidth, y + headerHeight, Affw, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, affRect);
+            g.FillRectangle(khdar, affRect);
             g.DrawRectangle(Pens.Black, affRect);
             g.DrawString("Affecté", sf, Brushes.Black, affRect, centerFormat);
             //Phy
             Rectangle phyRect = new Rectangle(startX + nw + fWidth + designWidth + Affw, y + headerHeight, phw, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, phyRect);
+            g.FillRectangle(khdar, phyRect);
             g.DrawRectangle(Pens.Black, phyRect);
             g.DrawString("Phys.", sf, Brushes.Black, phyRect, centerFormat);
             //Ec
             Rectangle ecRect = new Rectangle(startX + nw + fWidth + designWidth + Affw + phw, y + headerHeight, ecw, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, ecRect);
+            g.FillRectangle(khdar, ecRect);
             g.DrawRectangle(Pens.Black, ecRect);
             g.DrawString("Ecart", sf, Brushes.Black, ecRect, centerFormat);
 
@@ -178,13 +164,13 @@ namespace Moussadjal.UserControler
             //N°inventaire
             int niWidth = designWidth;
             Rectangle niRect = new Rectangle(startX + nw + fWidth + designWidth + qw, y, niWidth, rowHeight);
-            g.FillRectangle(Brushes.LightGray, niRect);
+            g.FillRectangle(khdar, niRect);
             g.DrawRectangle(Pens.Black, niRect);
             g.DrawString("N° D'INVENTAIRE", FFont, Brushes.Black, niRect, centerFormat);
             //Observation
              noteWidth = DGV.Columns["observation"].Width;
             Rectangle noteRect = new Rectangle(startX + nw + fWidth + designWidth + qw + niWidth, y, noteWidth, rowHeight);
-            g.FillRectangle(Brushes.LightGray, noteRect);
+            g.FillRectangle(khdar, noteRect);
             g.DrawRectangle(Pens.Black, noteRect);
             g.DrawString("Obs", FFont, Brushes.Black, noteRect, centerFormat);
             }
@@ -240,23 +226,21 @@ namespace Moussadjal.UserControler
                 string selectedIdLieu = LieuComboBox.SelectedValue.ToString();
        
                 // label9.Text = LieuComboBox.SelectedValue.ToString();
-                db.EmptyDataGridView(DGV);
-                db.remplirgridview(Query(selectedIdLieu), DGV);
-                DGVDesigne();
+
+                FillDGV(selectedIdLieu);
                 DGV.Columns["n"].Width = nw-1;
                 DGV.Columns["numero_sequentiel"].Width = nw;
                 DGV.Columns["division"].Width = nw;
                 //DESIGNATION
-                DGV.Columns["designation"].Width = designWidth-2;
+                DGV.Columns["designation"].Width = designWidth;
                 //Quantite
                 DGV.Columns["Aff"].Width = Affw;
                 DGV.Columns["Phy"].Width = Affw;
-                DGV.Columns["Ec"].Width = Affw+5;
+                DGV.Columns["Ec"].Width = Affw;
                 //N°inventaire
                 DGV.Columns["Ni"].Width = designWidth;
                 //Observation
                 DGV.Columns["observation"].Width = noteWidth;
-                DGV.Columns["Ec"].DisplayIndex = DGV.ColumnCount - 3;
          
             }
         }
