@@ -211,6 +211,46 @@ namespace Moussadjal
             dt = ds.Tables[table];
             Close();
         }
+        public void FillComboWithJoinedData(
+            string valueTable,
+            string vm,
+            string displayTable,
+            string dm,
+            string joinCondition,
+           string whereColumn,
+           string whereValue,
+           Guna2ComboBox comboBox)
+        {
+            try
+            {
+                Open(); 
+
+                string query = $@" SELECT   {valueTable}.{vm} AS ValueMember,
+                {displayTable}.{dm} AS DisplayMember
+            FROM       {valueTable}
+            JOIN    {displayTable} ON {joinCondition}
+            WHERE  {whereColumn}={whereValue}";
+
+                scd.Connection = scn;
+                scd.CommandText = query;
+                sda.SelectCommand = scd;
+
+            
+                string tableName = $"dt_{valueTable}_{displayTable}_{DateTime.Now.Ticks}";
+                sda.Fill(ds, tableName);
+
+                comboBox.DataSource = ds.Tables[tableName];
+                comboBox.ValueMember = "ValueMember"; 
+                comboBox.DisplayMember = "DisplayMember"; 
+
+                Close(); 
+            }
+            catch (Exception ex)
+            {
+                Close();
+                MessageBox.Show($"Error loading combo: {ex.Message}");
+            }
+        }
         //methode de remplissage datagridview 
         public DataSet search(string query , DataGridView dg)
         {

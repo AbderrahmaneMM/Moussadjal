@@ -48,6 +48,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // printPreviewDialog1
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -145,6 +149,7 @@
             this.LieuComboBox.Name = "LieuComboBox";
             this.LieuComboBox.Size = new System.Drawing.Size(277, 36);
             this.LieuComboBox.TabIndex = 49;
+            this.LieuComboBox.SelectedIndexChanged += new System.EventHandler(this.LieuComboBox_SelectedIndexChanged);
             // 
             // DescreptionComboBox
             // 
@@ -163,6 +168,7 @@
             this.DescreptionComboBox.Name = "DescreptionComboBox";
             this.DescreptionComboBox.Size = new System.Drawing.Size(277, 36);
             this.DescreptionComboBox.TabIndex = 50;
+            this.DescreptionComboBox.SelectedIndexChanged += new System.EventHandler(this.DescreptionComboBox_SelectedIndexChanged);
             // 
             // guna2ComboBox2
             // 
