@@ -227,10 +227,10 @@ namespace Moussadjal
 
                 string query = $@" SELECT   {valueTable}.{vm} AS ValueMember,
                 {displayTable}.{dm} AS DisplayMember
-            FROM       {valueTable}
-            JOIN    {displayTable} ON {joinCondition}
-            WHERE  {whereColumn}={whereValue}";
-
+                   FROM       {valueTable}
+                   JOIN    {displayTable} ON {joinCondition}
+                  WHERE  {whereColumn}='{whereValue}'";
+          
                 scd.Connection = scn;
                 scd.CommandText = query;
                 sda.SelectCommand = scd;

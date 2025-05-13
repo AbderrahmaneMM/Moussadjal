@@ -208,6 +208,7 @@
             this.guna2Button1.TabIndex = 52;
             this.guna2Button1.Text = "Print";
             this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -259,6 +260,7 @@
             this.Controls.Add(this.guna2VSeparator2);
             this.Name = "Etiquette";
             this.Size = new System.Drawing.Size(682, 550);
+            this.Load += new System.EventHandler(this.Etiquette_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
