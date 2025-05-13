@@ -157,6 +157,12 @@
     <Compile Include="UserControler\DGV.Designer.cs">
       <DependentUpon>DGV.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\Etiquette.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\Etiquette.Designer.cs">
+      <DependentUpon>Etiquette.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControler\FInventaire.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,12 +186,6 @@
     </Compile>
     <Compile Include="UserControler\Lieu.Designer.cs">
       <DependentUpon>Lieu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControler\PrintC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControler\PrintC.Designer.cs">
-      <DependentUpon>PrintC.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControler\Respo.cs">
       <SubType>UserControl</SubType>
@@ -227,6 +227,9 @@
     <EmbeddedResource Include="UserControler\DGV.resx">
       <DependentUpon>DGV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\Etiquette.resx">
+      <DependentUpon>Etiquette.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControler\FInventaire.resx">
       <DependentUpon>FInventaire.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,9 +241,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\Lieu.resx">
       <DependentUpon>Lieu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControler\PrintC.resx">
-      <DependentUpon>PrintC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\Respo.resx">
       <DependentUpon>Respo.cs</DependentUpon>

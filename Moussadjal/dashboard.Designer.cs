@@ -671,6 +671,7 @@
             this.button16.Text = "      étiquette de Bien";
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // guna2Panel1
             // 

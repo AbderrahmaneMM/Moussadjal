@@ -21,18 +21,20 @@ namespace Moussadjal
 {
     public partial class dashboard : Form1
     {
-        DGVdescription dgv = new DGVdescription();//DGV
         Database       db = new Database();
 
-        AJTbien        ab = new AJTbien();
         Crud           cr = new Crud();
+        DGVdescription dgv = new DGVdescription();//DGV
+
+        AJTbien        ab = new AJTbien();
         Descrip dscrip = new Descrip();
         Respo Respo = new Respo();
         Lieu L = new Lieu();
-        PrintC p = new PrintC();
+
         FRecollement fr = new FRecollement();
         FRepertoire r = new FRepertoire();
         FInventaire i = new FInventaire();
+        Etiquette etiquette = new Etiquette();
 
         System.Windows.Forms.UserControl UC;
         //pour la modification et la supresion
@@ -109,16 +111,19 @@ namespace Moussadjal
         {
             Cpanel.Size = new Size(guna2Panel1.Width - 15, flowLayoutPanel1.Height - guna2Panel1.Height);
 
-            AJTbien ab = new AJTbien();
-            DGVdescription dgv = new DGVdescription();
+
             Crud cr = new Crud();
+            DGVdescription dgv = new DGVdescription();//DGV
+
+            AJTbien ab = new AJTbien();
             Descrip dscrip = new Descrip();
             Respo Respo = new Respo();
             Lieu L = new Lieu();
-            PrintC p = new PrintC();
+
             FRecollement fr = new FRecollement();
             FRepertoire r = new FRepertoire();
             FInventaire i = new FInventaire();
+            Etiquette etiquette = new Etiquette();
         }
         private void btnexit_Click(object sender, EventArgs e)
         {
@@ -300,6 +305,11 @@ namespace Moussadjal
             // FUILLE  de recollement
             UCAjouter(fr);
             //p.DocumentType = 3;
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            UCAjouter(etiquette);
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)
