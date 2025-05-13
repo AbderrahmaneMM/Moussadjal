@@ -17,10 +17,28 @@ namespace Moussadjal.UserControler
         public FRepertoire()
         {
             InitializeComponent();
+
+            // Set double buffering to reduce flicker
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                    ControlStyles.AllPaintingInWmPaint |
+                    ControlStyles.UserPaint, true);
+
+            // Ensure FDGVR is called after initialization
+            this.Load += (s, e) => {
+                FDGVR();
+                this.Invalidate(); // Force a repaint after data is loaded
+            };
         }
         Database db = new Database();
         private void FRepertoire_Load(object sender, EventArgs e)
         {
+            FDGVR();
+
+
+        }
+        private void FDGVR() 
+        {
+
             db.EmptyDataGridView(DGVR);
             db.remplirgridview("Select numero_sequentiel, division, numero_sequentiel, designation, observation  from Description_de_bien", DGVR);
 
@@ -39,72 +57,79 @@ namespace Moussadjal.UserControler
             DGVR.Columns["designation"].MinimumWidth = 40;
             DGVR.Columns["designation"].Width = 548;
             //الملاحظات
-            DGVR.Columns["observation"].MinimumWidth = 40; 
-  
-        }
+            DGVR.Columns["observation"].MinimumWidth = 40;
 
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            
-            Font FFont = new Font("Arial", 10, FontStyle.Bold);
-            StringFormat centerFormat = new StringFormat
+            if (DGVR?.Columns?.Count > 0
+            && DGVR.Columns.Contains("numero_sequentiel")
+            && DGVR.Columns.Contains("division")
+            && DGVR.Columns.Contains("numero_sequentiel1")
+            && DGVR.Columns.Contains("designation")
+            && DGVR.Columns.Contains("observation"))
             {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
 
+                Graphics g = e.Graphics;
 
-            int startX = DGVR.Width;
-            int y = guna2Button1.Location.Y;
-            int rowHeight = 100;
-            int headerHeight = 30;
-          //N°1
-            int nw = DGVR.Columns["numero_sequentiel"].Width+2;
-            Rectangle n = new Rectangle(startX - nw, y, nw, rowHeight );
-            g.FillRectangle(Brushes.LightGray, n);
-            g.DrawRectangle(Pens.Black, n);
-            g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
-           /*
-            //  lafiche  
-            int nsWidth = DGVR.Columns["numero_sequentiel1"].Width;
-            int divWidth = DGVR.Columns["division"].Width;
-            int fWidth = nsWidth + divWidth;
-            Rectangle fRect = new Rectangle(startX - nw - fWidth, y, fWidth, headerHeight);
-            g.FillRectangle(Brushes.LightGray, fRect);
-            g.DrawRectangle(Pens.Black, fRect);
-            g.DrawString("البطاقة", FFont, Brushes.Black, fRect, centerFormat);
+                Font FFont = new Font("Arial", 10, FontStyle.Bold);
+                StringFormat centerFormat = new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                };
 
-            //  N°2 / DIV  
-            Rectangle divRect = new Rectangle(startX - nw - divWidth, y + headerHeight, divWidth, rowHeight-headerHeight);
-            Rectangle numRect = new Rectangle(startX - nw - fWidth, y  + headerHeight, nsWidth, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, divRect);
-            g.DrawRectangle(Pens.Black, divRect);
-            g.FillRectangle(Brushes.LightGray, numRect);
-            g.DrawRectangle(Pens.Black, numRect);
-            g.DrawString("DIV", FFont, Brushes.Black, divRect, centerFormat);
-            g.DrawString("N°", FFont, Brushes.Black, numRect, centerFormat);
+                int startX = DGVR.Width + 18;
+                int y = DGVR.Location.Y + 15;
+                int rowHeight = 100;
+                int headerHeight = 30;
+                //N°1
+                int nw = DGVR.Columns["numero_sequentiel"].Width + 2;
+                Rectangle n = new Rectangle(startX - nw, y, nw, rowHeight);
+                g.FillRectangle(Brushes.LightGray, n);
+                g.DrawRectangle(Pens.Black, n);
+                g.DrawString("N°", FFont, Brushes.Black, n, centerFormat);
 
-            //  التعيين
-            int designWidth = DGVR.Columns["designation"].Width;
-            Rectangle designationRect = new Rectangle(startX - nw - fWidth - designWidth, y, designWidth, headerHeight);
-            g.FillRectangle(Brushes.LightGray, designationRect);
-            g.DrawRectangle(Pens.Black, designationRect);
-            g.DrawString("التعيين", FFont, Brushes.Black, designationRect, centerFormat);
+                //  lafiche  
+                int nsWidth = DGVR.Columns["numero_sequentiel1"].Width;
+                int divWidth = DGVR.Columns["division"].Width;
+                int fWidth = nsWidth + divWidth;
+                Rectangle fRect = new Rectangle(startX - nw - fWidth, y, fWidth, headerHeight);
+                g.FillRectangle(Brushes.LightGray, fRect);
+                g.DrawRectangle(Pens.Black, fRect);
+                g.DrawString("البطاقة", FFont, Brushes.Black, fRect, centerFormat);
 
-            // المواد
-            Rectangle materialRect = new Rectangle(startX - nw - fWidth - designWidth, y + headerHeight, designWidth, rowHeight - headerHeight);
-            g.FillRectangle(Brushes.LightGray, materialRect);
-            g.DrawRectangle(Pens.Black, materialRect);
-            g.DrawString("المواد", FFont, Brushes.Black, materialRect, centerFormat);
+                //  N°2 / DIV  
+                Rectangle divRect = new Rectangle(startX - nw - divWidth, y + headerHeight, divWidth, rowHeight - headerHeight);
+                Rectangle numRect = new Rectangle(startX - nw - fWidth, y + headerHeight, nsWidth, rowHeight - headerHeight);
+                g.FillRectangle(Brushes.LightGray, divRect);
+                g.DrawRectangle(Pens.Black, divRect);
+                g.FillRectangle(Brushes.LightGray, numRect);
+                g.DrawRectangle(Pens.Black, numRect);
+                g.DrawString("DIV", FFont, Brushes.Black, divRect, centerFormat);
+                g.DrawString("N°", FFont, Brushes.Black, numRect, centerFormat);
 
-            // observation
-            int noteWidth = DGVR.Columns["observation"].Width;
-            Rectangle noteRect = new Rectangle(startX - nw - fWidth - designWidth - noteWidth, y, noteWidth, rowHeight );
-            g.FillRectangle(Brushes.LightGray, noteRect);
-            g.DrawRectangle(Pens.Black, noteRect);
-            g.DrawString("ملاحظات", FFont, Brushes.Black, noteRect, centerFormat);*/
-        }
+                //  التعيين
+                int designWidth = DGVR.Columns["designation"].Width;
+                Rectangle designationRect = new Rectangle(startX - nw - fWidth - designWidth, y, designWidth, headerHeight);
+                g.FillRectangle(Brushes.LightGray, designationRect);
+                g.DrawRectangle(Pens.Black, designationRect);
+                g.DrawString("التعيين", FFont, Brushes.Black, designationRect, centerFormat);
+
+                // المواد
+                Rectangle materialRect = new Rectangle(startX - nw - fWidth - designWidth, y + headerHeight, designWidth, rowHeight - headerHeight);
+                g.FillRectangle(Brushes.LightGray, materialRect);
+                g.DrawRectangle(Pens.Black, materialRect);
+                g.DrawString("المواد", FFont, Brushes.Black, materialRect, centerFormat);
+
+                // observation
+                int noteWidth = DGVR.Columns["observation"].Width;
+                Rectangle noteRect = new Rectangle(startX - nw - fWidth - designWidth - noteWidth, y, noteWidth, rowHeight);
+                g.FillRectangle(Brushes.LightGray, noteRect);
+                g.DrawRectangle(Pens.Black, noteRect);
+                g.DrawString("ملاحظات", FFont, Brushes.Black, noteRect, centerFormat);
+            }
+            }
 
         private void DGVR_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,18 +137,8 @@ namespace Moussadjal.UserControler
         }
 
         private void DGVR_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {/*
-            foreach (DataGridViewRow row in DGVR.Rows)
-            {
-                // Assuming the designation column is at index 0
-                string designation = row.Cells[0].Value?.ToString() ?? string.Empty;
+        {
 
-                // Measure the text size
-                Size textSize = TextRenderer.MeasureText(designation, DGVR.Font, new Size(DGVR.Columns[0].Width, int.MaxValue), TextFormatFlags.WordBreak);
-
-                // Set the row height based on the text size
-                row.Height = Math.Max(textSize.Height + 4, DGVR.RowTemplate.Height);
-            }*/
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

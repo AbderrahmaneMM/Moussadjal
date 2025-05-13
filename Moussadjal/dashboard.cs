@@ -283,6 +283,7 @@ namespace Moussadjal
 
         private void button14_Click_1(object sender, EventArgs e)
         {    //repertoire
+          
             UCAjouter(r);
           //  p.DocumentType=1 ;
         }
