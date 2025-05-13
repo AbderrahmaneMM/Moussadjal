@@ -277,22 +277,24 @@ namespace Moussadjal
             dg.DataSource = bs;
         }
         //aficher datamatrix
-        public void AfficherDatamatrix(string query, PictureBox pb)
+        public System.Drawing.Image AfficherDatamatrix(object sender, EventArgs e, PictureBox pictureBox)
         {
             Open();
-            scd = new SqlCommand(query, scn);
-            scd.CommandType = CommandType.Text;
-            scd.Connection = scn;
-            SqlDataReader dr = scd.ExecuteReader();
-            if (dr.Read())
-            {
-                byte[] img = (byte[])dr["datamatrix_code"];
-                using (MemoryStream ms = new MemoryStream(img))
+            var row = dt.Rows[0];
+            byte[] imageBytes = (byte[])row["datamatrix_code"];
+            if (imageBytes != null)
+            {   using (MemoryStream ms = new MemoryStream(imageBytes))
                 {
-                   // pb.Image = Image.FromStream(ms);
-                }
+                   pictureBox.Image = System.Drawing.Image.FromStream(ms);
+                    return System.Drawing.Image.FromStream(ms);
+                } 
+                Close();
             }
-            Close();
+            else
+            {
+                return null;
+            }
+           
         }
         // test
     }
