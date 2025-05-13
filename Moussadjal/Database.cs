@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Windows.Controls;
 using Moussadjal.UserControler;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing;
+using System.IO;
 
 namespace Moussadjal
 {
@@ -273,6 +275,24 @@ namespace Moussadjal
            dt = new DataTable(); 
             bs.DataSource = dt;
             dg.DataSource = bs;
+        }
+        //aficher datamatrix
+        public void AfficherDatamatrix(string query, PictureBox pb)
+        {
+            Open();
+            scd = new SqlCommand(query, scn);
+            scd.CommandType = CommandType.Text;
+            scd.Connection = scn;
+            SqlDataReader dr = scd.ExecuteReader();
+            if (dr.Read())
+            {
+                byte[] img = (byte[])dr["datamatrix_code"];
+                using (MemoryStream ms = new MemoryStream(img))
+                {
+                   // pb.Image = Image.FromStream(ms);
+                }
+            }
+            Close();
         }
     }
 }

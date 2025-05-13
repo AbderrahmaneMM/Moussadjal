@@ -103,8 +103,10 @@ namespace Moussadjal
         {
             if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement?", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 db.Suprimer(Sq);
-            dgv.dtgdve.Rows.Remove(dgv.dtgdve.CurrentRow);
+                dgv.dtgdve.Rows.Remove(dgv.dtgdve.CurrentRow);
+            }
 
         }
         private void dashboard_Load(object sender, EventArgs e)

@@ -44,6 +44,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -94,7 +96,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(40, 214);
+            this.pictureBox1.Location = new System.Drawing.Point(42, 255);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(198, 184);
             this.pictureBox1.TabIndex = 45;
@@ -242,6 +244,15 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Lieu : ";
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(15, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(266, 146);
+            this.label6.TabIndex = 49;
+            // 
             // Etiquette
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,7 +270,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2VSeparator2);
             this.Name = "Etiquette";
-            this.Size = new System.Drawing.Size(682, 550);
+            this.Size = new System.Drawing.Size(641, 550);
             this.Load += new System.EventHandler(this.Etiquette_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -286,5 +297,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
