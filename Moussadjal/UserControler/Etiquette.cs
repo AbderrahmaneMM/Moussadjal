@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing.Common;
+using ZXing.Rendering;
+using ZXing;
 
 namespace Moussadjal.UserControler
 {
@@ -19,7 +22,7 @@ namespace Moussadjal.UserControler
             InitializeComponent();
             LieuComboBox.SelectedIndexChanged += LieuComboBox_SelectedIndexChanged;
         }
-        private void FillCB()
+        private void FillCB(object sender, EventArgs e)
         {
             if (LieuComboBox.Items.Count > 0 && LieuComboBox.SelectedValue != null)
             {
@@ -44,9 +47,10 @@ namespace Moussadjal.UserControler
                         "Bien.numero_sequentiel",
                          DescreptionComboBox.SelectedValue.ToString(),
                         guna2ComboBox2 );
-
+                  
                 }
-            }label3.Text = LieuComboBox.Text;
+              label3.Text = LieuComboBox.Text;
+            }
         }
 
         private void guna2VSeparator2_Click(object sender, EventArgs e)
@@ -86,7 +90,7 @@ namespace Moussadjal.UserControler
 
         private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillCB();
+            FillCB( sender,  e);
         }
 
         private void DescreptionComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,14 +107,13 @@ namespace Moussadjal.UserControler
                     "Bien.numero_sequentiel",
                      DescreptionComboBox.SelectedValue.ToString(),
                      guna2ComboBox2);
-
             }
         }
 
         private void Etiquette_Load(object sender, EventArgs e)
         {
             db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
-            FillCB();
+            FillCB( sender,  e);
 
         }
 
@@ -124,6 +127,40 @@ namespace Moussadjal.UserControler
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            string Div, Ns, Ann, Ni, L;
+            try
+            {
+                var barcodeWriter = new BarcodeWriter
+                {
+                    Format = BarcodeFormat.DATA_MATRIX,
+                    Options = new EncodingOptions
+                    {
+                        Height = 450,
+                        Width = 450,
+                        Margin = 10,
+                    },
+                    Renderer = new BitmapRenderer()
+                };
+                Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + DescreptionComboBox.SelectedValue.ToString() + "'");
+                Ns = DescreptionComboBox.SelectedValue.ToString();
+                Ni = guna2ComboBox2.Text;
+                Ann = db.SELECT("select annee from Description_de_bien where numero_sequentiel ='" + DescreptionComboBox.SelectedValue.ToString() + "'");
+                L = LieuComboBox.SelectedValue.ToString();
+                string Nu = Div+"/"+Ns+"/"+Ni+"/"+Ann+"/"+L;
+                label6.Text = Nu ;
+                Bitmap barcodeBitmap = barcodeWriter.Write(Nu);
+                pictureBox1.Image = barcodeBitmap;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

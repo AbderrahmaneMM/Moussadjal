@@ -33,18 +33,18 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.DescreptionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
@@ -83,22 +84,43 @@
             this.panel1.Size = new System.Drawing.Size(305, 455);
             this.panel1.TabIndex = 27;
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(15, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(266, 107);
+            this.label6.TabIndex = 49;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(15, 18);
+            this.label4.Location = new System.Drawing.Point(14, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 22);
+            this.label4.Size = new System.Drawing.Size(146, 22);
             this.label4.TabIndex = 44;
-            this.label4.Text = "INSFP Bouissmail";
+            this.label4.Text = "INSFP Bousmail";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(290, 22);
+            this.label3.TabIndex = 48;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(42, 255);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 184);
+            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
@@ -123,16 +145,6 @@
             this.label2.Size = new System.Drawing.Size(57, 22);
             this.label2.TabIndex = 47;
             this.label2.Text = "Bien :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(15, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 22);
-            this.label3.TabIndex = 48;
             // 
             // LieuComboBox
             // 
@@ -232,6 +244,7 @@
             this.guna2Button2.TabIndex = 53;
             this.guna2Button2.Text = "Générer L\'étiquette";
             this.guna2Button2.UseTransparentBackground = true;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // label5
             // 
@@ -243,15 +256,6 @@
             this.label5.Size = new System.Drawing.Size(61, 22);
             this.label5.TabIndex = 54;
             this.label5.Text = "Lieu : ";
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(15, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(266, 146);
-            this.label6.TabIndex = 49;
             // 
             // Etiquette
             // 

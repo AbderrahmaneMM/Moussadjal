@@ -14,6 +14,8 @@ using Moussadjal.UserControler;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing;
 using System.IO;
+using System.Diagnostics;
+using Microsoft.Practices.CompositeUI.Commands;
 
 namespace Moussadjal
 {
@@ -276,26 +278,7 @@ namespace Moussadjal
             bs.DataSource = dt;
             dg.DataSource = bs;
         }
-        //aficher datamatrix
-        public System.Drawing.Image AfficherDatamatrix(object sender, EventArgs e, PictureBox pictureBox)
-        {
-            Open();
-            var row = dt.Rows[0];
-            byte[] imageBytes = (byte[])row["datamatrix_code"];
-            if (imageBytes != null)
-            {   using (MemoryStream ms = new MemoryStream(imageBytes))
-                {
-                   pictureBox.Image = System.Drawing.Image.FromStream(ms);
-                    return System.Drawing.Image.FromStream(ms);
-                } 
-                Close();
-            }
-            else
-            {
-                return null;
-            }
-           
-        }
-        // test
+    
+
     }
 }
