@@ -65,7 +65,7 @@ namespace Moussadjal
             dg.RowTemplate.Height = 30;
         }
 
-        public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl)
+        public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl , int h)
         {
             FlowLayoutPanel parentPanel = (FlowLayoutPanel)btn.Parent;
 
@@ -73,7 +73,7 @@ namespace Moussadjal
             {
                 if (c is FlowLayoutPanel panel)
                 {
-                    if (panel == pnl && btn.Checked) panel.Height = 86; 
+                    if (panel == pnl && btn.Checked) panel.Height = h; 
 
                     else panel.Height = 0;
                 }

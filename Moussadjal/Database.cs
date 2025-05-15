@@ -110,7 +110,6 @@ namespace Moussadjal
             {
                 Open();
 
-                // Filter modified rows for each table
                 DataTable bienChanges = dt.Clone();
                 DataTable descChanges = dt.Clone();
 

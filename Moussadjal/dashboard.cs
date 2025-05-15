@@ -152,7 +152,7 @@ namespace Moussadjal
 
         private void guna2Button10_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button10, BienPanel);
+            ExpandPanel(guna2Button10, BienPanel, 86);
             dgv.Bien();
             UC = ab;
             DesplaydgvControl();
@@ -163,13 +163,13 @@ namespace Moussadjal
 
             //modifer querys
        
-            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu FROM Bien";
-            qt2 = "select numero_sequentiel, designation, division, annee, observation from Description_de_bien";
+            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu, annee FROM Bien";
+            qt2 = "select numero_sequentiel, designation, division, observation from Description_de_bien";
             //suprimer query
             Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
             //search query
             srq = "SELECT b.numero_dinventaire, b.numero_sequentiel," +
-                " d.division, d.designation, d.annee, b.Id_lieu, d.observation FROM Bien b" +
+                " d.division, d.designation, b.annee, b.Id_lieu, d.observation FROM Bien b" +
                 " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
 
             //filter de recherche
@@ -177,7 +177,7 @@ namespace Moussadjal
             {
              new { Text = "Recharche par numéro sequentiel", Value = "d.numero_sequentiel" },
              new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
-              new { Text = "Recharche par année", Value = "d.annee" }
+              new { Text = "Recharche par année", Value = "b.annee" }
              };
 
             cr.ParCob.DataSource = items;
@@ -188,7 +188,7 @@ namespace Moussadjal
 
         private void guna2Button11_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button11, LieuPanel);
+            ExpandPanel(guna2Button11, LieuPanel, 86);
 
             dgv.Lieu();
             UC = L;
@@ -216,7 +216,7 @@ namespace Moussadjal
 
         private void guna2Button12_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button12, RespoPanel);
+            ExpandPanel(guna2Button12, RespoPanel, 86);
 
             dgv.Responsable();
             UC = Respo;
@@ -270,7 +270,7 @@ namespace Moussadjal
 
         private void Printbutton_Click(object sender, EventArgs e)
         {
-            ExpandPanel(Printbutton, PrintPanel);
+            ExpandPanel(Printbutton, PrintPanel, 172);
         }
 
         private void PrintPanel_Paint(object sender, PaintEventArgs e)
@@ -327,7 +327,7 @@ namespace Moussadjal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button1,DescriPanel);
+            ExpandPanel(guna2Button1,DescriPanel,86);
             dgv.Description();
             UC = dscrip;
 
@@ -336,9 +336,9 @@ namespace Moussadjal
             dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
 
-                Mq = "select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien";
+                Mq = "select numero_sequentiel, designation, division, quantite, observation from Description_de_bien";
                 Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
-                srq = "Select numero_sequentiel, designation, division, annee, quantite, observation from Description_de_bien where ";
+                srq = "Select numero_sequentiel, designation, division, quantite, observation from Description_de_bien where ";
             var items = new[]
             {
              new { Text = "Recharche par designation", Value = "designation" }

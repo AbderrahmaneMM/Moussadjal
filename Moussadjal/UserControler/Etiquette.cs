@@ -131,7 +131,7 @@ namespace Moussadjal.UserControler
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            string Div, Ns, Ann, Ni, L;
+            string Div, Ns, Ann, Ni, L,idl;
             try
             {
                 var barcodeWriter = new BarcodeWriter
@@ -142,19 +142,24 @@ namespace Moussadjal.UserControler
                         Height = 450,
                         Width = 450,
                         Margin = 10,
+                      
                     },
                     Renderer = new BitmapRenderer()
                 };
+
+
                 Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + DescreptionComboBox.SelectedValue.ToString() + "'");
                 Ns = DescreptionComboBox.SelectedValue.ToString();
                 Ni = guna2ComboBox2.Text;
-                Ann = db.SELECT("select annee from Description_de_bien where numero_sequentiel ='" + DescreptionComboBox.SelectedValue.ToString() + "'");
+              
+                Ann = db.SELECT("select Annee from Bien  where numero_dinventaire ='"+ guna2ComboBox2 .Text.ToString()+ "'");
                 L = LieuComboBox.SelectedValue.ToString();
-                string Nu = Div+"/"+Ns+"/"+Ni+"/"+Ann+"/"+L;
-                label6.Text = Nu ;
+                idl = LieuComboBox.SelectedValue.ToString();
+                string Nu = $"Division: {Div}\nArticle N°: {Ns}/{DescreptionComboBox.Text}\nN° Inventaire: {Ni}\n Année d'entrée: {Ann}\n Lieu d'utilisation:  {L}.";
+               
+                label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select Annee% 100 from Bien  where numero_dinventaire ='" + guna2ComboBox2.Text.ToString() + "'") + "/" + idl;
                 Bitmap barcodeBitmap = barcodeWriter.Write(Nu);
                 pictureBox1.Image = barcodeBitmap;
-
 
             }
             catch (Exception ex)

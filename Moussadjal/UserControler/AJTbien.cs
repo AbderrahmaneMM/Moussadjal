@@ -56,15 +56,14 @@ namespace Moussadjal.UserControler
                 Renderer = new BitmapRenderer()
             };
             string NumIn = (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien") + 1).ToString();
-            string original = $"{NumIn}/{NsComboBox.Text}/{LieuComboBox.Text}";
-            string base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(original));
-            Bitmap barcodeBitmap = barcodeWriter.Write(base64);
-            BarcodPicture.Image = barcodeBitmap;
+            string original = $"{NumIn}/{NsComboBox.Text}/{LieuComboBox.SelectedValue}";
+            Bitmap barcodeBitmap = barcodeWriter.Write(original);
+            pictureBox1.Image = barcodeBitmap;
 
             //convert image barcode to byte array
-            byte[] img = convertImageToByte(BarcodPicture.Image);
+            byte[] img = convertImageToByte(pictureBox1.Image);
             //insert 'bien' to db
-            db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue + "', '" + img + "')");
+            db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue.ToString() + "'");
             db.Ajouter("UPDATE Description_de_bien SET quantite = quantite + 1 WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "' ");
             MessageBox.Show("add secsses", NumIn, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -84,6 +83,11 @@ namespace Moussadjal.UserControler
         private void BarcodPicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            NiTextBox1.Enabled = true;
         }
     }
 }

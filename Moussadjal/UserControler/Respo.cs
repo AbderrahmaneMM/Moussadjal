@@ -24,7 +24,7 @@ namespace Moussadjal.UserControler
 
                 if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Responsable WHERE Id_Responsable = '" + IdRtextbox.Text + "'") < 1)
                 {
-                    db.Ajouter("INSERT INTO Responsable (Id_Responsable, nometprénom) VALUES ('" + IdRtextbox.Text + "', '" + NomTextBox1.Text + "')");
+                    db.Ajouter("INSERT INTO Responsable (Id_Responsable, nometprénom) VALUES ('" + IdRtextbox.Text + "', N'" + NomTextBox1.Text + "')");
                     MessageBox.Show("add secsses", NomTextBox1.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

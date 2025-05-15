@@ -30,7 +30,7 @@ namespace Moussadjal.UserControler
 
                 if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Lieu WHERE Id_lieu = '" + IdLtextbox.Text + "'") < 1)
                 {
-                    db.Ajouter("INSERT INTO Lieu (Id_lieu, designationLieu) VALUES ('" + IdLtextbox.Text + "', '" + NomTextBox1.Text + "')");
+                    db.Ajouter("INSERT INTO Lieu (Id_lieu, designationLieu) VALUES ('" + IdLtextbox.Text + "', N'" + NomTextBox1.Text + "')");
                     MessageBox.Show("add secsses", NomTextBox1.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

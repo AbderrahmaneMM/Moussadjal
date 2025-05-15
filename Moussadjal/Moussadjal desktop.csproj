@@ -187,6 +187,12 @@
     <Compile Include="UserControler\Lieu.Designer.cs">
       <DependentUpon>Lieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\RemplacerBien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\RemplacerBien.Designer.cs">
+      <DependentUpon>RemplacerBien.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControler\Respo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\Lieu.resx">
       <DependentUpon>Lieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\RemplacerBien.resx">
+      <DependentUpon>RemplacerBien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\Respo.resx">
       <DependentUpon>Respo.cs</DependentUpon>
