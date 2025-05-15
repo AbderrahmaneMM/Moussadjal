@@ -154,10 +154,9 @@ namespace Moussadjal.UserControler
               
                 Ann = db.SELECT("select Annee from Bien  where numero_dinventaire ='"+ guna2ComboBox2 .Text.ToString()+ "'");
                 L = LieuComboBox.SelectedValue.ToString();
-                idl = LieuComboBox.SelectedValue.ToString();
                 string Nu = $"Division: {Div}\nArticle N°: {Ns}/{DescreptionComboBox.Text}\nN° Inventaire: {Ni}\n Année d'entrée: {Ann}\n Lieu d'utilisation:  {L}.";
                
-                label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select Annee% 100 from Bien  where numero_dinventaire ='" + guna2ComboBox2.Text.ToString() + "'") + "/" + idl;
+                label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select Annee% 100 from Bien  where numero_dinventaire ='" + guna2ComboBox2.Text.ToString() + "'") + "/" + L;
                 Bitmap barcodeBitmap = barcodeWriter.Write(Nu);
                 pictureBox1.Image = barcodeBitmap;
 
@@ -166,6 +165,11 @@ namespace Moussadjal.UserControler
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

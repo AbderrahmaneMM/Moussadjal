@@ -172,7 +172,7 @@ namespace Moussadjal
 
         public void Suprimer(string query)
         {
-            if (scn.State != ConnectionState.Open)
+          //  if (scn.State != ConnectionState.Open)
                 Open();
             SqlCommand cmd = new SqlCommand(query, scn);
             cmd.ExecuteNonQuery();

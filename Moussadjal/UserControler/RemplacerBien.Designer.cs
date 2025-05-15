@@ -113,6 +113,7 @@
             this.Ajtbtn.TabIndex = 50;
             this.Ajtbtn.Text = "Remplacer";
             this.Ajtbtn.UseTransparentBackground = true;
+            this.Ajtbtn.Click += new System.EventHandler(this.Ajtbtn_Click);
             // 
             // NsComboBox
             // 
@@ -141,6 +142,7 @@
             this.label2.Size = new System.Drawing.Size(207, 28);
             this.label2.TabIndex = 52;
             this.label2.Text = "Remplacer des Biens";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // RemplacerBien
             // 
@@ -157,6 +159,7 @@
             this.Controls.Add(this.guna2NumericUpDown1);
             this.Name = "RemplacerBien";
             this.Size = new System.Drawing.Size(300, 343);
+            this.Load += new System.EventHandler(this.RemplacerBien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

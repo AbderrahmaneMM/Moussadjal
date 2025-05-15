@@ -34,9 +34,9 @@
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -62,6 +62,7 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
             // guna2VSeparator2
             // 
@@ -93,6 +94,15 @@
             this.label6.Size = new System.Drawing.Size(266, 107);
             this.label6.TabIndex = 49;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -114,15 +124,6 @@
             this.label3.Size = new System.Drawing.Size(290, 22);
             this.label3.TabIndex = 48;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 

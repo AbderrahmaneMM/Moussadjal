@@ -26,7 +26,8 @@ namespace Moussadjal
         Crud           cr = new Crud();
         DGVdescription dgv = new DGVdescription();//DGV
 
-        AJTbien        ab = new AJTbien();
+        AJTbien ab = new AJTbien();
+        RemplacerBien rb = new RemplacerBien()    ;
         Descrip dscrip = new Descrip();
         Respo Respo = new Respo();
         Lieu L = new Lieu();
@@ -118,6 +119,7 @@ namespace Moussadjal
             DGVdescription dgv = new DGVdescription();//DGV
 
             AJTbien ab = new AJTbien();
+            RemplacerBien rb = new RemplacerBien();
             Descrip dscrip = new Descrip();
             Respo Respo = new Respo();
             Lieu L = new Lieu();
@@ -279,8 +281,9 @@ namespace Moussadjal
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
-            guna2Button10_Click( sender,  e);
+        {//remplacer
+         //guna2Button10_Click( sender,  e);
+            UCAjouter(rb);
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -337,7 +340,7 @@ namespace Moussadjal
             string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
 
                 Mq = "select numero_sequentiel, designation, division, quantite, observation from Description_de_bien";
-                Sq = "delete from Description_de_bien where numero_sequentiel = " + deleteRow;
+                Sq = "delete from Description_de_bien where numero_sequentiel = '" + deleteRow+"'";
                 srq = "Select numero_sequentiel, designation, division, quantite, observation from Description_de_bien where ";
             var items = new[]
             {

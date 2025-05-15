@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AJTbien));
             this.LieuComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
@@ -42,6 +43,8 @@
             this.AnneComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -141,6 +144,7 @@
             this.guna2Button1.TabIndex = 54;
             this.guna2Button1.Text = "Print";
             this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // panel1
             // 
@@ -230,17 +234,16 @@
             // 
             // guna2CheckBox1
             // 
-            this.guna2CheckBox1.AutoSize = true;
             this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CheckBox1.CheckedState.BorderRadius = 0;
             this.guna2CheckBox1.CheckedState.BorderThickness = 0;
             this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox1.Location = new System.Drawing.Point(17, 65);
+            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2CheckBox1.Location = new System.Drawing.Point(17, 54);
             this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(118, 22);
+            this.guna2CheckBox1.Size = new System.Drawing.Size(205, 40);
             this.guna2CheckBox1.TabIndex = 57;
-            this.guna2CheckBox1.Text = "Nouvaux Bien";
+            this.guna2CheckBox1.Text = "Ajouter un Bien existantDans l\'institution";
             this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2CheckBox1.UncheckedState.BorderRadius = 5;
             this.guna2CheckBox1.UncheckedState.BorderThickness = 3;
@@ -255,6 +258,21 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
             // AJTbien
             // 
@@ -297,5 +315,7 @@
         private Guna.UI2.WinForms.Guna2TextBox NiTextBox1;
         public Guna.UI2.WinForms.Guna2ComboBox AnneComboBox1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
