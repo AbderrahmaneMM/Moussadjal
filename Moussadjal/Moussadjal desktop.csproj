@@ -133,6 +133,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControler\AjtAff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControler\AjtAff.Designer.cs">
+      <DependentUpon>AjtAff.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControler\AJTbien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControler\AjtAff.resx">
+      <DependentUpon>AjtAff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControler\AJTbien.resx">
       <DependentUpon>AJTbien.cs</DependentUpon>

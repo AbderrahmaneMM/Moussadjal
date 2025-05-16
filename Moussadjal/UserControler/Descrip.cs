@@ -62,7 +62,7 @@ namespace Moussadjal.UserControler
                         {
                             db.Ajouter($"INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, Annee) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '{newNumeroSequentiel}', '" + LieuComboBox.SelectedValue.ToString() + "','" + DateTime.Now.Year.ToString() + "')");
                         }
-                        MessageBox.Show("add secsses", "kjio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("add secsses", "secsses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else 
                     {         MessageBox.Show("Error: ", "La Description de bien existe déjat", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

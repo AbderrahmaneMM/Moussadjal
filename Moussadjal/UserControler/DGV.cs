@@ -87,6 +87,15 @@ namespace Moussadjal.UserControler
           
             dtgdve.Rows[0].Selected = true;
         }
+        public void Aff() 
+        {
+            db.EmptyDataGridView(dtgdve);
+
+            db.remplirgridview("SELECT R.nometprénom AS LeResponsable, L.designationLieu AS Lieu" +
+                " FROM Responsable R JOIN Affectation A ON R.Id_Responsable = A.Id_Responsable" +
+                " JOIN Lieu L ON A.id_lieu = L.id_lieu", dtgdve);
+            dtgdve.Rows[0].Selected = true;
+        }
         public void OnDataUpdated(EventArgs e)
         {
             if (DataUpdated != null)

@@ -26,6 +26,7 @@ namespace Moussadjal
         Crud           cr = new Crud();
         DGVdescription dgv = new DGVdescription();//DGV
 
+        AjtAff ajtAff = new AjtAff();
         AJTbien ab = new AJTbien();
         RemplacerBien rb = new RemplacerBien()    ;
         Descrip dscrip = new Descrip();
@@ -118,6 +119,7 @@ namespace Moussadjal
             Crud cr = new Crud();
             DGVdescription dgv = new DGVdescription();//DGV
 
+            AjtAff ajtAff = new AjtAff();
             AJTbien ab = new AJTbien();
             RemplacerBien rb = new RemplacerBien();
             Descrip dscrip = new Descrip();
@@ -272,7 +274,7 @@ namespace Moussadjal
         private void button6_Click(object sender, EventArgs e)
         {
             //ajt lieu
-            
+            UCAjouter(L);
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -341,6 +343,36 @@ namespace Moussadjal
         private void button12_Click(object sender, EventArgs e)
         {
             //affectation
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Affectation") < 1)
+            {
+                UCAjouter(ajtAff);
+            }
+            else
+            {
+
+                dgv.Aff();
+                UC = ajtAff;
+                DesplaydgvControl();
+                string deleteRow = dgv.dtgdve.CurrentRow.Cells["LeResponsable"].Value.ToString();
+                DataTable rdt = db.DtOfSelect("SELECT * FROM Responsable WHERE nometprénom = '" + deleteRow+"'");
+                 /*
+                MessageBox.Show(rdt.Rows[dgv.dtgdve.CurrentRow.Index]["Id_Responsable"].ToString());
+                Sq = "delete from Affectation where Id_Responsable = " + rdt.Rows[dgv.dtgdve.CurrentRow.Index]["Id_Responsable"];
+               */ srq = "SELECT R.nometprénom AS LeResponsable, L.designationLieu AS Lieu"
+                    + " FROM Responsable R JOIN Affectation A ON R.Id_Responsable = A.Id_Responsable" +
+                    " JOIN Lieu L ON A.id_lieu = L.id_lieu WHERE ";
+
+                // recharche responsable
+                var items = new[]
+                {
+                   new { Text = "Recharche par Responsable", Value = "R.nometprénom"},
+                   new { Text = "Recharche par Lieu", Value = "L.Id_lieu"}
+                };
+
+                cr.ParCob.DataSource = items;
+                cr.ParCob.DisplayMember = "Text";
+                cr.ParCob.ValueMember = "Value";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
