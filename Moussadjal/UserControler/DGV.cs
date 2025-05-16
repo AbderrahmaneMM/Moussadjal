@@ -18,6 +18,7 @@ namespace Moussadjal.UserControler
             InitializeComponent();
         }
         Database db = new Database();
+        Crud cr = new Crud();
         Form1 f = new Form1();
         public event EventHandler DataUpdated;
         
@@ -95,6 +96,13 @@ namespace Moussadjal.UserControler
                 " FROM Responsable R JOIN Affectation A ON R.Id_Responsable = A.Id_Responsable" +
                 " JOIN Lieu L ON A.id_lieu = L.id_lieu", dtgdve);
             dtgdve.Rows[0].Selected = true;
+        }
+        public void DetaillLieu(string qrr)
+        {
+            db.EmptyDataGridView(dtgdve);
+
+            db.remplirgridview(qrr, dtgdve);
+           
         }
         public void OnDataUpdated(EventArgs e)
         {

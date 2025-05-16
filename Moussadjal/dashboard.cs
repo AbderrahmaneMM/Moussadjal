@@ -49,6 +49,7 @@ namespace Moussadjal
             cr.modifier.Click += Modifier;
             cr.Suprimer.Click += Suprimer;
             cr.Searchbox.TextChanged += search;
+          //  cr.ParCob.SelectedIndexChanged += button9_Click;
         }
         public void search(object sender, EventArgs e)
         {
@@ -291,6 +292,29 @@ namespace Moussadjal
         private void button9_Click(object sender, EventArgs e)
         {
             //lieu detaills lieu
+
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Lieu") < 1)
+            {
+                UCAjouter(L);
+            }
+            else
+            { 
+                db.remlirCombo("Lieu", cr.ParCob, "designationLieu", "Id_lieu");
+                string qrr = "SELECT DISTINCT R.nometprénom AS LeResponsable," +
+                    "    DB.designation AS Designation,  " +
+                    "DB.quantite AS Quantité FROM    Bien B JOIN  Description_de_Bien DB" +
+                    " ON B.numero_sequentiel = DB.numero_sequentiel JOIN   Affectation A" +
+                    " ON B.id_lieu = A.id_lieu JOIN     Responsable R " +
+                    "ON A.Id_Responsable = R.Id_Responsable WHERE   B.id_lieu = '"+ cr.ParCob.SelectedValue.ToString() + "'";
+                dgv.DetaillLieu(qrr);
+                UC = L;
+                DesplaydgvControl();
+                cr.Ajt.Visible = false;
+                cr.modifier.Visible = false;
+                cr.Searchbox.Visible = false;
+                cr.Suprimer.Visible = false;
+
+            }
         }
 
         private void Printbutton_Click(object sender, EventArgs e)
@@ -305,7 +329,7 @@ namespace Moussadjal
 
         private void button5_Click(object sender, EventArgs e)
         {//remplacer
-         //guna2Button10_Click( sender,  e);
+
             UCAjouter(rb);
         }
 
@@ -378,6 +402,7 @@ namespace Moussadjal
         private void button1_Click(object sender, EventArgs e)
         {
             //ajt respo
+            UCAjouter(Respo);
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)
@@ -424,7 +449,8 @@ namespace Moussadjal
 
         private void button3_Click(object sender, EventArgs e)
         {
-          //  UCAjouter(dscrip);
+            UCAjouter(dscrip);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
