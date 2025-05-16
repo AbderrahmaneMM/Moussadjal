@@ -34,7 +34,6 @@
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,15 +94,6 @@
             this.label6.Size = new System.Drawing.Size(266, 107);
             this.label6.TabIndex = 49;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -110,9 +101,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(14, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 22);
+            this.label4.Size = new System.Drawing.Size(156, 22);
             this.label4.TabIndex = 44;
-            this.label4.Text = "INSFP Bousmail";
+            this.label4.Text = " INSFP Bouismail";
             // 
             // label3
             // 
@@ -257,6 +248,15 @@
             this.label5.Size = new System.Drawing.Size(61, 22);
             this.label5.TabIndex = 54;
             this.label5.Text = "Lieu : ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
             // 
             // Etiquette
             // 

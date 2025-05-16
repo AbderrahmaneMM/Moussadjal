@@ -63,6 +63,16 @@ namespace Moussadjal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cropped_logo_final_ceb_2 {
+            get {
+                object obj = ResourceManager.GetObject("cropped-logo-final-ceb-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-40", resourceCulture);

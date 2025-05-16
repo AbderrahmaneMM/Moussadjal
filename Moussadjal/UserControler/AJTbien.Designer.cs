@@ -42,9 +42,9 @@
             this.NiTextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.AnneComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -174,9 +174,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(14, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 22);
+            this.label4.Size = new System.Drawing.Size(156, 22);
             this.label4.TabIndex = 44;
-            this.label4.Text = "INSFP Bousmail";
+            this.label4.Text = " INSFP Bouismail";
             // 
             // label3
             // 
@@ -250,15 +250,6 @@
             this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.White;
             this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -273,6 +264,15 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
             // 
             // AJTbien
             // 

@@ -267,7 +267,7 @@ namespace Moussadjal
 
         private void button9_Click(object sender, EventArgs e)
         {
-            
+            //lieu detaills
         }
 
         private void Printbutton_Click(object sender, EventArgs e)
@@ -317,6 +317,11 @@ namespace Moussadjal
             UCAjouter(etiquette);
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            //affectation
+        }
+
         private void guna2ControlBox2_Click(object sender, EventArgs e)
         {
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
@@ -330,7 +335,7 @@ namespace Moussadjal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button1,DescriPanel,86);
+            ExpandPanel(guna2Button1,DescriPanel,43);
             dgv.Description();
             UC = dscrip;
 
@@ -355,7 +360,7 @@ namespace Moussadjal
 
         private void button3_Click(object sender, EventArgs e)
         {
-            UCAjouter(dscrip);
+          //  UCAjouter(dscrip);
         }
 
         private void button4_Click(object sender, EventArgs e)
