@@ -154,71 +154,90 @@ namespace Moussadjal
 
         private void guna2Button10_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button10, BienPanel, 86);
-            dgv.Bien();
-            UC = ab;
-            DesplaydgvControl();
-
-          
-            dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
-            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
-
-            //modifer querys
-       
-            qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu, annee FROM Bien";
-            qt2 = "select numero_sequentiel, designation, division, observation from Description_de_bien";
-            //suprimer query
-            Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
-            //search query
-            srq = "SELECT b.numero_dinventaire, b.numero_sequentiel," +
-                " d.division, d.designation, b.annee, b.Id_lieu, d.observation FROM Bien b" +
-                " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
-
-            //filter de recherche
-            var items = new[]
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien") < 1)
             {
+                UCAjouter(ab);
+            }
+            else
+            {
+                ExpandPanel(guna2Button10, BienPanel, 86);
+                dgv.Bien();
+                UC = ab;
+                DesplaydgvControl();
+
+
+                dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_dinventaire"].Value.ToString();
+                string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_dinventaire"].Value.ToString();
+
+                //modifer querys
+
+                qt1 = "SELECT numero_dinventaire, numero_sequentiel, Id_lieu, annee FROM Bien";
+                qt2 = "select numero_sequentiel, designation, division, observation from Description_de_bien";
+                //suprimer query
+                Sq = "delete from Bien where numero_dinventaire = " + deleteRow;
+                //search query
+                srq = "SELECT b.numero_dinventaire, b.numero_sequentiel," +
+                    " d.division, d.designation, b.annee, b.Id_lieu, d.observation FROM Bien b" +
+                    " JOIN Description_de_bien d ON b.numero_sequentiel= d.numero_sequentiel where ";
+
+                //filter de recherche
+                var items = new[]
+                {
              new { Text = "Recharche par numéro sequentiel", Value = "d.numero_sequentiel" },
              new { Text = "Recharche par Lieu", Value = "b.Id_lieu" },
               new { Text = "Recharche par année", Value = "b.annee" }
              };
 
-            cr.ParCob.DataSource = items;
-            cr.ParCob.DisplayMember = "Text";
-            cr.ParCob.ValueMember = "Value";
-
+                cr.ParCob.DataSource = items;
+                cr.ParCob.DisplayMember = "Text";
+                cr.ParCob.ValueMember = "Value";
+            }
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button11, LieuPanel, 86);
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Lieu") < 1)
+            {
+                UCAjouter(L);
+            }
+            else
+            {
+                ExpandPanel(guna2Button11, LieuPanel, 86);
 
-            dgv.Lieu();
-            UC = L;
-            DesplaydgvControl();
+                dgv.Lieu();
+                UC = L;
+                DesplaydgvControl();
 
 
-            dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_lieu"].Value.ToString();
-            string deleteRow = dgv.dtgdve.CurrentRow.Cells["Id_lieu"].Value.ToString();
+                dgvM = dgv.dtgdve.SelectedRows[0].Cells["Id_lieu"].Value.ToString();
+                string deleteRow = dgv.dtgdve.CurrentRow.Cells["Id_lieu"].Value.ToString();
 
-            Mq = "SELECT Id_lieu, designationLieu FROM Lieu";
-            Sq = "delete from Lieu where Id_lieu = " + deleteRow;
-            srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
+                Mq = "SELECT Id_lieu, designationLieu FROM Lieu";
+                Sq = "delete from Lieu where Id_lieu = " + deleteRow;
+                srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
 
-            ///////////
-             var items = new[]
-             {
+                ///////////
+                var items = new[]
+                {
                new { Text = "Recharche par Lieu", Value = "Id_lieu" },
               // new { Text = "Recharche par résponsble", Value = "Id_Responsable" }
              };
 
-            cr.ParCob.DataSource = items;
-            cr.ParCob.DisplayMember = "Text";
-            cr.ParCob.ValueMember = "Value";
+                cr.ParCob.DataSource = items;
+                cr.ParCob.DisplayMember = "Text";
+                cr.ParCob.ValueMember = "Value";
+            }
         }
 
         private void guna2Button12_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button12, RespoPanel, 86);
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Responsable") < 1)
+            {
+                UCAjouter(Respo);
+            }
+          else
+          {
+                ExpandPanel(guna2Button12, RespoPanel, 86);
 
             dgv.Responsable();
             UC = Respo;
@@ -231,6 +250,7 @@ namespace Moussadjal
             Mq = "SELECT Id_Responsable, nometprénom FROM Responsable";
             Sq = "delete from Responsable where Id_Responsable = " + deleteRow;
             srq = "Select Id_Responsable, nometprénom FROM Responsable where ";
+
             // recharche responsable
             var items = new[]
             {
@@ -241,6 +261,7 @@ namespace Moussadjal
             cr.ParCob.DataSource = items;
             cr.ParCob.DisplayMember = "Text";
             cr.ParCob.ValueMember = "Value";
+          }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -250,7 +271,7 @@ namespace Moussadjal
         }
         private void button6_Click(object sender, EventArgs e)
         {
-
+            //ajt lieu
             
         }
 
@@ -267,7 +288,7 @@ namespace Moussadjal
 
         private void button9_Click(object sender, EventArgs e)
         {
-            //lieu detaills
+            //lieu detaills lieu
         }
 
         private void Printbutton_Click(object sender, EventArgs e)
@@ -322,6 +343,11 @@ namespace Moussadjal
             //affectation
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ajt respo
+        }
+
         private void guna2ControlBox2_Click(object sender, EventArgs e)
         {
           Cpanel.Size = new Size(guna2Panel1.Width-15, flowLayoutPanel1.Height-guna2Panel1.Height);
@@ -335,27 +361,33 @@ namespace Moussadjal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            ExpandPanel(guna2Button1,DescriPanel,43);
-            dgv.Description();
-            UC = dscrip;
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM Description_de_bien") < 1)
+            {
+                UCAjouter(dscrip);
+            }
+            else
+            {
+                ExpandPanel(guna2Button1, DescriPanel, 43);
+                dgv.Description();
+                UC = dscrip;
 
-            DesplaydgvControl();
+                DesplaydgvControl();
 
-            dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
-            string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
+                dgvM = dgv.dtgdve.SelectedRows[0].Cells["numero_sequentiel"].Value.ToString();
+                string deleteRow = dgv.dtgdve.CurrentRow.Cells["numero_sequentiel"].Value.ToString();
 
                 Mq = "select numero_sequentiel, designation, division, quantite, observation from Description_de_bien";
-                Sq = "delete from Description_de_bien where numero_sequentiel = '" + deleteRow+"'";
+                Sq = "delete from Description_de_bien where numero_sequentiel = '" + deleteRow + "'";
                 srq = "Select numero_sequentiel, designation, division, quantite, observation from Description_de_bien where ";
-            var items = new[]
-            {
+                var items = new[]
+                {
              new { Text = "Recharche par designation", Value = "designation" }
             };
 
-            cr.ParCob.DataSource = items;
-            cr.ParCob.DisplayMember = "Text";
-            cr.ParCob.ValueMember = "Value";
-
+                cr.ParCob.DataSource = items;
+                cr.ParCob.DisplayMember = "Text";
+                cr.ParCob.ValueMember = "Value";
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

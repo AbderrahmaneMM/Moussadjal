@@ -90,7 +90,7 @@ namespace Moussadjal.UserControler
                     Margin = 10,
                 },
                 Renderer = new BitmapRenderer()
-            };
+                };
                     Ns = NsComboBox.SelectedValue.ToString();
                     Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + Ns+ "'");
                     int Ni = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien");
