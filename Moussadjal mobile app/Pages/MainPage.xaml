@@ -67,7 +67,7 @@
                     </Frame.GestureRecognizers>
                     <Grid RowDefinitions="*,Auto"
                           Padding="15">
-                        <Image Source="Add.png"
+                        <Image Source="add.png"
                                HeightRequest="80"
                                WidthRequest="80"
                                HorizontalOptions="Center"
@@ -107,7 +107,7 @@
                     </Grid>
                 </Frame>
 
-                <!-- Settings -->
+                <!-- logout -->
                 <Frame Grid.Row="1"
                        Grid.Column="1"
                        BorderColor="LightGray"
