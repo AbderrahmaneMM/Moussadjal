@@ -6,15 +6,7 @@ public partial class AjouterBien : ContentPage
 	{
 		InitializeComponent();
 	}
-    byte[] convertToByte(Image img)
-    {
-        using (MemoryStream ms = new MemoryStream())
-        {
-            // img.Save(ms, ImageFormat.Png);
-            return ms.ToArray();
-        }
-
-    }
+    
     private async Task<byte[]> ConvertImageToByteArray(ImageSource imageSource)
     {
         if (imageSource is StreamImageSource streamImageSource)
@@ -44,7 +36,7 @@ public partial class AjouterBien : ContentPage
         byte[] img = await ConvertImageToByteArray(BarcodeImage.Source);
         //save in database 
        // db.FillscdToInsert("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu, datamatrix_code) VALUES ('" + int.Parse(InventoryEntry.Text) + "', '" + int.Parse(SequentialEntry.Text) + "', '" + PlaceEntry.Text + "', '" + img + "')");
-        DisplayAlert("add secsses", NameEntry.Text + DescriptionEditor.Text, "ok");
+       await DisplayAlert("add secsses", NameEntry.Text + DescriptionEditor.Text, "ok");
 
     }
     private void CancelClicked(object sender, EventArgs e)

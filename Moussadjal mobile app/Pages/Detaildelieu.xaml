@@ -161,7 +161,7 @@
                                    HorizontalOptions="Center"
                                    Spacing="15"
                                    Margin="0,20,0,0">
-            <Button Text="Modifier"
+            <Button Text="Scanner"
                     Clicked="EditLocationClicked"
                     BackgroundColor="#00B4D8"
                     TextColor="White"

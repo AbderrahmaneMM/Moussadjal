@@ -22,65 +22,13 @@
                  IsTorchOn="False">
         </zxing:CameraBarcodeReaderView>
 
-        <Grid Grid.Row="1"
-              IsVisible="false"
-              x:Name="ScanResultGrid"
-              BackgroundColor="White"
-              Padding="20"
-              RowDefinitions="Auto,*,Auto">
-
-            <Label Grid.Row="0"
-                   Text="Code détecté!"
-                   FontSize="22"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   Margin="0,20,0,20"/>
-
-            <VerticalStackLayout Grid.Row="1"
-                                 Spacing="15"
-                                 VerticalOptions="Center">
-                <Frame BorderColor="LightGray"
-                       CornerRadius="8"
-                       Padding="15"
-                       HasShadow="True">
-                    <VerticalStackLayout Spacing="10">
-                        <Label Text="Contenu du code:"
-                               FontAttributes="Bold"/>
-                        <Label x:Name="ScanResultLabel"
-                               Text="[Contenu du code]"
-                               TextColor="#00B4D8"/>
-                    </VerticalStackLayout>
-                </Frame>
-            </VerticalStackLayout>
-
-            <HorizontalStackLayout Grid.Row="2"
-                                   HorizontalOptions="Center"
-                                   Spacing="15"
-                                   Margin="0,20,0,0">
-                <Button Text="Confirmer"
-                        Clicked="ConfirmScanClicked"
-                        BackgroundColor="#7DB828"
-                        TextColor="White"
-                        CornerRadius="8"
-                        WidthRequest="120"/>
-
-                <Button Text="Annuler"
-                        Clicked="CancelScanClicked"
-                        BackgroundColor="Transparent"
-                        TextColor="#708090"
-                        BorderColor="#708090"
-                        BorderWidth="1"
-                        CornerRadius="8"
-                        WidthRequest="120"/>
-            </HorizontalStackLayout>
-        </Grid>
 
         <HorizontalStackLayout Grid.Row="2"
                                HorizontalOptions="Center"
                                Spacing="15"
                                Margin="0,20,0,0">
-            <Button x:Name="TorchButton"
-                    Text="Activer flash"
+            <Button x:Name="Vérifier"
+                    Text="Vérification des biens scanner "
                     Clicked="TorchClicked"
                     BackgroundColor="Transparent"
                     TextColor="#00B4D8"

@@ -40,7 +40,6 @@ namespace Moussadjal.UserControler
             {
                 try 
                 {
-                    //generation datamatrix barcode
                     var barcodeWriter = new BarcodeWriter
                     {
                         Format = BarcodeFormat.DATA_MATRIX,
@@ -58,7 +57,7 @@ namespace Moussadjal.UserControler
 
                     Ann = DateTime.Now.Year.ToString();
                     L = LieuComboBox.SelectedValue.ToString();
-                    string Nu = $"Division: {Div}\nArticle N°: {Ns}/{NsComboBox.Text}\nN° Inventaire: {Ni + 1}\n Année d'entrée: {Ann}\n Lieu d'utilisation:  {L}.";
+                    string Nu = $"Division: {Div}\nArticle N°: {Ns}/{NsComboBox.Text}\nN° Inventaire: {Ni + 1}\n Année d'entrée: {Ann}\n Lieu d'utilisation: \n {L}.";
 
                     label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select '" + Ann + "'% 100 ") + "/" + L;
                     Bitmap barcodeBitmap = barcodeWriter.Write(Nu);

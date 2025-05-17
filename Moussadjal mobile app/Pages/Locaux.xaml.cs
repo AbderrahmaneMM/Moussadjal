@@ -5,9 +5,9 @@ using Microsoft.Data.SqlClient;
 namespace Moussadjal_mobile_app.Pages;
 public class LieuModel
 {
-    public string Id { get; set; }         
-    public string Name { get; set; }      
-    public string Description { get; set; } 
+    public string Id { get; set; } = string.Empty;      
+    public string Name { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
     public int ItemCount { get; set; }     
 }
 public partial class Locaux : ContentPage
@@ -17,12 +17,25 @@ public partial class Locaux : ContentPage
  
      ObservableCollection<LieuModel> locations = new ObservableCollection<LieuModel>();
 
-	public Locaux()
-	{
-		InitializeComponent();
-         
+    public Command<LieuModel> LocationTappedCommand { get; }
+
+    public Locaux()
+    {
+        InitializeComponent();
+
+        LocationTappedCommand = new Command<LieuModel>(async (selectedLocation) =>
+        {
+            if (selectedLocation == null)
+                return;
+
+            await Navigation.PushAsync(new Detaildelieu(selectedLocation.Id, selectedLocation.Name));
+        });
+
+        BindingContext = this;
+
         LoadLocationsFromDatabase();
     }
+
     private async void LoadLocationsFromDatabase()
     {
         try
@@ -39,7 +52,7 @@ public partial class Locaux : ContentPage
                 {
                     Id = id,
                     Name = name,
-                    Description = "Local " + name,   
+                    Description = "Local " + id,   
                     ItemCount = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE Id_lieu ='"+id+"'")   
                 };
                  
@@ -70,13 +83,13 @@ public partial class Locaux : ContentPage
         // Navigate to detail page
         await Navigation.PushAsync(new Detaildelieu(selectedLocation.Id, selectedLocation.Name));
 
-        // Clear selection AFTER navigation completes - this fixes the issue
-        // Use Device.BeginInvokeOnMainThread to ensure UI updates properly
-        Device.BeginInvokeOnMainThread(() => {
+ 
+        Dispatcher.Dispatch(() =>
+        {
             collectionView.SelectedItem = null;
         });
     }
-    private async void SearchTextChanged( object sender, TextChangedEventArgs e)
+    private  void SearchTextChanged( object sender, TextChangedEventArgs e)
     {
 
         string searchText = LocationSearchBar.Text?.ToLower() ?? "";

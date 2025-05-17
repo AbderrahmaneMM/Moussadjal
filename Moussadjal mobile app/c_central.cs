@@ -45,5 +45,19 @@ namespace Moussadjal_mobile_app
             scn.Close();
             return dataTable;
         }
+        public string SELECT(string qu)
+        {
+            scn.Open();
+            scd = new SqlCommand(qu, scn);
+            scd.CommandType = CommandType.Text;
+            scd.Connection = scn;
+
+            if (scd.ExecuteScalar() != null)
+            {
+                return scd.ExecuteScalar().ToString();
+            }
+            else scn.Close();
+             return "";
+        }
     }
 }

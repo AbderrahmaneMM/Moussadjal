@@ -6,12 +6,14 @@ using Microsoft.Data.SqlClient;
 namespace Moussadjal_mobile_app.Pages;
 public class BienModel
 {
-    public string Ni { get; set; }        
-    public string Ns { get; set; }     
-    public string designation { get; set; }  
-    public string div { get; set; }  
+
+    public string Ni { get; set; } = string.Empty; 
+    public string Ns { get; set; } = string.Empty; 
+    public string designation { get; set; } = string.Empty; 
+    public string div { get; set; } = string.Empty; 
     public int quantite { get; set; }
-    public string Image { get; set; }
+    public string Image { get; set; } = string.Empty; 
+
 }
 public partial class Detaildelieu : ContentPage
 { 
@@ -30,8 +32,8 @@ public partial class Detaildelieu : ContentPage
         _locationId = locationId;
         _locationName = locationName;
          
-        LocationDescriptionLabel.Text = "Local situé à " + _locationName;
-        LocationNameLabel.Text = _locationId;
+        LocationDescriptionLabel.Text = "Local situé à " + locationId;
+        LocationNameLabel.Text = locationName;
         LoadLocationDetails();
     }
      
@@ -42,7 +44,7 @@ public partial class Detaildelieu : ContentPage
             Bien.Clear();
              
             int totalItems = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien WHERE Id_lieu ='" + _locationId + "'");
-            DataTable dt = db.DtOfSelect($"SELECT DISTINCT d.numero_sequentiel,d.division, d.designation, d.annee,  d.quantite FROM Description_de_bien d JOIN Bien b ON b.numero_sequentiel= d.numero_sequentiel Where b.Id_lieu = '{_locationId}'");
+            DataTable dt = db.DtOfSelect($"SELECT DISTINCT d.numero_sequentiel,d.division, d.designation, b.annee,  d.quantite FROM Description_de_bien d JOIN Bien b ON b.numero_sequentiel= d.numero_sequentiel Where b.Id_lieu = '{_locationId}'");
             foreach (DataRow row in dt.Rows)
             {
 
@@ -93,16 +95,16 @@ public partial class Detaildelieu : ContentPage
         if (selectedItem == null)
             return;
 
-        // Save the selected item before clearing selection
+
         BienModel itemToShow = selectedItem;
 
-        // Clear selection using Device.BeginInvokeOnMainThread to ensure UI updates properly
+       
         CollectionView collectionView = (CollectionView)sender;
         Device.BeginInvokeOnMainThread(() => {
             collectionView.SelectedItem = null;
         });
 
-        // Do something with the selected item (e.g., show details)
+
         await DisplayAlert("Item Selected", $"You selected {itemToShow.designation}", "OK");
     }
 
@@ -110,7 +112,7 @@ public partial class Detaildelieu : ContentPage
    
     private void EditLocationClicked(object sender, EventArgs e)
     {
-        
+        this.Navigation.PushAsync(new ScannPage());
     }
     private  async void BackClicked(object sender, EventArgs e)
     {
