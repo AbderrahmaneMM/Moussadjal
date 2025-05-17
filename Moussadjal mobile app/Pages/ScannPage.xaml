@@ -35,14 +35,15 @@
                     BorderColor="#00B4D8"
                     BorderWidth="1"
                     CornerRadius="8"
-                    WidthRequest="120"/>
+                    WidthRequest="240"/>
 
-            <Button Text="Retour"
+            <Button 
+                   ImageSource="back.png"
+                    
                     Clicked="BackClicked"
-                    BackgroundColor="#00B4D8"
-                    TextColor="White"
+                    BackgroundColor="White"
                     CornerRadius="8"
-                    WidthRequest="120"/>
+                    WidthRequest="35"/>
         </HorizontalStackLayout>
     </Grid>
 </ContentPage>

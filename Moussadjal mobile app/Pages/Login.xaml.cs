@@ -8,10 +8,11 @@ public partial class Login : ContentPage
 	}
      
     private async void LoginButton_Clicked(object sender, EventArgs e)
-    {c_central db = new c_central();
+    {
+        c_central db = new c_central();
         try
         {
-            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE mail = '" + UsernameEntry.Text + "' AND motdepass = '" + PasswordEntry.Text + "'") > 0)
+            if (db.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE username ='" + UsernameEntry.Text + "' OR mail = '" + UsernameEntry.Text + "' AND motdepass = '" + PasswordEntry.Text + "'") > 0)
             {
                await this.Navigation.PushAsync(new MainPage());
             }
