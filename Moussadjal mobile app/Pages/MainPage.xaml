@@ -41,7 +41,7 @@
                     </Frame.GestureRecognizers>
                     <Grid RowDefinitions="*,Auto"
                           Padding="15">
-                        <Image Source="scanner_icon.png"
+                        <Image Source="scanner.png"
                                HeightRequest="80"
                                WidthRequest="80"
                                HorizontalOptions="Center"
@@ -67,7 +67,7 @@
                     </Frame.GestureRecognizers>
                     <Grid RowDefinitions="*,Auto"
                           Padding="15">
-                        <Image Source="add_item_icon.png"
+                        <Image Source="Add.png"
                                HeightRequest="80"
                                WidthRequest="80"
                                HorizontalOptions="Center"
@@ -93,7 +93,7 @@
                     </Frame.GestureRecognizers>
                     <Grid RowDefinitions="*,Auto"
                           Padding="15">
-                        <Image Source="locations_icon.png"
+                        <Image Source="lacaux.png"
                                HeightRequest="80"
                                WidthRequest="80"
                                HorizontalOptions="Center"
@@ -119,13 +119,13 @@
                     </Frame.GestureRecognizers>
                     <Grid RowDefinitions="*,Auto"
                           Padding="15">
-                        <Image Source="settings_icon.png"
+                        <Image Source="logout.png"
                                HeightRequest="80"
                                WidthRequest="80"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                         <Label Grid.Row="1"
-                               Text="Paramètres"
+                               Text="Déconnexion"
                                FontSize="16"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"
@@ -134,18 +134,5 @@
                 </Frame>
             </Grid>
         </ScrollView>
-
-        <HorizontalStackLayout Grid.Row="2"
-                               HorizontalOptions="Center"
-                               Margin="0,20,0,10">
-            <Button Text="Déconnexion"
-                    Clicked="Logout_Clicked"
-                    BackgroundColor="Transparent"
-                    TextColor="#00B4D8"
-                    BorderColor="#00B4D8"
-                    BorderWidth="1"
-                    CornerRadius="8"
-                    Padding="15,10"/>
-        </HorizontalStackLayout>
     </Grid>
 </ContentPage>

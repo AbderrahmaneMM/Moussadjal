@@ -39,7 +39,7 @@ namespace Moussadjal_mobile_app
         }
         private  void SettingTapped(object sender, TappedEventArgs e)
         {
-            this.Navigation.PushAsync(new Setting());
+            this.Navigation.PushAsync(new Login());
         }
     }   
 }

@@ -1,4 +1,6 @@
 ﻿
+using Moussadjal_mobile_app.Pages;
+
 namespace Moussadjal_mobile_app
 {
     public partial class App : Application
@@ -6,8 +8,7 @@ namespace Moussadjal_mobile_app
         public App()
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Login());
         }
         protected override Window CreateWindow(IActivationState? activationState)
         {
