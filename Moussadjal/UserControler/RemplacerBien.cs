@@ -101,7 +101,6 @@ namespace Moussadjal.UserControler
                 e.MarginBounds.Height / (float)bmprint.Height
             );
 
-
             RectangleF destRect = new RectangleF(
                 e.MarginBounds.Left + (e.MarginBounds.Width - bmprint.Width * scale) / 2,
                 e.MarginBounds.Top + (e.MarginBounds.Height - bmprint.Height * scale) / 2,

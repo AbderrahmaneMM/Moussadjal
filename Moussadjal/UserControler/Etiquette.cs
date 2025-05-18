@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ZXing.Common;
 using ZXing.Rendering;
 using ZXing;
+using System.Drawing.Drawing2D;
 
 namespace Moussadjal.UserControler
 {
@@ -60,30 +61,25 @@ namespace Moussadjal.UserControler
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-             Bitmap bmprint = new Bitmap(panel1.Width, panel1.Height);
-            panel1.DrawToBitmap(bmprint, new Rectangle(0, 0, panel1.Width,  panel1.Height));
+            Bitmap bmprint = new Bitmap(panel1.Width, panel1.Height);
+            panel1.DrawToBitmap(bmprint, new Rectangle(0, 0, panel1.Width, panel1.Height));
             bmprint.SetResolution(300, 300);
-            float scale = Math.Min(
-            e.MarginBounds.Width / (float)bmprint.Width,
-                e.MarginBounds.Height / (float)bmprint.Height
-            );
 
+            // حفظ حالة الرسومات الأصلية
+            GraphicsState originalState = e.Graphics.Save();
 
-            RectangleF destRect = new RectangleF(
-                e.MarginBounds.Left + (e.MarginBounds.Width - bmprint.Width * scale) / 2,
-                e.MarginBounds.Top + (e.MarginBounds.Height - bmprint.Height * scale) / 2,
-                bmprint.Width * scale,
-                bmprint.Height * scale
-            );
+            // تدوير الرسومات 90 درجة
+            e.Graphics.RotateTransform(90);
 
+            // نقل نقطة الأصل بعد التدوير
+            e.Graphics.TranslateTransform(0, -e.PageBounds.Width);
 
-            e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            // رسم الصورة (لاحظ أننا نستخدم الأبعاد الأصلية بدون تغيير)
+            e.Graphics.DrawImage(bmprint, new Rectangle(0, 0, bmprint.Width, bmprint.Height));
 
+            // استعادة حالة الرسومات الأصلية
+            e.Graphics.Restore(originalState);
 
-            e.Graphics.DrawImage(bmprint, destRect);
             e.HasMorePages = false;
 
         }
