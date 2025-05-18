@@ -231,6 +231,7 @@
             this.AnneComboBox1.BorderRadius = 17;
             this.AnneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.AnneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AnneComboBox1.Enabled = false;
             this.AnneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AnneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AnneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);

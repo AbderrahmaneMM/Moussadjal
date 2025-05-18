@@ -55,7 +55,7 @@ namespace Moussadjal.UserControler
                     Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + Ns + "'");
                     string Ni = NiTextBox1.Text;
 
-                    Ann = DateTime.Now.Year.ToString();
+                    Ann = AnneComboBox1.SelectedValue.ToString();
                     L = LieuComboBox.SelectedValue.ToString();
                     string Nu = $"Division: {Div}\nArticle N°: {Ns}/{NsComboBox.Text}\nN° Inventaire: {Ni + 1}\n Année d'entrée: {Ann}\n Lieu d'utilisation: \n {L}.";
 
@@ -75,45 +75,45 @@ namespace Moussadjal.UserControler
             }
         
             else 
-            { 
-            try
             {
-                //generation datamatrix barcode
-                var barcodeWriter = new BarcodeWriter
+                try
                 {
-                Format = BarcodeFormat.DATA_MATRIX,
-                Options = new EncodingOptions
-                {
-                    Height = 300,
-                    Width = 300,
-                    Margin = 10,
-                },
-                Renderer = new BitmapRenderer()
-                };
+                    //generation datamatrix barcode
+                    var barcodeWriter = new BarcodeWriter
+                    {
+                        Format = BarcodeFormat.DATA_MATRIX,
+                        Options = new EncodingOptions
+                        {
+                            Height = 300,
+                            Width = 300,
+                            Margin = 10,
+                        },
+                        Renderer = new BitmapRenderer()
+                    };
                     Ns = NsComboBox.SelectedValue.ToString();
-                    Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + Ns+ "'");
+                    Div = db.SELECT("select division from Description_de_bien where numero_sequentiel ='" + Ns + "'");
                     int Ni = db.FillscdToSelectCount("SELECT COUNT(*) FROM Bien");
 
                     Ann = DateTime.Now.Year.ToString();
                     L = LieuComboBox.SelectedValue.ToString();
-                    string Nu = $"Division: {Div}\nArticle N°: {Ns}/{NsComboBox.Text}\nN° Inventaire: {Ni+1}\n Année d'entrée: {Ann}\n Lieu d'utilisation:  {L}.";
+                    string Nu = $"Division: {Div}\nArticle N°: {Ns}/{NsComboBox.Text}\nN° Inventaire: {Ni + 1}\n Année d'entrée: {Ann}\n Lieu d'utilisation:  {L}.";
 
-                    label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select '"+Ann+"'% 100 ") + "/" + L;
+                    label6.Text = Div + "/" + Ns + "/" + Ni + "/" + db.SELECT("select '" + Ann + "'% 100 ") + "/" + L;
                     Bitmap barcodeBitmap = barcodeWriter.Write(Nu);
                     pictureBox1.Image = barcodeBitmap;
                     //insert 'bien' to db
-                    db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue.ToString() + "'");
-           
-                    db.Ajouter("UPDATE Description_de_bien SET quantite = quantite + 1 WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "' ");
-            MessageBox.Show("add secsses", (Ni+1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.Ajouter("INSERT INTO Bien (numero_dinventaire, numero_sequentiel, id_lieu ,Annee) VALUES ((SELECT ISNULL(MAX(numero_dinventaire), 0) + 1 FROM Bien), '" + Convert.ToInt32(NsComboBox.SelectedValue) + "', '" + LieuComboBox.SelectedValue.ToString() + "' ,'" + Ann + "'");
 
+                    db.Ajouter("UPDATE Description_de_bien SET quantite = quantite + 1 WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "' ");
+                    MessageBox.Show("add secsses", (Ni + 1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            }
-         }
+        }
 
         private void mailtxtboxkey(object sender, KeyEventArgs e)
         {
@@ -127,8 +127,8 @@ namespace Moussadjal.UserControler
 
         private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (guna2CheckBox1.Checked) NiTextBox1.Enabled = true;
-            else NiTextBox1.Enabled = false;
+            if (guna2CheckBox1.Checked) { NiTextBox1.Enabled = true; AnneComboBox1.Enabled = true; }
+            else{ AnneComboBox1.Enabled = false; NiTextBox1.Enabled = false; }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -169,13 +169,21 @@ namespace Moussadjal.UserControler
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
+            float widthInInches = 80f / 25.4f;
+            float heightInInches = 125f / 25.4f;
 
+            PaperSize labelPaperSize = new PaperSize("Label 80x125mm",
+                (int)(widthInInches * 100),
+                (int)(heightInInches * 100));
+
+            printDocument1.DefaultPageSettings.PaperSize = labelPaperSize;
             printDocument1.DefaultPageSettings.Landscape = false;
-            printDocument1.DefaultPageSettings.Margins = new Margins(10, 10, 10, 10);
+            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 5, 5);
+
 
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+
         }
     }
 }

@@ -119,10 +119,17 @@ namespace Moussadjal.UserControler
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
+            float widthInInches = 80f / 25.4f;
+            float heightInInches = 125f / 25.4f;
 
-            printDocument1.DefaultPageSettings.Landscape = false;
-            printDocument1.DefaultPageSettings.Margins = new Margins(10, 10, 10, 10);
+            PaperSize labelPaperSize = new PaperSize("Label 80x125mm",
+                (int)(widthInInches * 100), 
+                (int)(heightInInches * 100)); 
+
+            printDocument1.DefaultPageSettings.PaperSize = labelPaperSize;
+            printDocument1.DefaultPageSettings.Landscape = false; 
+            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 5, 5); 
+
 
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();

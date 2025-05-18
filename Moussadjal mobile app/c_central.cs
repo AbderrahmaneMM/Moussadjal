@@ -16,38 +16,54 @@ namespace Moussadjal_mobile_app
         public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030;Trust Server Certificate=True");
         public SqlCommand scd = new SqlCommand();
         public SqlDataAdapter sda = new SqlDataAdapter();
+
+        public void Open()
+        {
+            if (scn.State == ConnectionState.Closed)
+            {
+                scn.Open();
+            }
+        }
+        public void Close()
+        {
+            if (scn.State == ConnectionState.Open)
+            {
+                scn.Close();
+            }
+        }
+
         public void FillscdToInsert(string query)
         {
-            scn.Open();
+           Open();
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
             scd.ExecuteNonQuery();
-            scn.Close();
+           Close();
         }
         public int FillscdToSelectCount(string query)
         {
-            scn.Open();
+           Open();
             scd = new SqlCommand(query, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
             int result =(int)scd.ExecuteScalar();
-            scn.Close();
+            Close();
             return result;
         }
         public DataTable DtOfSelect(string query)
         {
-            scn.Open();
+            Open();
             scd = new SqlCommand(query, scn);
             sda = new SqlDataAdapter(scd);
             DataTable dataTable = new DataTable();
             sda.Fill(dataTable);
-            scn.Close();
+            Close();
             return dataTable;
         }
         public string SELECT(string qu)
         {
-            scn.Open();
+            Open();
             scd = new SqlCommand(qu, scn);
             scd.CommandType = CommandType.Text;
             scd.Connection = scn;
@@ -56,7 +72,7 @@ namespace Moussadjal_mobile_app
             {
                 return scd.ExecuteScalar().ToString();
             }
-            else scn.Close();
+            else Close();
              return "";
         }
     }

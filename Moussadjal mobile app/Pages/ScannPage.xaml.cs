@@ -48,7 +48,7 @@ public partial class ScannPage : ContentPage
             }
             else 
             { 
-                this.Navigation.PushAsync(new Detaildelieu(lastLine.Normalize(), db.SELECT("select designationLieu from Lieu where Id_lieu = '" + lastLine + "'")));
+                this.Navigation.PushAsync(new Detaildelieu(lastLine.Normalize(), db.SELECT("select designationLieu from Lieu where Id_lieu = '" + lastLine + "'").ToString()));
             }
         }
         catch (Exception ex)
