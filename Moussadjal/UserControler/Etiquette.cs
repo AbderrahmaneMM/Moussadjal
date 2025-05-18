@@ -62,7 +62,7 @@ namespace Moussadjal.UserControler
         {
             Bitmap bmprint = new Bitmap(panel1.Width, panel1.Height);
             panel1.DrawToBitmap(bmprint, new Rectangle(0, 0, panel1.Width, panel1.Height));
-            bmprint.SetResolution(300, 300);
+            bmprint.SetResolution(200, 200);
 
             // تدوير الصورة 90 درجة
             bmprint.RotateFlip(RotateFlipType.Rotate90FlipNone);
