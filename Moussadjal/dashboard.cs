@@ -309,10 +309,7 @@ namespace Moussadjal
                 dgv.DetaillLieu(qrr);
                 UC = L;
                 DesplaydgvControl();
-                cr.Ajt.Visible = false;
-                cr.modifier.Visible = false;
-                cr.Searchbox.Visible = false;
-                cr.Suprimer.Visible = false;
+
 
             }
         }

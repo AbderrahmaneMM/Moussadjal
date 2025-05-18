@@ -45,6 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Lieu1CB = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,7 +66,7 @@
             this.LieuComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.LieuComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.LieuComboBox.ItemHeight = 30;
-            this.LieuComboBox.Location = new System.Drawing.Point(42, 223);
+            this.LieuComboBox.Location = new System.Drawing.Point(42, 276);
             this.LieuComboBox.Name = "LieuComboBox";
             this.LieuComboBox.Size = new System.Drawing.Size(220, 36);
             this.LieuComboBox.TabIndex = 47;
@@ -72,22 +75,24 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 170);
+            this.label1.Location = new System.Drawing.Point(44, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 46;
             this.label1.Text = "Quantité :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2NumericUpDown1
             // 
             this.guna2NumericUpDown1.BackColor = System.Drawing.Color.Transparent;
             this.guna2NumericUpDown1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2NumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2NumericUpDown1.Location = new System.Drawing.Point(149, 170);
+            this.guna2NumericUpDown1.Location = new System.Drawing.Point(149, 198);
             this.guna2NumericUpDown1.Name = "guna2NumericUpDown1";
             this.guna2NumericUpDown1.Size = new System.Drawing.Size(113, 36);
             this.guna2NumericUpDown1.TabIndex = 45;
             this.guna2NumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.guna2NumericUpDown1.ValueChanged += new System.EventHandler(this.guna2NumericUpDown1_ValueChanged);
             // 
             // guna2VSeparator1
             // 
@@ -118,7 +123,7 @@
             this.Ajtbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.Ajtbtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Ajtbtn.ForeColor = System.Drawing.Color.White;
-            this.Ajtbtn.Location = new System.Drawing.Point(42, 318);
+            this.Ajtbtn.Location = new System.Drawing.Point(42, 339);
             this.Ajtbtn.Name = "Ajtbtn";
             this.Ajtbtn.Size = new System.Drawing.Size(220, 46);
             this.Ajtbtn.TabIndex = 50;
@@ -139,10 +144,11 @@
             this.NsComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.NsComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.NsComboBox.ItemHeight = 30;
-            this.NsComboBox.Location = new System.Drawing.Point(42, 110);
+            this.NsComboBox.Location = new System.Drawing.Point(42, 156);
             this.NsComboBox.Name = "NsComboBox";
             this.NsComboBox.Size = new System.Drawing.Size(220, 36);
             this.NsComboBox.TabIndex = 51;
+            this.NsComboBox.SelectedIndexChanged += new System.EventHandler(this.NsComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -170,7 +176,7 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(47, 391);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(220, 46);
+            this.guna2Button1.Size = new System.Drawing.Size(215, 46);
             this.guna2Button1.TabIndex = 53;
             this.guna2Button1.Text = "imprimer";
             this.guna2Button1.UseTransparentBackground = true;
@@ -242,11 +248,54 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(56, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 17);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Le nouvau lieu :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(56, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 17);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Remplacer du :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // Lieu1CB
+            // 
+            this.Lieu1CB.AutoRoundedCorners = true;
+            this.Lieu1CB.BackColor = System.Drawing.Color.Transparent;
+            this.Lieu1CB.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.Lieu1CB.BorderRadius = 17;
+            this.Lieu1CB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.Lieu1CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Lieu1CB.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Lieu1CB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Lieu1CB.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Lieu1CB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.Lieu1CB.ItemHeight = 30;
+            this.Lieu1CB.Location = new System.Drawing.Point(42, 114);
+            this.Lieu1CB.Name = "Lieu1CB";
+            this.Lieu1CB.Size = new System.Drawing.Size(220, 36);
+            this.Lieu1CB.TabIndex = 57;
+            this.Lieu1CB.SelectedIndexChanged += new System.EventHandler(this.Lieu1CB_SelectedIndexChanged);
+            // 
             // RemplacerBien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.Lieu1CB);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label2);
@@ -287,5 +336,8 @@
         private System.Windows.Forms.Label label3;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2ComboBox Lieu1CB;
     }
 }

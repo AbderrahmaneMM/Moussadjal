@@ -41,10 +41,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.NiTextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.AnneComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.AnnDTP = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -223,25 +223,6 @@
             this.NiTextBox1.Size = new System.Drawing.Size(220, 42);
             this.NiTextBox1.TabIndex = 55;
             // 
-            // AnneComboBox1
-            // 
-            this.AnneComboBox1.AutoRoundedCorners = true;
-            this.AnneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.AnneComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.AnneComboBox1.BorderRadius = 17;
-            this.AnneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.AnneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AnneComboBox1.Enabled = false;
-            this.AnneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AnneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AnneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.AnneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.AnneComboBox1.ItemHeight = 30;
-            this.AnneComboBox1.Location = new System.Drawing.Point(12, 270);
-            this.AnneComboBox1.Name = "AnneComboBox1";
-            this.AnneComboBox1.Size = new System.Drawing.Size(220, 36);
-            this.AnneComboBox1.TabIndex = 56;
-            // 
             // guna2CheckBox1
             // 
             this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -275,13 +256,29 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
+            // AnnDTP
+            // 
+            this.AnnDTP.BorderRadius = 18;
+            this.AnnDTP.Checked = true;
+            this.AnnDTP.FillColor = System.Drawing.Color.White;
+            this.AnnDTP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AnnDTP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.AnnDTP.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.AnnDTP.Location = new System.Drawing.Point(17, 268);
+            this.AnnDTP.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.AnnDTP.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.AnnDTP.Name = "AnnDTP";
+            this.AnnDTP.Size = new System.Drawing.Size(215, 43);
+            this.AnnDTP.TabIndex = 58;
+            this.AnnDTP.Value = new System.DateTime(2025, 5, 18, 6, 35, 31, 899);
+            // 
             // AJTbien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.AnnDTP);
             this.Controls.Add(this.guna2CheckBox1);
-            this.Controls.Add(this.AnneComboBox1);
             this.Controls.Add(this.NiTextBox1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.panel1);
@@ -314,9 +311,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox NiTextBox1;
-        public Guna.UI2.WinForms.Guna2ComboBox AnneComboBox1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker AnnDTP;
     }
 }

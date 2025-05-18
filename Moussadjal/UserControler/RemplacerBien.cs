@@ -20,8 +20,27 @@ namespace Moussadjal.UserControler
         public RemplacerBien()
         {
             InitializeComponent();
+           Lieu1CB.SelectedIndexChanged += Lieu1CB_SelectedIndexChanged;
+            LieuComboBox.SelectedIndexChanged += LieuComboBox_SelectedIndexChanged;
         }
         Database db = new Database();
+        private void FillCB(object sender, EventArgs e)
+        {
+
+            if (Lieu1CB.Items.Count > 0 && Lieu1CB.SelectedValue != null)
+            {
+                db.FillComboWithJoinedData(
+                    "Bien",
+                    "numero_sequentiel",
+                    "Description_de_bien",
+                    "designation",
+                    "Bien.numero_sequentiel = Description_de_bien.numero_sequentiel",
+                    "Bien.Id_lieu",
+                    Lieu1CB.SelectedValue.ToString(),
+                    NsComboBox);
+            }
+         
+        }
         private void Ajtbtn_Click(object sender, EventArgs e)
         {
             string Div, Ns, Ann, L;
@@ -51,7 +70,7 @@ namespace Moussadjal.UserControler
                 pictureBox1.Image = barcodeBitmap;
 
 
-                DataTable nsBien = db.DtOfSelect("SELECT TOP " + guna2NumericUpDown1.Value + " * FROM Bien WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "'");
+                DataTable nsBien = db.DtOfSelect("SELECT TOP " + guna2NumericUpDown1.Value + " * FROM Bien WHERE numero_sequentiel = '" + Convert.ToInt32(NsComboBox.SelectedValue) + "' AND Id_lieu ='"+ Convert.ToInt32(Lieu1CB.SelectedValue) + "'");
                 int q = Convert.ToInt32(guna2NumericUpDown1.Value.ToString());
                 for (int i = 0; i < q; i++) {
                     nsBien.Rows[i]["Id_lieu"] = LieuComboBox.SelectedValue.ToString(); }
@@ -68,9 +87,8 @@ namespace Moussadjal.UserControler
         }
 
         private void RemplacerBien_Load(object sender, EventArgs e)
-        {
-            db.remlirCombo("Description_de_bien", NsComboBox, "designation", "numero_sequentiel");
-            db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
+        {   db.remlirCombo("Lieu", Lieu1CB,      "designationLieu", "Id_lieu");
+            FillCB(sender, e);
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -118,6 +136,41 @@ namespace Moussadjal.UserControler
 
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+      
+        
+
+        }
+
+        private void NsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lieu1CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillCB(sender, e);    
+                db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");  
+        }                   
+
+        private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            label3.Text = LieuComboBox.Text;
+            
 
         }
     }
