@@ -31,6 +31,7 @@
             this.Cpanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.BienPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -72,7 +73,6 @@
             this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmin = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.Cpanel.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.BienPanel.SuspendLayout();
@@ -112,6 +112,7 @@
             this.dgvPanel.Name = "dgvPanel";
             this.dgvPanel.Size = new System.Drawing.Size(958, 452);
             this.dgvPanel.TabIndex = 0;
+            this.dgvPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvPanel_Paint);
             // 
             // guna2CustomGradientPanel2
             // 
@@ -128,6 +129,29 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(164, 123);
             this.guna2CustomGradientPanel2.TabIndex = 14;
+            // 
+            // guna2Button8
+            // 
+            this.guna2Button8.AutoRoundedCorners = true;
+            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.BorderRadius = 44;
+            this.guna2Button8.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(92)))), ((int)(((byte)(214)))));
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.FillColor = System.Drawing.Color.White;
+            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button8.ForeColor = System.Drawing.Color.White;
+            this.guna2Button8.Image = global::Moussadjal.Properties.Resources.cropped_logo_final_ceb_2;
+            this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button8.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.guna2Button8.ImageSize = new System.Drawing.Size(90, 90);
+            this.guna2Button8.Location = new System.Drawing.Point(31, 4);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Size = new System.Drawing.Size(90, 90);
+            this.guna2Button8.TabIndex = 7;
+            this.guna2Button8.UseTransparentBackground = true;
             // 
             // label2
             // 
@@ -722,29 +746,6 @@
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
-            // 
-            // guna2Button8
-            // 
-            this.guna2Button8.AutoRoundedCorners = true;
-            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.BorderRadius = 44;
-            this.guna2Button8.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(92)))), ((int)(((byte)(214)))));
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.FillColor = System.Drawing.Color.White;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.Image = global::Moussadjal.Properties.Resources.cropped_logo_final_ceb_2;
-            this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button8.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.guna2Button8.ImageSize = new System.Drawing.Size(90, 90);
-            this.guna2Button8.Location = new System.Drawing.Point(31, 4);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(90, 90);
-            this.guna2Button8.TabIndex = 7;
-            this.guna2Button8.UseTransparentBackground = true;
             // 
             // dashboard
             // 

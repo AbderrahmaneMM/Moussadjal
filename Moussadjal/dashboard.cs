@@ -216,7 +216,7 @@ namespace Moussadjal
                 string deleteRow = dgv.dtgdve.CurrentRow.Cells["Id_lieu"].Value.ToString();
 
                 Mq = "SELECT Id_lieu, designationLieu FROM Lieu";
-                Sq = "delete from Lieu where Id_lieu = " + deleteRow;
+                Sq = "delete from Lieu where Id_lieu = '" + deleteRow+"'";
                 srq = "Select Id_lieu, designationLieu FROM Lieu where  ";
 
                 ///////////
@@ -403,6 +403,11 @@ namespace Moussadjal
         {
             //ajt respo
             UCAjouter(Respo);
+        }
+
+        private void dgvPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void guna2ControlBox2_Click(object sender, EventArgs e)
