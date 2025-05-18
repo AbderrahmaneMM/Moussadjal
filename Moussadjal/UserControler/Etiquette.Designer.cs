@@ -82,7 +82,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(4, 92);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 455);
+            this.panel1.Size = new System.Drawing.Size(305, 425);
             this.panel1.TabIndex = 27;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -97,7 +97,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 200);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 220);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

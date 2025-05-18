@@ -125,7 +125,7 @@ namespace Moussadjal.UserControler
 
             printDocument1.DefaultPageSettings.PaperSize = labelPaperSize;
             printDocument1.DefaultPageSettings.Landscape = false; 
-            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 5, 5); 
+            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 35, 5); 
 
 
             printPreviewDialog1.Document = printDocument1;
