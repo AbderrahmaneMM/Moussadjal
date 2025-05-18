@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using ZXing.Common;
 using ZXing.Rendering;
 using ZXing;
-using System.Drawing.Drawing2D;
 
 namespace Moussadjal.UserControler
 {
@@ -65,21 +64,23 @@ namespace Moussadjal.UserControler
             panel1.DrawToBitmap(bmprint, new Rectangle(0, 0, panel1.Width, panel1.Height));
             bmprint.SetResolution(300, 300);
 
-            // حفظ حالة الرسومات الأصلية
-            GraphicsState originalState = e.Graphics.Save();
+            // تدوير الصورة 90 درجة
+            bmprint.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-            // تدوير الرسومات 90 درجة
-            e.Graphics.RotateTransform(90);
+            // حساب القياس الجديد بعد التدوير
+            float scale = Math.Min(
+                e.MarginBounds.Width / (float)bmprint.Width,
+                e.MarginBounds.Height / (float)bmprint.Height
+            );
 
-            // نقل نقطة الأصل بعد التدوير
-            e.Graphics.TranslateTransform(0, -e.PageBounds.Width);
+            RectangleF destRect = new RectangleF(
+                e.MarginBounds.Left + (e.MarginBounds.Width - bmprint.Width * scale) / 2,
+                e.MarginBounds.Top + (e.MarginBounds.Height - bmprint.Height * scale) / 2,
+                bmprint.Width * scale,
+                bmprint.Height * scale
+            );
 
-            // رسم الصورة (لاحظ أننا نستخدم الأبعاد الأصلية بدون تغيير)
-            e.Graphics.DrawImage(bmprint, new Rectangle(0, 0, bmprint.Width, bmprint.Height));
-
-            // استعادة حالة الرسومات الأصلية
-            e.Graphics.Restore(originalState);
-
+            e.Graphics.DrawImage(bmprint, destRect);
             e.HasMorePages = false;
 
         }
@@ -171,6 +172,11 @@ namespace Moussadjal.UserControler
         }
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
