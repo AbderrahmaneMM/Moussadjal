@@ -125,8 +125,8 @@ namespace Moussadjal.UserControler
             float heightInInches = 125f / 25.4f;
 
             PaperSize labelPaperSize = new PaperSize("Label 80x125mm",
-                (int)(widthInInches * 100),
-                (int)(heightInInches * 100));
+                (int)(heightInInches * 100),
+                (int)(widthInInches * 100));
 
             printDocument1.DefaultPageSettings.PaperSize = labelPaperSize;
             printDocument1.DefaultPageSettings.Landscape = false;

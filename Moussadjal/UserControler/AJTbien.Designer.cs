@@ -155,7 +155,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(271, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 455);
+            this.panel1.Size = new System.Drawing.Size(439, 305);
             this.panel1.TabIndex = 53;
             // 
             // label6
@@ -164,12 +164,12 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(15, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(266, 107);
+            this.label6.Size = new System.Drawing.Size(185, 199);
             this.label6.TabIndex = 49;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Location = new System.Drawing.Point(206, 69);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 220);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +191,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Location = new System.Drawing.Point(15, 19);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(290, 22);
@@ -288,7 +288,7 @@
             this.Controls.Add(this.guna2VSeparator2);
             this.Controls.Add(this.Ajtbtn);
             this.Name = "AJTbien";
-            this.Size = new System.Drawing.Size(592, 464);
+            this.Size = new System.Drawing.Size(722, 464);
             this.Load += new System.EventHandler(this.AJTbien_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -191,21 +191,21 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(294, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 455);
+            this.panel1.Size = new System.Drawing.Size(439, 305);
             this.panel1.TabIndex = 54;
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(15, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(266, 107);
+            this.label6.Size = new System.Drawing.Size(195, 206);
             this.label6.TabIndex = 49;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Location = new System.Drawing.Point(216, 76);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 220);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -227,7 +227,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Location = new System.Drawing.Point(3, 21);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(290, 22);
@@ -307,7 +307,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2NumericUpDown1);
             this.Name = "RemplacerBien";
-            this.Size = new System.Drawing.Size(616, 466);
+            this.Size = new System.Drawing.Size(881, 466);
             this.Load += new System.EventHandler(this.RemplacerBien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);

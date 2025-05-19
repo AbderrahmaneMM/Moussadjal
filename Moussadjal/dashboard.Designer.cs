@@ -760,6 +760,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "dashboard";
             this.Text = "dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.Cpanel.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);

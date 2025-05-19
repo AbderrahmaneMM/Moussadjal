@@ -60,34 +60,31 @@ namespace Moussadjal.UserControler
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-        
-            // 1. إنشاء صورة من Panel
+
             Bitmap bmprint = new Bitmap(panel1.Width, panel1.Height);
             panel1.DrawToBitmap(bmprint, new Rectangle(0, 0, panel1.Width, panel1.Height));
-            bmprint.SetResolution(200, 200);
+            bmprint.SetResolution(300, 300);
+            float scale = Math.Min(
+            e.MarginBounds.Width / (float)bmprint.Width,
+                e.MarginBounds.Height / (float)bmprint.Height
+            );
 
-            // 2. تعيين جودة الرسم
+            RectangleF destRect = new RectangleF(
+                e.MarginBounds.Left + (e.MarginBounds.Width - bmprint.Width * scale) / 2,
+                e.MarginBounds.Top + (e.MarginBounds.Height - bmprint.Height * scale) / 2,
+                bmprint.Width * scale,
+                bmprint.Height * scale
+            );
+
+
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
-            // 3. حساب الموقع والحجم المناسبين
-            RectangleF destRect = new RectangleF(
-                e.MarginBounds.Left,
-                e.MarginBounds.Top,
-                e.MarginBounds.Width,
-                e.MarginBounds.Height
-            );
 
-            // 4. رسم الصورة بدون تدوير
             e.Graphics.DrawImage(bmprint, destRect);
-
-            // 5. التأكد من عدم وجود صفحات إضافية
             e.HasMorePages = false;
-
-            // 6. تحرير الموارد
-            bmprint.Dispose();
         }
 
         private void LieuComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,15 +122,15 @@ namespace Moussadjal.UserControler
             float heightInInches = 125f / 25.4f;
 
             PaperSize labelPaperSize = new PaperSize("Label 80x125mm",
-                (int)(widthInInches * 100), // العرض
-                (int)(heightInInches * 100)); // الارتفاع
+                (int)(heightInInches * 100), 
+                (int)(widthInInches * 100)); 
 
-            // تعيين إعدادات الطباعة
+           
             printDocument1.DefaultPageSettings.PaperSize = labelPaperSize;
-            printDocument1.DefaultPageSettings.Landscape = false; // الوضع العمودي
-            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 5, 5); // هوامش صغيرة
+            printDocument1.DefaultPageSettings.Landscape = false;
+            printDocument1.DefaultPageSettings.Margins = new Margins(5, 5, 5, 5); 
 
-            // عرض معاينة الطباعة
+            
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.WindowState = FormWindowState.Maximized;
             printPreviewDialog1.ShowDialog();

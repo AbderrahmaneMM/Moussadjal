@@ -136,7 +136,7 @@ namespace Moussadjal
                     }
                 }
 
-                // Update Bien table
+                // Update 1 table
                 if (bienChanges.Rows.Count > 0)
                 {
                     using (sda = new SqlDataAdapter(qt1, connection))
@@ -146,7 +146,7 @@ namespace Moussadjal
                     }
                 }
 
-                // Update Description_de_bien table
+                // Update 2 table
                 if (descChanges.Rows.Count > 0)
                 {
                     using (sda = new SqlDataAdapter(qt2, connection))
@@ -172,7 +172,7 @@ namespace Moussadjal
 
         public void Suprimer(string query)
         {
-          //  if (scn.State != ConnectionState.Open)
+          
                 Open();
             SqlCommand cmd = new SqlCommand(query, scn);
             cmd.ExecuteNonQuery();
@@ -254,8 +254,7 @@ namespace Moussadjal
                 MessageBox.Show($"Error loading combo: {ex.Message}");
             }
         }
-        //methode de remplissage datagridview 
-        public DataSet search(string query , DataGridView dg)
+        public DataSet search(string query , DataGridView dg)//search
         {
             SqlCommand cmd = new SqlCommand(query, scn);
             SqlDataAdapter dp = new SqlDataAdapter(cmd);
@@ -263,6 +262,7 @@ namespace Moussadjal
             dp.Fill(ds);
             return ds;
         }
+        //methode de remplissage datagridview 
         public  void  remplirgridview(string query, DataGridView dg)
         { Open();
             sda = new SqlDataAdapter(query, connection);

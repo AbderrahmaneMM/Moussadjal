@@ -67,7 +67,7 @@
             // guna2VSeparator2
             // 
             this.guna2VSeparator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            this.guna2VSeparator2.Location = new System.Drawing.Point(315, 92);
+            this.guna2VSeparator2.Location = new System.Drawing.Point(456, 25);
             this.guna2VSeparator2.Name = "guna2VSeparator2";
             this.guna2VSeparator2.Size = new System.Drawing.Size(27, 439);
             this.guna2VSeparator2.TabIndex = 26;
@@ -82,7 +82,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(4, 92);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 439);
+            this.panel1.Size = new System.Drawing.Size(439, 305);
             this.panel1.TabIndex = 27;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -92,12 +92,12 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(15, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(266, 107);
+            this.label6.Size = new System.Drawing.Size(195, 196);
             this.label6.TabIndex = 49;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 200);
+            this.pictureBox1.Location = new System.Drawing.Point(216, 82);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 220);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -131,7 +131,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(336, 306);
+            this.label1.Location = new System.Drawing.Point(477, 239);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 22);
             this.label1.TabIndex = 46;
@@ -142,7 +142,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(336, 210);
+            this.label2.Location = new System.Drawing.Point(477, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 22);
             this.label2.TabIndex = 47;
@@ -161,7 +161,7 @@
             this.LieuComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.LieuComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.LieuComboBox.ItemHeight = 30;
-            this.LieuComboBox.Location = new System.Drawing.Point(340, 147);
+            this.LieuComboBox.Location = new System.Drawing.Point(481, 80);
             this.LieuComboBox.Name = "LieuComboBox";
             this.LieuComboBox.Size = new System.Drawing.Size(277, 36);
             this.LieuComboBox.TabIndex = 49;
@@ -180,7 +180,7 @@
             this.DescreptionComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.DescreptionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.DescreptionComboBox.ItemHeight = 30;
-            this.DescreptionComboBox.Location = new System.Drawing.Point(340, 253);
+            this.DescreptionComboBox.Location = new System.Drawing.Point(481, 186);
             this.DescreptionComboBox.Name = "DescreptionComboBox";
             this.DescreptionComboBox.Size = new System.Drawing.Size(277, 36);
             this.DescreptionComboBox.TabIndex = 50;
@@ -199,7 +199,7 @@
             this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(340, 353);
+            this.guna2ComboBox2.Location = new System.Drawing.Point(481, 286);
             this.guna2ComboBox2.Name = "guna2ComboBox2";
             this.guna2ComboBox2.Size = new System.Drawing.Size(277, 36);
             this.guna2ComboBox2.TabIndex = 51;
@@ -239,7 +239,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(340, 488);
+            this.guna2Button2.Location = new System.Drawing.Point(481, 421);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(277, 43);
@@ -253,7 +253,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(336, 92);
+            this.label5.Location = new System.Drawing.Point(477, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 22);
             this.label5.TabIndex = 54;
@@ -276,7 +276,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2VSeparator2);
             this.Name = "Etiquette";
-            this.Size = new System.Drawing.Size(641, 550);
+            this.Size = new System.Drawing.Size(784, 550);
             this.Load += new System.EventHandler(this.Etiquette_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
