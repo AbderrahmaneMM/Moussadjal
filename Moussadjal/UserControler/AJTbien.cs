@@ -42,7 +42,7 @@ namespace Moussadjal.UserControler
             {
                         var barcodeWriter = new ZXing.BarcodeWriter
                         {
-                            Format = BarcodeFormat.DATA_MATRIX,
+                            Format = BarcodeFormat.QR_CODE,
                             Options = new EncodingOptions
                             {
                                 Height = 300,
