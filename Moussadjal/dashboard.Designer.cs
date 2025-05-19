@@ -31,7 +31,6 @@
             this.Cpanel = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.BienPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -73,7 +72,10 @@
             this.btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmax = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnmin = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.Cpanel.SuspendLayout();
+            this.dgvPanel.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.BienPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,6 +95,7 @@
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Cpanel
@@ -107,6 +110,7 @@
             // 
             // dgvPanel
             // 
+            this.dgvPanel.Controls.Add(this.pictureBox1);
             this.dgvPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPanel.Location = new System.Drawing.Point(1, 93);
             this.dgvPanel.Name = "dgvPanel";
@@ -129,29 +133,6 @@
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(164, 123);
             this.guna2CustomGradientPanel2.TabIndex = 14;
-            // 
-            // guna2Button8
-            // 
-            this.guna2Button8.AutoRoundedCorners = true;
-            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.BorderRadius = 44;
-            this.guna2Button8.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(92)))), ((int)(((byte)(214)))));
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.FillColor = System.Drawing.Color.White;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.Image = global::Moussadjal.Properties.Resources.cropped_logo_final_ceb_2;
-            this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button8.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.guna2Button8.ImageSize = new System.Drawing.Size(90, 90);
-            this.guna2Button8.Location = new System.Drawing.Point(31, 4);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(90, 90);
-            this.guna2Button8.TabIndex = 7;
-            this.guna2Button8.UseTransparentBackground = true;
             // 
             // label2
             // 
@@ -747,6 +728,40 @@
             this.btnmin.Size = new System.Drawing.Size(35, 29);
             this.btnmin.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Moussadjal.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(958, 452);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // guna2Button8
+            // 
+            this.guna2Button8.AutoRoundedCorners = true;
+            this.guna2Button8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.BorderRadius = 44;
+            this.guna2Button8.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(92)))), ((int)(((byte)(214)))));
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.FillColor = System.Drawing.Color.White;
+            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button8.ForeColor = System.Drawing.Color.White;
+            this.guna2Button8.Image = global::Moussadjal.Properties.Resources.cropped_logo_final_ceb_2;
+            this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button8.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.guna2Button8.ImageSize = new System.Drawing.Size(90, 90);
+            this.guna2Button8.Location = new System.Drawing.Point(31, 4);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Size = new System.Drawing.Size(90, 90);
+            this.guna2Button8.TabIndex = 7;
+            this.guna2Button8.UseTransparentBackground = true;
+            // 
             // dashboard
             // 
             this.AllowDrop = true;
@@ -763,6 +778,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.Cpanel.ResumeLayout(false);
+            this.dgvPanel.ResumeLayout(false);
             this.guna2CustomGradientPanel2.ResumeLayout(false);
             this.guna2CustomGradientPanel2.PerformLayout();
             this.BienPanel.ResumeLayout(false);
@@ -783,6 +799,7 @@
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,5 +850,6 @@
         public System.Windows.Forms.Button button3;
         public Guna.UI2.WinForms.Guna2Panel dgvPanel;
         public Guna.UI2.WinForms.Guna2Panel Cpanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
