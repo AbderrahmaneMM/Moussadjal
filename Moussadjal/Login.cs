@@ -65,7 +65,7 @@ namespace Moussadjal
            dashboard da = new dashboard();
             try
             { 
-                 if (d.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE mail = '" + mailtextbox.Text + "' AND motdepass = '" + passwordtextbox.Text + "'") > 0)
+                 if (d.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE username ='" + mailtextbox.Text + "' OR mail = '"+ mailtextbox.Text + "' AND motdepass = '" + passwordtextbox.Text + "'") > 0)
                  {
                      this.Hide();
                      da.Show();
@@ -94,6 +94,24 @@ namespace Moussadjal
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void mailtxtboxkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                passwordtextbox.Focus();
+            }
+        }
+
+        private void motdepasskey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                guna2Button1.PerformClick();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Moussadjal.UserControler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,8 @@ namespace Moussadjal
         public Form1()
         {
             InitializeComponent();
-        } 
+        }
+      
         public void Errorprovider(Guna2TextBox x,string m)
         {
            ErrorProvider ep = new ErrorProvider();
@@ -25,7 +27,60 @@ namespace Moussadjal
             x.BorderColor = Color.Red;
         }
         
-        
+        public void datagridviewStyle(Guna2DataGridView dg)
+        {
+            Color primaryColor = Color.FromArgb(0, 180, 216);
+           // Color secondaryColor = Color.FromArgb(112, 128, 144);
+            Color accentColor = Color.FromArgb(125, 184, 40);
+
+            // Main styling
+            dg.BackgroundColor = Color.White;
+            dg.ThemeStyle.BackColor = Color.White; // Guna-specific
+            dg.GridColor = Color.Black;
+
+            // Column headers
+            dg.ColumnHeadersDefaultCellStyle.BackColor = primaryColor;
+            dg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dg.ThemeStyle.HeaderStyle.BackColor = primaryColor; // Guna-specific
+            dg.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+
+            // Rows
+            dg.DefaultCellStyle.BackColor = Color.White;
+            dg.DefaultCellStyle.ForeColor = Color.Black;
+            dg.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            dg.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+
+            // Selection styling (critical for Guna2)
+            dg.ThemeStyle.RowsStyle.SelectionBackColor = accentColor; // Guna-specific
+            dg.ThemeStyle.RowsStyle.SelectionForeColor = Color.White;
+            dg.DefaultCellStyle.SelectionBackColor = accentColor; // Fallback
+            dg.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // Fonts
+            dg.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dg.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+
+            // Sizing
+            dg.ColumnHeadersHeight = 35;
+            dg.RowTemplate.Height = 30;
+        }
+
+        public void ExpandPanel(Guna2Button btn, FlowLayoutPanel pnl , int h)
+        {
+            FlowLayoutPanel parentPanel = (FlowLayoutPanel)btn.Parent;
+
+            foreach (Control c in parentPanel.Controls)
+            {
+                if (c is FlowLayoutPanel panel)
+                {
+                    if (panel == pnl && btn.Checked) panel.Height = h; 
+
+                    else panel.Height = 0;
+                }
+            }
+        }
+
+    
         private void Form1_Load(object sender, EventArgs e)
         {
             

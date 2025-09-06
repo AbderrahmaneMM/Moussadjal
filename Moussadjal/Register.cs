@@ -42,7 +42,7 @@ namespace Moussadjal
                 if (passwordtextbox.Text == confirmtextbox.Text &&  addr.Address == mailtextbox.Text)
                 {
               
-                    d.FillscdToInsert("INSERT INTO utilisateur (mail ,motdepass, username) VALUES('"+mailtextbox.Text+"', '"+passwordtextbox.Text+"', '"+usernametextbox.Text+"')");
+                    d.Ajouter("INSERT INTO utilisateur (mail ,motdepass, username) VALUES('"+mailtextbox.Text+"', '"+passwordtextbox.Text+"', '"+usernametextbox.Text+"')");
                     MessageBox.Show("Utilisateur ajouté avec succès");
                     this.Hide();
                     da.Show();
@@ -67,6 +67,42 @@ namespace Moussadjal
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void usernamekey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+               mailtextbox.Focus();
+            }
+        }
+
+        private void mailkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                passwordtextbox.Focus();
+            }
+        }
+
+        private void passwkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                confirmtextbox.Focus();
+            }
+        }
+
+        private void confirmkey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+               guna2Button1.PerformClick();
+            }
         }
     }
 }

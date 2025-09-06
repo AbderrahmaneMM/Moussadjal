@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="Moussadjal_mobile_app.Pages.AjouterBien"
+                     Title="Ajouter un bien">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="20">
+
+        <Label Grid.Row="0"
+               Text="Ajouter un Bien"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,20,0,20"/>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20">
+
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                       Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+
+                        <HorizontalStackLayout Spacing="15">
+                            <CheckBox 
+                                x:Name="existCB"
+                                Color="#FF6F00" 
+                                CheckedChanged="existCB_CheckedChanged"/>
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Ajouter un Bien existant "
+                                   VerticalOptions="Center"
+                                   FontSize="14"/>
+                                
+                                <Label Text="Dans l'institution"
+                               VerticalOptions="Center"
+                               FontSize="14"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="N°Inventaire deBien"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="Ni"
+                                Placeholder="N°Inventaire deBien"
+                                   IsEnabled="False"
+                                   BackgroundColor="#E0E0E0"
+                                   TextColor="Gray"
+                                  
+                                   HeightRequest="40"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Designation d'article"
+                                  FontAttributes="Bold"/>
+                            <SearchBar Grid.Row="1"
+                               x:Name="Nsb"
+                               Placeholder="Designation..."
+                                 TextChanged="Nsb_TextChanged"
+                                    Margin="0,0,0,10"
+                                       />
+                            <Picker x:Name="DesignationPicker"
+                              HeightRequest="15"
+                                 IsVisible="False"
+                                     TextColor="Black"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="N°sequentielle deBien"
+                                FontAttributes="Bold"/>
+                            <Entry x:Name="Nsentry"
+                              Placeholder="N°sequentielle deBien"
+                         
+                              BackgroundColor="#E0E0E0"
+                               TextColor="Gray"
+          
+                                 HeightRequest="40"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Division"
+                                 FontAttributes="Bold"/>
+                            <Border Stroke="#00B4D8"
+                                    StrokeThickness="1"
+                                 BackgroundColor="Transparent"
+                                 Padding="0"
+                                 StrokeShape="RoundRectangle 25">
+                                <Picker x:Name="divPicker"
+                                    Title="     Sélectionner une division"
+                                        HeightRequest="40"
+                                    TextColor="Black"
+                                        >
+
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Local"
+                                   FontAttributes="Bold"/>
+                            <Border Stroke="#00B4D8"
+                                    StrokeThickness="1"
+                                    BackgroundColor="Transparent"
+                                    Padding="0"
+                                    StrokeShape="RoundRectangle 25">
+                                <Picker x:Name="AtelierPicker"
+                                        Title="     Sélectionner un Local"
+                                        HeightRequest="40"
+                                        TextColor="Black">
+                                  
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Année "
+                                   FontAttributes="Bold"/>
+                            <DatePicker x:Name="AnnPicker"
+                                        Format="yyyy"
+                                        IsEnabled="False"/>
+   
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <Frame BorderColor="LightGray"
+                       CornerRadius="8"
+                        Padding="15"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Label 
+                            x:Name="LieuLable"
+                            Text=" "
+                                  FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"/>
+                        <Label Text="INSFP Bouismail"
+                               FontSize="18"
+                                FontAttributes="Bold"/>
+                        <Label x:Name="NuL"
+                               FontSize="18"
+                                 FontAttributes="Bold"/>
+                        <zxing:BarcodeGeneratorView x:Name="bgv"
+                                  Format="DataMatrix"
+                                  WidthRequest="200"
+                                  HeightRequest="200" 
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="Center" />
+
+                        <Image x:Name="BarcodeImage"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               IsVisible="false"/>
+
+                        <Label  x:Name="ResultLabel"
+                                HorizontalOptions="Center"
+                                TextColor="#00B4D8"
+                                FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               HorizontalOptions="Center"
+                               Spacing="15"
+                               Margin="0,20,0,0">
+            <Button Text="Enregistrer"
+                    Clicked="SaveClicked"
+                    BackgroundColor="#7DB828"
+                    TextColor="White"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+
+            <Button Text="Annuler"
+                    Clicked="CancelClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#708090"
+                    BorderColor="#708090"
+                    BorderWidth="1"
+                    CornerRadius="8"
+                    WidthRequest="120"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
