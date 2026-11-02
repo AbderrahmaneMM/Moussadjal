@@ -11,8 +11,9 @@ using Microsoft.Data.SqlClient;
 namespace Moussadjal_mobile_app
 {
     class c_central
-    {//Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
-        public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030;Trust Server Certificate=True");
+    {//the old online db :  Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
+
+        public SqlConnection scn = new SqlConnection(@"Data Source=DESKTOP-3QTD5NT;Initial Catalog=moussadjaltry;Integrated Security=True;Trust Server Certificate=True");
         public SqlCommand scd = new SqlCommand();
         public SqlDataAdapter sda = new SqlDataAdapter();
 

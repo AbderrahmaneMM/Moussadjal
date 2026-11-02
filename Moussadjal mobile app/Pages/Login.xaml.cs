@@ -9,7 +9,8 @@ public partial class Login : ContentPage
      
     private async void LoginButton_Clicked(object sender, EventArgs e)
     {
-        c_central db = new c_central();
+        await this.Navigation.PushAsync(new MainPage());
+      /*  c_central db = new c_central();
         try
         {
             if (db.FillscdToSelectCount("SELECT COUNT(*) FROM utilisateur WHERE username ='" + UsernameEntry.Text + "' OR mail = '" + UsernameEntry.Text + "' AND motdepass = '" + PasswordEntry.Text + "'") > 0)
@@ -22,7 +23,7 @@ public partial class Login : ContentPage
         catch (Exception ex)
         {
             await DisplayAlert("Error", ex.Message , "OK");
-        }
+        }*/
     }
 
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

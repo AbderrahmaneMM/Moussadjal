@@ -23,7 +23,7 @@ namespace Moussadjal
     {
         //Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=***********;Trust Server Certificate=True
 
-        public SqlConnection scn = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030");
+        public SqlConnection scn = new SqlConnection(@"Data Source=DESKTOP-3QTD5NT;Initial Catalog=moussadjaltry;Integrated Security=True");
 
         public SqlCommand scd = new SqlCommand();
         public SqlDataAdapter sda = new SqlDataAdapter();
@@ -31,7 +31,7 @@ namespace Moussadjal
         public SqlCommandBuilder builder;
 
         public string query;
-        string connection = @"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=abdomm_Moussadjale;User ID=abdomm_Moussadjale;Password=10101030";
+        string connection = @"Data Source=DESKTOP-3QTD5NT;Initial Catalog=moussadjaltry;Integrated Security=True";
 
         public static  DataTable dt = new DataTable();
         public BindingSource bs = new BindingSource();

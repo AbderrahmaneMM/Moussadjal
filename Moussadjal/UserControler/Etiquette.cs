@@ -112,7 +112,7 @@ namespace Moussadjal.UserControler
         private void Etiquette_Load(object sender, EventArgs e)
         {
             db.remlirCombo("Lieu", LieuComboBox, "designationLieu", "Id_lieu");
-            FillCB( sender,  e);
+            FillCB( sender,  e);                  
 
         }
 
